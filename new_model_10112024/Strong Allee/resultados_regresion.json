@@ -1,74 +1,146 @@
 {
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_0/corr_length_real_inverse_c_c.txt": {
+    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_0/corr_length_real_inverse_mean_c_c.txt": {
         "tipo_correlacion": "c_c",
-        "m": 0.416882,
-        "b": 2.309931,
-        "funcion": "g(r) \u2248 e^2.309931 * r^0.416882"
+        "m": 0.456321,
+        "b": 2.388132,
+        "funcion": "g(r) \u2248 e^2.388132 * r^0.456321"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_0/corr_length_real_inverse_c_i.txt": {
+    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_0/corr_length_real_inverse_mean_c_i.txt": {
         "tipo_correlacion": "c_i",
-        "m": 0.416158,
-        "b": 2.279278,
-        "funcion": "g(r) \u2248 e^2.279278 * r^0.416158"
+        "m": 0.457244,
+        "b": 2.370094,
+        "funcion": "g(r) \u2248 e^2.370094 * r^0.457244"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_0/corr_length_real_inverse_c_s.txt": {
+    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_0/corr_length_real_inverse_mean_c_s.txt": {
         "tipo_correlacion": "c_s",
-        "m": 0.405185,
-        "b": 2.273445,
-        "funcion": "g(r) \u2248 e^2.273445 * r^0.405185"
+        "m": 0.439664,
+        "b": 2.333943,
+        "funcion": "g(r) \u2248 e^2.333943 * r^0.439664"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_0/corr_length_real_inverse_i_i.txt": {
+    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_0/corr_length_real_inverse_mean_i_i.txt": {
         "tipo_correlacion": "i_i",
-        "m": 0.448732,
-        "b": 2.374731,
-        "funcion": "g(r) \u2248 e^2.374731 * r^0.448732"
+        "m": 0.463075,
+        "b": 2.379632,
+        "funcion": "g(r) \u2248 e^2.379632 * r^0.463075"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_0/corr_length_real_inverse_s_i.txt": {
+    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_0/corr_length_real_inverse_mean_s_i.txt": {
         "tipo_correlacion": "s_i",
-        "m": 0.433043,
-        "b": 2.335438,
-        "funcion": "g(r) \u2248 e^2.335438 * r^0.433043"
+        "m": 0.447454,
+        "b": 2.339646,
+        "funcion": "g(r) \u2248 e^2.339646 * r^0.447454"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_0/corr_length_real_inverse_s_s.txt": {
+    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_0/corr_length_real_inverse_mean_s_s.txt": {
         "tipo_correlacion": "s_s",
-        "m": 0.437617,
-        "b": 2.350758,
-        "funcion": "g(r) \u2248 e^2.350758 * r^0.437617"
+        "m": 0.447536,
+        "b": 2.360122,
+        "funcion": "g(r) \u2248 e^2.360122 * r^0.447536"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_1/corr_length_real_inverse_c_c.txt": {
+    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_1/corr_length_real_inverse_mean_c_c.txt": {
         "tipo_correlacion": "c_c",
-        "m": 0.41548,
-        "b": 2.294126,
-        "funcion": "g(r) \u2248 e^2.294126 * r^0.415480"
+        "m": 0.46597,
+        "b": 2.40437,
+        "funcion": "g(r) \u2248 e^2.404370 * r^0.465970"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_1/corr_length_real_inverse_c_i.txt": {
+    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_1/corr_length_real_inverse_mean_c_i.txt": {
         "tipo_correlacion": "c_i",
-        "m": 0.43795,
-        "b": 2.340353,
-        "funcion": "g(r) \u2248 e^2.340353 * r^0.437950"
+        "m": 0.45205,
+        "b": 2.361735,
+        "funcion": "g(r) \u2248 e^2.361735 * r^0.452050"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_1/corr_length_real_inverse_c_s.txt": {
+    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_1/corr_length_real_inverse_mean_c_s.txt": {
         "tipo_correlacion": "c_s",
-        "m": 0.409677,
-        "b": 2.247112,
-        "funcion": "g(r) \u2248 e^2.247112 * r^0.409677"
+        "m": 0.456275,
+        "b": 2.361897,
+        "funcion": "g(r) \u2248 e^2.361897 * r^0.456275"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_1/corr_length_real_inverse_i_i.txt": {
+    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_1/corr_length_real_inverse_mean_i_i.txt": {
         "tipo_correlacion": "i_i",
-        "m": 0.454298,
-        "b": 2.398339,
-        "funcion": "g(r) \u2248 e^2.398339 * r^0.454298"
+        "m": 0.45643,
+        "b": 2.380873,
+        "funcion": "g(r) \u2248 e^2.380873 * r^0.456430"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_1/corr_length_real_inverse_s_i.txt": {
+    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_1/corr_length_real_inverse_mean_s_i.txt": {
         "tipo_correlacion": "s_i",
-        "m": 0.430646,
-        "b": 2.305832,
-        "funcion": "g(r) \u2248 e^2.305832 * r^0.430646"
+        "m": 0.449786,
+        "b": 2.35136,
+        "funcion": "g(r) \u2248 e^2.351360 * r^0.449786"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_1/corr_length_real_inverse_s_s.txt": {
+    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_1/corr_length_real_inverse_mean_s_s.txt": {
         "tipo_correlacion": "s_s",
-        "m": 0.429484,
-        "b": 2.310396,
-        "funcion": "g(r) \u2248 e^2.310396 * r^0.429484"
+        "m": 0.457952,
+        "b": 2.367503,
+        "funcion": "g(r) \u2248 e^2.367503 * r^0.457952"
+    },
+    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_0/corr_length_real_inverse_mean_c_c.txt": {
+        "tipo_correlacion": "c_c",
+        "m": 0.46551,
+        "b": 2.372217,
+        "funcion": "g(r) \u2248 e^2.372217 * r^0.465510"
+    },
+    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_0/corr_length_real_inverse_mean_c_i.txt": {
+        "tipo_correlacion": "c_i",
+        "m": 0.462458,
+        "b": 2.37404,
+        "funcion": "g(r) \u2248 e^2.374040 * r^0.462458"
+    },
+    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_0/corr_length_real_inverse_mean_c_s.txt": {
+        "tipo_correlacion": "c_s",
+        "m": 0.448818,
+        "b": 2.352544,
+        "funcion": "g(r) \u2248 e^2.352544 * r^0.448818"
+    },
+    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_0/corr_length_real_inverse_mean_i_i.txt": {
+        "tipo_correlacion": "i_i",
+        "m": 0.457206,
+        "b": 2.377076,
+        "funcion": "g(r) \u2248 e^2.377076 * r^0.457206"
+    },
+    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_0/corr_length_real_inverse_mean_s_i.txt": {
+        "tipo_correlacion": "s_i",
+        "m": 0.448686,
+        "b": 2.353782,
+        "funcion": "g(r) \u2248 e^2.353782 * r^0.448686"
+    },
+    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_0/corr_length_real_inverse_mean_s_s.txt": {
+        "tipo_correlacion": "s_s",
+        "m": 0.461518,
+        "b": 2.396145,
+        "funcion": "g(r) \u2248 e^2.396145 * r^0.461518"
+    },
+    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_1/corr_length_real_inverse_mean_c_c.txt": {
+        "tipo_correlacion": "c_c",
+        "m": 0.458676,
+        "b": 2.363437,
+        "funcion": "g(r) \u2248 e^2.363437 * r^0.458676"
+    },
+    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_1/corr_length_real_inverse_mean_c_i.txt": {
+        "tipo_correlacion": "c_i",
+        "m": 0.45883,
+        "b": 2.366938,
+        "funcion": "g(r) \u2248 e^2.366938 * r^0.458830"
+    },
+    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_1/corr_length_real_inverse_mean_c_s.txt": {
+        "tipo_correlacion": "c_s",
+        "m": 0.440747,
+        "b": 2.341369,
+        "funcion": "g(r) \u2248 e^2.341369 * r^0.440747"
+    },
+    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_1/corr_length_real_inverse_mean_i_i.txt": {
+        "tipo_correlacion": "i_i",
+        "m": 0.452609,
+        "b": 2.373725,
+        "funcion": "g(r) \u2248 e^2.373725 * r^0.452609"
+    },
+    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_1/corr_length_real_inverse_mean_s_i.txt": {
+        "tipo_correlacion": "s_i",
+        "m": 0.443221,
+        "b": 2.341825,
+        "funcion": "g(r) \u2248 e^2.341825 * r^0.443221"
+    },
+    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_1/corr_length_real_inverse_mean_s_s.txt": {
+        "tipo_correlacion": "s_s",
+        "m": 0.45728,
+        "b": 2.384086,
+        "funcion": "g(r) \u2248 e^2.384086 * r^0.457280"
     }
 }
