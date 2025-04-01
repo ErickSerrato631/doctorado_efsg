@@ -109,38 +109,38 @@
     },
     "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_1/corr_length_real_inverse_mean_c_c.txt": {
         "tipo_correlacion": "c_c",
-        "m": 0.458676,
-        "b": 2.363437,
-        "funcion": "g(r) \u2248 e^2.363437 * r^0.458676"
+        "m": 0.460825,
+        "b": 2.382973,
+        "funcion": "g(r) \u2248 e^2.382973 * r^0.460825"
     },
     "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_1/corr_length_real_inverse_mean_c_i.txt": {
         "tipo_correlacion": "c_i",
-        "m": 0.45883,
-        "b": 2.366938,
-        "funcion": "g(r) \u2248 e^2.366938 * r^0.458830"
+        "m": 0.461132,
+        "b": 2.385718,
+        "funcion": "g(r) \u2248 e^2.385718 * r^0.461132"
     },
     "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_1/corr_length_real_inverse_mean_c_s.txt": {
         "tipo_correlacion": "c_s",
-        "m": 0.440747,
-        "b": 2.341369,
-        "funcion": "g(r) \u2248 e^2.341369 * r^0.440747"
+        "m": 0.44251,
+        "b": 2.360732,
+        "funcion": "g(r) \u2248 e^2.360732 * r^0.442510"
     },
     "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_1/corr_length_real_inverse_mean_i_i.txt": {
         "tipo_correlacion": "i_i",
-        "m": 0.452609,
-        "b": 2.373725,
-        "funcion": "g(r) \u2248 e^2.373725 * r^0.452609"
+        "m": 0.454591,
+        "b": 2.39203,
+        "funcion": "g(r) \u2248 e^2.392030 * r^0.454591"
     },
     "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_1/corr_length_real_inverse_mean_s_i.txt": {
         "tipo_correlacion": "s_i",
-        "m": 0.443221,
-        "b": 2.341825,
-        "funcion": "g(r) \u2248 e^2.341825 * r^0.443221"
+        "m": 0.444802,
+        "b": 2.360864,
+        "funcion": "g(r) \u2248 e^2.360864 * r^0.444802"
     },
     "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_1/corr_length_real_inverse_mean_s_s.txt": {
         "tipo_correlacion": "s_s",
-        "m": 0.45728,
-        "b": 2.384086,
-        "funcion": "g(r) \u2248 e^2.384086 * r^0.457280"
+        "m": 0.453198,
+        "b": 2.393056,
+        "funcion": "g(r) \u2248 e^2.393056 * r^0.453198"
     }
 }
