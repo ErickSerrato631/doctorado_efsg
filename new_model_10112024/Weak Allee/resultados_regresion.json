@@ -1,0 +1,146 @@
+{
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/strong_allee/mu_0/corr_length_real_inverse_mean_c_c.txt": {
+        "tipo_correlacion": "c_c",
+        "m": 0.461332,
+        "b": 2.397825,
+        "funcion": "g(r) \u2248 e^2.397825 * r^0.461332"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/strong_allee/mu_0/corr_length_real_inverse_mean_c_i.txt": {
+        "tipo_correlacion": "c_i",
+        "m": 0.453681,
+        "b": 2.358519,
+        "funcion": "g(r) \u2248 e^2.358519 * r^0.453681"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/strong_allee/mu_0/corr_length_real_inverse_mean_c_s.txt": {
+        "tipo_correlacion": "c_s",
+        "m": 0.44179,
+        "b": 2.334766,
+        "funcion": "g(r) \u2248 e^2.334766 * r^0.441790"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/strong_allee/mu_0/corr_length_real_inverse_mean_i_i.txt": {
+        "tipo_correlacion": "i_i",
+        "m": 0.458749,
+        "b": 2.378688,
+        "funcion": "g(r) \u2248 e^2.378688 * r^0.458749"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/strong_allee/mu_0/corr_length_real_inverse_mean_s_i.txt": {
+        "tipo_correlacion": "s_i",
+        "m": 0.448483,
+        "b": 2.343829,
+        "funcion": "g(r) \u2248 e^2.343829 * r^0.448483"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/strong_allee/mu_0/corr_length_real_inverse_mean_s_s.txt": {
+        "tipo_correlacion": "s_s",
+        "m": 0.44914,
+        "b": 2.357102,
+        "funcion": "g(r) \u2248 e^2.357102 * r^0.449140"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/strong_allee/mu_1/corr_length_real_inverse_mean_c_c.txt": {
+        "tipo_correlacion": "c_c",
+        "m": 0.461249,
+        "b": 2.395612,
+        "funcion": "g(r) \u2248 e^2.395612 * r^0.461249"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/strong_allee/mu_1/corr_length_real_inverse_mean_c_i.txt": {
+        "tipo_correlacion": "c_i",
+        "m": 0.450774,
+        "b": 2.357122,
+        "funcion": "g(r) \u2248 e^2.357122 * r^0.450774"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/strong_allee/mu_1/corr_length_real_inverse_mean_c_s.txt": {
+        "tipo_correlacion": "c_s",
+        "m": 0.454221,
+        "b": 2.361799,
+        "funcion": "g(r) \u2248 e^2.361799 * r^0.454221"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/strong_allee/mu_1/corr_length_real_inverse_mean_i_i.txt": {
+        "tipo_correlacion": "i_i",
+        "m": 0.444648,
+        "b": 2.361271,
+        "funcion": "g(r) \u2248 e^2.361271 * r^0.444648"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/strong_allee/mu_1/corr_length_real_inverse_mean_s_i.txt": {
+        "tipo_correlacion": "s_i",
+        "m": 0.444251,
+        "b": 2.335588,
+        "funcion": "g(r) \u2248 e^2.335588 * r^0.444251"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/strong_allee/mu_1/corr_length_real_inverse_mean_s_s.txt": {
+        "tipo_correlacion": "s_s",
+        "m": 0.470281,
+        "b": 2.395569,
+        "funcion": "g(r) \u2248 e^2.395569 * r^0.470281"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_0/corr_length_real_inverse_mean_c_c.txt": {
+        "tipo_correlacion": "c_c",
+        "m": 0.468848,
+        "b": 2.391146,
+        "funcion": "g(r) \u2248 e^2.391146 * r^0.468848"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_0/corr_length_real_inverse_mean_c_i.txt": {
+        "tipo_correlacion": "c_i",
+        "m": 0.464696,
+        "b": 2.394235,
+        "funcion": "g(r) \u2248 e^2.394235 * r^0.464696"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_0/corr_length_real_inverse_mean_c_s.txt": {
+        "tipo_correlacion": "c_s",
+        "m": 0.446428,
+        "b": 2.346433,
+        "funcion": "g(r) \u2248 e^2.346433 * r^0.446428"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_0/corr_length_real_inverse_mean_i_i.txt": {
+        "tipo_correlacion": "i_i",
+        "m": 0.455744,
+        "b": 2.398668,
+        "funcion": "g(r) \u2248 e^2.398668 * r^0.455744"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_0/corr_length_real_inverse_mean_s_i.txt": {
+        "tipo_correlacion": "s_i",
+        "m": 0.44389,
+        "b": 2.348412,
+        "funcion": "g(r) \u2248 e^2.348412 * r^0.443890"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_0/corr_length_real_inverse_mean_s_s.txt": {
+        "tipo_correlacion": "s_s",
+        "m": 0.453471,
+        "b": 2.369318,
+        "funcion": "g(r) \u2248 e^2.369318 * r^0.453471"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_1/corr_length_real_inverse_mean_c_c.txt": {
+        "tipo_correlacion": "c_c",
+        "m": 0.480145,
+        "b": 2.414835,
+        "funcion": "g(r) \u2248 e^2.414835 * r^0.480145"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_1/corr_length_real_inverse_mean_c_i.txt": {
+        "tipo_correlacion": "c_i",
+        "m": 0.48045,
+        "b": 2.418981,
+        "funcion": "g(r) \u2248 e^2.418981 * r^0.480450"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_1/corr_length_real_inverse_mean_c_s.txt": {
+        "tipo_correlacion": "c_s",
+        "m": 0.451404,
+        "b": 2.376321,
+        "funcion": "g(r) \u2248 e^2.376321 * r^0.451404"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_1/corr_length_real_inverse_mean_i_i.txt": {
+        "tipo_correlacion": "i_i",
+        "m": 0.472535,
+        "b": 2.427323,
+        "funcion": "g(r) \u2248 e^2.427323 * r^0.472535"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_1/corr_length_real_inverse_mean_s_i.txt": {
+        "tipo_correlacion": "s_i",
+        "m": 0.452598,
+        "b": 2.378259,
+        "funcion": "g(r) \u2248 e^2.378259 * r^0.452598"
+    },
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_1/corr_length_real_inverse_mean_s_s.txt": {
+        "tipo_correlacion": "s_s",
+        "m": 0.451733,
+        "b": 2.396719,
+        "funcion": "g(r) \u2248 e^2.396719 * r^0.451733"
+    }
+}

@@ -1,146 +1,110 @@
 {
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_0/corr_length_real_inverse_mean_c_c.txt": {
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/strong_allee/mu_1/corr_length_real_inverse_mean_c_c.txt": {
         "tipo_correlacion": "c_c",
-        "m": 0.456321,
-        "b": 2.388132,
-        "funcion": "g(r) \u2248 e^2.388132 * r^0.456321"
+        "m": 0.461249,
+        "b": 2.395612,
+        "funcion": "g(r) \u2248 e^2.395612 * r^0.461249"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_0/corr_length_real_inverse_mean_c_i.txt": {
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/strong_allee/mu_1/corr_length_real_inverse_mean_c_i.txt": {
         "tipo_correlacion": "c_i",
-        "m": 0.457244,
-        "b": 2.370094,
-        "funcion": "g(r) \u2248 e^2.370094 * r^0.457244"
+        "m": 0.450774,
+        "b": 2.357122,
+        "funcion": "g(r) \u2248 e^2.357122 * r^0.450774"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_0/corr_length_real_inverse_mean_c_s.txt": {
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/strong_allee/mu_1/corr_length_real_inverse_mean_c_s.txt": {
         "tipo_correlacion": "c_s",
-        "m": 0.439664,
-        "b": 2.333943,
-        "funcion": "g(r) \u2248 e^2.333943 * r^0.439664"
+        "m": 0.454221,
+        "b": 2.361799,
+        "funcion": "g(r) \u2248 e^2.361799 * r^0.454221"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_0/corr_length_real_inverse_mean_i_i.txt": {
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/strong_allee/mu_1/corr_length_real_inverse_mean_i_i.txt": {
         "tipo_correlacion": "i_i",
-        "m": 0.463075,
-        "b": 2.379632,
-        "funcion": "g(r) \u2248 e^2.379632 * r^0.463075"
+        "m": 0.444648,
+        "b": 2.361271,
+        "funcion": "g(r) \u2248 e^2.361271 * r^0.444648"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_0/corr_length_real_inverse_mean_s_i.txt": {
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/strong_allee/mu_1/corr_length_real_inverse_mean_s_i.txt": {
         "tipo_correlacion": "s_i",
-        "m": 0.447454,
-        "b": 2.339646,
-        "funcion": "g(r) \u2248 e^2.339646 * r^0.447454"
+        "m": 0.444251,
+        "b": 2.335588,
+        "funcion": "g(r) \u2248 e^2.335588 * r^0.444251"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_0/corr_length_real_inverse_mean_s_s.txt": {
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/strong_allee/mu_1/corr_length_real_inverse_mean_s_s.txt": {
         "tipo_correlacion": "s_s",
-        "m": 0.447536,
-        "b": 2.360122,
-        "funcion": "g(r) \u2248 e^2.360122 * r^0.447536"
+        "m": 0.470281,
+        "b": 2.395569,
+        "funcion": "g(r) \u2248 e^2.395569 * r^0.470281"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_1/corr_length_real_inverse_mean_c_c.txt": {
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_0/corr_length_real_inverse_mean_c_c.txt": {
         "tipo_correlacion": "c_c",
-        "m": 0.46597,
-        "b": 2.40437,
-        "funcion": "g(r) \u2248 e^2.404370 * r^0.465970"
+        "m": 0.468848,
+        "b": 2.391146,
+        "funcion": "g(r) \u2248 e^2.391146 * r^0.468848"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_1/corr_length_real_inverse_mean_c_i.txt": {
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_0/corr_length_real_inverse_mean_c_i.txt": {
         "tipo_correlacion": "c_i",
-        "m": 0.45205,
-        "b": 2.361735,
-        "funcion": "g(r) \u2248 e^2.361735 * r^0.452050"
+        "m": 0.464696,
+        "b": 2.394235,
+        "funcion": "g(r) \u2248 e^2.394235 * r^0.464696"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_1/corr_length_real_inverse_mean_c_s.txt": {
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_0/corr_length_real_inverse_mean_c_s.txt": {
         "tipo_correlacion": "c_s",
-        "m": 0.456275,
-        "b": 2.361897,
-        "funcion": "g(r) \u2248 e^2.361897 * r^0.456275"
+        "m": 0.446428,
+        "b": 2.346433,
+        "funcion": "g(r) \u2248 e^2.346433 * r^0.446428"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_1/corr_length_real_inverse_mean_i_i.txt": {
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_0/corr_length_real_inverse_mean_i_i.txt": {
         "tipo_correlacion": "i_i",
-        "m": 0.45643,
-        "b": 2.380873,
-        "funcion": "g(r) \u2248 e^2.380873 * r^0.456430"
+        "m": 0.455744,
+        "b": 2.398668,
+        "funcion": "g(r) \u2248 e^2.398668 * r^0.455744"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_1/corr_length_real_inverse_mean_s_i.txt": {
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_0/corr_length_real_inverse_mean_s_i.txt": {
         "tipo_correlacion": "s_i",
-        "m": 0.449786,
-        "b": 2.35136,
-        "funcion": "g(r) \u2248 e^2.351360 * r^0.449786"
+        "m": 0.44389,
+        "b": 2.348412,
+        "funcion": "g(r) \u2248 e^2.348412 * r^0.443890"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/strong_allee/mu_1/corr_length_real_inverse_mean_s_s.txt": {
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_0/corr_length_real_inverse_mean_s_s.txt": {
         "tipo_correlacion": "s_s",
-        "m": 0.457952,
-        "b": 2.367503,
-        "funcion": "g(r) \u2248 e^2.367503 * r^0.457952"
+        "m": 0.453471,
+        "b": 2.369318,
+        "funcion": "g(r) \u2248 e^2.369318 * r^0.453471"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_0/corr_length_real_inverse_mean_c_c.txt": {
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_1/corr_length_real_inverse_mean_c_c.txt": {
         "tipo_correlacion": "c_c",
-        "m": 0.46551,
-        "b": 2.372217,
-        "funcion": "g(r) \u2248 e^2.372217 * r^0.465510"
+        "m": 0.480145,
+        "b": 2.414835,
+        "funcion": "g(r) \u2248 e^2.414835 * r^0.480145"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_0/corr_length_real_inverse_mean_c_i.txt": {
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_1/corr_length_real_inverse_mean_c_i.txt": {
         "tipo_correlacion": "c_i",
-        "m": 0.462458,
-        "b": 2.37404,
-        "funcion": "g(r) \u2248 e^2.374040 * r^0.462458"
+        "m": 0.48045,
+        "b": 2.418981,
+        "funcion": "g(r) \u2248 e^2.418981 * r^0.480450"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_0/corr_length_real_inverse_mean_c_s.txt": {
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_1/corr_length_real_inverse_mean_c_s.txt": {
         "tipo_correlacion": "c_s",
-        "m": 0.448818,
-        "b": 2.352544,
-        "funcion": "g(r) \u2248 e^2.352544 * r^0.448818"
+        "m": 0.451404,
+        "b": 2.376321,
+        "funcion": "g(r) \u2248 e^2.376321 * r^0.451404"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_0/corr_length_real_inverse_mean_i_i.txt": {
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_1/corr_length_real_inverse_mean_i_i.txt": {
         "tipo_correlacion": "i_i",
-        "m": 0.457206,
-        "b": 2.377076,
-        "funcion": "g(r) \u2248 e^2.377076 * r^0.457206"
+        "m": 0.472535,
+        "b": 2.427323,
+        "funcion": "g(r) \u2248 e^2.427323 * r^0.472535"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_0/corr_length_real_inverse_mean_s_i.txt": {
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_1/corr_length_real_inverse_mean_s_i.txt": {
         "tipo_correlacion": "s_i",
-        "m": 0.448686,
-        "b": 2.353782,
-        "funcion": "g(r) \u2248 e^2.353782 * r^0.448686"
+        "m": 0.452598,
+        "b": 2.378259,
+        "funcion": "g(r) \u2248 e^2.378259 * r^0.452598"
     },
-    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_0/corr_length_real_inverse_mean_s_s.txt": {
+    "/home/erick/Drive/Doctorado Erick Serrato/25-I/weak_allee/mu_1/corr_length_real_inverse_mean_s_s.txt": {
         "tipo_correlacion": "s_s",
-        "m": 0.461518,
-        "b": 2.396145,
-        "funcion": "g(r) \u2248 e^2.396145 * r^0.461518"
-    },
-    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_1/corr_length_real_inverse_mean_c_c.txt": {
-        "tipo_correlacion": "c_c",
-        "m": 0.460825,
-        "b": 2.382973,
-        "funcion": "g(r) \u2248 e^2.382973 * r^0.460825"
-    },
-    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_1/corr_length_real_inverse_mean_c_i.txt": {
-        "tipo_correlacion": "c_i",
-        "m": 0.461132,
-        "b": 2.385718,
-        "funcion": "g(r) \u2248 e^2.385718 * r^0.461132"
-    },
-    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_1/corr_length_real_inverse_mean_c_s.txt": {
-        "tipo_correlacion": "c_s",
-        "m": 0.44251,
-        "b": 2.360732,
-        "funcion": "g(r) \u2248 e^2.360732 * r^0.442510"
-    },
-    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_1/corr_length_real_inverse_mean_i_i.txt": {
-        "tipo_correlacion": "i_i",
-        "m": 0.454591,
-        "b": 2.39203,
-        "funcion": "g(r) \u2248 e^2.392030 * r^0.454591"
-    },
-    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_1/corr_length_real_inverse_mean_s_i.txt": {
-        "tipo_correlacion": "s_i",
-        "m": 0.444802,
-        "b": 2.360864,
-        "funcion": "g(r) \u2248 e^2.360864 * r^0.444802"
-    },
-    "/media/erick/TOSHIBA EXT/results_06032025/weak_allee/mu_1/corr_length_real_inverse_mean_s_s.txt": {
-        "tipo_correlacion": "s_s",
-        "m": 0.453198,
-        "b": 2.393056,
-        "funcion": "g(r) \u2248 e^2.393056 * r^0.453198"
+        "m": 0.451733,
+        "b": 2.396719,
+        "funcion": "g(r) \u2248 e^2.396719 * r^0.451733"
     }
 }
