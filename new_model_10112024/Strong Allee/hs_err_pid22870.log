@@ -1,0 +1,1070 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007fdff4002bc0, pid=22870, tid=0x00007fe05c2a4700
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_201-b09) (build 1.8.0_201-b09)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.201-b09 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# C  0x00007fdff4002bc0
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fe070082000):  VMThread [stack: 0x00007fe05c1a5000,0x00007fe05c2a5000] [id=22881]
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 2 (SEGV_ACCERR), si_addr: 0x00007fdff4002bc0
+
+Registers:
+RAX=0x00007fdff4002bc0, RBX=0x00007fe0701a46c8, RCX=0x0000000000000000, RDX=0x00000000ffffffff
+RSP=0x00007fe05c2a3ac8, RBP=0x00007fe04f2a31a0, RSI=0x0000000000000000, RDI=0x00007fdff4004000
+R8 =0x0000000000000000, R9 =0x0000000000e8e7fc, R10=0x0000000000000009, R11=0x00007fe04eff9a30
+R12=0x00007fe04f2a3558, R13=0x00000000000000b8, R14=0x00007fe075fd0708, R15=0x00007fe070171ba0
+RIP=0x00007fdff4002bc0, EFLAGS=0x0000000000010206, CSGSFS=0x002b000000000033, ERR=0x0000000000000015
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007fe05c2a3ac8)
+0x00007fe05c2a3ac8:   00007fe04ef34c93 0000000000000000
+0x00007fe05c2a3ad8:   00007fe04ef3e642 0000000000000000
+0x00007fe05c2a3ae8:   00007fe0701a46b8 00007fdff4002768
+0x00007fe05c2a3af8:   00007fe04ef3e895 0000000000000001
+0x00007fe05c2a3b08:   0000000000000000 00007fe075fcb718
+0x00007fe05c2a3b18:   00007fe075c23031 00007fe05c2a3b70
+0x00007fe05c2a3b28:   00000001700300c0 00007fe0700304a8
+0x00007fe05c2a3b38:   0000000000000000 00007fe05c2a3b90
+0x00007fe05c2a3b48:   00007fe0700300c0 00007fe0700304a8
+0x00007fe05c2a3b58:   00007fe0700300d0 00007fe04c6b36e0
+0x00007fe05c2a3b68:   00007fe075c2312a 00007fe05c2a3b90
+0x00007fe05c2a3b78:   00007fe07527a4a7 0000000000000001
+0x00007fe05c2a3b88:   0000000001c02550 00007fe05c2a3be0
+0x00007fe05c2a3b98:   00007fe0756d1296 00007fe05c2a3bc0
+0x00007fe05c2a3ba8:   00000000000003d8 000000000000811c
+0x00007fe05c2a3bb8:   00007fe04c6b36e0 0000000001c02550
+0x00007fe05c2a3bc8:   00007fe0700300c0 0000000000000000
+0x00007fe05c2a3bd8:   00007fe074ef4240 00007fe05c2a3ca0
+0x00007fe05c2a3be8:   00007fe0756cf5cd 00007fe05c2a0100
+0x00007fe05c2a3bf8:   0000000000000000 00000000000003d8
+0x00007fe05c2a3c08:   00007fe0700304a8 00007fe0700300d0
+0x00007fe05c2a3c18:   00007fe05c2a3c40 431bde82d7b63400
+0x00007fe05c2a3c28:   0000000000000000 0000000000000000
+0x00007fe05c2a3c38:   00007fe0755b0ee1 0000000000000000
+0x00007fe05c2a3c48:   000008cdfb600418 0000000000000001
+0x00007fe05c2a3c58:   00007fe0700830e0 0000000000000000
+0x00007fe05c2a3c68:   00007fe075b789f1 00007fe075bbe868
+0x00007fe05c2a3c78:   0000000000000000 00007fe04c6b36e0
+0x00007fe05c2a3c88:   00007fe075bbe868 0000000000000000
+0x00007fe05c2a3c98:   00007fe05c2a3d00 00007fe05c2a3e40
+0x00007fe05c2a3ca8:   00007fe0756cfbb3 0000000000000160
+0x00007fe05c2a3cb8:   00007fe05c2a3cc0 00007fe070082000 
+
+Instructions: (pc=0x00007fdff4002bc0)
+0x00007fdff4002ba0:   20 00 00 00 00 00 00 00 21 00 00 00 00 00 00 00
+0x00007fdff4002bb0:   70 81 66 f4 df 7f 00 00 c0 16 4d f4 df 7f 00 00
+0x00007fdff4002bc0:   20 00 00 00 00 00 00 00 44 00 00 00 00 00 00 00
+0x00007fdff4002bd0:   00 00 00 00 00 00 00 00 10 00 00 00 00 00 00 00 
+
+Register to memory mapping:
+
+RAX=0x00007fdff4002bc0 is an unknown value
+RBX=0x00007fe0701a46c8 is an unknown value
+RCX=0x0000000000000000 is an unknown value
+RDX=0x00000000ffffffff is an unallocated location in the heap
+RSP=0x00007fe05c2a3ac8 is an unknown value
+RBP=0x00007fe04f2a31a0: <offset 0x4421a0> in /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/JLink/SystemFiles/Libraries/Linux-x86-64/libJLinkNativeLibrary.so at 0x00007fe04ee61000
+RSI=0x0000000000000000 is an unknown value
+RDI=0x00007fdff4004000 is an unknown value
+R8 =0x0000000000000000 is an unknown value
+R9 =0x0000000000e8e7fc is an unknown value
+R10=0x0000000000000009 is an unknown value
+R11=0x00007fe04eff9a30: _ZNSt3_V214error_categoryD2Ev+0 in /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/JLink/SystemFiles/Libraries/Linux-x86-64/libJLinkNativeLibrary.so at 0x00007fe04ee61000
+R12=0x00007fe04f2a3558: <offset 0x442558> in /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/JLink/SystemFiles/Libraries/Linux-x86-64/libJLinkNativeLibrary.so at 0x00007fe04ee61000
+R13=0x00000000000000b8 is an unknown value
+R14=0x00007fe075fd0708: <offset 0x3f0708> in /lib/x86_64-linux-gnu/libc.so.6 at 0x00007fe075be0000
+R15=0x00007fe070171ba0 is an unknown value
+
+
+Stack: [0x00007fe05c1a5000,0x00007fe05c2a5000],  sp=0x00007fe05c2a3ac8,  free space=1018k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  0x00007fdff4002bc0
+
+VM_Operation (0x00007fe04c6b36e0): Exit, mode: safepoint, requested by thread 0x00007fe07042c000
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007fe07000b800 JavaThread "DestroyJavaVM" [_thread_blocked, id=22872, stack(0x00007fe076709000,0x00007fe076809000)]
+  0x00007fe07042c000 JavaThread "J/Link reader" [_thread_blocked, id=22911, stack(0x00007fe04c5b4000,0x00007fe04c6b5000)]
+  0x00007fe07011a800 JavaThread "Service Thread" daemon [_thread_blocked, id=22894, stack(0x00007fe04f3a5000,0x00007fe04f4a6000)]
+  0x00007fe0700f9800 JavaThread "C1 CompilerThread3" daemon [_thread_blocked, id=22893, stack(0x00007fe04f4a7000,0x00007fe04f5a7000)]
+  0x00007fe0700f7000 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=22892, stack(0x00007fe04f5a8000,0x00007fe04f6a8000)]
+  0x00007fe0700f5000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=22891, stack(0x00007fe04f6a9000,0x00007fe04f7a9000)]
+  0x00007fe0700f1000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=22890, stack(0x00007fe04f7aa000,0x00007fe04f8aa000)]
+  0x00007fe0700f3000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=22889, stack(0x00007fe04f8aa000,0x00007fe04f9ab000)]
+  0x00007fe07008e000 JavaThread "Finalizer" daemon [_thread_blocked, id=22883, stack(0x00007fe04feff000,0x00007fe050000000)]
+  0x00007fe07008b800 JavaThread "Reference Handler" daemon [_thread_blocked, id=22882, stack(0x00007fe05c0a3000,0x00007fe05c1a4000)]
+
+Other Threads:
+=>0x00007fe070082000 VMThread [stack: 0x00007fe05c1a5000,0x00007fe05c2a5000] [id=22881]
+
+VM state:at safepoint (shutting down)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007fe070008370] Threads_lock - owner thread: 0x00007fe070082000
+
+heap address: 0x00000000e0000000, size: 512 MB, Compressed Oops mode: 32-bit
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x0000000100000000
+
+Heap:
+ PSYoungGen      total 104448K, used 52520K [0x00000000f5580000, 0x00000000ffc80000, 0x0000000100000000)
+  eden space 95232K, 54% used [0x00000000f5580000,0x00000000f883b208,0x00000000fb280000)
+  from space 9216K, 6% used [0x00000000fb280000,0x00000000fb30ee30,0x00000000fbb80000)
+  to   space 9216K, 0% used [0x00000000ff380000,0x00000000ff380000,0x00000000ffc80000)
+ ParOldGen       total 81920K, used 10966K [0x00000000e0000000, 0x00000000e5000000, 0x00000000f5580000)
+  object space 81920K, 13% used [0x00000000e0000000,0x00000000e0ab5830,0x00000000e5000000)
+ Metaspace       used 14447K, capacity 14860K, committed 15104K, reserved 1062912K
+  class space    used 1585K, capacity 1707K, committed 1792K, reserved 1048576K
+
+Card table byte_map: [0x00007fe0602eb000,0x00007fe0603ec000] byte_map_base: 0x00007fe05fbeb000
+
+Marking Bits: (ParMarkBitMap*) 0x00007fe075bc2d80
+ Begin Bits: [0x00007fe05eae3000, 0x00007fe05f2e3000)
+ End Bits:   [0x00007fe05f2e3000, 0x00007fe05fae3000)
+
+Polling page: 0x00007fe076832000
+
+CodeCache: size=245760Kb used=7643Kb max_used=7941Kb free=238116Kb
+ bounds [0x00007fe0607ac000, 0x00007fe060f7c000, 0x00007fe06f7ac000]
+ total_blobs=2797 nmethods=2428 adapters=282
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 7.669 Thread 0x00007fe0700f1000 2583       4       org.apache.lucene.util.PriorityQueue$1::hasNext (20 bytes)
+Event: 7.669 Thread 0x00007fe0700f1000 nmethod 2583 0x00007fe0608dd590 code [0x00007fe0608dd6e0, 0x00007fe0608dd778]
+Event: 7.669 Thread 0x00007fe0700f1000 2584       4       java.util.stream.ReferencePipeline$5$1::accept (23 bytes)
+Event: 7.676 Thread 0x00007fe0700f7000 nmethod 2575 0x00007fe06093c5d0 code [0x00007fe06093c8c0, 0x00007fe06093dad0]
+Event: 7.676 Thread 0x00007fe0700f7000 2586       4       java.util.ArrayList::clear (39 bytes)
+Event: 7.678 Thread 0x00007fe0700f7000 nmethod 2586 0x00007fe060a9d390 code [0x00007fe060a9d4e0, 0x00007fe060a9d598]
+Event: 7.683 Thread 0x00007fe0700f1000 nmethod 2584 0x00007fe060a9b5d0 code [0x00007fe060a9b800, 0x00007fe060a9c078]
+Event: 7.692 Thread 0x00007fe0700f9800 2587       3       org.apache.lucene.search.DoubleValuesSource::<init> (5 bytes)
+Event: 7.692 Thread 0x00007fe0700f9800 nmethod 2587 0x00007fe0608dc3d0 code [0x00007fe0608dc540, 0x00007fe0608dc6f0]
+Event: 7.702 Thread 0x00007fe0700f5000 nmethod 2576 0x00007fe0608d36d0 code [0x00007fe0608d3a20, 0x00007fe0608d5b18]
+
+GC Heap History (10 events):
+Event: 6.716 GC heap before
+{Heap before GC invocations=7 (full 0):
+ PSYoungGen      total 38400K, used 36412K [0x00000000f5580000, 0x00000000fa280000, 0x0000000100000000)
+  eden space 29696K, 100% used [0x00000000f5580000,0x00000000f7280000,0x00000000f7280000)
+  from space 8704K, 77% used [0x00000000f7b80000,0x00000000f820f2f8,0x00000000f8400000)
+  to   space 9216K, 0% used [0x00000000f7280000,0x00000000f7280000,0x00000000f7b80000)
+ ParOldGen       total 81920K, used 4953K [0x00000000e0000000, 0x00000000e5000000, 0x00000000f5580000)
+  object space 81920K, 6% used [0x00000000e0000000,0x00000000e04d6618,0x00000000e5000000)
+ Metaspace       used 14045K, capacity 14356K, committed 14592K, reserved 1062912K
+  class space    used 1578K, capacity 1675K, committed 1792K, reserved 1048576K
+Event: 6.727 GC heap after
+Heap after GC invocations=7 (full 0):
+ PSYoungGen      total 38912K, used 5201K [0x00000000f5580000, 0x00000000fa080000, 0x0000000100000000)
+  eden space 29696K, 0% used [0x00000000f5580000,0x00000000f5580000,0x00000000f7280000)
+  from space 9216K, 56% used [0x00000000f7280000,0x00000000f7794470,0x00000000f7b80000)
+  to   space 8704K, 0% used [0x00000000f9800000,0x00000000f9800000,0x00000000fa080000)
+ ParOldGen       total 81920K, used 6687K [0x00000000e0000000, 0x00000000e5000000, 0x00000000f5580000)
+  object space 81920K, 8% used [0x00000000e0000000,0x00000000e0687ca8,0x00000000e5000000)
+ Metaspace       used 14045K, capacity 14356K, committed 14592K, reserved 1062912K
+  class space    used 1578K, capacity 1675K, committed 1792K, reserved 1048576K
+}
+Event: 6.946 GC heap before
+{Heap before GC invocations=8 (full 0):
+ PSYoungGen      total 38912K, used 34897K [0x00000000f5580000, 0x00000000fa080000, 0x0000000100000000)
+  eden space 29696K, 100% used [0x00000000f5580000,0x00000000f7280000,0x00000000f7280000)
+  from space 9216K, 56% used [0x00000000f7280000,0x00000000f7794470,0x00000000f7b80000)
+  to   space 8704K, 0% used [0x00000000f9800000,0x00000000f9800000,0x00000000fa080000)
+ ParOldGen       total 81920K, used 6687K [0x00000000e0000000, 0x00000000e5000000, 0x00000000f5580000)
+  object space 81920K, 8% used [0x00000000e0000000,0x00000000e0687ca8,0x00000000e5000000)
+ Metaspace       used 14188K, capacity 14564K, committed 14848K, reserved 1062912K
+  class space    used 1579K, capacity 1675K, committed 1792K, reserved 1048576K
+Event: 6.951 GC heap after
+Heap after GC invocations=8 (full 0):
+ PSYoungGen      total 68096K, used 3136K [0x00000000f5580000, 0x00000000fa080000, 0x0000000100000000)
+  eden space 59392K, 0% used [0x00000000f5580000,0x00000000f5580000,0x00000000f8f80000)
+  from space 8704K, 36% used [0x00000000f9800000,0x00000000f9b101e0,0x00000000fa080000)
+  to   space 8704K, 0% used [0x00000000f8f80000,0x00000000f8f80000,0x00000000f9800000)
+ ParOldGen       total 81920K, used 8020K [0x00000000e0000000, 0x00000000e5000000, 0x00000000f5580000)
+  object space 81920K, 9% used [0x00000000e0000000,0x00000000e07d5380,0x00000000e5000000)
+ Metaspace       used 14188K, capacity 14564K, committed 14848K, reserved 1062912K
+  class space    used 1579K, capacity 1675K, committed 1792K, reserved 1048576K
+}
+Event: 7.216 GC heap before
+{Heap before GC invocations=9 (full 0):
+ PSYoungGen      total 68096K, used 62528K [0x00000000f5580000, 0x00000000fa080000, 0x0000000100000000)
+  eden space 59392K, 100% used [0x00000000f5580000,0x00000000f8f80000,0x00000000f8f80000)
+  from space 8704K, 36% used [0x00000000f9800000,0x00000000f9b101e0,0x00000000fa080000)
+  to   space 8704K, 0% used [0x00000000f8f80000,0x00000000f8f80000,0x00000000f9800000)
+ ParOldGen       total 81920K, used 8020K [0x00000000e0000000, 0x00000000e5000000, 0x00000000f5580000)
+  object space 81920K, 9% used [0x00000000e0000000,0x00000000e07d5380,0x00000000e5000000)
+ Metaspace       used 14328K, capacity 14700K, committed 15104K, reserved 1062912K
+  class space    used 1581K, capacity 1675K, committed 1792K, reserved 1048576K
+Event: 7.222 GC heap after
+Heap after GC invocations=9 (full 0):
+ PSYoungGen      total 68096K, used 638K [0x00000000f5580000, 0x00000000fc480000, 0x0000000100000000)
+  eden space 59392K, 0% used [0x00000000f5580000,0x00000000f5580000,0x00000000f8f80000)
+  from space 8704K, 7% used [0x00000000f8f80000,0x00000000f901fa08,0x00000000f9800000)
+  to   space 9216K, 0% used [0x00000000fbb80000,0x00000000fbb80000,0x00000000fc480000)
+ ParOldGen       total 81920K, used 10522K [0x00000000e0000000, 0x00000000e5000000, 0x00000000f5580000)
+  object space 81920K, 12% used [0x00000000e0000000,0x00000000e0a46890,0x00000000e5000000)
+ Metaspace       used 14328K, capacity 14700K, committed 15104K, reserved 1062912K
+  class space    used 1581K, capacity 1675K, committed 1792K, reserved 1048576K
+}
+Event: 7.347 GC heap before
+{Heap before GC invocations=10 (full 0):
+ PSYoungGen      total 68096K, used 60030K [0x00000000f5580000, 0x00000000fc480000, 0x0000000100000000)
+  eden space 59392K, 100% used [0x00000000f5580000,0x00000000f8f80000,0x00000000f8f80000)
+  from space 8704K, 7% used [0x00000000f8f80000,0x00000000f901fa08,0x00000000f9800000)
+  to   space 9216K, 0% used [0x00000000fbb80000,0x00000000fbb80000,0x00000000fc480000)
+ ParOldGen       total 81920K, used 10522K [0x00000000e0000000, 0x00000000e5000000, 0x00000000f5580000)
+  object space 81920K, 12% used [0x00000000e0000000,0x00000000e0a46890,0x00000000e5000000)
+ Metaspace       used 14412K, capacity 14764K, committed 15104K, reserved 1062912K
+  class space    used 1582K, capacity 1675K, committed 1792K, reserved 1048576K
+Event: 7.352 GC heap after
+Heap after GC invocations=10 (full 0):
+ PSYoungGen      total 104448K, used 666K [0x00000000f5580000, 0x00000000fc480000, 0x0000000100000000)
+  eden space 95232K, 0% used [0x00000000f5580000,0x00000000f5580000,0x00000000fb280000)
+  from space 9216K, 7% used [0x00000000fbb80000,0x00000000fbc26838,0x00000000fc480000)
+  to   space 9216K, 0% used [0x00000000fb280000,0x00000000fb280000,0x00000000fbb80000)
+ ParOldGen       total 81920K, used 10903K [0x00000000e0000000, 0x00000000e5000000, 0x00000000f5580000)
+  object space 81920K, 13% used [0x00000000e0000000,0x00000000e0aa5e28,0x00000000e5000000)
+ Metaspace       used 14412K, capacity 14764K, committed 15104K, reserved 1062912K
+  class space    used 1582K, capacity 1675K, committed 1792K, reserved 1048576K
+}
+Event: 7.590 GC heap before
+{Heap before GC invocations=11 (full 0):
+ PSYoungGen      total 104448K, used 95898K [0x00000000f5580000, 0x00000000fc480000, 0x0000000100000000)
+  eden space 95232K, 100% used [0x00000000f5580000,0x00000000fb280000,0x00000000fb280000)
+  from space 9216K, 7% used [0x00000000fbb80000,0x00000000fbc26838,0x00000000fc480000)
+  to   space 9216K, 0% used [0x00000000fb280000,0x00000000fb280000,0x00000000fbb80000)
+ ParOldGen       total 81920K, used 10903K [0x00000000e0000000, 0x00000000e5000000, 0x00000000f5580000)
+  object space 81920K, 13% used [0x00000000e0000000,0x00000000e0aa5e28,0x00000000e5000000)
+ Metaspace       used 14425K, capacity 14764K, committed 15104K, reserved 1062912K
+  class space    used 1582K, capacity 1675K, committed 1792K, reserved 1048576K
+Event: 7.594 GC heap after
+Heap after GC invocations=11 (full 0):
+ PSYoungGen      total 104448K, used 571K [0x00000000f5580000, 0x00000000ffc80000, 0x0000000100000000)
+  eden space 95232K, 0% used [0x00000000f5580000,0x00000000f5580000,0x00000000fb280000)
+  from space 9216K, 6% used [0x00000000fb280000,0x00000000fb30ee30,0x00000000fbb80000)
+  to   space 9216K, 0% used [0x00000000ff380000,0x00000000ff380000,0x00000000ffc80000)
+ ParOldGen       total 81920K, used 10966K [0x00000000e0000000, 0x00000000e5000000, 0x00000000f5580000)
+  object space 81920K, 13% used [0x00000000e0000000,0x00000000e0ab5830,0x00000000e5000000)
+ Metaspace       used 14425K, capacity 14764K, committed 15104K, reserved 1062912K
+  class space    used 1582K, capacity 1675K, committed 1792K, reserved 1048576K
+}
+
+Deoptimization events (10 events):
+Event: 6.650 Thread 0x00007fdff4665800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fe060c28924 method=java.lang.StringCoding.safeTrim([CILjava/nio/charset/Charset;Z)[C @ 3
+Event: 6.751 Thread 0x00007fdff4665800 Uncommon trap: reason=range_check action=make_not_entrant pc=0x00007fe060d78800 method=org.apache.lucene.search.DisiPriorityQueue.downHeap(I)V @ 7
+Event: 7.037 Thread 0x00007fdff4665800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fe060e14108 method=org.apache.lucene.util.fst.ByteSequenceOutputs.add(Lorg/apache/lucene/util/BytesRef;Lorg/apache/lucene/util/BytesRef;)Lorg/apache/lucene/util/BytesRef; @ 49
+Event: 7.320 Thread 0x00007fdff4665800 Uncommon trap: reason=range_check action=make_not_entrant pc=0x00007fe060ec2140 method=org.apache.lucene.util.fst.ReverseBytesReader.readByte()B @ 15
+Event: 7.320 Thread 0x00007fdff4665800 Uncommon trap: reason=range_check action=make_not_entrant pc=0x00007fe060e3daa4 method=org.apache.lucene.util.fst.ReverseBytesReader.readByte()B @ 15
+Event: 7.532 Thread 0x00007fdff4665800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fe060e28ebc method=org.apache.lucene.codecs.compressing.CompressingStoredFieldsReader.readField(Lorg/apache/lucene/store/DataInput;Lorg/apache/lucene/index/StoredFieldVisitor;Lorg/apache/l
+Event: 7.532 Thread 0x00007fdff4665800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fe060e28ebc method=org.apache.lucene.codecs.compressing.CompressingStoredFieldsReader.readField(Lorg/apache/lucene/store/DataInput;Lorg/apache/lucene/index/StoredFieldVisitor;Lorg/apache/l
+Event: 7.532 Thread 0x00007fdff4665800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fe060e28ebc method=org.apache.lucene.codecs.compressing.CompressingStoredFieldsReader.readField(Lorg/apache/lucene/store/DataInput;Lorg/apache/lucene/index/StoredFieldVisitor;Lorg/apache/l
+Event: 7.532 Thread 0x00007fdff4665800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fe060e28ebc method=org.apache.lucene.codecs.compressing.CompressingStoredFieldsReader.readField(Lorg/apache/lucene/store/DataInput;Lorg/apache/lucene/index/StoredFieldVisitor;Lorg/apache/l
+Event: 9680.777 Thread 0x00007fe07042c000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fe060cc76d8 method=com.wolfram.jlink.JLinkSecurityManager.checkPermission(Ljava/security/Permission;)V @ 16
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 2.610 Thread 0x00007fe07042c000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000f5c71030) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u201/12317/hotspot/src/share/vm/prims/jvm.cpp, line 1502]
+Event: 2.610 Thread 0x00007fe07042c000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000f5c71240) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u201/12317/hotspot/src/share/vm/prims/jvm.cpp, line 1502]
+Event: 2.619 Thread 0x00007fe07042c000 Exception <a 'java/util/zip/DataFormatException': invalid block type> (0x00000000f5c84298) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u201/12317/hotspot/src/share/vm/prims/jni.cpp, line 735]
+Event: 2.652 Thread 0x00007fe07042c000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000f5cce718) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u201/12317/hotspot/src/share/vm/prims/jvm.cpp, line 1502]
+Event: 2.652 Thread 0x00007fe07042c000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000f5cce928) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u201/12317/hotspot/src/share/vm/prims/jvm.cpp, line 1502]
+Event: 3.338 Thread 0x00007fe07042c000 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x00000000f68ccd48) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u201/12317/hotspot/src/share/vm/prims/methodHandles.cpp, line 1167]
+Event: 3.340 Thread 0x00007fe07042c000 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x00000000f68da4b8) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u201/12317/hotspot/src/share/vm/prims/methodHandles.cpp, line 1167]
+Event: 3.449 Thread 0x00007fe07042c000 Exception <a 'java/lang/NoSuchMethodError': sun.misc.Unsafe.invokeCleaner(Ljava/nio/ByteBuffer;)V> (0x00000000f6cf0100) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u201/12317/hotspot/src/share/vm/interpreter/linkResolver.cpp, line 620]
+Event: 4.677 Thread 0x00007fdff4665800 Implicit null exception at 0x00007fe0608ec555 to 0x00007fe0608ec725
+Event: 6.518 Thread 0x00007fdff4665800 Implicit null exception at 0x00007fe060d0bb15 to 0x00007fe060d0c145
+
+Events (10 events):
+Event: 9680.777 Thread 0x00007fe07042c000 DEOPT UNPACKING pc=0x00007fe0607f173a sp=0x00007fe04c6b37f8 mode 2
+Event: 9680.777 loading class java/util/IdentityHashMap$KeySet
+Event: 9680.778 loading class java/util/IdentityHashMap$KeySet done
+Event: 9680.778 loading class java/util/IdentityHashMap$KeyIterator
+Event: 9680.778 loading class java/util/IdentityHashMap$IdentityHashMapIterator
+Event: 9680.778 loading class java/util/IdentityHashMap$IdentityHashMapIterator done
+Event: 9680.778 loading class java/util/IdentityHashMap$KeyIterator done
+Event: 9680.778 Thread 0x00007fdff4665800 Thread added: 0x00007fdff4665800
+Event: 9680.778 Thread 0x00007fdff4665800 Thread exited: 0x00007fdff4665800
+Event: 9680.779 Executing VM operation: Exit
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 103:01 12980386                          /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/bin/java
+00600000-00601000 r--p 00000000 103:01 12980386                          /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/bin/java
+00601000-00602000 rw-p 00001000 103:01 12980386                          /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/bin/java
+01c01000-01c22000 rw-p 00000000 00:00 0                                  [heap]
+e0000000-e5000000 rw-p 00000000 00:00 0 
+e5000000-f5580000 ---p 00000000 00:00 0 
+f5580000-ffc80000 rw-p 00000000 00:00 0 
+ffc80000-100000000 ---p 00000000 00:00 0 
+100000000-1001c0000 rw-p 00000000 00:00 0 
+1001c0000-140000000 ---p 00000000 00:00 0 
+7fdfd4000000-7fdfd4513000 rw-p 00000000 00:00 0 
+7fdfd4513000-7fdfd8000000 ---p 00000000 00:00 0 
+7fdfdc000000-7fdfdc0fb000 rw-p 00000000 00:00 0 
+7fdfdc0fb000-7fdfe0000000 ---p 00000000 00:00 0 
+7fdfe0000000-7fdfe0021000 rw-p 00000000 00:00 0 
+7fdfe0021000-7fdfe4000000 ---p 00000000 00:00 0 
+7fdfe421c000-7fdfe4fff000 r--s 00000000 103:01 11016066                  /usr/local/Wolfram/Mathematica/12.0/Documentation/English/SearchIndex/2/_0.cfs
+7fdfe4fff000-7fdfe8000000 rw-p 00000000 00:00 0 
+7fdfe8000000-7fdfe8021000 rw-p 00000000 00:00 0 
+7fdfe8021000-7fdfec000000 ---p 00000000 00:00 0 
+7fdfec000000-7fdfec021000 rw-p 00000000 00:00 0 
+7fdfec021000-7fdff0000000 ---p 00000000 00:00 0 
+7fdff0000000-7fdff0021000 rw-p 00000000 00:00 0 
+7fdff0021000-7fdff4000000 ---p 00000000 00:00 0 
+7fdff4000000-7fdff4706000 rw-p 00000000 00:00 0 
+7fdff4706000-7fdff8000000 ---p 00000000 00:00 0 
+7fdff8000000-7fdff8021000 rw-p 00000000 00:00 0 
+7fdff8021000-7fdffc000000 ---p 00000000 00:00 0 
+7fdffc000000-7fdffc021000 rw-p 00000000 00:00 0 
+7fdffc021000-7fe000000000 ---p 00000000 00:00 0 
+7fe000156000-7fe000256000 rw-p 00000000 00:00 0 
+7fe000256000-7fe000356000 ---p 00000000 00:00 0 
+7fe000356000-7fe000360000 r--s 00116000 103:01 12717346                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/ext/localedata.jar
+7fe000360000-7fe00037c000 r--s 00393000 103:01 12717341                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/ext/cldrdata.jar
+7fe00037c000-7fe00057c000 rw-p 00000000 00:00 0 
+7fe00057c000-7fe000580000 r--s 00000000 103:01 8271078                   /home/erick/.Mathematica/Paclets/Repository/ChatTools-0.1.1906181450/Documentation/English/SearchIndex/2/_0.cfs
+7fe000580000-7fe000584000 r--s 00000000 103:01 8407813                   /home/erick/.Mathematica/Paclets/Repository/CloudExpression-1.1.4/Documentation/English/SearchIndex/2/_0.cfs
+7fe000584000-7fe0005b7000 r--s 00000000 103:01 8271263                   /home/erick/.Mathematica/Paclets/Repository/CUDALink-12.0.0/Documentation/English/SearchIndex/2/_0.cfs
+7fe0005b7000-7fe0005d0000 r--s 00000000 103:01 8272931                   /home/erick/.Mathematica/Paclets/Repository/SystemDocsUpdate1-12.0.0/Documentation/English/SearchIndex/2/_0.cfs
+7fe0005d0000-7fe0005d4000 r--s 00000000 103:01 10101752                  /usr/local/Wolfram/Mathematica/12.0/AddOns/Applications/ClusterIntegration/Documentation/English/SearchIndex/2/_0.cfs
+7fe0005d4000-7fe0005e6000 r--s 00000000 103:01 10231114                  /usr/local/Wolfram/Mathematica/12.0/AddOns/Applications/CompiledFunctionTools/Documentation/English/SearchIndex/2/_0.cfs
+7fe0005e6000-7fe0005f0000 r--s 00000000 103:01 9968611                   /usr/local/Wolfram/Mathematica/12.0/AddOns/Applications/LightweightGridClient/Documentation/English/SearchIndex/2/_0.cfs
+7fe0005f0000-7fe000605000 r--s 00000000 103:01 10230922                  /usr/local/Wolfram/Mathematica/12.0/AddOns/Applications/Parallel/Documentation/English/SearchIndex/2/_0.cfs
+7fe000605000-7fe000614000 r--s 00000000 103:01 10231074                  /usr/local/Wolfram/Mathematica/12.0/AddOns/Applications/SymbolicC/Documentation/English/SearchIndex/2/_0.cfs
+7fe000614000-7fe00063f000 r--s 00000000 103:01 10621801                  /usr/local/Wolfram/Mathematica/12.0/AddOns/Packages/GUIKit/Documentation/English/SearchIndex/2/_0.cfs
+7fe00063f000-7fe000648000 r--s 00000000 103:01 13505417                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/CCodeGenerator/Documentation/English/SearchIndex/2/_0.cfs
+7fe000648000-7fe000657000 r--s 00000000 103:01 13637924                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/CCompilerDriver/Documentation/English/SearchIndex/2/_0.cfs
+7fe000657000-7fe0006a2000 r--s 00000000 103:01 13638015                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/FEMDocumentation/Documentation/English/SearchIndex/2/_0.cfs
+7fe0006a2000-7fe0006b6000 r--s 00000000 103:01 13244023                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/GraphStore/Documentation/English/SearchIndex/2/_0.cfs
+7fe0006b6000-7fe0006c0000 r--s 00000000 103:01 14944795                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/LowLevelLinearAlgebra/Documentation/English/SearchIndex/2/_0.cfs
+7fe0006c0000-7fe0006db000 r--s 00000000 103:01 14946804                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/MicrocontrollerKit/Documentation/English/SearchIndex/2/_0.cfs
+7fe0006db000-7fe0006df000 r--s 00000000 103:01 14291269                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/PDEModels/Acoustics/Documentation/English/SearchIndex/2/_0.cfs
+7fe0006df000-7fe000712000 r--s 00000000 103:01 14944191                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/WSMCore/SystemModeler/Mathematica/WSMLink/Documentation/English/SearchIndex/2/_0.cfs
+7fe000712000-7fe000746000 r--s 00000000 103:01 14683992                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/DatabaseLink/Documentation/English/SearchIndex/2/_0.cfs
+7fe000746000-7fe000751000 r--s 00000000 103:01 14946908                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/IPOPTLink/Documentation/English/SearchIndex/2/_0.cfs
+7fe000751000-7fe0007b9000 r--s 00000000 103:01 14947386                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/JLink/Documentation/English/SearchIndex/2/_0.cfs
+7fe0007b9000-7fe0007e7000 r--s 00000000 103:01 13766489                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/LibraryLink/Documentation/English/SearchIndex/2/_0.cfs
+7fe0007e7000-7fe0007f6000 r--s 00000000 103:01 14948506                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/MongoLink/Documentation/English/SearchIndex/2/_0.cfs
+7fe0007f6000-7fe00080c000 r--s 00000000 103:01 14948189                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/NETLink/Documentation/English/SearchIndex/2/_0.cfs
+7fe00080c000-7fe000822000 r--s 00000000 103:01 14948643                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/OpenCLLink/Documentation/English/SearchIndex/2/_0.cfs
+7fe000822000-7fe00084b000 r--s 00000000 103:01 14948424                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/RLink/Documentation/English/SearchIndex/2/_0.cfs
+7fe00084b000-7fe000860000 r--s 00000000 103:01 14162591                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/TetGenLink/Documentation/English/SearchIndex/2/_0.cfs
+7fe000860000-7fe00086b000 r--s 00000000 103:01 14948887                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/TriangleLink/Documentation/English/SearchIndex/2/_0.cfs
+7fe00086b000-7fe000879000 r--s 00000000 103:01 15073566                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/WebServices/Documentation/English/SearchIndex/2/_0.cfs
+7fe000879000-7fe0013ea000 r--s 00000000 103:01 11016057                  /usr/local/Wolfram/Mathematica/12.0/Documentation/English/SearchIndex/2/_1.cfs
+7fe0013ea000-7fe0015ea000 rw-p 00000000 00:00 0 
+7fe0015ea000-7fe0016eb000 r--s 00000000 103:01 11016056                  /usr/local/Wolfram/Mathematica/12.0/Documentation/English/SearchIndex/2/_2.cfs
+7fe0016eb000-7fe0016f4000 r-xp 00000000 103:01 12980322                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libmanagement.so
+7fe0016f4000-7fe0018f3000 ---p 00009000 103:01 12980322                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libmanagement.so
+7fe0018f3000-7fe0018f4000 r--p 00008000 103:01 12980322                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libmanagement.so
+7fe0018f4000-7fe0018f5000 rw-p 00009000 103:01 12980322                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libmanagement.so
+7fe0018f5000-7fe0018f7000 r--s 0000c000 103:01 14944722                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/asm-5.1.jar
+7fe0018f7000-7fe0018fa000 ---p 00000000 00:00 0 
+7fe0018fa000-7fe0019f8000 rw-p 00000000 00:00 0 
+7fe0019f8000-7fe0019fb000 ---p 00000000 00:00 0 
+7fe0019fb000-7fe001af9000 rw-p 00000000 00:00 0 
+7fe001af9000-7fe001b0f000 r-xp 00000000 103:01 12980321                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libnet.so
+7fe001b0f000-7fe001d0f000 ---p 00016000 103:01 12980321                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libnet.so
+7fe001d0f000-7fe001d10000 r--p 00016000 103:01 12980321                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libnet.so
+7fe001d10000-7fe001d11000 rw-p 00017000 103:01 12980321                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libnet.so
+7fe001d11000-7fe001d22000 r-xp 00000000 103:01 12980314                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libnio.so
+7fe001d22000-7fe001f21000 ---p 00011000 103:01 12980314                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libnio.so
+7fe001f21000-7fe001f22000 r--p 00010000 103:01 12980314                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libnio.so
+7fe001f22000-7fe001f23000 rw-p 00011000 103:01 12980314                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libnio.so
+7fe001f23000-7fe001f25000 r--s 00022000 103:01 14944726                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/TextSearch.jar
+7fe001f25000-7fe001f29000 r--s 00046000 103:01 14944721                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/lucene-spatial3d-7.5.0.jar
+7fe001f29000-7fe001f2b000 r--s 00008000 103:01 14944727                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/mexpr.jar
+7fe001f2b000-7fe001f2e000 r--s 00016000 103:01 14944732                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/lucene-backward-codecs-7.5.0.jar
+7fe001f2e000-7fe001f34000 r--s 0006e000 103:01 14944734                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/antlr.jar
+7fe001f34000-7fe001f39000 r--s 00038000 103:01 14944720                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/lucene-suggest-7.5.0.jar
+7fe001f39000-7fe001f3f000 r--s 00036000 103:01 14944729                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/junit-4.11.jar
+7fe001f3f000-7fe001f51000 r--s 00182000 103:01 14944723                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/lucene-analyzers-common-7.5.0.jar
+7fe001f51000-7fe001f83000 r--s 002b9000 103:01 14944717                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/lucene-core-7.5.0.jar
+7fe001f83000-7fe001ffc000 r--s 010fd000 103:01 12717415                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/tools.jar
+7fe001ffc000-7fe001ffd000 ---p 00000000 00:00 0 
+7fe001ffd000-7fe0027fd000 rw-p 00000000 00:00 0 
+7fe0027fd000-7fe0027fe000 ---p 00000000 00:00 0 
+7fe0027fe000-7fe002ffe000 rw-p 00000000 00:00 0 
+7fe002ffe000-7fe002fff000 ---p 00000000 00:00 0 
+7fe002fff000-7fe0037ff000 rw-p 00000000 00:00 0 
+7fe0037ff000-7fe003800000 ---p 00000000 00:00 0 
+7fe003800000-7fe004000000 rw-p 00000000 00:00 0 
+7fe004000000-7fe004021000 rw-p 00000000 00:00 0 
+7fe004021000-7fe008000000 ---p 00000000 00:00 0 
+7fe008000000-7fe008021000 rw-p 00000000 00:00 0 
+7fe008021000-7fe00c000000 ---p 00000000 00:00 0 
+7fe00c000000-7fe00c021000 rw-p 00000000 00:00 0 
+7fe00c021000-7fe010000000 ---p 00000000 00:00 0 
+7fe010000000-7fe010021000 rw-p 00000000 00:00 0 
+7fe010021000-7fe014000000 ---p 00000000 00:00 0 
+7fe014000000-7fe0143a4000 rw-p 00000000 00:00 0 
+7fe0143a4000-7fe018000000 ---p 00000000 00:00 0 
+7fe018000000-7fe018021000 rw-p 00000000 00:00 0 
+7fe018021000-7fe01c000000 ---p 00000000 00:00 0 
+7fe01c000000-7fe01ca9e000 rw-p 00000000 00:00 0 
+7fe01ca9e000-7fe020000000 ---p 00000000 00:00 0 
+7fe020000000-7fe0209aa000 rw-p 00000000 00:00 0 
+7fe0209aa000-7fe024000000 ---p 00000000 00:00 0 
+7fe024000000-7fe024021000 rw-p 00000000 00:00 0 
+7fe024021000-7fe028000000 ---p 00000000 00:00 0 
+7fe028000000-7fe028841000 rw-p 00000000 00:00 0 
+7fe028841000-7fe02c000000 ---p 00000000 00:00 0 
+7fe02c000000-7fe02c021000 rw-p 00000000 00:00 0 
+7fe02c021000-7fe030000000 ---p 00000000 00:00 0 
+7fe030000000-7fe030021000 rw-p 00000000 00:00 0 
+7fe030021000-7fe034000000 ---p 00000000 00:00 0 
+7fe034000000-7fe034021000 rw-p 00000000 00:00 0 
+7fe034021000-7fe038000000 ---p 00000000 00:00 0 
+7fe038000000-7fe038021000 rw-p 00000000 00:00 0 
+7fe038021000-7fe03c000000 ---p 00000000 00:00 0 
+7fe03c000000-7fe03c021000 rw-p 00000000 00:00 0 
+7fe03c021000-7fe040000000 ---p 00000000 00:00 0 
+7fe040000000-7fe040021000 rw-p 00000000 00:00 0 
+7fe040021000-7fe044000000 ---p 00000000 00:00 0 
+7fe044000000-7fe044021000 rw-p 00000000 00:00 0 
+7fe044021000-7fe048000000 ---p 00000000 00:00 0 
+7fe048000000-7fe048021000 rw-p 00000000 00:00 0 
+7fe048021000-7fe04c000000 ---p 00000000 00:00 0 
+7fe04c000000-7fe04c006000 r--s 00044000 103:01 14944716                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/antlr4-runtime-4.5.1-1.jar
+7fe04c006000-7fe04c008000 r--s 0036d000 103:01 14944719                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/lucene-analyzers-smartcn-7.5.0.jar
+7fe04c008000-7fe04c00d000 r--s 0002e000 103:01 14944730                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/lucene-highlighter-7.5.0.jar
+7fe04c00d000-7fe04c00f000 r--s 00010000 103:01 14944731                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/lucene-expressions-7.5.0.jar
+7fe04c00f000-7fe04c011000 r--s 00009000 103:01 14944733                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/hamcrest-core-1.3.jar
+7fe04c011000-7fe04c01b000 r--s 00054000 103:01 14944718                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/lucene-queryparser-7.5.0.jar
+7fe04c01b000-7fe04c01d000 r--s 00013000 103:01 14944725                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/mexprparser.jar
+7fe04c01d000-7fe04c01f000 r--s 0000a000 103:01 14944735                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/asm-commons-5.1.jar
+7fe04c01f000-7fe04c026000 r--s 0003a000 103:01 14944724                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/lucene-queries-7.5.0.jar
+7fe04c026000-7fe04c029000 r--s 00468000 103:01 14944728                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/TextSearch/Java/lucene-analyzers-kuromoji-7.5.0.jar
+7fe04c029000-7fe04c02a000 r--s 00000000 103:01 14159408                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/Interpreter/Java/ParseTelephoneNumber.jar
+7fe04c02a000-7fe04c03b000 r--s 00042000 103:01 14159407                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/Interpreter/Java/libphonenumber-8.9.15.jar
+7fe04c03b000-7fe04c05b000 r--s 00345000 103:01 14424581                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/Chemistry/Java/opsin-core-2.3.0-excludingInChI-jar-with-dependencies.jar
+7fe04c05b000-7fe04c05d000 r--s 0000d000 103:01 14424582                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/Chemistry/Java/symmetrizer.jar
+7fe04c05d000-7fe04c05f000 r--s 00005000 103:01 13244135                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/AWSLink/Java/jmespath-java-1.11.311.jar
+7fe04c05f000-7fe04c063000 r--s 0003c000 103:01 13244141                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/AWSLink/Java/jackson-core-2.6.7.jar
+7fe04c063000-7fe04c071000 r--s 000ae000 103:01 13244137                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/AWSLink/Java/httpclient-4.5.5.jar
+7fe04c071000-7fe04c0b1000 r--s 0034a000 103:01 13244143                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/AWSLink/Java/aws-java-sdk-ec2-1.11.311.jar
+7fe04c0b1000-7fe04c0c5000 r--s 000c8000 103:01 13244146                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/AWSLink/Java/aws-java-sdk-s3-1.11.311.jar
+7fe04c0c5000-7fe04c0cf000 r--s 00081000 103:01 13244144                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/AWSLink/Java/ion-java-1.0.2.jar
+7fe04c0cf000-7fe04c0e4000 r--s 000be000 103:01 13244139                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/AWSLink/Java/aws-java-sdk-core-1.11.311.jar
+7fe04c0e4000-7fe04c0eb000 r--s 00049000 103:01 13244147                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/AWSLink/Java/httpcore-4.4.9.jar
+7fe04c0eb000-7fe04c0fb000 r--s 00088000 103:01 13244151                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/AWSLink/Java/joda-time-2.8.1.jar
+7fe04c0fb000-7fe04c0fd000 r--s 00003000 103:01 13244136                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/AWSLink/Java/awslink-2.0-SNAPSHOT.jar
+7fe04c0fd000-7fe04c0ff000 r--s 0000e000 103:01 13244138                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/AWSLink/Java/commons-logging-1.1.3.jar
+7fe04c0ff000-7fe04c100000 r--s 0000b000 103:01 13244148                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/AWSLink/Java/jackson-dataformat-cbor-2.6.7.jar
+7fe04c100000-7fe04c103000 r--s 00009000 103:01 13244150                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/AWSLink/Java/jackson-annotations-2.6.0.jar
+7fe04c103000-7fe04c114000 r--s 0010c000 103:01 13244145                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/AWSLink/Java/jackson-databind-2.6.7.1.jar
+7fe04c114000-7fe04c117000 r--s 0001b000 103:01 13244140                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/AWSLink/Java/junit-3.8.1.jar
+7fe04c117000-7fe04c11e000 r--s 0003f000 103:01 13244149                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/AWSLink/Java/commons-codec-1.10.jar
+7fe04c11e000-7fe04c127000 r--s 0005a000 103:01 13244142                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/AWSLink/Java/aws-java-sdk-kms-1.11.311.jar
+7fe04c127000-7fe04c175000 r--s 00403000 103:01 9968569                   /usr/local/Wolfram/Mathematica/12.0/AddOns/Applications/LightweightGridClient/Java/wolfram-remote-services-client.jar
+7fe04c175000-7fe04c176000 r--s 00000000 103:01 10101718                  /usr/local/Wolfram/Mathematica/12.0/AddOns/Applications/ClusterIntegration/Java/Wolfram_SGE.jar
+7fe04c176000-7fe04c178000 r--s 00000000 103:01 14291294                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Components/PDEModels/PDEModels/Documentation/English/SearchIndex/2/_0.cfs
+7fe04c178000-7fe04c17d000 r--s 00040000 103:01 15073505                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/WebServices/Java/commons-httpclient-3.0.jar
+7fe04c17d000-7fe04c180000 r--s 0001b000 103:01 15073504                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/WebServices/Java/junit-3.8.1.jar
+7fe04c180000-7fe04c182000 r--s 00008000 103:01 15073506                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/WebServices/Java/commons-logging-1.0.4.jar
+7fe04c182000-7fe04c183000 r--s 00002000 103:01 14948364                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/RLink/Java/JRIEngine.jar
+7fe04c183000-7fe04c18c000 r--s 0006d000 103:01 14948300                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/RLink/Java/log4j-1.2.16.jar
+7fe04c18c000-7fe04c18e000 r--s 00006000 103:01 14948304                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/RLink/Java/REngine.jar
+7fe04c18e000-7fe04c18f000 r--s 00009000 103:01 14948301                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/RLink/Java/JRI.jar
+7fe04c18f000-7fe04c192000 r--s 00008000 103:01 14948303                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/RLink/Java/RLink.jar
+7fe04c192000-7fe04c196000 r--s 000f2000 103:01 14948302                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/RLink/Java/jna.jar
+7fe04c196000-7fe04c1a5000 r--s 001ae000 103:01 14162632                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/DatabaseLink/Java/h2-1.4.196.jar
+7fe04c1a5000-7fe04c1d3000 r--s 002e7000 103:01 14162629                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/DatabaseLink/Java/derby.jar
+7fe04c1d3000-7fe04c1dd000 r--s 000eb000 103:01 14162628                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/DatabaseLink/Java/mysql-connector-java-5.1.44-bin.jar
+7fe04c1dd000-7fe04c1e0000 r--s 00018000 103:01 14162633                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/DatabaseLink/Java/commons-dbcp-1.2.1.jar
+7fe04c1e0000-7fe04c1e4000 r--s 00651000 103:01 14162626                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/DatabaseLink/Java/sqlite-jdbc-3.20.1.jar
+7fe04c1e4000-7fe04c1ea000 r--s 00027000 103:01 14162624                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/DatabaseLink/Java/glazedlists.jar
+7fe04c1ea000-7fe04c1f2000 r--s 00055000 103:01 14162619                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/DatabaseLink/Java/ucanaccess-4.0.3.jar
+7fe04c1f2000-7fe04c206000 r--s 00104000 103:01 14162630                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/DatabaseLink/Java/jaybird-full-3.0.3.jar
+7fe04c206000-7fe04c20c000 r--s 0008a000 103:01 14162618                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/DatabaseLink/Java/derbyclient.jar
+7fe04c20c000-7fe04c20f000 r--s 0004b000 103:01 14162621                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/DatabaseLink/Java/jtds-1.3.1.jar
+7fe04c20f000-7fe04c214000 r--s 00041000 103:01 14162625                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/DatabaseLink/Java/commons-lang-2.6.jar
+7fe04c214000-7fe04c216000 r--s 0000e000 103:01 14162622                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/DatabaseLink/Java/commons-logging-1.1.3.jar
+7fe04c216000-7fe04c21e000 r--s 000a7000 103:01 14162631                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/DatabaseLink/Java/postgresql-42.1.4.jar
+7fe04c21e000-7fe04c220000 r--s 00009000 103:01 14162634                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/DatabaseLink/Java/commons-pool-1.2.jar
+7fe04c220000-7fe04c22f000 r--s 00164000 103:01 14162620                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/DatabaseLink/Java/hsqldb.jar
+7fe04c22f000-7fe04c23c000 r--s 0007c000 103:01 14162623                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/DatabaseLink/Java/commons-collections-3.1.jar
+7fe04c23c000-7fe04c243000 r--s 00036000 103:01 10361493                  /usr/local/Wolfram/Mathematica/12.0/AddOns/Packages/GUIKit/Java/concurrent.jar
+7fe04c243000-7fe04c24a000 r--s 0003d000 103:01 10361490                  /usr/local/Wolfram/Mathematica/12.0/AddOns/Packages/GUIKit/Java/GUIKit.jar
+7fe04c24a000-7fe04c24b000 r--s 00009000 103:01 10361491                  /usr/local/Wolfram/Mathematica/12.0/AddOns/Packages/GUIKit/Java/OculusLayout.jar
+7fe04c24b000-7fe04c250000 r--s 00010000 103:01 10361489                  /usr/local/Wolfram/Mathematica/12.0/AddOns/Packages/GUIKit/Java/xmlParserAPIs.jar
+7fe04c250000-7fe04c254000 r--s 00026000 103:01 10361492                  /usr/local/Wolfram/Mathematica/12.0/AddOns/Packages/GUIKit/Java/bsf.jar
+7fe04c254000-7fe04c256000 r--s 0000d000 103:01 10361496                  /usr/local/Wolfram/Mathematica/12.0/AddOns/Packages/GUIKit/Java/bsf-Wolfram.jar
+7fe04c256000-7fe04c268000 r--s 000ba000 103:01 10361495                  /usr/local/Wolfram/Mathematica/12.0/AddOns/Packages/GUIKit/Java/xercesImpl.jar
+7fe04c268000-7fe04c270000 r--s 00040000 103:01 10361494                  /usr/local/Wolfram/Mathematica/12.0/AddOns/Packages/GUIKit/Java/diva-canvas-core.jar
+7fe04c270000-7fe04c272000 r--s 00014000 103:01 12980494                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/Convert.jar
+7fe04c272000-7fe04c274000 r--s 00005000 103:01 12980513                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/stax-api-1.0.1.jar
+7fe04c274000-7fe04c276000 r--s 0000d000 103:01 12980520                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/commons-logging-1.1.1.jar
+7fe04c276000-7fe04c27e000 r--s 0007c000 103:01 12980518                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/core-3.0.0.jar
+7fe04c27e000-7fe04c280000 r--s 0000b000 103:01 12980485                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/tagsoup-1.0rc9.jar
+7fe04c280000-7fe04c285000 r--s 00048000 103:01 12980488                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/dom4j-1.6.1.jar
+7fe04c285000-7fe04c28e000 r--s 00085000 103:01 12980504                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/JPEG2000b.jar
+7fe04c28e000-7fe04c2cb000 r--s 0024f000 103:01 12980489                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/xmlbeans-2.3.0.jar
+7fe04c2cb000-7fe04c2d3000 r--s 00028000 103:01 12980514                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/xml-apis.jar
+7fe04c2d3000-7fe04c2d9000 r--s 0004b000 103:01 12980499                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/poi-examples-3.11-20150702.jar
+7fe04c2d9000-7fe04c2db000 r--s 00014000 103:01 12980512                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/Exif.jar
+7fe04c2db000-7fe04c2dc000 r--s 00003000 103:01 12980490                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/zxing-client.jar
+7fe04c2dc000-7fe04c2e6000 r--s 00086000 103:01 12980522                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/ldap.jar
+7fe04c2e6000-7fe04c2e8000 r--s 0000e000 103:01 12980508                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/multiplayer.jar
+7fe04c2e8000-7fe04c2ea000 r--s 0000c000 103:01 12980515                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/activation.jar
+7fe04c2ea000-7fe04c2ec000 r--s 00005000 103:01 12980492                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/tar.jar
+7fe04c2ec000-7fe04c2f0000 r--s 0002f000 103:01 12980502                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/commons-lang-2.1.jar
+7fe04c2f0000-7fe04c2f1000 r--s 00009000 103:01 12980524                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/gnu-regexp-1.1.4.jar
+7fe04c2f1000-7fe04c2fc000 r--s 000a5000 103:01 12980486                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/jxl.jar
+7fe04c2fc000-7fe04c300000 r--s 0002f000 103:01 12980493                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/prefsAll.jar
+7fe04c300000-7fe04c303000 r--s 00023000 103:01 12980519                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/jdom.jar
+7fe04c303000-7fe04c304000 r--s 002a0000 103:01 12980509                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/resourcesOptional.jar
+7fe04c304000-7fe04c305000 r--s 00003000 103:01 12980506                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/externalservice.jar
+7fe04c305000-7fe04c314000 r--s 0011a000 103:01 12980503                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/poi-ooxml-3.11-20150702.jar
+7fe04c314000-7fe04c32a000 r--s 00110000 103:01 12980510                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/xercesImpl.jar
+7fe04c32a000-7fe04c3e2000 r--s 0049f000 103:01 12980501                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/poi-ooxml-schemas-3.11-20150702.jar
+7fe04c3e2000-7fe04c3ef000 r--s 0007f000 103:01 12980483                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/commons-collections-3.2.jar
+7fe04c3ef000-7fe04c407000 r--s 001b9000 103:01 12980497                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/jmf.jar
+7fe04c407000-7fe04c40c000 r--s 00040000 103:01 12980496                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/commons-httpclient-3.0.jar
+7fe04c40c000-7fe04c417000 r--s 000f8000 103:01 12980523                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/grib-8.0.jar
+7fe04c417000-7fe04c427000 r--s 0012b000 103:01 12980511                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/poi-scratchpad-3.11-20150702.jar
+7fe04c427000-7fe04c42d000 r--s 00055000 103:01 12980505                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/mail.jar
+7fe04c42d000-7fe04c450000 r--s 001ee000 103:01 12980500                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/poi-3.11-20150702.jar
+7fe04c450000-7fe04c482000 r--s 00428000 103:01 12980491                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/netcdf-4.2.jar
+7fe04c482000-7fe04c485000 ---p 00000000 00:00 0 
+7fe04c485000-7fe04c583000 rw-p 00000000 00:00 0 
+7fe04c583000-7fe04c5b4000 rw-s 00000000 00:1c 143                        /dev/shm/z9h5k_shm (deleted)
+7fe04c5b4000-7fe04c5b7000 ---p 00000000 00:00 0 
+7fe04c5b7000-7fe04c6b5000 rw-p 00000000 00:00 0 
+7fe04c6b5000-7fe04c6b6000 ---p 00000000 00:00 0 
+7fe04c6b6000-7fe04ceb6000 rw-p 00000000 00:00 0 
+7fe04ceb6000-7fe04ceb7000 ---p 00000000 00:00 0 
+7fe04ceb7000-7fe04d6b7000 rw-p 00000000 00:00 0 
+7fe04d6b7000-7fe04d6b8000 ---p 00000000 00:00 0 
+7fe04d6b8000-7fe04deb8000 rw-p 00000000 00:00 0 
+7fe04deb8000-7fe04deb9000 ---p 00000000 00:00 0 
+7fe04deb9000-7fe04e6b9000 rw-p 00000000 00:00 0 
+7fe04e6b9000-7fe04e6d0000 r-xp 00000000 103:01 13371492                  /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fe04e6d0000-7fe04e8cf000 ---p 00017000 103:01 13371492                  /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fe04e8cf000-7fe04e8d0000 r--p 00016000 103:01 13371492                  /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fe04e8d0000-7fe04e8d1000 rw-p 00017000 103:01 13371492                  /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fe04e8d1000-7fe04e8d7000 r-xp 00000000 103:01 13373919                  /lib/x86_64-linux-gnu/libuuid.so.1.3.0
+7fe04e8d7000-7fe04ead6000 ---p 00006000 103:01 13373919                  /lib/x86_64-linux-gnu/libuuid.so.1.3.0
+7fe04ead6000-7fe04ead7000 r--p 00005000 103:01 13373919                  /lib/x86_64-linux-gnu/libuuid.so.1.3.0
+7fe04ead7000-7fe04ead8000 rw-p 00006000 103:01 13373919                  /lib/x86_64-linux-gnu/libuuid.so.1.3.0
+7fe04ead8000-7fe04ec51000 r-xp 00000000 103:01 9699772                   /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+7fe04ec51000-7fe04ee51000 ---p 00179000 103:01 9699772                   /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+7fe04ee51000-7fe04ee5b000 r--p 00179000 103:01 9699772                   /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+7fe04ee5b000-7fe04ee5d000 rw-p 00183000 103:01 9699772                   /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+7fe04ee5d000-7fe04ee61000 rw-p 00000000 00:00 0 
+7fe04ee61000-7fe04f070000 r-xp 00000000 103:01 14947193                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/JLink/SystemFiles/Libraries/Linux-x86-64/libJLinkNativeLibrary.so
+7fe04f070000-7fe04f270000 ---p 0020f000 103:01 14947193                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/JLink/SystemFiles/Libraries/Linux-x86-64/libJLinkNativeLibrary.so
+7fe04f270000-7fe04f276000 r--p 0020f000 103:01 14947193                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/JLink/SystemFiles/Libraries/Linux-x86-64/libJLinkNativeLibrary.so
+7fe04f276000-7fe04f2a4000 rw-p 00215000 103:01 14947193                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/JLink/SystemFiles/Libraries/Linux-x86-64/libJLinkNativeLibrary.so
+7fe04f2a4000-7fe04f2a5000 ---p 00000000 00:00 0 
+7fe04f2a5000-7fe04f3a5000 rw-p 00000000 00:00 0 
+7fe04f3a5000-7fe04f3a8000 ---p 00000000 00:00 0 
+7fe04f3a8000-7fe04f4a6000 rw-p 00000000 00:00 0 
+7fe04f4a6000-7fe04f4a7000 ---p 00000000 00:00 0 
+7fe04f4a7000-7fe04f4aa000 ---p 00000000 00:00 0 
+7fe04f4aa000-7fe04f5a7000 rw-p 00000000 00:00 0 
+7fe04f5a7000-7fe04f5a8000 ---p 00000000 00:00 0 
+7fe04f5a8000-7fe04f5ab000 ---p 00000000 00:00 0 
+7fe04f5ab000-7fe04f6a8000 rw-p 00000000 00:00 0 
+7fe04f6a8000-7fe04f6a9000 ---p 00000000 00:00 0 
+7fe04f6a9000-7fe04f6ac000 ---p 00000000 00:00 0 
+7fe04f6ac000-7fe04f7a9000 rw-p 00000000 00:00 0 
+7fe04f7a9000-7fe04f7aa000 ---p 00000000 00:00 0 
+7fe04f7aa000-7fe04f7ad000 ---p 00000000 00:00 0 
+7fe04f7ad000-7fe04f8aa000 rw-p 00000000 00:00 0 
+7fe04f8aa000-7fe04f8ad000 ---p 00000000 00:00 0 
+7fe04f8ad000-7fe04f9ab000 rw-p 00000000 00:00 0 
+7fe04f9ab000-7fe04feff000 r--p 00000000 103:01 9699662                   /usr/lib/locale/locale-archive
+7fe04feff000-7fe04ff02000 ---p 00000000 00:00 0 
+7fe04ff02000-7fe050000000 rw-p 00000000 00:00 0 
+7fe050000000-7fe050021000 rw-p 00000000 00:00 0 
+7fe050021000-7fe054000000 ---p 00000000 00:00 0 
+7fe054000000-7fe054021000 rw-p 00000000 00:00 0 
+7fe054021000-7fe058000000 ---p 00000000 00:00 0 
+7fe058000000-7fe058021000 rw-p 00000000 00:00 0 
+7fe058021000-7fe05c000000 ---p 00000000 00:00 0 
+7fe05c000000-7fe05c001000 r--s 00001000 103:01 12980484                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/jdbf.jar
+7fe05c001000-7fe05c002000 r--s 00011000 103:01 12980480                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/customizer.jar
+7fe05c002000-7fe05c004000 r--s 00006000 103:01 12980495                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/poi-excelant-3.11-20150702.jar
+7fe05c004000-7fe05c006000 r--s 00008000 103:01 12980482                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/javase-3.0.0.jar
+7fe05c006000-7fe05c008000 r--s 0000a000 103:01 12980507                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/commons-codec-1.3.jar
+7fe05c008000-7fe05c00a000 r--s 00008000 103:01 12980517                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/mediaplayer.jar
+7fe05c00a000-7fe05c015000 r--s 000bd000 103:01 12980498                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/jackcess-2.1.3.jar
+7fe05c015000-7fe05c017000 r--s 00008000 103:01 12589229                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Autoload/PacletManager/Java/mexpr.jar
+7fe05c017000-7fe05c01d000 r--s 0006e000 103:01 12589230                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Autoload/PacletManager/Java/antlr.jar
+7fe05c07f000-7fe05c0a3000 r--p 00000000 103:01 11422583                  /usr/share/locale-langpack/es/LC_MESSAGES/libc.mo
+7fe05c0a3000-7fe05c0a6000 ---p 00000000 00:00 0 
+7fe05c0a6000-7fe05c1a4000 rw-p 00000000 00:00 0 
+7fe05c1a4000-7fe05c1a5000 ---p 00000000 00:00 0 
+7fe05c1a5000-7fe05df38000 rw-p 00000000 00:00 0 
+7fe05df38000-7fe05e112000 r--s 03d6f000 103:01 12717406                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/rt.jar
+7fe05e112000-7fe05fae3000 rw-p 00000000 00:00 0 
+7fe05fae3000-7fe05fae4000 ---p 00000000 00:00 0 
+7fe05fae4000-7fe05fbe4000 rw-p 00000000 00:00 0 
+7fe05fbe4000-7fe05fbe5000 ---p 00000000 00:00 0 
+7fe05fbe5000-7fe05fce5000 rw-p 00000000 00:00 0 
+7fe05fce5000-7fe05fce6000 ---p 00000000 00:00 0 
+7fe05fce6000-7fe05fde6000 rw-p 00000000 00:00 0 
+7fe05fde6000-7fe05fde7000 ---p 00000000 00:00 0 
+7fe05fde7000-7fe05fee7000 rw-p 00000000 00:00 0 
+7fe05fee7000-7fe05fee8000 ---p 00000000 00:00 0 
+7fe05fee8000-7fe05ffe8000 rw-p 00000000 00:00 0 
+7fe05ffe8000-7fe05ffe9000 ---p 00000000 00:00 0 
+7fe05ffe9000-7fe0600e9000 rw-p 00000000 00:00 0 
+7fe0600e9000-7fe0600ea000 ---p 00000000 00:00 0 
+7fe0600ea000-7fe0601ea000 rw-p 00000000 00:00 0 
+7fe0601ea000-7fe0601eb000 ---p 00000000 00:00 0 
+7fe0601eb000-7fe060313000 rw-p 00000000 00:00 0 
+7fe060313000-7fe060395000 ---p 00000000 00:00 0 
+7fe060395000-7fe0603ea000 rw-p 00000000 00:00 0 
+7fe0603ea000-7fe0603eb000 ---p 00000000 00:00 0 
+7fe0603eb000-7fe06040c000 rw-p 00000000 00:00 0 
+7fe06040c000-7fe0607ac000 ---p 00000000 00:00 0 
+7fe0607ac000-7fe060f7c000 rwxp 00000000 00:00 0 
+7fe060f7c000-7fe06f7ac000 ---p 00000000 00:00 0 
+7fe06f7ac000-7fe06f7c7000 r-xp 00000000 103:01 12980310                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libzip.so
+7fe06f7c7000-7fe06f9c6000 ---p 0001b000 103:01 12980310                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libzip.so
+7fe06f9c6000-7fe06f9c7000 r--p 0001a000 103:01 12980310                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libzip.so
+7fe06f9c7000-7fe06f9c8000 rw-p 0001b000 103:01 12980310                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libzip.so
+7fe06f9c8000-7fe06f9d3000 r-xp 00000000 103:01 13386453                  /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7fe06f9d3000-7fe06fbd2000 ---p 0000b000 103:01 13386453                  /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7fe06fbd2000-7fe06fbd3000 r--p 0000a000 103:01 13386453                  /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7fe06fbd3000-7fe06fbd4000 rw-p 0000b000 103:01 13386453                  /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7fe06fbd4000-7fe06fbda000 rw-p 00000000 00:00 0 
+7fe06fbda000-7fe06fbf1000 r-xp 00000000 103:01 13386450                  /lib/x86_64-linux-gnu/libnsl-2.27.so
+7fe06fbf1000-7fe06fdf0000 ---p 00017000 103:01 13386450                  /lib/x86_64-linux-gnu/libnsl-2.27.so
+7fe06fdf0000-7fe06fdf1000 r--p 00016000 103:01 13386450                  /lib/x86_64-linux-gnu/libnsl-2.27.so
+7fe06fdf1000-7fe06fdf2000 rw-p 00017000 103:01 13386450                  /lib/x86_64-linux-gnu/libnsl-2.27.so
+7fe06fdf2000-7fe06fdf4000 rw-p 00000000 00:00 0 
+7fe06fdf4000-7fe06fdff000 r-xp 00000000 103:01 13386455                  /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7fe06fdff000-7fe06fffe000 ---p 0000b000 103:01 13386455                  /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7fe06fffe000-7fe06ffff000 r--p 0000a000 103:01 13386455                  /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7fe06ffff000-7fe070000000 rw-p 0000b000 103:01 13386455                  /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7fe070000000-7fe07043f000 rw-p 00000000 00:00 0 
+7fe07043f000-7fe074000000 ---p 00000000 00:00 0 
+7fe074000000-7fe074001000 r--s 0000a000 103:01 12980521                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/JSON.jar
+7fe074001000-7fe074003000 r--s 00013000 103:01 12589232                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Autoload/PacletManager/Java/WRIjdbm.jar
+7fe074003000-7fe074009000 r--s 00041000 103:01 12717335                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/WolframSSHKeyGen.jar
+7fe074009000-7fe074011000 r-xp 00000000 103:01 13386451                  /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7fe074011000-7fe074211000 ---p 00008000 103:01 13386451                  /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7fe074211000-7fe074212000 r--p 00008000 103:01 13386451                  /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7fe074212000-7fe074213000 rw-p 00009000 103:01 13386451                  /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7fe074213000-7fe07423f000 r-xp 00000000 103:01 12980331                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libjava.so
+7fe07423f000-7fe07443f000 ---p 0002c000 103:01 12980331                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libjava.so
+7fe07443f000-7fe074440000 r--p 0002c000 103:01 12980331                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libjava.so
+7fe074440000-7fe074442000 rw-p 0002d000 103:01 12980331                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libjava.so
+7fe074442000-7fe07444f000 r-xp 00000000 103:01 12980281                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libverify.so
+7fe07444f000-7fe07464e000 ---p 0000d000 103:01 12980281                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libverify.so
+7fe07464e000-7fe074650000 r--p 0000c000 103:01 12980281                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libverify.so
+7fe074650000-7fe074651000 rw-p 0000e000 103:01 12980281                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/libverify.so
+7fe074651000-7fe074658000 r-xp 00000000 103:01 13386460                  /lib/x86_64-linux-gnu/librt-2.27.so
+7fe074658000-7fe074857000 ---p 00007000 103:01 13386460                  /lib/x86_64-linux-gnu/librt-2.27.so
+7fe074857000-7fe074858000 r--p 00006000 103:01 13386460                  /lib/x86_64-linux-gnu/librt-2.27.so
+7fe074858000-7fe074859000 rw-p 00007000 103:01 13386460                  /lib/x86_64-linux-gnu/librt-2.27.so
+7fe074859000-7fe0749f6000 r-xp 00000000 103:01 13386447                  /lib/x86_64-linux-gnu/libm-2.27.so
+7fe0749f6000-7fe074bf5000 ---p 0019d000 103:01 13386447                  /lib/x86_64-linux-gnu/libm-2.27.so
+7fe074bf5000-7fe074bf6000 r--p 0019c000 103:01 13386447                  /lib/x86_64-linux-gnu/libm-2.27.so
+7fe074bf6000-7fe074bf7000 rw-p 0019d000 103:01 13386447                  /lib/x86_64-linux-gnu/libm-2.27.so
+7fe074bf7000-7fe0758df000 r-xp 00000000 103:01 12980326                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/server/libjvm.so
+7fe0758df000-7fe075ade000 ---p 00ce8000 103:01 12980326                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/server/libjvm.so
+7fe075ade000-7fe075b74000 r--p 00ce7000 103:01 12980326                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/server/libjvm.so
+7fe075b74000-7fe075ba5000 rw-p 00d7d000 103:01 12980326                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/server/libjvm.so
+7fe075ba5000-7fe075be0000 rw-p 00000000 00:00 0 
+7fe075be0000-7fe075dc7000 r-xp 00000000 103:01 13386443                  /lib/x86_64-linux-gnu/libc-2.27.so
+7fe075dc7000-7fe075fc7000 ---p 001e7000 103:01 13386443                  /lib/x86_64-linux-gnu/libc-2.27.so
+7fe075fc7000-7fe075fcb000 r--p 001e7000 103:01 13386443                  /lib/x86_64-linux-gnu/libc-2.27.so
+7fe075fcb000-7fe075fcd000 rw-p 001eb000 103:01 13386443                  /lib/x86_64-linux-gnu/libc-2.27.so
+7fe075fcd000-7fe075fd1000 rw-p 00000000 00:00 0 
+7fe075fd1000-7fe075fd4000 r-xp 00000000 103:01 13386446                  /lib/x86_64-linux-gnu/libdl-2.27.so
+7fe075fd4000-7fe0761d3000 ---p 00003000 103:01 13386446                  /lib/x86_64-linux-gnu/libdl-2.27.so
+7fe0761d3000-7fe0761d4000 r--p 00002000 103:01 13386446                  /lib/x86_64-linux-gnu/libdl-2.27.so
+7fe0761d4000-7fe0761d5000 rw-p 00003000 103:01 13386446                  /lib/x86_64-linux-gnu/libdl-2.27.so
+7fe0761d5000-7fe0761ec000 r-xp 00000000 103:01 12980319                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/jli/libjli.so
+7fe0761ec000-7fe0763eb000 ---p 00017000 103:01 12980319                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/jli/libjli.so
+7fe0763eb000-7fe0763ec000 r--p 00016000 103:01 12980319                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/jli/libjli.so
+7fe0763ec000-7fe0763ed000 rw-p 00017000 103:01 12980319                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/Linux-x86-64/lib/amd64/jli/libjli.so
+7fe0763ed000-7fe076407000 r-xp 00000000 103:01 13386458                  /lib/x86_64-linux-gnu/libpthread-2.27.so
+7fe076407000-7fe076606000 ---p 0001a000 103:01 13386458                  /lib/x86_64-linux-gnu/libpthread-2.27.so
+7fe076606000-7fe076607000 r--p 00019000 103:01 13386458                  /lib/x86_64-linux-gnu/libpthread-2.27.so
+7fe076607000-7fe076608000 rw-p 0001a000 103:01 13386458                  /lib/x86_64-linux-gnu/libpthread-2.27.so
+7fe076608000-7fe07660c000 rw-p 00000000 00:00 0 
+7fe07660c000-7fe076635000 r-xp 00000000 103:01 13386439                  /lib/x86_64-linux-gnu/ld-2.27.so
+7fe076635000-7fe076685000 rw-p 00000000 00:00 0 
+7fe076685000-7fe076708000 ---p 00000000 00:00 0 
+7fe076708000-7fe076709000 ---p 00000000 00:00 0 
+7fe076709000-7fe07670c000 ---p 00000000 00:00 0 
+7fe07670c000-7fe07680b000 rw-p 00000000 00:00 0 
+7fe07680b000-7fe07680c000 r--s 00006000 103:01 12980481                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Converters/Java/bzip2.jar
+7fe07680c000-7fe07680e000 r--s 00013000 103:01 12589228                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Autoload/PacletManager/Java/mexprparser.jar
+7fe07680e000-7fe076810000 r--s 00012000 103:01 12589231                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Autoload/PacletManager/Java/PacletManager.jar
+7fe076810000-7fe076815000 r--s 00042000 103:01 12717432                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Java/WolframSSH.jar
+7fe076815000-7fe07681c000 r--s 00000000 103:01 9976302                   /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+7fe07681c000-7fe07681f000 r--s 0003a000 103:01 14947195                  /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/JLink/JLink.jar
+7fe07681f000-7fe076829000 rw-p 00000000 00:00 0 
+7fe076829000-7fe076831000 rw-s 00000000 103:01 15221918                  /tmp/hsperfdata_erick/22870 (deleted)
+7fe076831000-7fe076832000 rw-p 00000000 00:00 0 
+7fe076832000-7fe076833000 ---p 00000000 00:00 0 
+7fe076833000-7fe076835000 rw-p 00000000 00:00 0 
+7fe076835000-7fe076836000 r--p 00029000 103:01 13386439                  /lib/x86_64-linux-gnu/ld-2.27.so
+7fe076836000-7fe076837000 rw-p 0002a000 103:01 13386439                  /lib/x86_64-linux-gnu/ld-2.27.so
+7fe076837000-7fe076838000 rw-p 00000000 00:00 0 
+7ffc7d5f1000-7ffc7d612000 rw-p 00000000 00:00 0                          [stack]
+7ffc7d76c000-7ffc7d76f000 r--p 00000000 00:00 0                          [vvar]
+7ffc7d76f000-7ffc7d771000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Xmx512m -Djava.system.class.loader=com.wolfram.jlink.JLinkSystemClassLoader -Djava.util.prefs.PreferencesFactory=com.wolfram.jlink.DisabledPreferencesFactory 
+java_command: com.wolfram.jlink.Install -init /tmp/m000002226771 -mathlink -linkprotocol SharedMemory -linkconnect -linkname 7ppmt_shm
+java_class_path (initial): /usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/JLink/JLink.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/local/Wolfram/Mathematica/12.0/Executables:/usr/local/Wolfram/Mathematica/12.0/SystemFiles/Graphics/Binaries/Linux-x86-64:/usr/local/Wolfram/Mathematica/12.0/Executables:/home/erick/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/erick/.dotnet/tools
+LD_LIBRARY_PATH=/usr/local/Wolfram/Mathematica/12.0/SystemFiles/Libraries/Linux-x86-64:/usr/local/Wolfram/Mathematica/12.0/SystemFiles/Libraries/Linux-x86-64/Qt/lib:/usr/local/Wolfram/Mathematica/12.0/SystemFiles/Libraries/Linux-x86-64/Qt/lib/
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xad3e60], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xad3e60], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_SIGINFO
+SIGFPE: [libjvm.so+0x90b880], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libJLinkNativeLibrary.so+0xeb5d0], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x90b880], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x90b880], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x90b750], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libJLinkNativeLibrary.so+0xeb5d0], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_SIGINFO
+SIGINT: [libJLinkNativeLibrary.so+0xeb5d0], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_SIGINFO
+SIGTERM: [libJLinkNativeLibrary.so+0xeb5d0], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_SIGINFO
+SIGQUIT: [libjvm.so+0x90bd70], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=18.04
+DISTRIB_CODENAME=bionic
+DISTRIB_DESCRIPTION="Ubuntu 18.04.6 LTS"
+
+uname:Linux 5.4.0-150-generic #167~18.04.1-Ubuntu SMP Wed May 24 00:51:42 UTC 2023 x86_64
+libc:glibc 2.27 NPTL 2.27 
+rlimit: STACK 8192k, CORE 0k, NPROC 29826, NOFILE 1048576, AS infinity
+load average:3.18 3.53 3.26
+
+/proc/meminfo:
+MemTotal:        7757436 kB
+MemFree:         4391472 kB
+MemAvailable:    5860244 kB
+Buffers:          205388 kB
+Cached:          1424488 kB
+SwapCached:        30480 kB
+Active:          1468288 kB
+Inactive:        1210632 kB
+Active(anon):     509964 kB
+Inactive(anon):   543168 kB
+Active(file):     958324 kB
+Inactive(file):   667464 kB
+Unevictable:         132 kB
+Mlocked:               0 kB
+SwapTotal:       2097148 kB
+SwapFree:        1435056 kB
+Dirty:              3452 kB
+Writeback:             0 kB
+AnonPages:        998244 kB
+Mapped:           334180 kB
+Shmem:              3708 kB
+KReclaimable:     138904 kB
+Slab:             357848 kB
+SReclaimable:     138904 kB
+SUnreclaim:       218944 kB
+KernelStack:        9492 kB
+PageTables:        34860 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     5975864 kB
+Committed_AS:    5428668 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       71356 kB
+VmallocChunk:          0 kB
+Percpu:             6528 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:     1457328 kB
+DirectMap2M:     6537216 kB
+DirectMap1G:     1048576 kB
+
+container (cgroup) information:
+container_type: cgroupv1
+cpu_cpuset_cpus: 0-7
+cpu_memory_nodes: 0
+active_processor_count: 8
+cpu_quota: -1
+cpu_period: 100000
+cpu_shares: -1
+memory_limit_in_bytes: -1
+memory_and_swap_limit_in_bytes: -2
+memory_soft_limit_in_bytes: -1
+memory_usage_in_bytes: 2652426240
+memory_max_usage_in_bytes: 7205867520
+
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 142 stepping 10, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, rtm, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz
+stepping	: 10
+microcode	: 0xf0
+cpu MHz		: 1399.998
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp md_clear flush_l1d arch_capabilities
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit srbds mmio_stale_data retbleed
+bogomips	: 3799.90
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz
+stepping	: 10
+microcode	: 0xf0
+cpu MHz		: 1400.057
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp md_clear flush_l1d arch_capabilities
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit srbds mmio_stale_data retbleed
+bogomips	: 3799.90
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz
+stepping	: 10
+microcode	: 0xf0
+cpu MHz		: 1400.184
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp md_clear flush_l1d arch_capabilities
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit srbds mmio_stale_data retbleed
+bogomips	: 3799.90
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz
+stepping	: 10
+microcode	: 0xf0
+cpu MHz		: 1400.254
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp md_clear flush_l1d arch_capabilities
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit srbds mmio_stale_data retbleed
+bogomips	: 3799.90
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz
+stepping	: 10
+microcode	: 0xf0
+cpu MHz		: 1399.999
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp md_clear flush_l1d arch_capabilities
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit srbds mmio_stale_data retbleed
+bogomips	: 3799.90
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz
+stepping	: 10
+microcode	: 0xf0
+cpu MHz		: 1400.979
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp md_clear flush_l1d arch_capabilities
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit srbds mmio_stale_data retbleed
+bogomips	: 3799.90
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz
+stepping	: 10
+microcode	: 0xf0
+cpu MHz		: 1400.864
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 5
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp md_clear flush_l1d arch_capabilities
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit srbds mmio_stale_data retbleed
+bogomips	: 3799.90
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz
+stepping	: 10
+microcode	: 0xf0
+cpu MHz		: 1402.330
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 7
+initial apicid	: 7
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp md_clear flush_l1d arch_capabilities
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit srbds mmio_stale_data retbleed
+bogomips	: 3799.90
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 7757436k(4532608k free), swap 2097148k(1435824k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.201-b09) for linux-amd64 JRE (1.8.0_201-b09), built on Dec 15 2018 11:35:59 by "java_re" with gcc 7.3.0
+
+time: Wed Apr  9 22:20:04 2025
+timezone: CST
+elapsed time: 9680 seconds (0d 2h 41m 20s)
+
