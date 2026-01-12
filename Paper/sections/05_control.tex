@@ -1,0 +1,46 @@
+\section{Immunological control}
+
+\subsection{Control formulation}
+Represent control via $\mu$ (variational switch) and an adaptive field
+\[
+u(\mathbf{x},t)=\min\!\left(u_{\max},\,u_0\, \frac{c}{i+\varepsilon}\right)
+\]
+to prioritize high-$c$, low-$i$ regions. Coupling can enhance $\beta$ (cytotoxicity) or enter as a source in the immune equation.
+
+\subsection{Control strategies}
+\begin{itemize}
+    \item Constant vs adaptive dosing.
+    \item Spatial targeting: stronger control where $c$ is high and $i$ is low.
+    \item Timing protocols: pulsed vs continuous application.
+\end{itemize}
+
+\subsection{Efficiency and cost}
+Define a cost functional (drug load, $\int u\, d\mathbf{x}\,dt$) vs benefit (peak reduction, time to extinction, total tumor burden $\int c\,dt$, correlation length of $c$). Compare $\mu=0,1$ and adaptive $u$; report Pareto curves cost vs suppression. Qualitatively: $\mu=1$ reduces fragmentation and peak burden; adaptive $u$ focuses resources on high-$c$, low-$i$ zones, improving containment for similar cost.
+
+\setcounter{table}{1} % ensure Table II numbering under revtex onecolumn
+\begin{table*}[!htbp]
+\centering
+\begin{tabular}{lccc}
+\toprule
+Protocol & Peak $c$ reduction & Time to extinction & Cost (relative) \\
+\midrule
+$\mu=0$ (no control) & baseline & -- & 0 \\
+$\mu=1$ (binary) & $\downarrow$ moderate & shorter vs baseline & medium \\
+Adaptive $u$ (weak Allee) & $\downarrow$ strong & shortest & medium--high \\
+Adaptive $u$ (strong Allee) & $\downarrow$ strong & shortest & medium--high \\
+\bottomrule
+\end{tabular}
+\caption{Table II (qualitative): control efficiency vs cost. Replace with measured metrics (peak, extinction time, integrated $u$) when available.}
+\label{tab:control-cost}
+\end{table*}
+
+\begin{figure}[!htbp]
+    \centering
+\includegraphics[draft=false,width=0.6\linewidth]{estabilidad_lineal_strong_mu1.png}
+    \caption{Ejemplo de perfil espectral bajo control ($\mu=1$) para Allee fuerte: se atenúan modos de alta frecuencia, reduciendo fragmentación.}
+\end{figure}
+
+% Fig. 6: control field $u(x,t)$ applied on $c$-rich, $i$-poor regions.
+
+% Fig. 6: control field $u(x,t)$. Tabla II: coste vs supresión.
+

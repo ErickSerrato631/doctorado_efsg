@@ -1,0 +1,53 @@
+\section{Spatial dynamics}
+
+\subsection{Reaction--diffusion extension}
+Add diffusion to each population:
+\begin{align}
+\partial_t c &= D_c \nabla^2 c + r_c\, c\, f_{\text{Allee}}(c) - c(\alpha s^2 + \beta i^2) - \mu c(\gamma s^2 + \eta i^2), \\
+\partial_t s &= D_s \nabla^2 s + r_s s(1-s) - \gamma c^2 s + \delta i^2 s - \tfrac{\mu}{2}\alpha s c^2, \\
+\partial_t i &= D_i \nabla^2 i + r_i i(1-i) + \delta s^2 i - \eta c^2 i - \tfrac{\mu}{2}\beta c^2 i .
+\end{align}
+
+\subsection{Numerical methods}
+Finite elements (FEniCS) in 2D; uniform mesh ($\sim$200 nodes per side), step $\Delta t \sim 5\times 10^{-3}$, final time $T\sim 2$. Random initial conditions within feasible bounds $0.8<c<1.2$, $0.2<s<0.6$, $0<i<0.2$. Snapshots y videos siguen los cuatro escenarios: weak/strong y $\mu=0/1$.
+
+\subsection{Pattern formation}
+Report snapshots of $c,s,i$ for $\mu=0$ vs $\mu=1$ and for weak vs strong Allee (Fig.~4). Extract correlation lengths and dominant wavelengths from FFT; track $\xi(t)$ from autocorrelations ($c_c,s_s,i_i$) y cruzadas ($c_s,c_i,s_i$). Compare organización y compacidad:
+\begin{itemize}
+  \item $\mu=0$: patrones fragmentados, dominios tumorales grandes si Allee es débil; con Allee fuerte los cúmulos son más pequeños.
+  \item $\mu=1$: la estructura variacional suaviza y compacta los dominios; en Allee fuerte los tamaños quedan acotados.
+  \item $\xi(t)$ crece subdifusivamente $\sim e^{\alpha} t^{0.5}$; $c$ presenta la mayor $\xi$, $s_i$ la menor.
+\end{itemize}
+Fig.~5 puede mostrar espectros de potencia (inicio vs fin) y curvas $\xi(t)$.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[draft=false,width=0.48\linewidth]{fields_mu_0.png}
+    \includegraphics[draft=false,width=0.48\linewidth]{fields_mu_1.png}\\
+    \includegraphics[draft=false,width=0.48\linewidth]{fields_strong_mu_0.png}
+    \includegraphics[draft=false,width=0.48\linewidth]{fields_strong_mu_1.png}
+    \caption{Patrones espaciales de $c,s,i$ en $T\approx1.9$: fila superior (weak Allee) $\mu=0$ y $\mu=1$; fila inferior (strong Allee) $\mu=0$ y $\mu=1$.}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[draft=false,width=0.48\linewidth]{power_spectrum_c_0.000.png}
+    \includegraphics[draft=false,width=0.48\linewidth]{power_spectrum_c_1.000.png}\\
+    \includegraphics[draft=false,width=0.48\linewidth]{correlation_mean_c_c.png}
+    \includegraphics[draft=false,width=0.48\linewidth]{correlation_mean_s_s.png}
+    \caption{Arriba: espectro de potencia del campo $c$ al inicio y al final ($\mu=1$, weak Allee). Abajo: evolución de la longitud de correlación $\xi(t)$ para $c_c$ y $s_s$.}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[draft=false,width=0.48\linewidth]{correlation_mean_i_i.png}
+    \includegraphics[draft=false,width=0.48\linewidth]{correlation_mean_c_i.png}\\
+    \includegraphics[draft=false,width=0.48\linewidth]{correlation_strong_mean_c_c.png}
+    \includegraphics[draft=false,width=0.48\linewidth]{correlation_strong_mean_c_i.png}
+    \caption{Correlaciones adicionales: izquierda arriba $\xi(t)$ para $i_i$, derecha arriba para $c_i$ (weak Allee); abajo correlaciones análogas en régimen Allee fuerte.}
+\end{figure}
+
+\clearpage
+
+% Fig. 4: spatial patterns (weak/strong, mu=0/1). Fig. 5: temporal evolution of densities or spectra.
+

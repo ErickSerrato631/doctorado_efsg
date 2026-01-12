@@ -1,0 +1,56 @@
+\documentclass[aps,pre,onecolumn,superscriptaddress,final]{revtex4-2}
+
+\usepackage{amsmath,amssymb,bm}
+\usepackage[final]{graphicx}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+% Evitar advertencias de math en strings PDF
+\pdfstringdefDisableCommands{%
+  \def\mu{mu}%
+  \def\alpha{alpha}%
+  \def\beta{beta}%
+  \def\gamma{gamma}%
+  \def\eta{eta}%
+  \def\delta{delta}%
+  \def\u{u}%
+}
+
+\graphicspath{{figures/}}
+\setkeys{Gin}{draft=false}
+
+\begin{document}
+
+\title{Nonreciprocal cancer--immune dynamics with Allee effects and immunological control}
+
+\author{Erick Serrato Garc\'ia}
+\affiliation{Departamento de F\'isica, Universidad Aut\'onoma Metropolitana Iztapalapa}
+
+\begin{abstract}
+[Abstract en una p\'agina: describir efecto Allee (débil/fuerte), no reciprocidad en interacciones c\'ancer--inmune y control inmunol\'ogico adaptativo $u(x,t)$ (texto plano). Resumir hallazgos de puntos fijos inestables y patrones espaciales bajo control.]
+\end{abstract}
+
+\maketitle
+
+\input{sections/01_introduction}
+\input{sections/02_model}
+\input{sections/03_meanfield}
+\input{sections/04_spatial}
+\input{sections/05_control}
+\input{sections/06_discussion}
+\input{sections/07_conclusions}
+
+% Bibliografía manual para evitar bibtex
+\begin{thebibliography}{99}
+\bibitem{murray2002} J. D. Murray, \textit{Mathematical Biology I} (Springer, 2002).
+\bibitem{delitala2007} M. Delitala and T. Lorenzi, Math. Models Methods Appl. Sci. \textbf{17}, 1775 (2007).
+\bibitem{gatenby2004} R. A. Gatenby and P. K. Maini, Cancer Res. \textbf{64}, 1563 (2004).
+\bibitem{gerlee2022} P. Gerlee y J. N\"aslund, Bull. Math. Biol. \textbf{84}, 110 (2022).
+\bibitem{bottger2015} K. B{\"o}ttger, L. H. Chao, M. O. H\"oft, y A. Deutsch, PLoS Comput. Biol. \textbf{11}, e1004369 (2015).
+\bibitem{turing1952} A. M. Turing, Philos. Trans. R. Soc. B \textbf{237}, 37 (1952).
+\end{thebibliography}
+
+\end{document}
+
+ 

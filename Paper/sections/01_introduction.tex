@@ -1,0 +1,30 @@
+\section{Introduction}
+
+\subsection{Cancer as a nonequilibrium system}
+Tumor growth is a driven, open system with matter and energy fluxes. Nonequilibrium physics provides tools to interpret multistability, thresholds, and pattern formation in tumor--immune competition \cite{murray2002}.
+
+\subsection{Limitations of reciprocal population models}
+Symmetric Lotka--Volterra or logistic models miss thresholds, hysteresis, and asymmetric suppression/activation between cancer, healthy tissue, and immune cells. These limitations motivate adding Allee effects and nonreciprocal couplings.
+
+\subsection{Allee effects and critical thresholds}
+An Allee term introduces a viability threshold for cancer: below it, extinction; above it, proliferation. Weak Allee yields a soft slowdown; strong Allee creates a sharp barrier. Autocrine signalling can induce Allee-like behaviour in tumors \cite{gerlee2022}; phenotypic switching can reinforce extinction for subcritical populations \cite{bottger2015}.
+
+\subsection{Nonreciprocal interactions in cancer--immune dynamics}
+Suppression of immunity by tumor cells and cytotoxic action of immune cells are not symmetric. Including nonreciprocity alters nullclines, fixed points, and transient routes \cite{delitala2007,gatenby2004}. We treat nonreciprocity as asymmetry in interaction coefficients and as an external control field.
+
+\subsection{Summary of contributions}
+\begin{itemize}
+    \item Formulate ODE/PDE models with weak/strong Allee effects, nonreciprocity, and an immunological control field $u(x,t)$.
+    \item Characterize fixed points and linear stability; identify Allee-driven bifurcations in mean field.
+    \item Extend to reaction--diffusion dynamics; report spatial patterns, correlation lengths, and spectral content.
+    \item Evaluate control strategies (binary vs adaptive) and their cost--efficiency trade-offs across weak/strong Allee regimes.
+    \item Provide figure set: Fig.~1 conceptual scheme; Fig.~2 phase planes/nullclines; Fig.~3 bifurcations; Fig.~4--5 spatial patterns and spectra; Fig.~6 control field; Table~I parameters; Table~II cost vs suppression.
+\end{itemize}
+
+% Figure 1 placeholder: conceptual scheme of cancer--immune interactions and control.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[draft=false,width=0.55\linewidth]{steady.png}
+    \caption{Conceptual phase portrait (weak Allee, $\mu=1$) illustrating nullclines and an unstable fixed point as threshold between extinction and proliferation.}
+\end{figure}
+

@@ -1,0 +1,40 @@
+\chapter{Estado del arte y marco teórico}
+
+\section{Modelos de dinámica poblacional}
+Los modelos logísticos y Lotka--Volterra proveen la base para describir crecimiento y competencia, pero no incluyen umbrales de viabilidad ni asimetrías. El efecto Allee y la no reciprocidad complementan esas descripciones.
+
+\section{Efecto Allee en el crecimiento tumoral}
+El \textbf{efecto Allee} describe una \textbf{reducción en la tasa de crecimiento a bajas densidades}, donde los individuos enfrentan dificultades para sobrevivir o reproducirse eficientemente \cite{murray_mathematical_2002}. Se distinguen dos tipos principales: \textbf{efecto Allee fuerte} y \textbf{efecto Allee débil}.
+
+\subsection{Efecto Allee fuerte}
+Existe un umbral crítico de población por debajo del cual la población \textit{no puede sostenerse} y tiende a la extinción. Para una población $N(t)$ se usa una versión modificada de la ecuación logística:
+\begin{equation}
+\frac{dN}{dt} = rN \left(1 - \frac{N}{K}\right) \left(\frac{N - A}{K - A}\right)
+\label{eq:strong_allee}
+\end{equation}
+con $r$ (tasa intrínseca), $K$ (capacidad de carga) y $A$ (umbral Allee).
+
+\subsection{Efecto Allee débil}
+A bajas densidades el crecimiento se ralentiza, pero la población no se extingue necesariamente si cae por debajo del umbral $A$:
+\begin{equation}
+\frac{dN}{dt} = rN \left(1 - \frac{N}{K}\right) \left(\frac{N}{A} - 1\right)
+\label{eq:weak_allee}
+\end{equation}
+
+\subsection{Aplicación al modelo tumoral}
+Estudios recientes muestran efectos Allee en el crecimiento tumoral: señalización autocrina y plasticidad fenotípica generan umbrales de crecimiento \cite{gerlee_autocrine_2022,bottger_emerging_2015}. Implicaciones:
+\begin{itemize}
+  \item \textbf{Efecto Allee fuerte}: requiere una cantidad mínima de células cancerosas para sostener el crecimiento tumoral.
+  \item \textbf{Efecto Allee débil}: poblaciones pequeñas pueden mantenerse latentes y proliferar si cambia el microambiente.
+  \item \textbf{Relevancia terapéutica}: estrategias que reduzcan la carga tumoral por debajo del umbral de Allee pueden prevenir progresión o recurrencia.
+\end{itemize}
+
+\subsection{Interpretación desde sistemas no lineales}
+La dinámica inducida por el efecto Allee se conecta con modelos bistables (Allen--Cahn, reacción-difusión tipo Turing) \cite{turing_chemical_1952,bellomo_multiscale_2008}. Tres estados característicos: extinción (atractor trivial), proliferación estable (atractor no trivial) y un estado inestable intermedio. En física se interpretan como barreras de energía; en biología, como umbrales críticos de densidad celular. La no reciprocidad en interacciones cáncer--tejido--inmune refuerza estas asimetrías \cite{delitala_mathematical_2007,gatenby_role_2004}.
+
+\section{Modelos cáncer--inmune y control}
+La literatura de inmunoterapia incluye términos de supresión y cooperación no simétricos, así como campos de control externos. Estos elementos serán reutilizados en capítulos posteriores para introducir el parámetro de control $\mu$ y posibles campos $u(x,y,t)$.
+
+
+
+

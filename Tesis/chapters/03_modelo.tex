@@ -1,0 +1,66 @@
+\chapter{Formulación del modelo}
+
+\section{Variables y dominios}
+El sistema considera tres poblaciones con dominios continuos en tiempo (ODE) y espacio (PDE):
+\begin{itemize}
+  \item $c(t)$: densidad de células cancerígenas.
+  \item $s(t)$: densidad de células sanas.
+  \item $i(t)$: densidad de células del sistema inmune.
+\end{itemize}
+
+\section{Dinámica base (efecto Allee débil)}
+El efecto Allee débil se implementa en la población tumoral mediante un término cúbico que introduce un umbral suave. El sistema ODE completo es \cite{delitala_mathematical_2007,corcoran_cancer_2020}:
+\begin{align}
+\frac{dc}{dt} &= r_c c \left(\frac{c}{a} - 1\right)\left(1 - \frac{c}{k_c}\right) - \alpha c s - \beta c i - \frac{\mu}{2} (\eta i^2 + \gamma s^2), \label{eqn:cancer_dynamic} \\
+\frac{ds}{dt} &= r_s s \left(1 - \frac{s}{k_s}\right) - \gamma c s + \delta s i^2 - \frac{\mu}{2} \alpha c^2, \label{eqn:sano_dynamic} \\
+\frac{di}{dt} &= r_i i \left(1 - \frac{i}{k_i}\right) - \eta c i + \delta s^2 i - \frac{\mu}{2} \beta c^2. \label{eqn:inmune_dynamic}
+\end{align}
+
+\section{Parámetros del modelo}
+\begin{table}[H]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Parámetro} & \textbf{Valor} & \textbf{Descripción} \\
+\midrule
+$r_c$ & 5.84 & Tasa de crecimiento de células cancerígenas \\
+$r_s$ & 13.12 & Tasa de crecimiento de células sanas \\
+$r_i$ & 10.92 & Tasa de crecimiento de células inmunes \\
+$k_c$, $k_s$, $k_i$ & 1.00 & Capacidad de carga de cada población \\
+$a$ & 7.22 & Umbral de crecimiento para células cancerígenas \\
+$\alpha$ & 10.22 & Inhibición de células sanas por el cáncer \\
+$\beta$ & 7.60 & Inhibición de células inmunes por el cáncer \\
+$\gamma$ & 0.74 & Interacción entre células sanas e inmunes \\
+$\delta$ & 5.40 & Cooperación entre células sanas e inmunes \\
+$\eta$ & 5.08 & Eficiencia del sistema inmune contra el cáncer \\
+$\mu$ & $\in \{0, 1\}$ & Activación binaria de la respuesta inmune \\
+$D_c = D_s = D_i$ & 1.00 & Coeficientes de difusión espacial \\
+\bottomrule
+\end{tabular}
+\caption{Parámetros utilizados en el modelo matemático de interacción entre células.}
+\end{table}
+
+\section{Implementación del efecto Allee fuerte}
+El efecto Allee fuerte introduce una barrera crítica a la proliferación tumoral. Las ecuaciones toman la forma:
+\begin{align}
+\frac{dc}{dt} &= r_c c \left(\frac{c}{a} - 1\right)\left(\frac{c - a}{k_c - a}\right) - \alpha c s - \beta c i - \frac{\mu}{2} (\eta i^2 + \gamma s^2), \\
+\frac{ds}{dt} &= r_s s \left(1 - \frac{s}{k_s}\right) - \gamma c s + \delta s i^2 - \frac{\mu}{2} \alpha c^2, \\
+\frac{di}{dt} &= r_i i \left(1 - \frac{i}{k_i}\right) - \eta c i + \delta s^2 i - \frac{\mu}{2} \beta c^2.
+\end{align}
+En este régimen la transición extinción/despegue es abrupta: si $c$ no supera el umbral, el tumor colapsa; si lo supera, se activa la rama proliferativa.
+
+\section{No reciprocidad en las interacciones}
+Los términos $-\alpha cs$, $-\beta ci$ y $-\eta ci$ no son simétricos entre poblaciones: la supresión del sistema inmune por el tumor difiere de la supresión del tumor por el sistema inmune. Esta asimetría genera flujos no recíprocos que modifican la geometría del campo vectorial y la ubicación de umbrales.
+
+\section{Extensión espacio--temporal}
+Para capturar patrones, el modelo se extiende a ecuaciones de reacción--difusión:
+\begin{align}
+\partial_t c &= D_c \nabla^2 c + r_c c(\text{Allee}) - c(\alpha s^2 + \beta i^2) - \mu c(\gamma s^2 + \eta i^2), \label{eqn:cancer_dynamic_spatial}\\
+\partial_t s &= D_s \nabla^2 s + r_s s(1-s) - \gamma c^2 s + \delta i^2 s - \tfrac{\mu}{2}\alpha s c^2, \label{eqn:sano_dynamic_spatial}\\
+\partial_t i &= D_i \nabla^2 i + r_d i(1-i) + \delta s^2 i - \eta c^2 i - \tfrac{\mu}{2}\beta c^2 i. \label{eqn:inmune_dynamic_spatial}
+\end{align}
+Usando una hipótesis cuasi-estática sobre $i$ se obtiene $i(c,s)= 1 + \frac{\delta s^2 - c^2(\eta + \beta \mu/2)}{r_d}$, lo que permite reducir a dos nullclines $F1=0$ y $F2=0$ en el plano $(c,s)$, base para el análisis de estados estacionarios.
+
+\section{Control inmunológico $u(x,y,t)$}
+El parámetro $\mu$ activa términos variacionales; un campo externo $u(x,y,t)$ puede introducir terapias adaptativas. Al comparar $\mu=0$ frente a $\mu=1$ o protocolos $u$, deben documentarse forma temporal/espacial, magnitud máxima e impacto en métricas como pico tumoral, carga acumulada y tiempo a extinción.
+

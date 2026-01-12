@@ -1,0 +1,32 @@
+\chapter{Detalles numéricos}
+
+\section{Herramientas y flujo de trabajo}
+\begin{itemize}
+  \item FEniCS para resolver las PDE en 2D (elementos finitos, formulación débil, solver no lineal SNES).
+  \item Notebooks: \texttt{cancer\_dynamics.ipynb} (dinámicas), \texttt{cancer\_dynamics\_control.ipynb} (control), \texttt{steady\_states.ipynb} (nullclines), \texttt{correlation\_fourier/real.ipynb} (análisis espectral).
+  \item Flujo estándar Weak/Strong Allee: dinámicas $\rightarrow$ correlación Fourier $\rightarrow$ correlación real $\rightarrow$ estados estacionarios.
+  \item Salidas recientes: \texttt{steady\_states\_scan.csv}, \texttt{steady\_states\_summary.png}, \texttt{steady\_states\_bars\_story.png}, \texttt{steady\_states\_candidates\_story.csv}.
+\end{itemize}
+
+\section{Condiciones iniciales y discretización}
+Condiciones iniciales aleatorias acotadas en
+\[
+0.8 < c < 1.2, \quad 0.2 < s < 0.6, \quad 0 < i < 0.2,
+\]
+con \(T=2\), $\Delta t=0.005$ y malla uniforme de 200 nodos. Simulaciones para $\mu\in\{0,1\}$ en los dos regímenes de Allee.
+
+\section{Procedimiento para nullclines y autovalores}
+\begin{enumerate}
+  \item Discretizar hiper-parámetros y rejilla de semillas: Weak ($\mu=1$) con $rc\in\{5.0,5.84,6.5\}$, $\beta\in\{5.0,7.6,9.0\}$, $\delta\in\{3.5,5.4,7.0\}$, $\eta\in\{3.0,5.08,7.0\}$, $rd\in\{9.0,10.92,12.5\}$; Strong ($\mu=1$) con $rc\in\{4.5,5.0,5.5,6.5\}$, $\beta\in\{3,5,7\}$, $\delta\in\{5,7,9\}$, $\eta\in\{1,3,5\}$, $rd\in\{8,10,12\}$; semillas 5×5 en $[0.2,3.0]^2$ (Weak) y $[0.2,2.5]^2$ (Strong).
+  \item Evaluar nullclines $F1,F2$ y aplicar Newton–Raphson hasta $\|\Delta\|<10^{-8}$; descartar Jacobianos mal condicionados ($\mathrm{cond}(J)>10^{12}$), raíces no finitas o duplicadas (distancia $<10^{-3}$).
+  \item Filtrar $i^*>0$ y calcular autovalores del Jacobiano reducido; clasificar por $\mathrm{Re}\,\lambda_{\max}$.
+  \item Filtros físicos: $s^*>0$, $c^*>0$, $0.05<i^*<1.05$, $0<\mathrm{Re}\,\lambda_{\max}<70$, $c^*<2.5$, $s^*<1.2$ (Weak) o $s^*<1.0$ (Strong).
+  \item Persistencia de datos en \texttt{filesystem/mu1/Weak\_Allee/} y \texttt{filesystem/mu1/Strong\_Allee/}; carpetas \texttt{mu0} reservadas.
+\end{enumerate}
+
+\section{Notas de correlación y espectros}
+La longitud de correlación $\xi(t)$ se calculó para autocorrelaciones $c_c,s_s,i_i$ y cruzadas $c_s,c_i,s_i$ mostrando crecimiento subdifusivo $\xi(t)\sim e^{\alpha} t^{0.5}$. Las figuras de potencia y correlaciones se listan en el Cap.~\ref{fig:power_spectrum_cancer_mu1} y en las Figuras \ref{fig:correlation_c_c}--\ref{fig:correlation_strong_s_i}.
+
+
+
+

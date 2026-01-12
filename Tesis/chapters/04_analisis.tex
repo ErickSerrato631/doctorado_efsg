@@ -1,0 +1,114 @@
+\chapter{Análisis matemático}
+
+\section{Estados estacionarios}
+Los estados estacionarios $(c^*, s^*, i^*)$ satisfacen
+\[
+\frac{dc}{dt} = \frac{ds}{dt} = \frac{di}{dt} = 0.
+\]
+Biológicamente representan situaciones de equilibrio: coexistencia regulada o puntos de transición crítica. Un estado estable puede corresponder a un tumor controlado por el sistema inmune; uno inestable marca el umbral mínimo para el despegue tumoral.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{images/steady.png}
+\includegraphics[width=0.45\textwidth]{images/steady_mu0.png}
+\caption{Estado estacionario inestable en el plano $(c,s)$ bajo dos regímenes de \(\mu\). Izquierda: \(\mu = 0\), \(P_1 = (1.4103, 1.0414, 0.6110)\); derecha: \(\mu = 1\), \(P_1 = (1.0826, 0.4885, 0.1649)\). Las nulclinas $r_1 = 0$ (negro) y $r_2 = 0$ (azul) muestran cómo la presencia de estructura variacional modifica la geometría del flujo.}
+\label{fig:steady_gral}
+\end{figure}
+
+\section{Candidatos inestables y rejillas de parámetros}
+Se listan puntos inestables usados como condiciones iniciales en barridos Weak/Strong, $\mu\in\{0,1\}$, $a=0.1$; todos cumplen $i^*>0$ (Re $\lambda_{\max}>0$).
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabular}{ccccccccccc}
+\toprule
+Modelo & $\mu$ & $rc$ & $\beta$ & $\delta$ & $\eta$ & $rd$ & $c^*$ & $s^*$ & $i^*$ & Re $\lambda_{\max}$ \\
+\midrule
+Weak & 0 & 3.0 & 7.0 & 3.0 & 0.5 & 12.0 & $3.2\times10^{-18}$ & $2.0\times10^{-17}$ & 1.000 & 16.12 \\
+Weak & 0 & 3.0 & 7.0 & 3.0 & 5.0 & 10.0 & $3.4\times10^{-18}$ & $2.0\times10^{-17}$ & 1.000 & 16.12 \\
+Weak & 0 & 3.0 & 7.0 & 3.0 & 7.0 & 6.0  & $3.7\times10^{-18}$ & $2.0\times10^{-17}$ & 1.000 & 16.12 \\
+Weak & 0 & 4.0 & 7.0 & 3.0 & 1.0 & 14.0 & $8.9\times10^{-18}$ & $2.0\times10^{-17}$ & 1.000 & 16.12 \\
+Weak & 0 & 4.0 & 7.0 & 3.0 & 7.0 & 14.0 & $9.3\times10^{-18}$ & $2.0\times10^{-17}$ & 1.000 & 16.12 \\
+\midrule
+Weak & 1 & 3.0 & 1.0 & 3.0 & 7.0 & 8.0 & 1.0066 & $1.0\times10^{-21}$ & 0.050 & 4.63 \\
+Weak & 1 & 3.0 & 1.0 & 5.0 & 7.0 & 8.0 & 1.0066 & $1.2\times10^{-20}$ & 0.050 & 4.63 \\
+Weak & 1 & 3.0 & 1.0 & 3.0 & 5.0 & 6.0 & 1.0088 & $3.0\times10^{-26}$ & 0.067 & 4.64 \\
+Weak & 1 & 3.0 & 1.0 & 5.0 & 5.0 & 6.0 & 1.0088 & $1.9\times10^{-21}$ & 0.067 & 4.64 \\
+Weak & 1 & 3.0 & 1.0 & 7.0 & 5.0 & 6.0 & 1.0088 & $3.2\times10^{-25}$ & 0.067 & 4.64 \\
+\bottomrule
+\end{tabular}
+\caption{Weak Allee: 5 candidatos con $c^*\approx 0$ (arriba) y 5 con $c^*>0.9$ (abajo).}
+\end{table}
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabular}{ccccccccccc}
+\toprule
+Modelo & $\mu$ & $rc$ & $\beta$ & $\delta$ & $\eta$ & $rd$ & $c^*$ & $s^*$ & $i^*$ & Re $\lambda_{\max}$ \\
+\midrule
+Strong & 0 & 5.0 & 1.0 & 9.0 & 0.5 & 14.0 & $-3.2\times10^{-22}$ & 0.2553 & 1.042 & 4.92 \\
+Strong & 0 & 4.0 & 1.0 & 9.0 & 5.0 & 14.0 & $-2.6\times10^{-22}$ & 0.2553 & 1.042 & 4.92 \\
+Strong & 0 & 3.0 & 1.0 & 9.0 & 3.0 & 14.0 & $-1.9\times10^{-22}$ & 0.2553 & 1.042 & 4.92 \\
+Strong & 0 & 6.5 & 3.0 & 9.0 & 1.0 & 14.0 & $-1.3\times10^{-23}$ & 0.2553 & 1.042 & 4.92 \\
+Strong & 0 & 5.5 & 3.0 & 9.0 & 3.0 & 14.0 & $-1.1\times10^{-23}$ & 0.2553 & 1.042 & 4.92 \\
+\midrule
+Strong & 1 & 4.5 & 1.0 & 5.0 & 3.0 & 4.0 & 1.0100 & $1.1\times10^{-20}$ & 0.107 & 6.27 \\
+Strong & 1 & 4.5 & 1.0 & 7.0 & 3.0 & 4.0 & 1.0100 & $4.5\times10^{-21}$ & 0.107 & 6.27 \\
+Strong & 1 & 4.5 & 5.0 & 3.0 & 3.0 & 6.0 & 1.0082 & $4.8\times10^{-21}$ & 0.068 & 6.73 \\
+Strong & 1 & 4.5 & 5.0 & 5.0 & 3.0 & 6.0 & 1.0082 & $1.9\times10^{-20}$ & 0.068 & 6.73 \\
+Strong & 1 & 4.5 & 5.0 & 7.0 & 3.0 & 6.0 & 1.0082 & $6.0\times10^{-20}$ & 0.068 & 6.73 \\
+\bottomrule
+\end{tabular}
+\caption{Strong Allee: 5 candidatos con $c^*\approx 0$ (arriba) y 5 con $c^*>0.9$ (abajo).}
+\end{table}
+
+\section{Escenarios de simulación}
+Cuatro familias de escenarios combinan efecto Allee (débil/fuerte), control inmunológico ($\mu=0,1$) y carga tumoral inicial:
+\begin{itemize}
+  \item \textbf{Weak, $\mu=0$}: umbral suave sin control.
+  \item \textbf{Weak, $\mu=1$}: umbral suave con términos variacionales activos.
+  \item \textbf{Strong, $\mu=0$}: umbral crítico fuerte sin intervención.
+  \item \textbf{Strong, $\mu=1$}: umbral fuerte con control inmunológico.
+\end{itemize}
+Cada familia usa las 5 CIs cercanas a $c^*\approx 0$ y las 5 con $c^*>0.9$, todas inestables, para detonar dinámica espacial y comparar colapso, persistencia o patrones.
+
+\section{Comparación Weak vs Strong (resumen)}
+\begin{itemize}
+  \item \textbf{Escala de inestabilidad}: Weak $\sim 37$–41, Strong $\sim 8.7$–9.7 (norm.\ 0.90–1.00).
+  \item \textbf{Coordenadas de equilibrio}: Weak $c^*\approx 1.08$–1.09, $s^*\approx 0.48$, $i^*\approx 0.05$–0.14; Strong $c^*\approx 1.01$–1.03, $s^*\approx 0$, $i^*\approx 0.06$–0.11.
+  \item \textbf{Patrones de parámetros}: Weak mezcla $rc\approx5$, $\delta\in\{3.5,5.4\}$, $\eta\approx7$, $rd\approx9$–12.5; Strong concentra $s^*\approx0$ y menor Re\,$\lambda_{\max}$.
+  \item \textbf{Conclusión}: no se hallaron equilibrios estables en los rangos muestreados; para buscarlos, reducir $rc$ y/o $\beta,\eta$ o aumentar $rd,\delta$ y refinar mallas.
+\end{itemize}
+
+\section{Resultados recientes de barridos}
+\begin{itemize}
+  \item Weak Allee, $\mu=1$: 628 raíces con $i^*>0$, todas inestables (Re\,$\lambda>0$).
+  \item Filtro moderado (s*,c*>0, $0.05<i^*<1.05$, $0<\mathrm{Re}\,\lambda<70$, $c^*<2.5$, $s^*<1.2$): 622 puntos; inestabilidad crece con $c^*$, $i^*$ decrece con $c^*$ y $s^*$.
+  \item Figuras: \texttt{steady\_states\_summary.png}, \texttt{steady\_states\_bars\_story.png}.
+  \item Estadísticos: mediana $c^*\approx1.01$, $s^*\approx0$, $i^*\approx0.37$; Re\,$\lambda$ mediana $\approx40.7$.
+\end{itemize}
+
+\section{Candidatos sugeridos para PDE (Weak, $\mu=1$)}
+Puntos con $i^*>0$ e inestabilidad moderada-alta (Re\,$\lambda_{\max}\sim 60$), útiles como condiciones iniciales:
+\begin{table}[H]
+\centering
+\begin{tabular}{lccccc}
+\toprule
+$rc$ & $\beta$ & $\delta$ & $\eta$ & $rd$ & $(c^*, s^*, i^*)$; Re\,$\lambda_{\max}$ \\
+\midrule
+6.5 & 5.0 & 7.0 & 3.0 & 10.92 & $(1.15,\;0.56,\;0.54)$; $\approx 60.0$ \\
+6.5 & 7.6 & 7.0 & 3.0 & 12.50 & $(1.14,\;0.54,\;0.46)$; $\approx 61.0$ \\
+6.5 & 9.0 & 7.0 & 3.0 & 12.50 & $(1.12,\;0.52,\;0.40)$; $\approx 61.1$ \\
+\bottomrule
+\end{tabular}
+\caption{Candidatos inestables usados como CI en simulaciones PDE.}
+\end{table}
+
+\section{Estabilidad lineal (resumen)}
+El cálculo de autovalores de la matriz Jacobiana (ODE o PDE linealizada con difusión $-Dk^2$) muestra que todos los puntos reportados son inestables. Los detalles algebraicos y los espectros completos se documentan en el Apéndice~\ref{ap:estabilidad}.
+
+
+
+

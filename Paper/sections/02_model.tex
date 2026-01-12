@@ -1,0 +1,61 @@
+\section{Model}
+
+\subsection{Population variables}
+\begin{itemize}
+    \item $c(t)$ or $c(\mathbf{x},t)$: cancer cell density.
+    \item $s(t)$ or $s(\mathbf{x},t)$: healthy tissue density.
+    \item $i(t)$ or $i(\mathbf{x},t)$: immune effector density.
+\end{itemize}
+
+\subsection{Baseline dynamics (ODE)}
+We start from logistic-like growth for each population and quadratic interaction terms capturing cytotoxicity, tissue damage, and immune cooperation \cite{delitala2007}:
+\begin{align}
+\dot{c} &= r_c\, c\, f_{\text{Allee}}(c) - \alpha\, c\, s - \beta\, c\, i - \tfrac{\mu}{2}(\eta\, i^2 + \gamma\, s^2), \\
+\dot{s} &= r_s\, s \left(1-\tfrac{s}{k_s}\right) - \gamma\, c\, s + \delta\, s\, i^2 - \tfrac{\mu}{2}\alpha\, c^2, \\
+\dot{i} &= r_i\, i \left(1-\tfrac{i}{k_i}\right) - \eta\, c\, i + \delta\, s^2 i - \tfrac{\mu}{2}\beta\, c^2 .
+\end{align}
+
+\subsection{Allee effect formulation}
+\begin{itemize}
+    \item \textbf{Weak Allee:} $f_{\text{Allee}}(c)=\left(\tfrac{c}{a}-1\right)\left(1-\tfrac{c}{k_c}\right)$ (soft threshold) \cite{murray2002}.
+    \item \textbf{Strong Allee:} $f_{\text{Allee}}(c)=\left(\tfrac{c}{a}-1\right)\left(\tfrac{c-a}{k_c-a}\right)$ (hard threshold) \cite{gerlee2022}.
+\end{itemize}
+
+\subsection{Nonreciprocal interactions}
+Suppression of immunity by cancer ($-\eta\,c\,i$) differs from immune cytotoxicity ($-\beta\,c\,i^2$); damage to healthy tissue by cancer ($-\gamma\,c\,s$) differs from competition against cancer ($-\alpha\,c\,s^2$). These asymmetries break reciprocity and reshape nullclines and bifurcations.
+
+\subsection{Immunological control field \texorpdfstring{$u(\mathbf{x},t)$}{u(x,t)}}
+\begin{itemize}
+    \item Binary/parametric control: $\mu\in\{0,1\}$ toggles variational terms.
+    \item Adaptive field: $u(\mathbf{x},t)=u_0\, \dfrac{c}{i+\varepsilon}$ with cap $u_{\max}$ to prioritize high-$c$, low-$i$ regions.
+    \item Coupling: control can enter as enhanced cytotoxicity ($\beta\to \beta+u$) or as an external field in the $i$-equation.
+\end{itemize}
+
+\subsection{Spatial extension (PDE)}
+Adding diffusion yields
+\begin{align}
+\partial_t c &= D_c \nabla^2 c + r_c\, c\, f_{\text{Allee}}(c) - c(\alpha s^2 + \beta i^2) - \mu c(\gamma s^2 + \eta i^2), \\
+\partial_t s &= D_s \nabla^2 s + r_s s(1-s) - \gamma c^2 s + \delta i^2 s - \tfrac{\mu}{2}\alpha s c^2, \\
+\partial_t i &= D_i \nabla^2 i + r_i i(1-i) + \delta s^2 i - \eta c^2 i - \tfrac{\mu}{2}\beta c^2 i .
+\end{align}
+Diffusion acts as a mode selector; with $D=\mathrm{diag}(D_c,D_s,D_i)$ the linear spectrum is $\lambda(k)=\mathrm{eig}(J-Dk^2)$.
+
+\begin{table*}[!htbp]
+\centering
+\begin{tabular}{lll}
+\toprule
+Symbol & Description & Example value \\
+\midrule
+$r_c,r_s,r_i$ & intrinsic growth rates (cancer, healthy, immune) & $5.84,\ 13.12,\ 10.92$ \\
+$k_c,k_s,k_i$ & carrying capacities & $1,\ 1,\ 1$ \\
+$a$ & Allee threshold (weak/strong) & $7.22$ (weak), $0.1$ (strong scans) \\
+$\alpha,\beta,\gamma,\delta,\eta$ & nonreciprocal interaction strengths & $10.22,\ 7.60,\ 0.74,\ 5.40,\ 5.08$ \\
+$D_c,D_s,D_i$ & diffusion coefficients (spatial model) & $1,\ 1,\ 1$ \\
+$\mu$ & control/variational switch & $\{0,1\}$ \\
+$u(\mathbf{x},t)$ & adaptive immunological control field & capped by $u_{\max}$ \\
+\bottomrule
+\end{tabular}
+\caption{Variables y par\'ametros del modelo. Ajustar valores según régimen weak/strong y escenarios de control.}
+\label{tab:params}
+\end{table*}
+

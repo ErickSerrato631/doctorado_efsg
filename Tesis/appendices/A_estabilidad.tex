@@ -1,0 +1,55 @@
+\chapter{Cálculos de estabilidad}
+\label{ap:estabilidad}
+
+\section{Allee débil}
+Se linealiza el sistema espacial
+\begin{align}
+    \frac{dc}{dt} &= D_c \nabla^2 c + r_c c \left( \frac{c}{a} - 1 \right)\left(1 - \frac{c}{k_c} \right) - \alpha c s^2 - \beta c i^2 - \mu ( \gamma s^2 + \eta i^2), \label{eqn:cancer_dynamic_spatial_app} \\
+    \frac{ds}{dt} &= D_s \nabla^2 s + r_s s \left(1 - \frac{s}{k_s} \right) - \gamma s c^2 + \delta s i^2 - \frac{\mu}{2} \alpha s c^2, \label{eqn:sano_dynamic_spatial_app} \\
+    \frac{di}{dt} &= D_i \nabla^2 i + r_i i \left(1 - \frac{i}{k_i} \right) - \eta c^2 i + \delta s^2 i - \frac{\mu}{2} \beta i c^2. \label{eqn:inmune_dynamic_spatial_app}
+\end{align}
+Para un estado estacionario \((c_0, s_0, i_0)\), perturbaciones $\tilde{c},\tilde{s},\tilde{i}$ satisfacen
+\[
+\frac{d}{dt}
+\begin{pmatrix}
+ \tilde{c} \\
+ \tilde{s} \\
+ \tilde{i}
+\end{pmatrix}
+= 
+\mathbf{J}
+\begin{pmatrix}
+ \tilde{c} \\
+ \tilde{s} \\
+ \tilde{i}
+\end{pmatrix},
+\]
+donde \(\mathbf{J}\) es el Jacobiano evaluado en $(c_0,s_0,i_0)$. El signo de $\Re(\lambda_j(q))$ determina estabilidad; partes imaginarias indican oscilaciones (remisión/recurrencia). Para $\mu=1$ (activación inmune completa, efecto débil) se obtuvieron los espectros:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{images/estabilidad_lineal_weak_mu0.png}
+    \includegraphics[width=0.45\textwidth]{images/estabilidad_lineal_weak_mu1.png}
+    \caption{Espectros lineales en torno al punto inestable \(P_1(c,s,i)\) para $\mu=0$ (izq.) y $\mu=1$ (der.). En ambos casos $\Re(\lambda_1)>0$ cerca de $q=0$, confirmando inestabilidad.}
+    \label{fig:stability_allee_weak_app}
+\end{figure}
+
+\section{Allee fuerte}
+El sistema con efecto fuerte y difusión se linealiza análogamente:
+\begin{align}
+    \frac{dc}{dt} &= D_c \nabla^2 c + r_c c \left(\frac{c}{a} - 1\right)\left(\frac{c - a}{k_c - a}\right) - \alpha c s^2 - \beta c i^2 - \mu ( \gamma s^2 + \eta i^2), \\
+    \frac{ds}{dt} &= D_s \nabla^2 s + r_s s \left(1 - \frac{s}{k_s} \right) - \gamma s c^2 + \delta s i^2 - \frac{\mu}{2} \alpha s c^2, \\
+    \frac{di}{dt} &= D_i \nabla^2 i + r_i i \left(1 - \frac{i}{k_i} \right) - \eta c^2 i + \delta s^2 i - \frac{\mu}{2} \beta i c^2. 
+\end{align}
+Se analizó el punto $P_1 = (0, 0, 1)$:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{images/estabilidad_lineal_strong_mu0.png}
+    \includegraphics[width=0.45\textwidth]{images/estabilidad_lineal_strong_mu1.png}
+    \caption{Autovalores $\lambda_j(q)$ para $P_1$ con efecto Allee fuerte. $\Re(\lambda_1)>0$ cerca de $q=0$ en ambos casos; $\mu=1$ atenúa inestabilidad en altas frecuencias.}
+    \label{fig:stability_allee_strong_app}
+\end{figure}
+El régimen $\mu=1$ no estabiliza el equilibrio pero reduce la banda de modos inestables; las partes imaginarias son nulas o constantes, indicando crecimiento exponencial sin oscilaciones.
+
+
+
+

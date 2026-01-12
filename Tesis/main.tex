@@ -1,0 +1,71 @@
+\documentclass[12pt,oneside]{report}
+
+\input{preamble}
+
+\begin{document}
+
+% =========================
+% PORTADA UAM-I
+% =========================
+\begin{titlepage}
+\centering
+{\Large UNIVERSIDAD AUTÓNOMA METROPOLITANA\\}
+{\Large UNIDAD IZTAPALAPA\\}
+\vspace{2cm}
+{\huge\bfseries Dinámica no recíproca con efecto Allee y control inmunológico\\}
+\vspace{1cm}
+{\Large en sistemas cáncer--células sanas--sistema inmune\\}
+\vspace{2cm}
+{\Large Tesis que presenta\\}
+{\Large\bfseries Erick Serrato García\\}
+\vfill
+{\Large para obtener el grado de\\}
+{\Large\bfseries Doctor en Ciencias (Física)\\}
+\vspace{1cm}
+{\Large Director: Dr. XXXXX\\}
+\vspace{1cm}
+{\Large Ciudad de México, \the\year}
+\end{titlepage}
+
+\pagenumbering{roman}
+
+\chapter*{Resumen}
+\addcontentsline{toc}{chapter}{Resumen}
+
+[Resumen en español]
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+[Abstract in English]
+
+\tableofcontents
+\listoffigures
+\addcontentsline{toc}{chapter}{Lista de Figuras}
+\listoftables
+\addcontentsline{toc}{chapter}{Lista de Tablas}
+
+\clearpage
+\pagenumbering{arabic}
+
+\include{chapters/01_introduccion}
+\include{chapters/02_estado_arte}
+\include{chapters/03_modelo}
+\include{chapters/04_analisis}
+\include{chapters/05_dinamica_espacial}
+\include{chapters/06_control}
+\include{chapters/07_discusion}
+\include{chapters/08_conclusiones}
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\appendix
+\include{appendices/A_estabilidad}
+\include{appendices/B_numerico}
+
+\end{document}
+
+
+
+

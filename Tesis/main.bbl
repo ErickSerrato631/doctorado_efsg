@@ -1,0 +1,52 @@
+\begin{thebibliography}{1}
+
+\bibitem{murray_mathematical_2002}
+James~D. Murray.
+\newblock {\em Mathematical Biology I: An Introduction}, volume~17 of {\em
+  Interdisciplinary Applied Mathematics}.
+\newblock Springer, 3rd edition, 2002.
+
+\bibitem{gerlee_autocrine_2022}
+Philip Gerlee, Philipp~M. Altrock, Arif Malik, Cecilia Krona, and Sven
+  Nelander.
+\newblock Autocrine signaling can explain the emergence of allee effects in
+  cancer cell populations.
+\newblock {\em PLOS Computational Biology}, 18(3):e1009844, 2022.
+
+\bibitem{bottger_emerging_2015}
+Katja Böttger, Haralampos Hatzikirou, Anja Voss-Böhme, Elisabetta~A.
+  Cavalcanti-Adam, Miguel~A. Herrero, and Andreas Deutsch.
+\newblock An emerging allee effect is critical for tumor initiation and
+  persistence.
+\newblock {\em PLOS Computational Biology}, 11(9):e1004366, 2015.
+
+\bibitem{turing_chemical_1952}
+Alan~M. Turing.
+\newblock The chemical basis of morphogenesis.
+\newblock {\em Philosophical Transactions of the Royal Society of London.
+  Series B, Biological Sciences}, 237(641):37--72, 1952.
+
+\bibitem{bellomo_multiscale_2008}
+Nicola Bellomo, Abdelghani Bellouquid, Youshan Tao, and Michael Winkler.
+\newblock Multiscale biological tissue models and flux-limited chemotaxis for
+  multicellular growing systems.
+\newblock {\em Mathematical Models and Methods in Applied Sciences},
+  18(1):1--29, 2008.
+
+\bibitem{delitala_mathematical_2007}
+Mauro Delitala and Tommaso Lorenzi.
+\newblock Mathematical modelling of cancer immunotherapy strategies.
+\newblock {\em Mathematical and Computer Modelling}, 45(5--6):571--593, 2007.
+
+\bibitem{gatenby_role_2004}
+Robert~A. Gatenby and Robert~J. Gillies.
+\newblock The role of the microenvironment in tumorigenesis.
+\newblock {\em Nature Reviews Cancer}, 4(12):891--899, 2004.
+
+\bibitem{corcoran_cancer_2020}
+Conor Corcoran, Daniele Mercatelli, and Francesco~M. Giorgi.
+\newblock Cancer systems biology: a new paradigm in understanding cancer
+  through mathematical modeling.
+\newblock {\em Frontiers in Oncology}, 10:1174, 2020.
+
+\end{thebibliography}
