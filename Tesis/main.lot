@@ -4,11 +4,11 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {3.1}{\ignorespaces Parámetros utilizados en el modelo matemático de interacción entre células.}}{6}{table.caption.6}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Weak Allee: 5 candidatos con $c^*\approx 0$ (arriba) y 5 con $c^*>0.9$ (abajo).}}{9}{table.caption.8}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Strong Allee: 5 candidatos con $c^*\approx 0$ (arriba) y 5 con $c^*>0.9$ (abajo).}}{9}{table.caption.9}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Candidatos inestables usados como CI en simulaciones PDE.}}{11}{table.caption.10}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Estados estacionarios - Weak Allee. Los valores $\approx 0$ indican magnitudes numéricamente próximas a cero.}}{9}{table.caption.8}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Estados estacionarios - Strong Allee. Los valores $\approx 0$ indican magnitudes numéricamente próximas a cero.}}{10}{table.caption.9}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Estados estacionarios de escenarios Strong Allee con y sin control adaptativo tipo Hill $u=u_{\mathop {\mathgroup \symoperators m\acute {a}x}}\,H_{\mathrm {act}}(c;K_c,n_c)\,H_{\mathrm {inh}}(i;K_i,n_i)$ con $u_{\mathop {\mathgroup \symoperators m\acute {a}x}}=1$. Valores $\approx 0$ indican magnitudes numéricamente próximas a cero. Todos los puntos son inestables (silla/foco).}}{33}{table.caption.33}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

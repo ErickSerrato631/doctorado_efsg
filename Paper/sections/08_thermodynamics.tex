@@ -1,0 +1,152 @@
+\section{Thermodynamic Diagnostic}\label{sec:thermodynamics}
+
+The transport form introduced in Sec.~\ref{sec:spatial} provides a direct nonequilibrium diagnostic for the spatial simulations. The diffusive currents $\mathbf{J}_a=-D_a\nabla\phi_a$ measure how gradients in $c$, $s$, and $i$ are relaxed by transport, while the reaction terms organize the local growth, competition, immune feedback, and control response. We therefore use the gradient content of the fields as a positive diffusive entropy-production density in model units.
+
+In nonequilibrium thermodynamics, local dissipative densities are written as sums of flux--force products. For diffusion at uniform temperature, a classical contribution has the structure
+\begin{equation}
+    \sigma_S
+    =-\frac{1}{T}\sum_a \mathbf{J}_a\cdot\nabla\mu_a+\cdots ,
+    \label{eq:entropy-flux-force}
+\end{equation}
+where $\mu_a$ is a thermodynamic chemical potential. If the constitutive law is $\mathbf{J}_a=-D_a\nabla\mu_a$, then each diffusive contribution is nonnegative:
+\begin{equation}
+    -\mathbf{J}_a\cdot\nabla\mu_a
+    =D_a\left|\nabla\mu_a\right|^2\geq 0 .
+    \label{eq:positive-mu-diss}
+\end{equation}
+
+The visualization and time-series post-processing used here follow the effective convention implemented in the nonequilibrium scripts: the population fields themselves are used as the transport variables driving Fickian diffusion, i.e. $\mu_a\equiv\phi_a$ at the level of the plotted diffusive fluxes. Thus the local positive density is
+\begin{equation}
+    \sigma_{\mathrm{diss},a}(\mathbf{x},t)
+    :=D_a\left|\nabla\phi_a(\mathbf{x},t)\right|^2,
+    \label{eq:sigma-diss-field}
+\end{equation}
+and the total density plotted in the spatial $\sigma^+$ maps is
+\begin{equation}
+    \sigma^+(\mathbf{x},t)
+    \equiv\sigma_{\mathrm{diss,tot}}(\mathbf{x},t)
+    =D_c|\nabla c|^2+D_s|\nabla s|^2+D_i|\nabla i|^2 .
+    \label{eq:sigma-plus-density}
+\end{equation}
+The corresponding integrated time series is
+\begin{equation}
+    \Sigma_{\mathrm{diss}}(t)
+    =\int_\Omega \sigma^+(\mathbf{x},t)\,dA
+    =\int_{\Omega}\sum_a D_a
+    \left|\nabla \phi_a(\mathbf{x},t)\right|^2\,dA .
+    \label{eq:sigma-diss-integral}
+\end{equation}
+Introducing a constant effective temperature $T_{\mathrm{eff}}$ would only rescale this entropy-production measure by $1/T_{\mathrm{eff}}$; it would not change the spatial patterns or the relative temporal comparisons. We therefore report $\Sigma_{\mathrm{diss}}$ directly as a diffusive organization metric: large values indicate sharp interfaces and strong transport demand, whereas decay indicates smoothing and coarsening.
+
+\begin{figure*}[!htbp]
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[draft=false,width=\linewidth]{noneq_sigma_diss_comparison.png}
+        \caption{$\Sigma_{\mathrm{diss}}(t)$}
+        \label{fig:noneq_sigma_diss}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[draft=false,width=\linewidth]{noneq_sigma_c_comparison.png}
+        \caption{$\Sigma_c=\int D_c|\nabla c|^2dA$}
+        \label{fig:noneq_sigma_c}
+    \end{subfigure}
+
+    \vspace{0.6em}
+
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[draft=false,width=\linewidth]{noneq_sigma_s_comparison.png}
+        \caption{$\Sigma_s=\int D_s|\nabla s|^2dA$}
+        \label{fig:noneq_sigma_s}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[draft=false,width=\linewidth]{noneq_sigma_i_comparison.png}
+        \caption{$\Sigma_i=\int D_i|\nabla i|^2dA$}
+        \label{fig:noneq_sigma_i}
+    \end{subfigure}
+    \caption{Diffusive entropy-production diagnostics for the strong-Allee scenarios in the window $0\leq t\leq 1$, sampled with $\Delta t=0.005$. The total integrated entropy production $\Sigma_{\mathrm{diss}}(t)$ is shown together with the cancer, healthy-tissue, and immune contributions. Larger values correspond to sharper interfaces and stronger spatial gradients; decay indicates diffusive smoothing and coarsening. The uncontrolled nonreciprocal baseline retains the largest late-time gradient content, whereas Hill control strongly suppresses the cancer contribution and the reciprocal-completion curves remain close with or without control, indicating that this setting has already selected a similar spatial route.}
+    \label{fig:noneq_sigma_panel}
+\end{figure*}
+
+The species-resolved panels in Fig.~\ref{fig:noneq_sigma_panel} give the temporal chronology of gradient relaxation. Early times are dominated by sharp interfaces generated from the initial heterogeneous texture. As coarsening proceeds, each compartment relaxes on its own scale, revealing whether the spatial organization is controlled by tumor fronts, healthy-tissue recovery, or immune localization.
+
+We also compute effective potentials from the variational post-processing functional,
+\begin{equation}
+    \mu_a^{\mathrm{eff}}(\mathbf{x},t)
+    \sim \frac{\delta F}{\delta\phi_a},
+    \label{eq:effective-potentials}
+\end{equation}
+and use their spatial averages to compare the mean direction and intensity of the population-level driving forces. Because the reaction Jacobian can be decomposed as
+\begin{equation}
+    A_{ab}:=\frac{\partial R_a}{\partial\phi_b},
+    \qquad
+    A=S+N,
+    \label{eq:jacobian-symmetric-antisymmetric}
+\end{equation}
+with a generally nonzero antisymmetric part $N$, the homogeneous reaction subsystem contains a rotational or nonreciprocal component. We therefore use the effective potentials as comparative observables for the modeled population dynamics.
+
+This decomposition also clarifies the reciprocal reference case. If the reaction dynamics can be completed as a gradient flow,
+\begin{equation}
+    R_a(\phi)=-M_a\,\frac{\delta F}{\delta\phi_a},
+    \qquad M_a>0,
+    \label{eq:reciprocal-gradient-flow}
+\end{equation}
+then the antisymmetric part vanishes ($N=0$) and the free-energy functional decreases monotonically,
+\begin{equation}
+    \frac{dF}{dt}
+    =-\sum_a\int_\Omega M_a
+    \left|\frac{\delta F}{\delta\phi_a}\right|^2 dA
+    -\sum_a\int_\Omega D_a
+    \left|\nabla\frac{\delta F}{\delta\phi_a}\right|^2 dA
+    \leq 0 .
+    \label{eq:free-energy-descent}
+\end{equation}
+The nonreciprocal cases analyzed below should be read against this gradient-flow baseline: they need not minimize a single global $F$, and the Hill control can alter the spatial redistribution of gradients rather than simply accelerating descent along a free-energy landscape.
+
+\begin{figure*}[!htbp]
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[draft=false,width=\linewidth]{noneq_mu_c_effective_comparison.png}
+        \caption{$\langle\mu_c^{\mathrm{eff}}\rangle$}
+        \label{fig:noneq_mu_c}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[draft=false,width=\linewidth]{noneq_mu_s_effective_comparison.png}
+        \caption{$\langle\mu_s^{\mathrm{eff}}\rangle$}
+        \label{fig:noneq_mu_s}
+    \end{subfigure}
+
+    \vspace{0.6em}
+
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[draft=false,width=\linewidth]{noneq_mu_i_effective_comparison.png}
+        \caption{$\langle\mu_i^{\mathrm{eff}}\rangle$}
+        \label{fig:noneq_mu_i}
+    \end{subfigure}
+    \caption{Spatial averages of the effective cancer, healthy-tissue, and immune potentials for the four strong-Allee scenarios. The panel highlights how control and reciprocity structure modify the mean driving forces: in the nonreciprocal baseline, Hill control shifts the cancer potential from weakly favorable to strongly suppressive and raises the healthy-tissue and immune potentials; in the reciprocal-completion setting, controlled and uncontrolled trajectories nearly overlap, showing that the additional coupling structure already imposes the dominant thermodynamic bias.}
+    \label{fig:noneq_mu_panel}
+\end{figure*}
+
+The effective potentials make the contrast between control regimes explicit. For $\mathcal{R}=0$, activating the adaptive control changes the final averaged potentials from a weak cancer-favorable balance, approximately $\langle\mu_c^{\mathrm{eff}}\rangle\simeq 6.2\times10^{-2}$, $\langle\mu_s^{\mathrm{eff}}\rangle\simeq -1.7\times10^{-2}$, and $\langle\mu_i^{\mathrm{eff}}\rangle\simeq -1.4\times10^{-1}$, to a strongly cancer-suppressing and healthy--immune-favoring state, approximately $\langle\mu_c^{\mathrm{eff}}\rangle\simeq -19.7$, $\langle\mu_s^{\mathrm{eff}}\rangle\simeq 6.1$, and $\langle\mu_i^{\mathrm{eff}}\rangle\simeq 6.2$. This explains why the $\mathcal{R}=0$ correlations change substantially when $u$ is switched on: the control reverses the effective population driving forces and changes which fields organize the interfaces.
+
+For $\mathcal{R}=1$, the uncontrolled and controlled trajectories are much closer. Both end with strongly negative cancer potential and positive healthy/immune potentials, approximately $\langle\mu_c^{\mathrm{eff}}\rangle\simeq -35$, $\langle\mu_s^{\mathrm{eff}}\rangle\simeq 7.47$, and $\langle\mu_i^{\mathrm{eff}}\rangle\simeq 7.17$. This happens because the $\mathcal{R}=1$ scenarios already include the reciprocal-completion terms and use the stronger cancer--immune coupling set ($\beta=5$ instead of $\beta=3$, with $r_d=10$ instead of $14$). In this regime, reciprocity completion has already selected a cancer-suppressed, healthy--immune organized route, so adaptive control produces a smaller additional displacement in the effective-potential and correlation curves.
+
+Thus, the large separation between Hill-on and Hill-off curves for $\mathcal{R}=0$ arises because the control supplies the dominant geometric bias in a nonreciprocal background. By contrast, for $\mathcal{R}=1$, the reciprocal-completion terms already impose a cancer-suppressing, healthy--immune organized route; Hill control therefore produces only a secondary correction in both effective potentials and diffusive entropy production.
+
+In the reciprocal completion of the dynamics, equivalently the gradient-flow limit in Eqs.~\eqref{eq:reciprocal-gradient-flow}--\eqref{eq:free-energy-descent}, the Hill control has no comparable effect on the diffusive entropy production. Its thermodynamic signature is therefore tied to the nonreciprocal regime, where the control changes the spatial redistribution of gradients rather than simply relaxing along a free-energy descent.
+
+For completeness, we also evaluate the gradient content of these effective potentials:
+\begin{equation}
+    \Sigma_{\mu}(t)=
+    \int_{\Omega}\sum_a D_a
+    \left|\nabla \mu_a^{\mathrm{eff}}(\mathbf{x},t)\right|^2\,dA .
+    \label{eq:sigma-mu}
+\end{equation}
+In general $\Sigma_\mu\neq\Sigma_{\mathrm{diss}}$, unless the effective potentials are linearly related to the fields in the relevant range. The primary observable in this paper remains $\sigma^+=\sigma_{\mathrm{diss,tot}}$, while $\Sigma_\mu$ is used as a complementary measure of heterogeneity in the effective driving forces.
+

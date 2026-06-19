@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.30)  5 JAN 2026 00:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.30)  25 MAY 2026 21:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -421,46 +421,85 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@lastruleclass=\count297
 \@thisrulewidth=\dimen167
 )
+(C:\Program Files\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+
+(C:\Program Files\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(C:\Program Files\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen168
+\captionmargin=\dimen169
+\caption@leftmargin=\dimen170
+\caption@rightmargin=\dimen171
+\caption@width=\dimen172
+\caption@indent=\dimen173
+\caption@parindent=\dimen174
+\caption@hangindent=\dimen175
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+Package caption Info: \@makecaption = \long macro:#1#2->\par \vskip \abovecapti
+onskip \begingroup \small \rmfamily \sbox \@tempboxa {\let \\\heading@cr \@make
+@capt@title {#1}{#2}}\@ifdim {\wd \@tempboxa >\hsize }{\begingroup \samepage \f
+lushing \let \footnote \@footnotemark@gobble \@make@capt@title {#1}{#2}\par \en
+dgroup }{\global \@minipagefalse \hb@xt@ \hsize {\hfil \unhbox \@tempboxa \hfil
+ }}\endgroup \vskip \belowcaptionskip  on input line 1175.
+)
+
+Package caption Warning: Unknown document class (or package),
+(caption)                standard defaults will be used.
+See the caption package documentation for explanation.
+
+\c@caption@flags=\count298
+\c@continuedfloat=\count299
+Package caption Info: hyperref package is loaded.
+)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count300
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count301
+)
 Class revtex4-2 Info: Unrecognized LaTeX tabular. Please update this document c
-lass! (Proceeding with fingers crossed.) on input line 23.
-Class revtex4-2 Info: cite was not loaded (OK!) on input line 23.
-Class revtex4-2 Info: mcite was not loaded (OK!) on input line 23.
-Class revtex4-2 Info: multicol was not loaded (OK!) on input line 23.
+lass! (Proceeding with fingers crossed.) on input line 25.
+Class revtex4-2 Info: cite was not loaded (OK!) on input line 25.
+Class revtex4-2 Info: mcite was not loaded (OK!) on input line 25.
+Class revtex4-2 Info: multicol was not loaded (OK!) on input line 25.
  (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
 
 (C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\sup
 p-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count298
-\scratchdimen=\dimen168
+\scratchcounter=\count302
+\scratchdimen=\dimen176
 \scratchbox=\box69
-\nofMPsegments=\count299
-\nofMParguments=\count300
+\nofMPsegments=\count303
+\nofMParguments=\count304
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count301
-\MPscratchDim=\dimen169
-\MPnumerator=\count302
-\makeMPintoPDFobject=\count303
+\MPscratchCnt=\count305
+\MPscratchDim=\dimen177
+\MPnumerator=\count306
+\makeMPintoPDFobject=\count307
 \everyMPtoPDFconversion=\toks26
 )
 (C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\ep
@@ -473,209 +512,250 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 df-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 23.
+Package hyperref Info: Link coloring OFF on input line 25.
  (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-Class revtex4-2 Info: Taking \maketitle back from hyperref on input line 23.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+Class revtex4-2 Info: Taking \maketitle back from hyperref on input line 25.
 \openout3 = `mainNotes.bib'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 33.
 
 
 (C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.f
 d
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 33.
 
 
 (C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.f
 d
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (sections/01_introduction.tex) (sections/02_model.tex [1{C:/Users/Erick Serra
-to/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}])
-(sections/03_meanfield.tex [2]
-<figures/steady_mu0.png, id=183, 378.3547pt x 355.68176pt>
-File: figures/steady_mu0.png Graphic file (type png)
-<use figures/steady_mu0.png>
-Package pdftex.def Info: figures/steady_mu0.png  used on input line 18.
-(pdftex.def)             Requested size: 244.79782pt x 230.13208pt.
-<figures/steady.png, id=184, 381.89735pt x 358.51588pt>
-File: figures/steady.png Graphic file (type png)
-<use figures/steady.png>
-Package pdftex.def Info: figures/steady.png  used on input line 19.
-(pdftex.def)             Requested size: 244.79782pt x 229.81042pt.
-<figures/steady_strong_mu_0.png, id=185, 538.48235pt x 496.67912pt>
-File: figures/steady_strong_mu_0.png Graphic file (type png)
-<use figures/steady_strong_mu_0.png>
-Package pdftex.def Info: figures/steady_strong_mu_0.png  used on input line 25.
-
-(pdftex.def)             Requested size: 244.79782pt x 225.7923pt.
-<figures/steady_strong_mu_1.png, id=186, 391.10823pt x 360.64146pt>
-File: figures/steady_strong_mu_1.png Graphic file (type png)
-<use figures/steady_strong_mu_1.png>
-Package pdftex.def Info: figures/steady_strong_mu_1.png  used on input line 26.
-
-(pdftex.def)             Requested size: 244.79782pt x 225.73602pt.
-<figures/estabilidad_lineal_weak_mu0.png, id=187, 465.74pt x 257.96375pt>
-File: figures/estabilidad_lineal_weak_mu0.png Graphic file (type png)
-<use figures/estabilidad_lineal_weak_mu0.png>
-Package pdftex.def Info: figures/estabilidad_lineal_weak_mu0.png  used on input
- line 32.
-(pdftex.def)             Requested size: 244.79782pt x 135.5865pt.
-<figures/estabilidad_lineal_weak_mu1.png, id=188, 465.74pt x 257.96375pt>
-File: figures/estabilidad_lineal_weak_mu1.png Graphic file (type png)
-<use figures/estabilidad_lineal_weak_mu1.png>
-Package pdftex.def Info: figures/estabilidad_lineal_weak_mu1.png  used on input
- line 33.
-(pdftex.def)             Requested size: 244.79782pt x 135.5865pt.
-<figures/estabilidad_lineal_strong_mu0.png, id=189, 465.74pt x 262.9825pt>
-File: figures/estabilidad_lineal_strong_mu0.png Graphic file (type png)
-<use figures/estabilidad_lineal_strong_mu0.png>
-Package pdftex.def Info: figures/estabilidad_lineal_strong_mu0.png  used on inp
-ut line 39.
-(pdftex.def)             Requested size: 244.79782pt x 138.22437pt.
-<figures/estabilidad_lineal_strong_mu1.png, id=190, 465.74pt x 262.9825pt>
-File: figures/estabilidad_lineal_strong_mu1.png Graphic file (type png)
-<use figures/estabilidad_lineal_strong_mu1.png>
-Package pdftex.def Info: figures/estabilidad_lineal_strong_mu1.png  used on inp
-ut line 40.
-(pdftex.def)             Requested size: 244.79782pt x 138.22437pt.
-) (sections/04_spatial.tex [3 <./figures/steady_mu0.png (PNG copy)> <./figures/
-steady.png (PNG copy)>]
-<figures/fields_mu_0.png, id=196, 1084.05pt x 578.16pt>
-File: figures/fields_mu_0.png Graphic file (type png)
-<use figures/fields_mu_0.png>
-Package pdftex.def Info: figures/fields_mu_0.png  used on input line 14.
-(pdftex.def)             Requested size: 244.79782pt x 130.55676pt.
-<figures/fields_mu_1.png, id=198, 1084.05pt x 578.16pt>
-File: figures/fields_mu_1.png Graphic file (type png)
-<use figures/fields_mu_1.png>
-Package pdftex.def Info: figures/fields_mu_1.png  used on input line 15.
-(pdftex.def)             Requested size: 244.79782pt x 130.55676pt.
-<figures/fields_strong_mu_0.png, id=199, 1084.05pt x 578.16pt>
-File: figures/fields_strong_mu_0.png Graphic file (type png)
-<use figures/fields_strong_mu_0.png>
-Package pdftex.def Info: figures/fields_strong_mu_0.png  used on input line 16.
-
-(pdftex.def)             Requested size: 244.79782pt x 130.55676pt.
-<figures/fields_strong_mu_1.png, id=200, 1084.05pt x 578.16pt>
-File: figures/fields_strong_mu_1.png Graphic file (type png)
-<use figures/fields_strong_mu_1.png>
-Package pdftex.def Info: figures/fields_strong_mu_1.png  used on input line 17.
-
-(pdftex.def)             Requested size: 244.79782pt x 130.55676pt.
- [4 <./figures/steady_strong_mu_0.png (PNG copy)> <./figures/steady_strong_mu_1
-.png (PNG copy)> <./figures/estabilidad_lineal_weak_mu0.png (PNG copy)> <./figu
-res/estabilidad_lineal_weak_mu1.png (PNG copy)> <./figures/estabilidad_lineal_s
-trong_mu0.png (PNG copy)> <./figures/estabilidad_lineal_strong_mu1.png (PNG cop
-y)>]
-<figures/power_spectrum_c_0.000.png, id=208, 578.16pt x 578.16pt>
-File: figures/power_spectrum_c_0.000.png Graphic file (type png)
-<use figures/power_spectrum_c_0.000.png>
-Package pdftex.def Info: figures/power_spectrum_c_0.000.png  used on input line
- 23.
-(pdftex.def)             Requested size: 244.79782pt x 244.79285pt.
-<figures/power_spectrum_c_1.000.png, id=209, 578.16pt x 578.16pt>
-File: figures/power_spectrum_c_1.000.png Graphic file (type png)
-<use figures/power_spectrum_c_1.000.png>
-Package pdftex.def Info: figures/power_spectrum_c_1.000.png  used on input line
- 24.
-(pdftex.def)             Requested size: 244.79782pt x 244.79285pt.
-<figures/correlation_mean_c_c.png, id=210, 722.7pt x 433.62pt>
-File: figures/correlation_mean_c_c.png Graphic file (type png)
-<use figures/correlation_mean_c_c.png>
-Package pdftex.def Info: figures/correlation_mean_c_c.png  used on input line 2
-5.
-(pdftex.def)             Requested size: 244.79782pt x 146.87967pt.
-<figures/correlation_mean_s_s.png, id=211, 722.7pt x 433.62pt>
-File: figures/correlation_mean_s_s.png Graphic file (type png)
-<use figures/correlation_mean_s_s.png>
-Package pdftex.def Info: figures/correlation_mean_s_s.png  used on input line 2
-6.
-(pdftex.def)             Requested size: 244.79782pt x 146.87967pt.
-<figures/correlation_mean_i_i.png, id=212, 722.7pt x 433.62pt>
-File: figures/correlation_mean_i_i.png Graphic file (type png)
-<use figures/correlation_mean_i_i.png>
-Package pdftex.def Info: figures/correlation_mean_i_i.png  used on input line 3
-2.
-(pdftex.def)             Requested size: 244.79782pt x 146.87967pt.
-<figures/correlation_mean_c_i.png, id=213, 722.7pt x 433.62pt>
-File: figures/correlation_mean_c_i.png Graphic file (type png)
-<use figures/correlation_mean_c_i.png>
-Package pdftex.def Info: figures/correlation_mean_c_i.png  used on input line 3
-3.
-(pdftex.def)             Requested size: 244.79782pt x 146.87967pt.
-<figures/correlation_strong_mean_c_c.png, id=214, 722.7pt x 433.62pt>
-File: figures/correlation_strong_mean_c_c.png Graphic file (type png)
-<use figures/correlation_strong_mean_c_c.png>
-Package pdftex.def Info: figures/correlation_strong_mean_c_c.png  used on input
- line 34.
-(pdftex.def)             Requested size: 244.79782pt x 146.87967pt.
-<figures/correlation_strong_mean_c_i.png, id=215, 722.7pt x 433.62pt>
-File: figures/correlation_strong_mean_c_i.png Graphic file (type png)
-<use figures/correlation_strong_mean_c_i.png>
-Package pdftex.def Info: figures/correlation_strong_mean_c_i.png  used on input
- line 35.
-(pdftex.def)             Requested size: 244.79782pt x 146.87967pt.
-)
-(sections/05_control.tex
-File: figures/estabilidad_lineal_strong_mu1.png Graphic file (type png)
-<use figures/estabilidad_lineal_strong_mu1.png>
-Package pdftex.def Info: figures/estabilidad_lineal_strong_mu1.png  used on inp
-ut line 39.
-(pdftex.def)             Requested size: 306.00311pt x 172.7905pt.
-) (sections/06_discussion.tex [5 <./figures/fields_mu_0.png> <./figures/fields_
-mu_1.png> <./figures/fields_strong_mu_0.png> <./figures/fields_strong_mu_1.png>
-] [6 <./figures/power_spectrum_c_0.000.png> <./figures/power_spectrum_c_1.000.p
-ng> <./figures/correlation_mean_c_c.png> <./figures/correlation_mean_s_s.png>])
- (sections/07_conclusions.tex [7 <./figures/correlation_mean_i_i.png> <./figure
-s/correlation_mean_c_i.png> <./figures/correlation_strong_mean_c_c.png> <./figu
-res/correlation_strong_mean_c_i.png>])
-No file main.bbl.
-[8] (main.aux)
+to/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2])
+(sections/04_spatial.tex
+<figures/steady_states.png, id=141, 715.2321pt x 642.4803pt>
+File: figures/steady_states.png Graphic file (type png)
+<use figures/steady_states.png>
+Package pdftex.def Info: figures/steady_states.png  used on input line 7.
+(pdftex.def)             Requested size: 367.20062pt x 329.84679pt.
+ (figures/steady_states_i_table.tex) [3] [4 <./figures/steady_states.png>]
+<figures/evol_vector_fields/quiver_Jc_t_0.250.png, id=164, 462.528pt x 397.485p
+t>
+File: figures/evol_vector_fields/quiver_Jc_t_0.250.png Graphic file (type png)
+<use figures/evol_vector_fields/quiver_Jc_t_0.250.png>
+Package pdftex.def Info: figures/evol_vector_fields/quiver_Jc_t_0.250.png  used
+ on input line 56.
+(pdftex.def)             Requested size: 153.00156pt x 131.48584pt.
+<figures/evol_vector_fields/quiver_Js_t_0.250.png, id=165, 462.528pt x 397.485p
+t>
+File: figures/evol_vector_fields/quiver_Js_t_0.250.png Graphic file (type png)
+<use figures/evol_vector_fields/quiver_Js_t_0.250.png>
+Package pdftex.def Info: figures/evol_vector_fields/quiver_Js_t_0.250.png  used
+ on input line 56.
+(pdftex.def)             Requested size: 153.00156pt x 131.48584pt.
+<figures/evol_vector_fields/quiver_Ji_t_0.250.png, id=166, 462.528pt x 397.485p
+t>
+File: figures/evol_vector_fields/quiver_Ji_t_0.250.png Graphic file (type png)
+<use figures/evol_vector_fields/quiver_Ji_t_0.250.png>
+Package pdftex.def Info: figures/evol_vector_fields/quiver_Ji_t_0.250.png  used
+ on input line 56.
+(pdftex.def)             Requested size: 153.00156pt x 131.48584pt.
+<figures/evol_vector_fields/quiver_Jc_t_0.750.png, id=167, 462.528pt x 397.485p
+t>
+File: figures/evol_vector_fields/quiver_Jc_t_0.750.png Graphic file (type png)
+<use figures/evol_vector_fields/quiver_Jc_t_0.750.png>
+Package pdftex.def Info: figures/evol_vector_fields/quiver_Jc_t_0.750.png  used
+ on input line 57.
+(pdftex.def)             Requested size: 153.00156pt x 131.48584pt.
+<figures/evol_vector_fields/quiver_Js_t_0.750.png, id=168, 462.528pt x 397.485p
+t>
+File: figures/evol_vector_fields/quiver_Js_t_0.750.png Graphic file (type png)
+<use figures/evol_vector_fields/quiver_Js_t_0.750.png>
+Package pdftex.def Info: figures/evol_vector_fields/quiver_Js_t_0.750.png  used
+ on input line 57.
+(pdftex.def)             Requested size: 153.00156pt x 131.48584pt.
+<figures/evol_vector_fields/quiver_Ji_t_0.750.png, id=169, 462.528pt x 397.485p
+t>
+File: figures/evol_vector_fields/quiver_Ji_t_0.750.png Graphic file (type png)
+<use figures/evol_vector_fields/quiver_Ji_t_0.750.png>
+Package pdftex.def Info: figures/evol_vector_fields/quiver_Ji_t_0.750.png  used
+ on input line 57.
+(pdftex.def)             Requested size: 153.00156pt x 131.48584pt.
+<figures/evol_vector_fields/quiver_Jc_t_1.000.png, id=170, 462.528pt x 397.485p
+t>
+File: figures/evol_vector_fields/quiver_Jc_t_1.000.png Graphic file (type png)
+<use figures/evol_vector_fields/quiver_Jc_t_1.000.png>
+Package pdftex.def Info: figures/evol_vector_fields/quiver_Jc_t_1.000.png  used
+ on input line 58.
+(pdftex.def)             Requested size: 153.00156pt x 131.48584pt.
+<figures/evol_vector_fields/quiver_Js_t_1.000.png, id=171, 462.528pt x 397.485p
+t>
+File: figures/evol_vector_fields/quiver_Js_t_1.000.png Graphic file (type png)
+<use figures/evol_vector_fields/quiver_Js_t_1.000.png>
+Package pdftex.def Info: figures/evol_vector_fields/quiver_Js_t_1.000.png  used
+ on input line 58.
+(pdftex.def)             Requested size: 153.00156pt x 131.48584pt.
+<figures/evol_vector_fields/quiver_Ji_t_1.000.png, id=172, 462.528pt x 397.485p
+t>
+File: figures/evol_vector_fields/quiver_Ji_t_1.000.png Graphic file (type png)
+<use figures/evol_vector_fields/quiver_Ji_t_1.000.png>
+Package pdftex.def Info: figures/evol_vector_fields/quiver_Ji_t_1.000.png  used
+ on input line 58.
+(pdftex.def)             Requested size: 153.00156pt x 131.48584pt.
+<figures/correlations/corr_grid_c_c.png, id=175, 612.689pt x 374.5192pt>
+File: figures/correlations/corr_grid_c_c.png Graphic file (type png)
+<use figures/correlations/corr_grid_c_c.png>
+Package pdftex.def Info: figures/correlations/corr_grid_c_c.png  used on input 
+line 88.
+(pdftex.def)             Requested size: 244.79782pt x 149.63358pt.
+<figures/correlations/corr_grid_s_s.png, id=176, 612.689pt x 374.5192pt>
+File: figures/correlations/corr_grid_s_s.png Graphic file (type png)
+<use figures/correlations/corr_grid_s_s.png>
+Package pdftex.def Info: figures/correlations/corr_grid_s_s.png  used on input 
+line 89.
+(pdftex.def)             Requested size: 244.79782pt x 149.63358pt.
+<figures/correlations/corr_grid_i_i.png, id=177, 612.689pt x 374.5192pt>
+File: figures/correlations/corr_grid_i_i.png Graphic file (type png)
+<use figures/correlations/corr_grid_i_i.png>
+Package pdftex.def Info: figures/correlations/corr_grid_i_i.png  used on input 
+line 90.
+(pdftex.def)             Requested size: 244.79782pt x 149.63358pt.
+<figures/correlations/corr_grid_c_s.png, id=178, 612.689pt x 374.5192pt>
+File: figures/correlations/corr_grid_c_s.png Graphic file (type png)
+<use figures/correlations/corr_grid_c_s.png>
+Package pdftex.def Info: figures/correlations/corr_grid_c_s.png  used on input 
+line 95.
+(pdftex.def)             Requested size: 244.79782pt x 149.63358pt.
+<figures/correlations/corr_grid_c_i.png, id=179, 612.689pt x 374.5192pt>
+File: figures/correlations/corr_grid_c_i.png Graphic file (type png)
+<use figures/correlations/corr_grid_c_i.png>
+Package pdftex.def Info: figures/correlations/corr_grid_c_i.png  used on input 
+line 96.
+(pdftex.def)             Requested size: 244.79782pt x 149.63358pt.
+<figures/correlations/corr_grid_s_i.png, id=180, 612.689pt x 374.5192pt>
+File: figures/correlations/corr_grid_s_i.png Graphic file (type png)
+<use figures/correlations/corr_grid_s_i.png>
+Package pdftex.def Info: figures/correlations/corr_grid_s_i.png  used on input 
+line 97.
+(pdftex.def)             Requested size: 244.79782pt x 149.63358pt.
+) (sections/05_control.tex [5])
+(sections/08_thermodynamics.tex [6 <./figures/evol_vector_fields/quiver_Jc_t_0.
+250.png> <./figures/evol_vector_fields/quiver_Js_t_0.250.png> <./figures/evol_v
+ector_fields/quiver_Ji_t_0.250.png> <./figures/evol_vector_fields/quiver_Jc_t_0
+.750.png> <./figures/evol_vector_fields/quiver_Js_t_0.750.png> <./figures/evol_
+vector_fields/quiver_Ji_t_0.750.png> <./figures/evol_vector_fields/quiver_Jc_t_
+1.000.png> <./figures/evol_vector_fields/quiver_Js_t_1.000.png> <./figures/evol
+_vector_fields/quiver_Ji_t_1.000.png>] [7 <./figures/correlations/corr_grid_c_c
+.png> <./figures/correlations/corr_grid_s_s.png> <./figures/correlations/corr_g
+rid_i_i.png> <./figures/correlations/corr_grid_c_s.png> <./figures/correlations
+/corr_grid_c_i.png> <./figures/correlations/corr_grid_s_i.png>]
+<figures/noneq_sigma_diss_comparison.png, id=229, 759.9592pt x 384.1552pt>
+File: figures/noneq_sigma_diss_comparison.png Graphic file (type png)
+<use figures/noneq_sigma_diss_comparison.png>
+Package pdftex.def Info: figures/noneq_sigma_diss_comparison.png  used on input
+ line 45.
+(pdftex.def)             Requested size: 244.79782pt x 123.74109pt.
+<figures/noneq_sigma_c_comparison.png, id=230, 759.9592pt x 384.1552pt>
+File: figures/noneq_sigma_c_comparison.png Graphic file (type png)
+<use figures/noneq_sigma_c_comparison.png>
+Package pdftex.def Info: figures/noneq_sigma_c_comparison.png  used on input li
+ne 51.
+(pdftex.def)             Requested size: 244.79782pt x 123.74109pt.
+<figures/noneq_sigma_s_comparison.png, id=231, 759.9592pt x 384.1552pt>
+File: figures/noneq_sigma_s_comparison.png Graphic file (type png)
+<use figures/noneq_sigma_s_comparison.png>
+Package pdftex.def Info: figures/noneq_sigma_s_comparison.png  used on input li
+ne 60.
+(pdftex.def)             Requested size: 244.79782pt x 123.74109pt.
+<figures/noneq_sigma_i_comparison.png, id=232, 759.9592pt x 384.1552pt>
+File: figures/noneq_sigma_i_comparison.png Graphic file (type png)
+<use figures/noneq_sigma_i_comparison.png>
+Package pdftex.def Info: figures/noneq_sigma_i_comparison.png  used on input li
+ne 66.
+(pdftex.def)             Requested size: 244.79782pt x 123.74109pt.
+ [8]
+<figures/noneq_mu_c_effective_comparison.png, id=249, 759.9592pt x 384.1552pt>
+File: figures/noneq_mu_c_effective_comparison.png Graphic file (type png)
+<use figures/noneq_mu_c_effective_comparison.png>
+Package pdftex.def Info: figures/noneq_mu_c_effective_comparison.png  used on i
+nput line 113.
+(pdftex.def)             Requested size: 244.79782pt x 123.74109pt.
+<figures/noneq_mu_s_effective_comparison.png, id=250, 759.9592pt x 384.1552pt>
+File: figures/noneq_mu_s_effective_comparison.png Graphic file (type png)
+<use figures/noneq_mu_s_effective_comparison.png>
+Package pdftex.def Info: figures/noneq_mu_s_effective_comparison.png  used on i
+nput line 119.
+(pdftex.def)             Requested size: 244.79782pt x 123.74109pt.
+<figures/noneq_mu_i_effective_comparison.png, id=251, 759.9592pt x 384.1552pt>
+File: figures/noneq_mu_i_effective_comparison.png Graphic file (type png)
+<use figures/noneq_mu_i_effective_comparison.png>
+Package pdftex.def Info: figures/noneq_mu_i_effective_comparison.png  used on i
+nput line 128.
+(pdftex.def)             Requested size: 244.79782pt x 123.74109pt.
+ [9 <./figures/noneq_sigma_diss_comparison.png> <./figures/noneq_sigma_c_compar
+ison.png> <./figures/noneq_sigma_s_comparison.png> <./figures/noneq_sigma_i_com
+parison.png>]) (sections/06_discussion.tex [10 <./figures/noneq_mu_c_effective_
+comparison.png> <./figures/noneq_mu_s_effective_comparison.png> <./figures/none
+q_mu_i_effective_comparison.png>] [11]) (sections/07_conclusions.tex) (main.bbl
+) [12]
+(main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 50E3012577C5F30340FE3827BA2FA3A0;6384.
+(rerunfilecheck)             Checksum: CF3D84BE75980168CD1D1B724EDC8DB6;4403.
  ) 
 Here is how much of TeX's memory you used:
- 12706 strings out of 474479
- 193081 string characters out of 5739778
- 1953542 words of memory out of 5000000
- 34751 multiletter control sequences out of 15000+600000
- 568758 words of font info for 75 fonts, out of 8000000 for 9000
+ 14254 strings out of 474479
+ 225660 string characters out of 5739778
+ 1961542 words of memory out of 5000000
+ 36261 multiletter control sequences out of 15000+600000
+ 571739 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 79i,11n,93p,518b,534s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 79i,13n,93p,2433b,598s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Erick Serrato\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
 600\tcrm1000.pk><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Erick Serrato/AppData/Local/Programs
 /MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Erick Serrato/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/Eri
-ck Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.
-pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmmi10.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Erick Serrato/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Erick Serrato/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/
-Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi
-9.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmr10.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Erick Serrato/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Erick Serrato/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Er
-ick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmsy7.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Erick Serrato/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on main.pdf (8 pages, 3749531 bytes).
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/Eri
+ck Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.p
+fb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmbx9.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Erick Serrato/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><C:/Users/Erick Serrat
+o/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/U
+sers/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmmi5.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmmi6.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Erick Serrato/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Erick Serr
+ato/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/
+Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmr10.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmr5.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Erick Serrato/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Erick Serrat
+o/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Use
+rs/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+mr9.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Erick Serrato/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Erick Serrat
+o/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Us
+ers/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmsy9.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmti10.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/Erick Serrato/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on main.pdf (12 pages, 15950132 bytes).
 PDF statistics:
- 344 PDF objects out of 1000 (max. 8388607)
- 66 named destinations out of 1000 (max. 500000)
- 381 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 422 PDF objects out of 1000 (max. 8388607)
+ 78 named destinations out of 1000 (max. 500000)
+ 292 words of extra memory for PDF output out of 10000 (max. 10000000)
 

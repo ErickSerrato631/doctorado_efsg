@@ -1,0 +1,16 @@
+{% if model_load_error %}
+<div class="alert alert-danger">
+    <strong>Error al cargar el modelo</strong>
+    <pre class="small mb-0 mt-2" style="white-space: pre-wrap;">{{ model_load_error }}</pre>
+</div>
+{% elif sympy_available and latex_Rc %}
+<div class="card model-lab-card border-0 shadow-none">
+    <div class="card-body p-0 p-md-2">
+        <div class="catalog-mathjax-root" id="catalogEqPane-{{ catalog_uid }}" data-catalog-uid="{{ catalog_uid }}">
+            {% include "steady_states_app/includes/model_equations_pde.html" %}
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="alert alert-warning mb-0">No se pudieron renderizar las ecuaciones (SymPy / <code>Models/Allee</code>).</div>
+{% endif %}

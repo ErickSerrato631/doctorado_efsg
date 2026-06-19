@@ -1,0 +1,449 @@
+{% extends 'steady_states_app/base.html' %}
+
+{% block title %}Dashboard — laboratorio NPDE{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-lg-10">
+        <h1 class="lab-page-title mb-3"><i class="bi bi-speedometer2 text-primary"></i> Dashboard</h1>
+        <div class="modal fade" id="analysisEEModal" tabindex="-1" aria-labelledby="analysisEEModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header border-bottom py-3">
+                        <div>
+                            <h2 class="modal-title h5 mb-0" id="analysisEEModalLabel">
+                                <i class="bi bi-diagram-3 text-primary"></i> Generar estados estacionarios (c, s, i)
+                            </h2>
+                            <p class="small text-muted mb-0 mt-1">Newton-Raphson en semillas; opción de escribir JSON auxiliar bajo Allee (el dashboard no lo usa como catálogo).</p>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body" id="analysisEEModalBody">
+                        <p class="text-muted small mb-0"><span class="spinner-border spinner-border-sm me-2" role="status"></span>Preparando formulario…</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-wrap gap-2">
+            <button type="button" class="btn btn-primary btn-sm btn-open-analysis-ee">
+                <i class="bi bi-diagram-3"></i> Generar estados estacionarios
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Estadísticas -->
+<div class="row mb-4 g-3">
+    <div class="col-md-3">
+        <div class="card lab-kpi lab-kpi--primary">
+            <div class="card-body">
+                <div class="lab-kpi__label">
+                    <i class="bi bi-clipboard-data lab-kpi__icon"></i> Total análisis
+                </div>
+                <p class="lab-kpi__value">{{ total_analyses }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card lab-kpi lab-kpi--success">
+            <div class="card-body">
+                <div class="lab-kpi__label">
+                    <i class="bi bi-check-circle lab-kpi__icon"></i> Completados
+                </div>
+                <p class="lab-kpi__value">{{ completed_analyses }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card lab-kpi lab-kpi--danger">
+            <div class="card-body">
+                <div class="lab-kpi__label">
+                    <i class="bi bi-x-circle lab-kpi__icon"></i> Fallidos
+                </div>
+                <p class="lab-kpi__value">{{ failed_analyses }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card lab-kpi lab-kpi--info">
+            <div class="card-body">
+                <div class="lab-kpi__label">
+                    <i class="bi bi-file-code lab-kpi__icon"></i> Escenarios (catálogo)
+                </div>
+                <p class="lab-kpi__value">{{ scenarios_count }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include "steady_states_app/includes/dashboard_pipeline_rollups.html" %}
+
+<!-- Estado de experimentos (resultados en disco, pipeline Allee) -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="bi bi-hdd-network"></i> Estado de experimentos (resultados en disco)</h5>
+            </div>
+            <div class="card-body">
+                <p class="text-muted small mb-3">
+                    Orden del pipeline y física: <code>Models/Allee/PIPELINE_EJECUCION_Y_FISICA.md</code>;
+                    comandos y montaje de Drive: <code>Models/notas</code>.
+                    Esta tabla lee la misma raíz que <code>run_scenarios</code> (<code>RESULTS_DIR</code> o
+                    <code>utils_paths.get_results_dir</code>). Los cuatro KPI superiores son las <strong>búsquedas de EE en Django</strong>;
+                    el resumen <strong>Pipeline en disco</strong> (arriba) y las barras en cada tarjeta usan el escaneo al cargar el dashboard (caché ~{{ experiment_status_cache_ttl }}&nbsp;s).
+                    Para comprobar lectura/escritura y rutas (p. ej. Drive montado en WSL), usa
+                    <a href="{% url 'steady_states_app:storage_health' %}">Comprobar almacenamiento</a> en el menú.
+                </p>
+                {% if experiment_status.results_root_error %}
+                    <div class="alert alert-danger mb-3">
+                        <strong>No se puede usar la carpeta de resultados.</strong>
+                        {{ experiment_status.results_root_error }}
+                        <span class="d-block mt-1 small">Define <code>RESULTS_DIR</code> en el entorno con una ruta accesible para este proceso (en Windows, una unidad montada o carpeta sincronizada si los datos están en WSL/Drive).</span>
+                    </div>
+                {% elif experiment_status.results_root_empty %}
+                    <div class="alert alert-warning mb-3">
+                        La carpeta de resultados existe pero está vacía: <code>{{ experiment_status.results_root }}</code>.
+                    </div>
+                {% endif %}
+                {% if experiment_status.scenarios_json_missing %}
+                    <div class="alert alert-warning mb-3">
+                        No se encontró <code>steady_states_full_run.json</code> en la ruta configurada.
+                        <span class="d-block mt-2 small text-break"><strong>Ruta que busca Django:</strong> <code>{{ experiment_status.scenarios_catalog_path }}</code></span>
+                        <span class="d-block mt-2 small">Si usas <strong>rclone</strong> (<code>mount_google_drive.sh</code>), el archivo suele estar en <code>~/googledrive/Resultados paper/estados_estacionarios/</code> (monta como el <em>mismo usuario</em> que ejecuta Django; <code>/root/googledrive</code> no es legible para un usuario normal). Con la app de escritorio de Drive en Windows, suele hacer falta la carpeta <code>My Drive</code>. También puedes fijar <code>STEADY_STATES_CATALOG_JSON</code> o <code>GOOGLE_DRIVE_MOUNT_POINT</code> antes de arrancar.</span>
+                    </div>
+                {% endif %}
+                {% if experiment_status.scenarios_json_error %}
+                    <div class="alert alert-danger mb-3">Error al leer el catálogo de escenarios: {{ experiment_status.scenarios_json_error }}</div>
+                {% endif %}
+                <p class="small text-muted mb-2">
+                    Cada tarjeta agrupa un <strong>escenario de rejilla</strong> (nombre corto) con sus <strong>estados estacionarios</strong> (<code>equilibrium_index</code>, <code>c^*, s^*, i^*</code>).
+                    Bajo cada equilibrio se muestra el <strong>progreso del pipeline</strong> (misma lógica que la pestaña Catálogo). El botón <em>Catálogo</em> abre el modal con detalle por etapa.
+                    Estado completo en JSON (cache ~{{ experiment_status_cache_ttl }}&nbsp;s):
+                    <a href="{% url 'steady_states_app:experiment_status_api' %}">JSON</a>
+                    · <a href="{% url 'steady_states_app:experiment_status_api' %}?refresh=1">Refrescar caché</a>
+                </p>
+                {% if experiment_status.scenario_dashboard_groups %}
+                    <div class="modal fade" id="scenarioCatalogModal" tabindex="-1" aria-labelledby="scenarioCatalogModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-xl modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title h5" id="scenarioCatalogModalLabel">Catálogo de pipeline</h2>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                </div>
+                                <div class="modal-body" id="scenarioCatalogModalBody">
+                                    <p class="text-muted small mb-0">Haz clic en <em>Catálogo</em> junto a un equilibrio para cargar ecuaciones, parámetros, figuras y pipeline vía AJAX.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3" id="dashboard-scenario-cards-row">
+                        {% for group in experiment_status.scenario_dashboard_groups %}
+                            {% include "steady_states_app/includes/dashboard_scenario_card_group.html" %}
+                        {% endfor %}
+                    </div>
+                    <p class="small text-muted mb-0 mt-3">Raíz de resultados: <code>{{ experiment_status.results_root }}</code></p>
+                {% elif experiment_status.results_root_ok and not experiment_status.scenarios_json_missing and not experiment_status.scenarios_json_error %}
+                    <p class="text-muted mb-0">No hay escenarios definidos en el catálogo.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+window.labBindAdaptiveControlToggle = function (root) {
+  root = root || document;
+  var cb = root.querySelector('#id_use_adaptive_control');
+  var box = root.querySelector('#control-fields');
+  if (!cb || !box) return;
+  function sync() {
+    box.style.display = cb.checked ? 'block' : 'none';
+  }
+  cb.addEventListener('change', sync);
+  sync();
+};
+
+(function () {
+  function getCookie(name) {
+    var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+    return v ? decodeURIComponent(v[2]) : null;
+  }
+
+  var analysisModalEl = document.getElementById('analysisEEModal');
+  var analysisBody = document.getElementById('analysisEEModalBody');
+  var modalFragmentUrl = '{% url "steady_states_app:analysis_complete_3d_modal" %}';
+  var analysisPostUrl = '{% url "steady_states_app:analysis_config" "complete-3d" %}';
+
+  function loadAnalysisModalForm() {
+    if (!analysisBody) return;
+    analysisBody.innerHTML = '<p class="text-muted small mb-0"><span class="spinner-border spinner-border-sm me-2" role="status"></span>Cargando formulario…</p>';
+    fetch(modalFragmentUrl, {
+      method: 'GET',
+      headers: { 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'text/html' },
+      credentials: 'same-origin'
+    })
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.text();
+      })
+      .then(function (html) {
+        analysisBody.innerHTML = html;
+        window.labBindAdaptiveControlToggle(analysisBody);
+      })
+      .catch(function () {
+        analysisBody.innerHTML = '<div class="alert alert-danger mb-0">No se pudo cargar el formulario. Recarga la página e inténtalo de nuevo.</div>';
+      });
+  }
+
+  function openAnalysisModal() {
+    if (!analysisModalEl) return;
+    loadAnalysisModalForm();
+    bootstrap.Modal.getOrCreateInstance(analysisModalEl).show();
+  }
+
+  document.querySelectorAll('.btn-open-analysis-ee').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      openAnalysisModal();
+    });
+  });
+
+  if (analysisModalEl) {
+    analysisModalEl.addEventListener('submit', function (ev) {
+      var form = ev.target;
+      if (!(form instanceof HTMLFormElement) || !form.classList.contains('analysis-ee-modal-form')) return;
+      ev.preventDefault();
+      var submitBtn = form.querySelector('[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
+      var fd = new FormData(form);
+      fetch(analysisPostUrl, {
+        method: 'POST',
+        body: fd,
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+          'Accept': 'application/json, text/html;q=0.9, */*;q=0.8',
+          'X-CSRFToken': getCookie('csrftoken') || ''
+        },
+        credentials: 'same-origin'
+      })
+        .then(function (r) {
+          var ct = r.headers.get('content-type') || '';
+          if (r.ok && ct.indexOf('application/json') !== -1) {
+            return r.json().then(function (data) {
+              if (data.ok && data.run_url) {
+                window.location.href = data.run_url;
+              }
+            });
+          }
+          if (r.status === 422 && ct.indexOf('text/html') !== -1) {
+            return r.text().then(function (html) {
+              if (analysisBody) {
+                analysisBody.innerHTML = html;
+                window.labBindAdaptiveControlToggle(analysisBody);
+              }
+            });
+          }
+          throw new Error('unexpected response');
+        })
+        .catch(function () {
+          if (analysisBody) {
+            analysisBody.insertAdjacentHTML(
+              'afterbegin',
+              '<div class="alert alert-danger alert-dismissible fade show" role="alert">No se pudo iniciar el análisis. Revisa los datos o la red.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button></div>'
+            );
+          }
+        })
+        .finally(function () {
+          var f = analysisBody && analysisBody.querySelector('.analysis-ee-modal-form');
+          if (f) {
+            var b = f.querySelector('[type="submit"]');
+            if (b) b.disabled = false;
+          }
+        });
+    });
+  }
+
+  try {
+    if (new URLSearchParams(window.location.search).get('abrir_generar_ee') === '1') {
+      openAnalysisModal();
+      var u = new URL(window.location.href);
+      u.searchParams.delete('abrir_generar_ee');
+      var qs = u.searchParams.toString();
+      window.history.replaceState({}, '', u.pathname + (qs ? '?' + qs : '') + u.hash);
+    }
+  } catch (e) {}
+})();
+</script>
+{% if experiment_status.scenario_dashboard_groups %}
+<script>
+(function () {
+  var modalEl = document.getElementById('scenarioCatalogModal');
+  if (!modalEl) return;
+
+  var mathJaxConfigured = false;
+  function configureMathJax() {
+    if (mathJaxConfigured) return;
+    mathJaxConfigured = true;
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      startup: {
+        pageReady: function () {
+          return MathJax.startup.defaultPageReady();
+        }
+      }
+    };
+  }
+
+  var mathJaxScriptLoading = false;
+  function ensureMathJax(then) {
+    if (window.MathJax && window.MathJax.typesetPromise) {
+      then();
+      return;
+    }
+    configureMathJax();
+    if (!mathJaxScriptLoading) {
+      mathJaxScriptLoading = true;
+      var s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      s.async = true;
+      s.onload = function () { then(); };
+      document.head.appendChild(s);
+    } else {
+      var n = 0;
+      var t = setInterval(function () {
+        n += 1;
+        if (window.MathJax && window.MathJax.typesetPromise) {
+          clearInterval(t);
+          then();
+        } else if (n > 200) clearInterval(t);
+      }, 50);
+    }
+  }
+
+  function typesetDashboardModalEq() {
+    var el = document.getElementById('catalogEqPane-dashboardModal');
+    if (!el || !window.MathJax || !MathJax.typesetPromise) return;
+    if (typeof MathJax.typesetClear === 'function') {
+      MathJax.typesetClear([el]);
+    }
+    MathJax.typesetPromise([el]).catch(function () {});
+  }
+
+  function loadCatalogLazyPane(pane) {
+    if (
+      !pane ||
+      !pane.classList.contains('catalog-lazy-pane') ||
+      !pane.getAttribute('data-catalog-lazy-url') ||
+      pane.getAttribute('data-catalog-lazy-loaded') === '1'
+    ) {
+      return Promise.resolve();
+    }
+    var lazyUrl = pane.getAttribute('data-catalog-lazy-url');
+    return fetch(lazyUrl, {
+      method: 'GET',
+      headers: { 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'text/html' },
+      credentials: 'same-origin'
+    })
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.text();
+      })
+      .then(function (html) {
+        pane.innerHTML = html;
+        pane.setAttribute('data-catalog-lazy-loaded', '1');
+        var pid = pane.getAttribute('id');
+        if (pid === 'pane-eq-dashboardModal') {
+          ensureMathJax(typesetDashboardModalEq);
+        }
+        if (pid === 'pane-fig-dashboardModal' && window.labInitCatalogFigureViewer) {
+          window.labInitCatalogFigureViewer(pane);
+        }
+      })
+      .catch(function () {
+        pane.innerHTML =
+          '<div class="alert alert-danger mb-0 small">No se pudo cargar esta pestaña. Intenta de nuevo.</div>';
+      });
+  }
+
+  if (!window.__scenarioCatalogTabMathJax) {
+    window.__scenarioCatalogTabMathJax = true;
+    document.addEventListener(
+      'shown.bs.tab',
+      function (ev) {
+        var tabBtn = ev.target;
+        if (!(tabBtn instanceof Element) || !modalEl.contains(tabBtn)) return;
+        var targetSel = tabBtn.getAttribute('data-bs-target');
+        if (!targetSel) return;
+        var pane = modalEl.querySelector(targetSel);
+        if (!pane) return;
+
+        function maybeTypesetEq() {
+          if (targetSel !== '#pane-eq-dashboardModal') return;
+          ensureMathJax(typesetDashboardModalEq);
+        }
+
+        if (
+          pane.classList.contains('catalog-lazy-pane') &&
+          pane.getAttribute('data-catalog-lazy-url') &&
+          pane.getAttribute('data-catalog-lazy-loaded') !== '1'
+        ) {
+          loadCatalogLazyPane(pane);
+          return;
+        }
+        maybeTypesetEq();
+      },
+      true
+    );
+  }
+
+  document.querySelectorAll('.scenario-catalog-open').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var url = btn.getAttribute('data-catalog-ajax-url');
+      var title = btn.getAttribute('data-scenario-name') || '';
+      var body = document.getElementById('scenarioCatalogModalBody');
+      var titleEl = document.getElementById('scenarioCatalogModalLabel');
+      if (titleEl) {
+        titleEl.textContent = title ? ('Catálogo — ' + title) : 'Catálogo de pipeline';
+      }
+      if (body) {
+        body.innerHTML =
+          '<div class="text-center py-5 px-3">' +
+          '<div class="spinner-border text-primary mb-3" role="status" aria-hidden="true"></div>' +
+          '<p class="text-muted small mb-0">Cargando catálogo del escenario <strong class="font-monospace">' +
+          (title || '…').replace(/</g, '&lt;') +
+          '</strong>…</p></div>';
+      }
+      var modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+      modal.show();
+
+      fetch(url, {
+        method: 'GET',
+        headers: { 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'text/html' },
+        credentials: 'same-origin'
+      })
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.text();
+        })
+        .then(function (html) {
+          if (body) body.innerHTML = html;
+          var eqPane = document.getElementById('pane-eq-dashboardModal');
+          if (eqPane) loadCatalogLazyPane(eqPane);
+        })
+        .catch(function () {
+          if (body) {
+            body.innerHTML = '<div class="alert alert-danger mb-0">Error al cargar el catálogo (AJAX). Comprueba la consola de red o vuelve a intentar.</div>';
+          }
+        });
+    });
+  });
+})();
+</script>
+{% endif %}
+{% endblock %}

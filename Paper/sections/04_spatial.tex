@@ -1,53 +1,101 @@
-\section{Spatial dynamics}
+\section{Spatial Dynamics}\label{sec:spatial}
 
-\subsection{Reaction--diffusion extension}
-Add diffusion to each population:
+Before introducing the reaction--diffusion extension, it is useful to fix the qualitative flow geometry in the $(c,s)$ plane of the reduced kinetic model. Figure~\ref{fig:steady_states} shows streamlines with red markers for the projected stationary points recovered from the local steady-state catalogs and the reduced two-dimensional roots. The origin $(0,0)$ acts as an unstable source, while $(0,1)$, the cluster near $(1,0)$, and the additional off-axis roots organize their neighborhoods as saddle-like structures with stable manifolds along the coordinate axes and repulsive flow into the first quadrant. This phase-space geometry prevents robust relaxation toward a stable homogeneous equilibrium and is consistent with the linear instability $\mathrm{Re}\,\lambda_{\max}>0$ reported in the summary: the steady states act as separators of transient routes rather than attractors, motivating the spatial analysis below.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[draft=false,width=0.72\linewidth]{steady_states.png}
+    \caption{Phase portrait in the $(c,s)$ plane of the reduced two-variable kinetic model associated with the $c$ and $s$ dynamics. Red circles mark the projected stationary points collected from the local steady-state catalogs together with roots of the reduced two-dimensional system; points that are numerically very close in projection are rounded and merged. The streamlines show that the homogeneous references organize the flow as sources or saddle-like separators: trajectories are guided by invariant directions near the axes and by off-axis roots, but are not attracted to a global stable well. This geometry motivates the spatial simulations, where unstable local references seed pattern formation rather than homogeneous relaxation.}\label{fig:steady_states}
+\end{figure}
+
+\begin{table}[!htbp]
+    \centering
+    \caption{Projected stationary points marked in Fig.~\ref{fig:steady_states}, with the corresponding immune coordinate $i^*$. For roots obtained from the reduced $(c,s)$ system, $i^*$ is reconstructed from the algebraic elimination used in the reduction; negative values indicate off-simplex reduced roots rather than physically admissible nonnegative 3D states.}\label{tab:steady_states_i}
+    \input{figures/steady_states_i_table.tex}
+\end{table}
+
+The spatial model is written as a reaction--diffusion system for the population fields $\phi_a\in\{c,s,i\}$,
+\begin{equation}
+    \partial_t\phi_a
+    =D_a\nabla^2\phi_a+R_a(c,s,i),
+    \qquad a\in\{c,s,i\},
+    \label{eq:rd-general}
+\end{equation}
+or, equivalently, in conservative transport form,
+\begin{equation}
+    \partial_t\phi_a=-\nabla\cdot\mathbf{J}_a+R_a,
+    \qquad
+    \mathbf{J}_a=-D_a\nabla\phi_a .
+    \label{eq:transport-form}
+\end{equation}
+This form separates diffusive redistribution, carried by the Fickian currents $\mathbf{J}_a$, from the local nonconservative reactions $R_a$. For the strong-Allee scenarios used in the paper,
 \begin{align}
-\partial_t c &= D_c \nabla^2 c + r_c\, c\, f_{\text{Allee}}(c) - c(\alpha s^2 + \beta i^2) - \mu c(\gamma s^2 + \eta i^2), \\
-\partial_t s &= D_s \nabla^2 s + r_s s(1-s) - \gamma c^2 s + \delta i^2 s - \tfrac{\mu}{2}\alpha s c^2, \\
-\partial_t i &= D_i \nabla^2 i + r_i i(1-i) + \delta s^2 i - \eta c^2 i - \tfrac{\mu}{2}\beta c^2 i .
+\partial_t c &= D_c \nabla^2 c + r_c\, c\, f_{\text{Allee}}(c) - c(\alpha s^2 + \beta i^2) - \mathcal{R} c(\gamma s^2 + \eta i^2), \label{eq:pde-c}\\
+\partial_t s &= D_s \nabla^2 s + r_s s(1-s) - \gamma c^2 s + \delta i^2 s - \tfrac{\mathcal{R}}{2}\alpha s c^2, \label{eq:pde-s}\\
+\partial_t i &= D_i \nabla^2 i + r_i i(1-i) + \delta s^2 i - \eta c^2 i - \tfrac{\mathcal{R}}{2}\beta c^2 i . \label{eq:pde-i}
 \end{align}
+with the cooperative strong-Allee factor
+\begin{equation}
+    f_{\text{Allee}}(c)
+    =\left(\frac{c}{a}-1\right)
+     \left(\frac{c-a}{1-a}\right),
+    \label{eq:strong-allee-factor}
+\end{equation}
+after nondimensionalizing the carrying capacity to one. The parameter $\mathcal{R}$ distinguishes the nonreciprocal baseline from the reciprocal-completion setting, while the adaptive control $u(\mathbf{x},t)$ acts as a spatially targeted immune reinforcement defined in Sec.~\ref{sec:control}. The spatial problem was solved with finite elements (FEniCS) on the two-dimensional computational domain $[0,8]^2$, with $T=1$ and $\Delta t \sim 5\times 10^{-3}$.
 
-\subsection{Numerical methods}
-Finite elements (FEniCS) in 2D; uniform mesh ($\sim$200 nodes per side), step $\Delta t \sim 5\times 10^{-3}$, final time $T\sim 2$. Random initial conditions within feasible bounds $0.8<c<1.2$, $0.2<s<0.6$, $0<i<0.2$. Snapshots y videos siguen los cuatro escenarios: weak/strong y $\mu=0/1$.
+The variables are nondimensional densities and the spatial domain is reported in model units. Thus the simulations identify relative length scales, correlation growth, and interface costs. Assigning the domain to nanometers, micrometers, or millimeters requires an external calibration, for example matching $L_{\mathrm{model}}=8$ to a histological field of view, to an experimentally measured correlation length, or to a measured cell-migration/diffusion scale. In biological terms the patterns should be read as mesoscopic tissue organization, plausibly between cellular and histological scales, but the absolute physical unit is not fixed by the present nondimensional model.
 
-\subsection{Pattern formation}
-Report snapshots of $c,s,i$ for $\mu=0$ vs $\mu=1$ and for weak vs strong Allee (Fig.~4). Extract correlation lengths and dominant wavelengths from FFT; track $\xi(t)$ from autocorrelations ($c_c,s_s,i_i$) y cruzadas ($c_s,c_i,s_i$). Compare organización y compacidad:
-\begin{itemize}
-  \item $\mu=0$: patrones fragmentados, dominios tumorales grandes si Allee es débil; con Allee fuerte los cúmulos son más pequeños.
-  \item $\mu=1$: la estructura variacional suaviza y compacta los dominios; en Allee fuerte los tamaños quedan acotados.
-  \item $\xi(t)$ crece subdifusivamente $\sim e^{\alpha} t^{0.5}$; $c$ presenta la mayor $\xi$, $s_i$ la menor.
-\end{itemize}
-Fig.~5 puede mostrar espectros de potencia (inicio vs fin) y curvas $\xi(t)$.
-
-\begin{figure}[!htbp]
+\begin{figure*}[!htbp]
     \centering
-    \includegraphics[draft=false,width=0.48\linewidth]{fields_mu_0.png}
-    \includegraphics[draft=false,width=0.48\linewidth]{fields_mu_1.png}\\
-    \includegraphics[draft=false,width=0.48\linewidth]{fields_strong_mu_0.png}
-    \includegraphics[draft=false,width=0.48\linewidth]{fields_strong_mu_1.png}
-    \caption{Patrones espaciales de $c,s,i$ en $T\approx1.9$: fila superior (weak Allee) $\mu=0$ y $\mu=1$; fila inferior (strong Allee) $\mu=0$ y $\mu=1$.}
-\end{figure}
+    \footnotesize
+    \setlength{\tabcolsep}{3pt}
+    \renewcommand{\arraystretch}{1.05}
+    \newcommand{\evolimg}[2]{\includegraphics[width=0.30\linewidth]{evol_vector_fields/quiver_#1_t_#2.png}}
+    \begin{tabular}{@{}lccc@{}}
+        & $c$ ($\mathbf{J}_c$) & $s$ ($\mathbf{J}_s$) & $i$ ($\mathbf{J}_i$) \\
+        $t{=}0.25$ & \evolimg{Jc}{0.250} & \evolimg{Js}{0.250} & \evolimg{Ji}{0.250} \\
+        $t{=}0.75$ & \evolimg{Jc}{0.750} & \evolimg{Js}{0.750} & \evolimg{Ji}{0.750} \\
+        $t{=}1.00$ & \evolimg{Jc}{1.000} & \evolimg{Js}{1.000} & \evolimg{Ji}{1.000} \\
+    \end{tabular}
+    \caption{Spatial evolution for the strong-Allee, reciprocal-completion setting with Hill control. Each row shows a time slice from $t=0.25$ to $t=1.00$; columns show the Fickian flux fields $\mathbf{J}_c$, $\mathbf{J}_s$, and $\mathbf{J}_i$ over their corresponding population densities. The initially granular texture coarsens into mesoscopic domains: cancer gradients become weak at late times, while healthy-tissue and immune fields retain aligned spatial structure, indicating coupled tissue--immune organization along common interfaces.}\label{fig:fields_panel_strong_mu1_u}
+\end{figure*}
 
-\begin{figure}[!htbp]
+Figure~\ref{fig:corr_grid_auto_cross} summarizes the corresponding correlation-length diagnostics. For two fields $a,b\in\{c,s,i\}$, the normalized spatial correlation is computed from fluctuations $\delta\phi_a=\phi_a-\langle\phi_a\rangle$ as
+\begin{equation}
+    C_{ab}(r,t)=
+    \frac{\left\langle \delta\phi_a(\mathbf{x},t)
+    \delta\phi_b(\mathbf{x}+\mathbf{r},t)\right\rangle_{|\mathbf{r}|=r}}
+    {\left\langle \delta\phi_a^2\right\rangle^{1/2}
+     \left\langle \delta\phi_b^2\right\rangle^{1/2}},
+    \label{eq:correlation-function}
+\end{equation}
+and the characteristic length $\xi_{ab}(t)$ is extracted from the radial decay of $C_{ab}$. The left column reports autocorrelations, which quantify the characteristic domain size of each field; the right column reports cross-correlations, which quantify spatial co-localization between interacting populations. Across all six observables, $\xi(t)$ follows a subdiffusive growth law,
+\begin{equation}
+    \xi_{ab}(t)\simeq A_{ab}t^{\nu_{ab}},
+    \qquad \nu_{ab}\approx \frac{1}{2},
+    \label{eq:correlation-scaling}
+\end{equation}
+consistent with diffusion-limited coarsening over the simulated time window. The prefactor is the physically informative quantity: adaptive control suppresses the cancer autocorrelation for $\mathcal{R}=0$ and lowers the $c$--$s$ scale, whereas $\mathcal{R}=1$ enhances immune-centered organization, especially in $i$--$i$, $c$--$i$, and $s$--$i$.
+
+The comparison separates two regimes. For $\mathcal{R}=0$, the local couplings do not already impose the strong morphological bias present in the $\mathcal{R}=1$ cases, so activating $u$ becomes the dominant geometric intervention. It changes where gradients are generated, reduces tumor-domain coherence, and reorganizes cancer--immune co-localization. For $\mathcal{R}=1$, the reciprocal-completion terms and the parameter set used for these scenarios already bias the dynamics toward a cancer-suppressed, healthy--immune organized route. Consequently, switching $u$ on produces a smaller incremental change and the $u$ off/on curves are closer in both correlations and effective-potential diagnostics. This morphological interpretation is the basis for the thermodynamic diagnostic in Sec.~\ref{sec:thermodynamics}: changes in correlation length should be accompanied by changes in the diffusive cost of interfaces and in the relative contributions of the $c$, $s$, and $i$ fields.
+
+\begin{figure*}[!htbp]
     \centering
-    \includegraphics[draft=false,width=0.48\linewidth]{power_spectrum_c_0.000.png}
-    \includegraphics[draft=false,width=0.48\linewidth]{power_spectrum_c_1.000.png}\\
-    \includegraphics[draft=false,width=0.48\linewidth]{correlation_mean_c_c.png}
-    \includegraphics[draft=false,width=0.48\linewidth]{correlation_mean_s_s.png}
-    \caption{Arriba: espectro de potencia del campo $c$ al inicio y al final ($\mu=1$, weak Allee). Abajo: evolución de la longitud de correlación $\xi(t)$ para $c_c$ y $s_s$.}
-\end{figure}
-
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[draft=false,width=0.48\linewidth]{correlation_mean_i_i.png}
-    \includegraphics[draft=false,width=0.48\linewidth]{correlation_mean_c_i.png}\\
-    \includegraphics[draft=false,width=0.48\linewidth]{correlation_strong_mean_c_c.png}
-    \includegraphics[draft=false,width=0.48\linewidth]{correlation_strong_mean_c_i.png}
-    \caption{Correlaciones adicionales: izquierda arriba $\xi(t)$ para $i_i$, derecha arriba para $c_i$ (weak Allee); abajo correlaciones análogas en régimen Allee fuerte.}
-\end{figure}
-
-\clearpage
-
-% Fig. 4: spatial patterns (weak/strong, mu=0/1). Fig. 5: temporal evolution of densities or spectra.
-
+    \footnotesize
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \textbf{Autocorrelations}\\[0.25em]
+        \includegraphics[width=\linewidth]{correlations/corr_grid_c_c.png}\\[-0.2em]
+        \includegraphics[width=\linewidth]{correlations/corr_grid_s_s.png}\\[-0.2em]
+        \includegraphics[width=\linewidth]{correlations/corr_grid_i_i.png}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \textbf{Cross-correlations}\\[0.25em]
+        \includegraphics[width=\linewidth]{correlations/corr_grid_c_s.png}\\[-0.2em]
+        \includegraphics[width=\linewidth]{correlations/corr_grid_c_i.png}\\[-0.2em]
+        \includegraphics[width=\linewidth]{correlations/corr_grid_s_i.png}
+    \end{minipage}
+    \caption{Correlation-length growth in the strong-Allee spatial scenarios, arranged as autocorrelations (left column: $c$--$c$, $s$--$s$, $i$--$i$) and cross-correlations (right column: $c$--$s$, $c$--$i$, $s$--$i$). Curves compare the nonreciprocal baseline and the reciprocal-completion setting, each with and without Hill adaptive control. All observables grow with exponents close to $1/2$, consistent with diffusion-limited coarsening. The prefactors carry the mechanistic information: Hill control reduces cancer-domain coherence in the nonreciprocal baseline, whereas the reciprocal-completion setting enhances immune-centered organization and cancer--immune co-localization.}
+    \label{fig:corr_grid_auto_cross}
+\end{figure*}

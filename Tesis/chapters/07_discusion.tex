@@ -1,20 +1,74 @@
 \chapter{Discusión}
+\label{chap:discusion}
 
 \section{Interpretación física}
-Los patrones observados reflejan competencia no recíproca: $c$ domina y fragmenta el espacio cuando $\mu=0$, mientras que $\mu=1$ introduce una energía libre que ordena dominios y reduce heterogeneidad. El efecto Allee fuerte actúa como barrera crítica que limita la extensión tumoral aun con control moderado.
+Los patrones espacio--temporales observados en el Cap.~5 deben interpretarse como la manifestación espacial de una dinámica \emph{impulsada por umbrales}. En el análisis de estados estacionarios (Cap.~4) los puntos físicamente relevantes actúan como separatrices inestables (Re\,$\lambda_{\max}>0$): no son atractores, sino fronteras entre rutas transitorias que conducen a proliferación o a confinamiento cercano al manifold de casi-extinción. En PDE, esta inestabilidad se traduce en selección de morfologías y escalas, más que en convergencia a un equilibrio homogéneo.
+
+Dos elementos hacen explícita esta organización. Primero, los paneles A vs B de evolución temporal (Figs.~\ref{fig:fields_evolution}, \ref{fig:fields_weak_mu1_u}, \ref{fig:fields_strong} y \ref{fig:fields_strong_mu1_u}) muestran el paso de condiciones iniciales desordenadas a dominios mesoscópicos cuya geometría depende de $\mu$ y del control adaptativo (uNo/uSi). Segundo, las longitudes de correlación $\xi(t)$ (Figs.~\ref{fig:correlation_c_c}--\ref{fig:correlation_s_i} y Figs.~\ref{fig:corr_u_cc}--\ref{fig:corr_u_ci}) cuantifican la escala emergente de estos dominios. En los escenarios explorados, $\xi(t)$ crece de forma subdifusiva y es consistente con un coarsening limitado por difusión/competencia, aproximable por $\xi(t)\sim e^{\alpha}t^{1/2}$ en el horizonte simulado.
+
+\subsection{Efecto de $\mu$ como selector morfológico}
+En ausencia de estabilidad asintótica, el papel principal de $\mu$ es \emph{seleccionar morfologías}. Para $\mu=1$ la estructura espacial tiende a ser menos fragmentada (interfaces más suaves y menos detalle de alta frecuencia), en concordancia con la atenuación de modos cortos en el espectro lineal. Esto se refleja de manera cuantitativa en los grids de $\xi(t)$: el cambio $\mu=0\to 1$ desplaza sistemáticamente la coherencia espacial en autocorrelaciones (en particular $c_c$) y en el acoplamiento cáncer--inmune ($c_i$), sin eliminar la inestabilidad de fondo.
+
+\subsection{Efecto del control adaptativo $u(x,y,t)$}
+El control adaptativo introduce una acción espacialmente dirigida (máxima en regiones con $c$ alto e $i$ bajo). En términos geométricos, esto puede modificar (i) la coherencia de dominios tumorales, capturada por $c_c$ (Fig.~\ref{fig:corr_u_cc}), y (ii) el acoplamiento espacial cáncer--inmune, capturado por $c_i$ (Fig.~\ref{fig:corr_u_ci}). Así, el control no sólo afecta la magnitud de las densidades: \emph{reconfigura la geometría de interacción} entre poblaciones, alterando la escala característica de la organización espacial y el grado de seguimiento inmune de la estructura tumoral.
+
+\subsection{Weak vs Strong Allee}
+El contraste entre Allee débil y fuerte opera como un cambio de ``dureza'' del umbral. En Allee débil, el crecimiento cooperativo permite dominios tumorales más extensos y una mayor sensibilidad a la modulación por $\mu$ y $u$. En Allee fuerte, la barrera crítica restringe la expansión espacial: incluso cuando se forman dominios, su tamaño tiende a quedar acotado, lo cual se interpreta como un \emph{cap} geométrico que limita la coalescencia y favorece islas más pequeñas. En este marco, $\mu$ y $u$ actúan como mecanismos de organización secundaria que seleccionan la textura y el acoplamiento, mientras que la dureza del Allee fija el límite superior de escala.
+
+\section{Afirmaciones y grado de evidencia}
+\label{sec:grado_evidencia}
+
+\subsection*{Muy bien fundamentadas en este trabajo}
+\begin{itemize}
+  \item \textbf{Inestabilidad homogénea sistemática}: en los diez escenarios tabulados (Cap.~4) se cumple $\mathrm{Re}\,\lambda_{\max}>0$ con $i^*>0$; las tablas de $(c^*,s^*,i^*)$ y autovalores soportan la lectura de separatrices inestables.
+  \item \textbf{$\mu$ como selector morfológico}: diferencias sistemáticas en rejillas de $\xi(t)$ y en espectros (Cap.~5) entre $\mu=0$ y $\mu=1$, sin estabilizar el fondo homogéneo.
+  \item \textbf{Control $u$ como intervención geométrica}: contraste uNo/uSi en correlaciones $c_c$ y $c_i$ y en paneles de campos (Cap.~5--6).
+  \item \textbf{Coarsening subdifusivo}: crecimiento de $\xi(t)$ compatible con $\xi(t)\sim e^{\alpha}t^{1/2}$ en el horizonte simulado.
+  \item \textbf{Contraste Weak vs Strong}: diferencias cualitativas y cuantitativas en $\mathrm{Re}\,\lambda_{\max}$ y en morfologías espaciales.
+\end{itemize}
+
+\subsection*{Moderadamente fundamentadas (requieren refuerzo)}
+\begin{itemize}
+  \item \textbf{Colapso hacia $c\approx0$, $i\approx1$ con $u$}: soportado de forma directa en el análisis mean-field; la persistencia del mismo fenómeno debe mostrarse con medias espaciales en PDE y horizontes más largos.
+  \item \textbf{Eficiencia coste--beneficio de $u$}: los juicios cualitativos deben acompañarse de $C_u=\iint u\,dx\,dy\,dt$, reducción de picos y cargas integradas (Cap.~6).
+\end{itemize}
+
+\subsection*{Débilmente fundamentadas o aún no abordadas}
+\begin{itemize}
+  \item \textbf{Comparación directa} con modelos sin efecto Allee o con marcos Lotka--Volterra clásicos bajo el mismo protocolo numérico.
+  \item \textbf{Validación experimental}: no se contrasta con datos clínicos o de laboratorio; el estudio es teórico--numérico.
+\end{itemize}
 
 \section{Comparación con la literatura}
 Los resultados son coherentes con modelos de inmunoterapia \cite{delitala_mathematical_2007} y adhesión celular \cite{gatenby_role_2004}, donde la geometría de nulclinas y el espectro lineal definen umbrales de invasión. La magnitud de Re\,$\lambda_{\max}$ en Weak vs Strong subraya la sensibilidad del sistema a la dureza del Allee.
+
+Sin embargo, en este manuscrito \textbf{no} se incluye una cuantificación paralela frente a un modelo ``control'' sin Allee ni un acoplamiento recíproco estándar tipo Lotka--Volterra; ello limita las afirmaciones de unicidad del fenómeno umbral respecto a modelos más clásicos (véase la Sección~\ref{sec:grado_evidencia} y el trabajo futuro en el Cap.~\ref{chap:conclusiones}).
 
 \section{Implicaciones}
 \begin{itemize}
   \item No se hallaron equilibrios estables en barridos actuales; el sistema opera cerca de umbrales inestables.
   \item El control variacional ($\mu=1$) organiza patrones y puede reducir la carga tumoral, pero no elimina inestabilidad.
   \item El efecto fuerte sugiere ventanas de intervención temprana: pequeñas perturbaciones pueden impedir despegue si no se supera el umbral.
+  \item Las métricas mesoscópicas (e.g. $\xi(t)$ para $c_c$ y $c_i$) permiten comparar protocolos de control de forma reproducible, y abren la puerta a optimización de $u(x,y,t)$ con objetivos geométricos (reducir coherencia tumoral y/o aumentar seguimiento inmune).
 \end{itemize}
 
 \section{Limitaciones}
-Faltan corridas con mallas más finas y rangos extendidos de parámetros para buscar estabilidad; los protocolos $u(x,y,t)$ no se han optimizado y las correlaciones se evaluaron sólo en regímenes cortos ($T\le 2$).
+Faltan corridas con mallas más finas y rangos extendidos de parámetros para buscar estabilidad; los protocolos $u(x,y,t)$ no se han optimizado y las correlaciones se evaluaron sólo en regímenes cortos ($T\le 2$). Además, se reporta una realización por escenario (nb=1), por lo que aún no se cuantifica variabilidad de ensamble. Finalmente, el control adaptativo puede introducir rigidez numérica en ciertos pasos (activación de diagnósticos), lo que sugiere co-diseñar tolerancias/regularización del control para integrar horizontes más largos de manera robusta. Las afirmaciones cuya evidencia es intermedia o externa al alcance actual de esta tesis se listan explícitamente en la Sección~\ref{sec:grado_evidencia}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

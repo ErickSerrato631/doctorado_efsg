@@ -1,0 +1,8 @@
+{# Catálogo completo (p. ej. página de detalle). Requiere todas las variables de las pestañas. #}
+{% include "steady_states_app/includes/scenario_catalog_tabs_nav.html" %}
+<div class="tab-content scenario-catalog-tab-content" id="catalogTabContent-{{ catalog_uid }}">
+    {% include "steady_states_app/includes/scenario_catalog_pane_equations.html" %}
+    {% include "steady_states_app/includes/scenario_catalog_pane_params.html" %}
+    {% include "steady_states_app/includes/scenario_catalog_pane_figures.html" %}
+    {% include "steady_states_app/includes/scenario_catalog_pane_pipeline.html" %}
+</div>

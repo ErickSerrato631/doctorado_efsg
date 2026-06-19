@@ -1,0 +1,83 @@
+{# Requiere: catalog_uid, scenario_name, figures_dir, figures_dir_exists, figures_catalog_error, selected_figure_row, figures_png_options; opcional: results_dir_display, simulation_fields_count #}
+{% if figures_catalog_error %}
+<div class="alert alert-danger small mb-0">
+    <strong>Error al comprobar figuras</strong>
+    <p class="mb-0 mt-1">{{ figures_catalog_error }}</p>
+</div>
+{% else %}
+<p class="small text-muted mb-2">
+    <strong>Paper / catálogo analítico:</strong> PNG en <code class="small text-break">{{ figures_dir }}</code>
+    (<code>ALLEE_FIGURES_DIR</code>, <code>ALLEE_FIGURES_DIR_FALLBACK</code>).
+    Convención <code>steady_*.png</code>, <code>estabilidad_lineal_*.png</code> y otros <code>*.png</code> que contengan el nombre del escenario.
+    <strong>Simulación FEniCS</strong> (<code>run_scenarios.py</code> / <code>cancer_dynamics.py</code>, <code>SAVE_IMAGES=Y</code>):
+    <code>fields_block_&lt;bloque&gt;_step_&lt;t&gt;.png</code> bajo
+    <code class="small text-break">{{ results_dir_display|default:"RESULTS_DIR" }}/{{ simulation_pipeline_folder|default:scenario_name }}/images/</code>
+    (configura <code>RESULTS_DIR</code> para que Django vea la misma raíz que las corridas).
+    <a href="{% url 'steady_states_app:scenario_figures_gallery' %}?scenario={{ scenario_name|urlencode }}" target="_blank" rel="noopener">Galería completa</a>.
+</p>
+{% if not figures_dir_exists %}
+<div class="alert alert-warning small py-2 mb-3">
+    <i class="bi bi-folder-x"></i> El directorio de figuras no existe aún o no es accesible desde el servidor.
+</div>
+{% endif %}
+{% if selected_figure_row %}
+<div class="catalog-figures-tab">
+    <div class="d-flex flex-wrap gap-2 mb-3">
+        {% if selected_figure_row.has_phase %}
+        <span class="badge bg-success">Hay plano de fase (steady)</span>
+        {% else %}
+        <span class="badge bg-secondary">Sin steady_{{ scenario_name }}.png</span>
+        {% endif %}
+        {% if selected_figure_row.has_spectrum %}
+        <span class="badge bg-success">Hay estabilidad lineal</span>
+        {% else %}
+        <span class="badge bg-secondary">Sin estabilidad_lineal_{{ scenario_name }}.png</span>
+        {% endif %}
+        {% if simulation_fields_count %}
+        <span class="badge bg-primary">{{ simulation_fields_count }} PNG de campos (simulación)</span>
+        {% endif %}
+    </div>
+    {% if figures_png_options %}
+    <div
+        class="catalog-figures-viewer mb-0"
+        id="catalogFigViewer-{{ catalog_uid }}"
+        data-fig-scenario="{{ scenario_name }}"
+    >
+        <label class="form-label small text-muted mb-1" for="catalog-figures-select-{{ catalog_uid }}">Seleccionar imagen</label>
+        <select
+            id="catalog-figures-select-{{ catalog_uid }}"
+            class="form-select form-select-sm catalog-figures-select mb-3"
+            aria-label="Elegir figura PNG del escenario"
+        >
+            {% for opt in figures_png_options %}
+            <option value="{{ opt.filename }}" data-catalog-fig-src="{{ opt.url_kind|default:'paper' }}"{% if forloop.first %} selected{% endif %}>{{ opt.label }}</option>
+            {% endfor %}
+        </select>
+        <div class="position-relative border rounded p-2 bg-body-secondary catalog-figures-tab__img-wrap text-center min-h-catalog-fig">
+            <div
+                class="catalog-figures-loading position-absolute top-50 start-50 translate-middle d-flex flex-column align-items-center gap-2 w-100 py-4"
+                aria-live="polite"
+                aria-busy="true"
+            >
+                <div class="spinner-border text-primary" role="status"></div>
+                <span class="small text-muted">Cargando imagen…</span>
+            </div>
+            <img
+                class="img-fluid rounded shadow-sm catalog-figures-tab__img catalog-figures-img catalog-figures-img--pending d-none"
+                alt=""
+                decoding="async"
+                width="800"
+                height="600"
+            >
+        </div>
+    </div>
+    {% else %}
+    <p class="text-muted small mb-0">
+        No hay PNG en Paper/figures ni en <code>RESULTS_DIR/{{ simulation_pipeline_folder|default:scenario_name }}/images/</code>. Ejecuta <code>run_scenarios.py</code> (imagenes de campos) o genera <code>steady_*.png</code> con <code>steady_states/generate_figures_from_scenarios.py</code>.
+    </p>
+    {% endif %}
+</div>
+{% else %}
+<p class="text-muted small mb-0">No se pudo resolver la fila de figuras para este escenario.</p>
+{% endif %}
+{% endif %}

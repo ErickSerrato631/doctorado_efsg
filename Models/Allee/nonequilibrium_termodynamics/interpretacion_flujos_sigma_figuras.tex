@@ -1,0 +1,316 @@
+% Formalización LaTeX del documento INTERPRETACION_FIGURAS_FLUJOS_MATERIA_ACTIVA.md
+% Compilar: pdflatex interpretacion_flujos_sigma_figuras.tex (dos pasadas si se usa hyperref)
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\urlstyle{same}
+
+\geometry{margin=2.5cm}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\vect}[1]{\mathbf{#1}}
+
+\title{Flujos difusivos, gradientes y densidad $\sigma^{+}$:\\
+marco termodinámico e interpretación de figuras\\
+\large Modelo reacción--difusión tumor--sano--inmunidad (Allee)}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Se formaliza el continuo reacción--difusión en dos dimensiones para los campos
+$(c,s,i)$, su encaje en el formalismo fenomenológico de la termodinámica del no
+equilibrio (flujos y fuerzas) y la definición de la disipación difusiva
+$\sigma_{\mathrm{diss,tot}}$ que el código grafica como $\sigma^{+}$.
+Se describen los productos de salida del script
+\texttt{visualize\_fluxes\_and\_entropy\_density.py} y una lectura en clave de
+materia activa aplicada a cáncer, tejido sano e inmunidad.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+%---------------------------------------------------------------------
+\section{Archivos generados y variables del modelo}
+%---------------------------------------------------------------------
+
+Para cada escenario, el script \path{nonequilibrium_termodynamics/visualize_fluxes_and_entropy_density.py}
+escribe figuras en la subcarpeta \path{nonequilibrium_plots/}. Los nombres
+típicos son:
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Archivo & Contenido \\
+\midrule
+\texttt{grad\_mag\_t\_$\langle t\rangle$.png} &
+$\lVert\nabla c\rVert$, $\lVert\nabla s\rVert$, $\lVert\nabla i\rVert$ \\
+\texttt{J\_mag\_t\_$\langle t\rangle$.png} &
+$\lVert \vect{J}_c\rVert$, $\lVert \vect{J}_s\rVert$, $\lVert \vect{J}_i\rVert$ \\
+\texttt{sigma\_plus\_t\_$\langle t\rangle$.png} &
+$\sigma^{+}=\sigma_{\mathrm{diss,tot}}$ \\
+\texttt{quiver\_Jc\_t\_$\langle t\rangle$.png} &
+campo $\vect{J}_c$ sobre $c$ (opcional) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Los campos $\phi_a\in\{c,s,i\}$ representan:
+\begin{itemize}
+  \item $c(\vect{x},t)$: densidad relativa de células tumorales;
+  \item $s(\vect{x},t)$: densidad relativa de tejido sano;
+  \item $i(\vect{x},t)$: actividad o densidad relativa del sistema inmune.
+\end{itemize}
+
+La opción \texttt{--sigma-csv} exporta la integral espacial de $\sigma^{+}$ en
+función del tiempo.
+
+%---------------------------------------------------------------------
+\section{Contexto físico-matemático y termodinámico}
+%---------------------------------------------------------------------
+
+\subsection{Ecuaciones de campo (reacción--difusión)}
+
+Sea $\Omega\subset\R^2$ el dominio espacial. Para $a\in\{c,s,i\}$,
+\begin{equation}
+\label{eq:rd}
+\partial_t \phi_a = D_a \,\nabla^2 \phi_a + R_a(c,s,i),
+\qquad D_a>0,
+\end{equation}
+donde $\nabla^2=\nabla\cdot\nabla$ es el laplaciano y $R_a$ agrupa las
+contribuciones reactivas (Allee, competencia, inmunidad, etc.).
+
+La forma \emph{conservativa} equivalente es
+\begin{equation}
+\label{eq:balance}
+\partial_t \phi_a = -\nabla\cdot \vect{J}_a + R_a,
+\qquad
+\vect{J}_a = -D_a \nabla \phi_a .
+\end{equation}
+Aquí $\vect{J}_a$ es el flujo difusivo (ley de Fick isótropa lineal) y $R_a$ es
+una fuente local no conservativa en general.
+
+En la implementación numérica, $\phi_a$ se muestrea en una malla rectangular; los
+gradientes en las figuras se aproximan por diferencias finitas con paso
+$\Delta x$ deducido de \texttt{space\_size} y la resolución, en coherencia con
+\path{termodynamics/calculate_thermodynamic_properties.py}.
+
+\subsection{Termodinámica del no equilibrio: flujos y fuerzas}
+
+En el formalismo de de Groot--Mazur (y relaciones de Onsager en el régimen
+lineal), la densidad de producción de entropía local se escribe, en lo general,
+como suma de productos bilineales flujo--fuerza:
+\begin{equation}
+\label{eq:sigmaS-general}
+\sigma_S = \sum_\alpha J_\alpha X_\alpha ,
+\end{equation}
+bajo las hipótesis de validez del marco, con $\sigma_S\ge 0$ en situaciones
+estándar.
+
+Para difusión de especies a temperatura uniforme $T$, un término clásico es
+\begin{equation}
+\label{eq:sigmaS-diff}
+\sigma_S = -\frac{1}{T}\sum_a \vect{J}_a\cdot\nabla\mu_a + \cdots
+\end{equation}
+donde $\mu_a$ es el potencial químico de la especie $a$. Si la constitutiva toma
+la forma $\vect{J}_a=-D_a\nabla\mu_a$, entonces
+\begin{equation}
+\label{eq:Ja-mu}
+-\vect{J}_a\cdot\nabla\mu_a = D_a \lVert\nabla\mu_a\rVert^2 \ge 0 .
+\end{equation}
+
+\subsection{Convención del módulo de visualización: $\mu_a\equiv\phi_a$}
+
+El script de visualización no importa los $\mu_a$ obtenidos del funcional de
+energía libre $F[c,s,i]$ del postproceso termodinámico. Trabaja con los propios
+campos como variables termodinámicas efectivas del flujo:
+\begin{equation}
+\label{eq:Ja-phi}
+\vect{J}_a = -D_a \nabla \phi_a .
+\end{equation}
+
+Se define la densidad de \emph{disipación difusiva} por especie y la total:
+\begin{align}
+\label{eq:sigma-diss-a}
+\sigma_{\mathrm{diss},a} &:= D_a \lVert\nabla\phi_a\rVert^2 ,\\
+\label{eq:sigma-plus}
+\sigma^{+} = \sigma_{\mathrm{diss,tot}}
+&:= \sum_a \sigma_{\mathrm{diss},a}
+= D_c\lVert\nabla c\rVert^2 + D_s\lVert\nabla s\rVert^2 + D_i\lVert\nabla i\rVert^2 .
+\end{align}
+Las figuras \texttt{sigma\_plus\_t\_*.png} son mapas de $\sigma_{\mathrm{diss,tot}}(\vect{x},t)$,
+coherentes con las series integrales guardadas por
+\path{calculate_thermodynamic_properties.py}.
+
+Introduciendo una temperatura efectiva constante $T_{\mathrm{eff}}$ (no
+resuelta por el PDE), la analogía dimensional
+\begin{equation}
+\label{eq:sigmaS-supset}
+\sigma_S \;\supset\; \frac{1}{T_{\mathrm{eff}}}\sum_a D_a\lVert\nabla\phi_a\rVert^2
+\end{equation}
+solo rescala amplitudes: no altera la forma espacial ni la evolución temporal
+\emph{relativa} de $\sigma^{+}$.
+
+\subsection{Distinción entre $\sigma_\mu$ y $\sigma_{\mathrm{diss,tot}}$}
+
+Con potenciales $\mu_a$ derivados de un funcional $F[c,s,i]$,
+\begin{equation}
+\label{eq:sigma-mu}
+\sigma_\mu := D_c\lVert\nabla\mu_c\rVert^2 + D_s\lVert\nabla\mu_s\rVert^2 + D_i\lVert\nabla\mu_i\rVert^2 .
+\end{equation}
+En general $\sigma_\mu \neq \sigma_{\mathrm{diss,tot}}$, salvo relaciones
+particulares entre $(\mu_c,\mu_s,\mu_i)$ y $(c,s,i)$. Para interpretar las
+figuras de este documento, el objeto relevante es $\sigma^{+}=\sigma_{\mathrm{diss,tot}}$
+bajo \eqref{eq:Ja-phi}.
+
+\subsection{Isotermia efectiva}
+
+No existe campo $T(\vect{x},t)$ en el modelo implementado: el sistema es
+\emph{isotermo efectivo}. Los campos $(c,s,i)$ son densidades poblacionales, no
+energía interna. La comparación con la TdC es \emph{estructural} (balance
+\eqref{eq:balance}, flujos, disipación por gradientes), no una medición literal
+de entropía del tejido.
+
+\subsection{Límites del proxy $\sigma^{+}$}
+
+La densidad $\sigma^{+}$ no incluye:
+\begin{itemize}
+  \item una descomposición explícita $\sigma_{\mathrm{reacción}}(\vect{x},t)$ de
+  las contribuciones entrópicas asociadas a $R_a$;
+  \item intercambios con el exterior en un sistema biológico abierto.
+\end{itemize}
+Por tanto, $\sigma^{+}$ y su integral sobre $\Omega$ son observables
+fenomenológicos del PDE: cuantifican el costo estructural de mezcla difusiva en
+el continuo simulado.
+
+\subsection{Energía libre $F$, potenciales y no reciprocidad}
+
+El postproceso introduce $F[c,s,i]$ y $\mu_a\sim \delta F/\delta\phi_a$. El
+jacobiano de las tasas,
+\begin{equation}
+\label{eq:jacobian-R}
+A_{ab} := \frac{\partial R_a}{\partial \phi_b},
+\end{equation}
+admite la descomposición $A=S+N$ con $S$ simétrica y $N$ antisimétrica. Si
+$N\neq 0$, el subsistema reaccional homogéneo no es integrable en general como
+gradiente de un único potencial escalar en $(c,s,i)$; la dinámica global no está
+garantizada como relajación pura de $F$. Esto no modifica las definiciones
+\eqref{eq:Ja-phi}--\eqref{eq:sigma-plus}, pero acota el lenguaje al vincular
+las figuras con ``descenso de $F$'' o equilibrio químico local.
+
+\subsection{Correspondencia figura--formalismo}
+
+\begin{center}
+\begin{tabular}{@{}p{3.2cm}p{4.5cm}p{5.5cm}@{}}
+\toprule
+Figura & Objeto & Rol (analogía TdC) \\
+\midrule
+\texttt{grad\_mag} &
+$\lVert\nabla\phi_a\rVert$ &
+pendiente espacial; fija, con $D_a$, flujo y $\sigma_{\mathrm{diss},a}$ \\
+\texttt{J\_mag} &
+$\lVert\vect{J}_a\rVert = D_a\lVert\nabla\phi_a\rVert$ &
+flujo difusivo \\
+\texttt{sigma\_plus} &
+$\sigma_{\mathrm{diss,tot}}$ &
+proxy de parte difusiva de disipación / $\sigma_S$ \\
+\texttt{quiver\_Jc} &
+$\vect{J}_c$ sobre $c$ &
+dirección del transporte de $c$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%---------------------------------------------------------------------
+\section{Interpretación de cada tipo de figura}
+%---------------------------------------------------------------------
+
+\subsection{Gradientes: \texttt{grad\_mag\_t\_*.png}}
+
+Se grafica $\lVert\nabla\phi_a\rVert$ para $a\in\{c,s,i\}$. Valores altos
+indican frentes e interfaces; valores bajos, regiones casi uniformes. Los tres
+paneles comparten escala máxima (\texttt{share\_vmax}), lo que permite comparar
+heterogeneidad relativa entre compartimentos antes de ponderar por $D_a$.
+
+\subsection{Magnitudes de flujo: \texttt{J\_mag\_t\_*.png}}
+
+Se muestra $\lVert\vect{J}_a\rVert = D_a\lVert\nabla\phi_a\rVert$. Un gradiente
+grande con $D_a$ pequeño puede producir flujo débil, y viceversa. La comparación
+con \texttt{grad\_mag} distingue ``mucho contraste'' de ``mucho transporte''.
+
+\subsection{Densidad $\sigma^{+}$: \texttt{sigma\_plus\_t\_*.png}}
+
+Mapa de $\sigma_{\mathrm{diss,tot}}$ \eqref{eq:sigma-plus}. Los máximos locales
+suelen coincidir con frentes donde la mezcla difusiva es intensa. La integral
+discreta $\sum_{ij}\sigma^{+}(\vect{x}_{ij})\,(\Delta x)^2$, reportada por el
+script, resume la disipación difusiva global en el instante $t$.
+
+\subsection{Quiver de $\vect{J}_c$: \texttt{quiver\_Jc\_t\_*.png}}
+
+Flechas (submuestreadas) con la dirección de $\vect{J}_c=-D_c\nabla c$ sobre el
+fondo $c(\vect{x},t)$; complementa \texttt{J\_mag} con orientación en el plano.
+
+\subsection{Lectura temporal}
+
+Comparar distintos $t$ con el mismo tipo de figura revela migración de frentes,
+fragmentación u homogeneización, y la evolución de la integral de $\sigma^{+}$.
+Si $\lVert\nabla c\rVert$ es grande pero $\lVert\vect{J}_c\rVert$ no, conviene
+revisar $D_c$ en los parámetros del escenario.
+
+%---------------------------------------------------------------------
+\section{Materia activa: analogías para tumor, tejido sano e inmunidad}
+%---------------------------------------------------------------------
+
+La materia activa designa, en física, sistemas de muchos agentes que consumen
+energía y generan fases y patrones fuera del equilibrio térmico pasivo. El
+presente modelo es un \emph{continuo} reacción--difusión, no un enjambre
+microscópico de partículas autopropulsadas; no obstante, varias nociones
+iluminan la lectura de las figuras.
+
+\paragraph{Tres especies acopladas.}
+Las fuentes $R_a$ mantienen el sistema alejado del equilibrio trivial: $c$
+(invasión, Allee), $s$ (competencia, límites con $c$ e $i$), $i$ (retroalimentación
+inmune, p.\,ej.\ controles tipo Hill en $R_i$). Las figuras muestran campos
+efectivos; la ``actividad'' microscópica está promediada en $R_a$.
+
+\paragraph{Frentes e interfaces.}
+Los frentes concentran intercambio y disipación efectiva: \texttt{grad\_mag}
+marca bordes; \texttt{sigma\_plus} suele destacar esas regiones como hotspots de
+$\sigma_{\mathrm{diss,tot}}$.
+
+\paragraph{Corrientes.}
+Solo aparece explícitamente la corriente difusiva $\vect{J}_a$. Las reacciones
+moldean los campos en el tiempo pero no se representan como campos vectoriales
+adicionales en el plano: conviene separar \emph{transporte difusivo} y
+\emph{dinámica reaccional local} en la redacción científica.
+
+\paragraph{Lenguaje entrópico.}
+Para tesis o artículos, conviene declarar isotermia efectiva, usar
+$\sigma_{\mathrm{diss,tot}}$ como proxy de la parte difusiva de la producción
+entrópica, y mencionar la no reciprocidad en $A$ si se argumenta con $\mu_a$
+derivado de $F$.
+
+%---------------------------------------------------------------------
+\section{Referencias en el repositorio}
+%---------------------------------------------------------------------
+
+\begin{itemize}
+  \item \path{nonequilibrium_termodynamics/MARCO_FISICO_MATEMATICO.md}
+  \item \path{nonequilibrium_termodynamics/visualize_fluxes_and_entropy_density.py}
+  \item \path{termodynamics/calculate_thermodynamic_properties.py}
+  \item \path{nonequilibrium_termodynamics/reciprocity_jacobian_analysis.py}
+  \item \path{Allee/PIPELINE_EJECUCION_Y_FISICA.md}
+\end{itemize}
+
+\vspace{1em}
+\noindent\textit{Las ecuaciones \eqref{eq:Ja-phi}--\eqref{eq:sigma-plus} coinciden con la implementación del script de visualización y con el MARCO \S4.1.}
+
+\end{document}

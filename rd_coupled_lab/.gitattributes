@@ -1,0 +1,2 @@
+# Ejecutados en Linux/WSL: CRLF provoca errores (set -e\r, `{\r` en funciones).
+*.sh text eol=lf

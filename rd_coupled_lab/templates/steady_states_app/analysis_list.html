@@ -1,0 +1,84 @@
+{% extends 'steady_states_app/base.html' %}
+
+{% block title %}Historial de Análisis{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h2 class="lab-page-title"><i class="bi bi-list-ul text-primary"></i> Historial de análisis</h2>
+        <p class="text-muted small mb-2">Flujo único: búsqueda de estados estacionarios en (c, s, i). El historial no distingue variantes 2D antiguas; las nuevas ejecuciones comparten el mismo criterio de equilibrio.</p>
+        <a href="{% url 'steady_states_app:reset_stuck_analyses' %}" 
+           class="btn btn-warning btn-sm"
+           onclick="return confirm('¿Desea resetear todos los análisis que llevan más de 6 horas ejecutándose?');">
+            <i class="bi bi-arrow-clockwise"></i> Resetear Análisis Atascados
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th>Creado</th>
+                                <th>Completado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for analysis in analyses %}
+                            <tr>
+                                <td>{{ analysis.name }}</td>
+                                <td>
+                                    {% if analysis.status == 'completed' %}
+                                        <span class="badge bg-success">{{ analysis.get_status_display }}</span>
+                                    {% elif analysis.status == 'failed' %}
+                                        <span class="badge bg-danger">{{ analysis.get_status_display }}</span>
+                                    {% elif analysis.status == 'running' %}
+                                        <span class="badge bg-warning text-dark">{{ analysis.get_status_display }}</span>
+                                    {% else %}
+                                        <span class="badge bg-secondary">{{ analysis.get_status_display }}</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ analysis.created_at|date:"d/m/Y H:i" }}</td>
+                                <td>{% if analysis.completed_at %}{{ analysis.completed_at|date:"d/m/Y H:i" }}{% else %}-{% endif %}</td>
+                                <td>
+                                    <a href="{% url 'steady_states_app:run_analysis' analysis.id %}" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-eye"></i> Ver
+                                    </a>
+                                    {% if analysis.status == 'running' %}
+                                    <a href="{% url 'steady_states_app:cancel_analysis' analysis.id %}" 
+                                       class="btn btn-sm btn-danger"
+                                       onclick="return confirm('¿Está seguro de que desea cancelar este análisis?');">
+                                        <i class="bi bi-x-circle"></i> Cancelar
+                                    </a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="6" class="text-center text-muted">No hay análisis ejecutados</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <a href="{% url 'steady_states_app:dashboard' %}" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Volver al Dashboard
+        </a>
+    </div>
+</div>
+{% endblock %}
+

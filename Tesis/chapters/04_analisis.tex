@@ -5,109 +5,108 @@ Los estados estacionarios $(c^*, s^*, i^*)$ satisfacen
 \[
 \frac{dc}{dt} = \frac{ds}{dt} = \frac{di}{dt} = 0.
 \]
-Biológicamente representan situaciones de equilibrio: coexistencia regulada o puntos de transición crítica. Un estado estable puede corresponder a un tumor controlado por el sistema inmune; uno inestable marca el umbral mínimo para el despegue tumoral.
+Biológicamente representan situaciones de equilibrio: coexistencia regulada o puntos de transición crítica. Un estado estable puede corresponder a un tumor controlado por el sistema inmune; uno inestable marca el umbral mínimo para el despegue tumoral. En los planos de fase (Fig.~\ref{fig:steady_gral}), estos puntos de equilibrio se muestran explícitamente como círculos rojos con sus coordenadas $(c^*, s^*)$, rodeados por círculos discontinuos que indican su entorno local, donde se intersectan las nulclinas F1=0 y F2=0.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.45\textwidth]{images/steady.png}
-\includegraphics[width=0.45\textwidth]{images/steady_mu0.png}
-\caption{Estado estacionario inestable en el plano $(c,s)$ bajo dos regímenes de \(\mu\). Izquierda: \(\mu = 0\), \(P_1 = (1.4103, 1.0414, 0.6110)\); derecha: \(\mu = 1\), \(P_1 = (1.0826, 0.4885, 0.1649)\). Las nulclinas $r_1 = 0$ (negro) y $r_2 = 0$ (azul) muestran cómo la presencia de estructura variacional modifica la geometría del flujo.}
+\includegraphics[width=0.45\textwidth]{images/steady_weak_mu1_uNo_bajo_umbral.png}
+\includegraphics[width=0.45\textwidth]{images/steady_weak_mu0_uNo_bajo_umbral.png}
+\caption{Estado estacionario inestable en el plano $(c,s)$ bajo dos regímenes de \(\mu\). Izquierda: \(\mu = 1\), escenario weak\_mu1\_uNo\_bajo\_umbral; derecha: \(\mu = 0\), escenario weak\_mu0\_uNo\_bajo\_umbral. Las nulclinas F1=0 (negro) y F2=0 (azul) muestran cómo la presencia de estructura variacional modifica la geometría del flujo. Los puntos de equilibrio están marcados con círculos rojos, mostrando sus coordenadas $(c^*, s^*)$ y rodeados por círculos discontinuos que indican su entorno local.}
 \label{fig:steady_gral}
 \end{figure}
 
-\section{Candidatos inestables y rejillas de parámetros}
-Se listan puntos inestables usados como condiciones iniciales en barridos Weak/Strong, $\mu\in\{0,1\}$, $a=0.1$; todos cumplen $i^*>0$ (Re $\lambda_{\max}>0$).
+\section{Estados estacionarios de los escenarios de simulación}
+Se presentan los estados estacionarios calculados para los 10 escenarios definidos en \texttt{scenarios.json}, que combinan efecto Allee (débil/fuerte), control inmunológico ($\mu=0,1$) y control adaptativo. Todos los puntos cumplen $i^*>0$ y son inestables (Re $\lambda_{\max}>0$).
 
 \begin{table}[H]
 \centering
 \scriptsize
-\begin{tabular}{ccccccccccc}
+\begin{tabular}{lccccccccccc}
 \toprule
-Modelo & $\mu$ & $rc$ & $\beta$ & $\delta$ & $\eta$ & $rd$ & $c^*$ & $s^*$ & $i^*$ & Re $\lambda_{\max}$ \\
+Escenario & $\mu$ & Control & $rc$ & $\beta$ & $\delta$ & $\eta$ & $rd$ & $c^*$ & $s^*$ & $i^*$ & Re $\lambda_{\max}$ \\
 \midrule
-Weak & 0 & 3.0 & 7.0 & 3.0 & 0.5 & 12.0 & $3.2\times10^{-18}$ & $2.0\times10^{-17}$ & 1.000 & 16.12 \\
-Weak & 0 & 3.0 & 7.0 & 3.0 & 5.0 & 10.0 & $3.4\times10^{-18}$ & $2.0\times10^{-17}$ & 1.000 & 16.12 \\
-Weak & 0 & 3.0 & 7.0 & 3.0 & 7.0 & 6.0  & $3.7\times10^{-18}$ & $2.0\times10^{-17}$ & 1.000 & 16.12 \\
-Weak & 0 & 4.0 & 7.0 & 3.0 & 1.0 & 14.0 & $8.9\times10^{-18}$ & $2.0\times10^{-17}$ & 1.000 & 16.12 \\
-Weak & 0 & 4.0 & 7.0 & 3.0 & 7.0 & 14.0 & $9.3\times10^{-18}$ & $2.0\times10^{-17}$ & 1.000 & 16.12 \\
-\midrule
-Weak & 1 & 3.0 & 1.0 & 3.0 & 7.0 & 8.0 & 1.0066 & $1.0\times10^{-21}$ & 0.050 & 4.63 \\
-Weak & 1 & 3.0 & 1.0 & 5.0 & 7.0 & 8.0 & 1.0066 & $1.2\times10^{-20}$ & 0.050 & 4.63 \\
-Weak & 1 & 3.0 & 1.0 & 3.0 & 5.0 & 6.0 & 1.0088 & $3.0\times10^{-26}$ & 0.067 & 4.64 \\
-Weak & 1 & 3.0 & 1.0 & 5.0 & 5.0 & 6.0 & 1.0088 & $1.9\times10^{-21}$ & 0.067 & 4.64 \\
-Weak & 1 & 3.0 & 1.0 & 7.0 & 5.0 & 6.0 & 1.0088 & $3.2\times10^{-25}$ & 0.067 & 4.64 \\
+weak\_mu0\_uNo\_bajo\_umbral & 0 & No & 6.5 & 3 & 9 & 1 & 14 & $\approx 0$ & $\approx 0$ & $\approx 1.0$ & $\approx 4.9$ \\
+weak\_mu0\_uNo\_sobre\_umbral & 0 & No & 6.5 & 3 & 9 & 1 & 14 & $\approx 1.0$ & $\approx 0$ & $\approx 0.05$ & $\approx 16.1$ \\
+weak\_mu0\_uSi\_bajo\_umbral & 0 & Sí & 6.5 & 3 & 9 & 1 & 14 & $\approx 0$ & $\approx 0$ & $\approx 1.0$ & $\approx 22.1$ \\
+weak\_mu1\_uNo\_bajo\_umbral & 1 & No & 6.5 & 5 & 9 & 1 & 10 & $\approx 0$ & $\approx 0$ & $\approx 1.0$ & $\approx 4.9$ \\
+weak\_mu1\_uNo\_sobre\_umbral & 1 & No & 6.5 & 5 & 9 & 1 & 10 & $\approx 1.01$ & $\approx 0$ & $\approx 0.07$ & $\approx 6.7$ \\
+weak\_mu1\_uSi\_bajo\_umbral & 1 & Sí & 6.5 & 5 & 9 & 1 & 10 & $\approx 0$ & $\approx 0$ & $\approx 1.0$ & $\approx 22.1$ \\
 \bottomrule
 \end{tabular}
-\caption{Weak Allee: 5 candidatos con $c^*\approx 0$ (arriba) y 5 con $c^*>0.9$ (abajo).}
+\caption{Estados estacionarios - Weak Allee. Los valores $\approx 0$ indican magnitudes numéricamente próximas a cero.}
+\label{tab:steady_weak}
 \end{table}
 
 \begin{table}[H]
 \centering
 \scriptsize
-\begin{tabular}{ccccccccccc}
+\begin{tabular}{lccccccccccc}
 \toprule
-Modelo & $\mu$ & $rc$ & $\beta$ & $\delta$ & $\eta$ & $rd$ & $c^*$ & $s^*$ & $i^*$ & Re $\lambda_{\max}$ \\
+Escenario & $\mu$ & Control & $rc$ & $\beta$ & $\delta$ & $\eta$ & $rd$ & $c^*$ & $s^*$ & $i^*$ & Re $\lambda_{\max}$ \\
 \midrule
-Strong & 0 & 5.0 & 1.0 & 9.0 & 0.5 & 14.0 & $-3.2\times10^{-22}$ & 0.2553 & 1.042 & 4.92 \\
-Strong & 0 & 4.0 & 1.0 & 9.0 & 5.0 & 14.0 & $-2.6\times10^{-22}$ & 0.2553 & 1.042 & 4.92 \\
-Strong & 0 & 3.0 & 1.0 & 9.0 & 3.0 & 14.0 & $-1.9\times10^{-22}$ & 0.2553 & 1.042 & 4.92 \\
-Strong & 0 & 6.5 & 3.0 & 9.0 & 1.0 & 14.0 & $-1.3\times10^{-23}$ & 0.2553 & 1.042 & 4.92 \\
-Strong & 0 & 5.5 & 3.0 & 9.0 & 3.0 & 14.0 & $-1.1\times10^{-23}$ & 0.2553 & 1.042 & 4.92 \\
-\midrule
-Strong & 1 & 4.5 & 1.0 & 5.0 & 3.0 & 4.0 & 1.0100 & $1.1\times10^{-20}$ & 0.107 & 6.27 \\
-Strong & 1 & 4.5 & 1.0 & 7.0 & 3.0 & 4.0 & 1.0100 & $4.5\times10^{-21}$ & 0.107 & 6.27 \\
-Strong & 1 & 4.5 & 5.0 & 3.0 & 3.0 & 6.0 & 1.0082 & $4.8\times10^{-21}$ & 0.068 & 6.73 \\
-Strong & 1 & 4.5 & 5.0 & 5.0 & 3.0 & 6.0 & 1.0082 & $1.9\times10^{-20}$ & 0.068 & 6.73 \\
-Strong & 1 & 4.5 & 5.0 & 7.0 & 3.0 & 6.0 & 1.0082 & $6.0\times10^{-20}$ & 0.068 & 6.73 \\
+strong\_mu0\_uNo\_bajo\_umbral & 0 & No & 6.5 & 3 & 9 & 1 & 14 & $\approx 0$ & 0.255 & 1.042 & 4.92 \\
+strong\_mu0\_uSi\_bajo\_umbral & 0 & Sí & 6.5 & 3 & 9 & 1 & 14 & $\approx 0$ & $\approx 0$ & $\approx 1.0$ & $\approx 22.1$ \\
+strong\_mu1\_uNo\_sobre\_umbral & 1 & No & 6.5 & 5 & 9 & 1 & 10 & 1.008 & $\approx 0$ & 0.068 & 6.73 \\
+strong\_mu1\_uNo\_bajo\_umbral & 1 & No & 6.5 & 5 & 9 & 1 & 10 & $\approx 0$ & $\approx 0$ & $\approx 1.0$ & $\approx 22.1$ \\
+strong\_mu1\_uSi\_bajo\_umbral & 1 & Sí & 6.5 & 5 & 9 & 1 & 10 & $\approx 0$ & $\approx 0$ & $\approx 1.0$ & $\approx 22.1$ \\
 \bottomrule
 \end{tabular}
-\caption{Strong Allee: 5 candidatos con $c^*\approx 0$ (arriba) y 5 con $c^*>0.9$ (abajo).}
+\caption{Estados estacionarios - Strong Allee. Los valores $\approx 0$ indican magnitudes numéricamente próximas a cero.}
+\label{tab:steady_strong}
 \end{table}
+
+\subsection{Lectura cualitativa: umbrales como separatrices inestables}
+Las Tablas~\ref{tab:steady_weak} y~\ref{tab:steady_strong} resumen puntos de equilibrio homogéneo del análisis reducido con $i^*>0$. En todos los casos se cumple $\mathrm{Re}\,\lambda_{\max}>0$, es decir, \emph{inestabilidad lineal local}. La interpretación adoptada en esta tesis es que dichos puntos no deben leerse como atractores asintóticos del sistema completo, sino como \textbf{organizadores transitorios}: el umbral de Allee y las ramas homogéneas asociadas actúan como \textbf{separatrices inestables} entre rutas hacia proliferación y rutas hacia confinamiento cercano a la casi-extinción tumoral. La evidencia directa de esta lectura proviene de las coordenadas $(c^*,s^*,i^*)$ y de los autovalores tabulados; la manifestación espacial (dominios, longitudes de correlación) se desarrolla en el Cap.~\ref{chap:espacial} y se interpreta en el Cap.~\ref{chap:discusion}.
 
 \section{Escenarios de simulación}
-Cuatro familias de escenarios combinan efecto Allee (débil/fuerte), control inmunológico ($\mu=0,1$) y carga tumoral inicial:
+Se definen 10 escenarios específicos que combinan efecto Allee (débil/fuerte), control inmunológico ($\mu=0,1$) y control adaptativo:
 \begin{itemize}
-  \item \textbf{Weak, $\mu=0$}: umbral suave sin control.
-  \item \textbf{Weak, $\mu=1$}: umbral suave con términos variacionales activos.
-  \item \textbf{Strong, $\mu=0$}: umbral crítico fuerte sin intervención.
-  \item \textbf{Strong, $\mu=1$}: umbral fuerte con control inmunológico.
+  \item \textbf{Weak Allee} (6 escenarios): 
+    \begin{itemize}
+      \item $\mu=0$: sin control adaptativo (bajo y sobre umbral)
+      \item $\mu=0$: con control adaptativo (bajo umbral)
+      \item $\mu=1$: sin control adaptativo (bajo y sobre umbral)
+      \item $\mu=1$: con control adaptativo (bajo umbral)
+    \end{itemize}
+  \item \textbf{Strong Allee} (5 escenarios):
+    \begin{itemize}
+      \item $\mu=0$: sin y con control adaptativo (bajo umbral)
+      \item $\mu=1$: sin control adaptativo (bajo y sobre umbral)
+      \item $\mu=1$: con control adaptativo (bajo umbral)
+    \end{itemize}
 \end{itemize}
-Cada familia usa las 5 CIs cercanas a $c^*\approx 0$ y las 5 con $c^*>0.9$, todas inestables, para detonar dinámica espacial y comparar colapso, persistencia o patrones.
+Los estados estacionarios de estos escenarios (Tablas~\ref{tab:steady_weak} y~\ref{tab:steady_strong}) se usan como condiciones iniciales para las simulaciones PDE, permitiendo comparar dinámica espacial bajo diferentes condiciones de control.
 
 \section{Comparación Weak vs Strong (resumen)}
+Basado en los estados estacionarios de los 10 escenarios (Tablas~\ref{tab:steady_weak} y~\ref{tab:steady_strong}):
 \begin{itemize}
-  \item \textbf{Escala de inestabilidad}: Weak $\sim 37$–41, Strong $\sim 8.7$–9.7 (norm.\ 0.90–1.00).
-  \item \textbf{Coordenadas de equilibrio}: Weak $c^*\approx 1.08$–1.09, $s^*\approx 0.48$, $i^*\approx 0.05$–0.14; Strong $c^*\approx 1.01$–1.03, $s^*\approx 0$, $i^*\approx 0.06$–0.11.
-  \item \textbf{Patrones de parámetros}: Weak mezcla $rc\approx5$, $\delta\in\{3.5,5.4\}$, $\eta\approx7$, $rd\approx9$–12.5; Strong concentra $s^*\approx0$ y menor Re\,$\lambda_{\max}$.
-  \item \textbf{Conclusión}: no se hallaron equilibrios estables en los rangos muestreados; para buscarlos, reducir $rc$ y/o $\beta,\eta$ o aumentar $rd,\delta$ y refinar mallas.
+  \item \textbf{Escala de inestabilidad}: Weak muestra Re\,$\lambda_{\max}$ en rango $\sim 4.9$–22.1; Strong en rango $\sim 4.9$–22.1. El control adaptativo aumenta significativamente la inestabilidad (Re\,$\lambda_{\max}\approx 22.1$).
+  \item \textbf{Coordenadas de equilibrio}: 
+    \begin{itemize}
+      \item Weak: estados bajo umbral con $c^*\approx 0$, $i^*\approx 1.0$; estados sobre umbral con $c^*\approx 1.0$–1.01, $i^*\approx 0.05$–0.07.
+      \item Strong: estados bajo umbral con $c^*\approx 0$, $s^*\approx 0$–0.255, $i^*\approx 1.0$–1.042; estados sobre umbral con $c^*\approx 1.008$, $i^*\approx 0.068$.
+    \end{itemize}
+  \item \textbf{Efecto del control adaptativo}: En todos los casos, el control adaptativo colapsa los equilibrios hacia $c^*\approx 0$, $s^*\approx 0$, $i^*\approx 1.0$ con Re\,$\lambda_{\max}\approx 22.1$, eliminando la rama proliferativa pero manteniendo inestabilidad.
+  \item \textbf{Conclusión}: todos los estados estacionarios encontrados son inestables (sillas/focos inestables), lo que permite excitar dinámica espacial desde estos puntos de equilibrio.
 \end{itemize}
-
-\section{Resultados recientes de barridos}
-\begin{itemize}
-  \item Weak Allee, $\mu=1$: 628 raíces con $i^*>0$, todas inestables (Re\,$\lambda>0$).
-  \item Filtro moderado (s*,c*>0, $0.05<i^*<1.05$, $0<\mathrm{Re}\,\lambda<70$, $c^*<2.5$, $s^*<1.2$): 622 puntos; inestabilidad crece con $c^*$, $i^*$ decrece con $c^*$ y $s^*$.
-  \item Figuras: \texttt{steady\_states\_summary.png}, \texttt{steady\_states\_bars\_story.png}.
-  \item Estadísticos: mediana $c^*\approx1.01$, $s^*\approx0$, $i^*\approx0.37$; Re\,$\lambda$ mediana $\approx40.7$.
-\end{itemize}
-
-\section{Candidatos sugeridos para PDE (Weak, $\mu=1$)}
-Puntos con $i^*>0$ e inestabilidad moderada-alta (Re\,$\lambda_{\max}\sim 60$), útiles como condiciones iniciales:
-\begin{table}[H]
-\centering
-\begin{tabular}{lccccc}
-\toprule
-$rc$ & $\beta$ & $\delta$ & $\eta$ & $rd$ & $(c^*, s^*, i^*)$; Re\,$\lambda_{\max}$ \\
-\midrule
-6.5 & 5.0 & 7.0 & 3.0 & 10.92 & $(1.15,\;0.56,\;0.54)$; $\approx 60.0$ \\
-6.5 & 7.6 & 7.0 & 3.0 & 12.50 & $(1.14,\;0.54,\;0.46)$; $\approx 61.0$ \\
-6.5 & 9.0 & 7.0 & 3.0 & 12.50 & $(1.12,\;0.52,\;0.40)$; $\approx 61.1$ \\
-\bottomrule
-\end{tabular}
-\caption{Candidatos inestables usados como CI en simulaciones PDE.}
-\end{table}
 
 \section{Estabilidad lineal (resumen)}
-El cálculo de autovalores de la matriz Jacobiana (ODE o PDE linealizada con difusión $-Dk^2$) muestra que todos los puntos reportados son inestables. Los detalles algebraicos y los espectros completos se documentan en el Apéndice~\ref{ap:estabilidad}.
+El cálculo de autovalores de la matriz Jacobiana (ODE o PDE linealizada con difusión $-Dk^2$) muestra que todos los puntos reportados son inestables. Se calcularon espectros lineales $\lambda(k)=\mathrm{eig}(J-Dk^2)$ para los 11 escenarios definidos en \texttt{scenarios.json}, cubriendo todas las combinaciones de efecto Allee (débil/fuerte), control inmunológico ($\mu=0,1$), control adaptativo (con/sin), y condiciones iniciales (bajo/sobre umbral). Los detalles algebraicos y los espectros completos para todos los casos se documentan en el Apéndice~\ref{ap:estabilidad}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

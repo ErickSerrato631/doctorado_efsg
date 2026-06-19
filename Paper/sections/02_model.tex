@@ -1,4 +1,4 @@
-\section{Model}
+\section{Model}\label{sec:model}
 
 \subsection{Population variables}
 \begin{itemize}
@@ -7,36 +7,62 @@
     \item $i(t)$ or $i(\mathbf{x},t)$: immune effector density.
 \end{itemize}
 
-\subsection{Baseline dynamics (ODE)}
-We start from logistic-like growth for each population and quadratic interaction terms capturing cytotoxicity, tissue damage, and immune cooperation \cite{delitala2007}:
+\subsection{Variational analogy and nonreciprocal transport}
+The model is motivated by a field-theoretic analogy with coupled population fields and gradient penalties, but the implemented reaction terms need not be globally integrable as the relaxation of a single free-energy functional. This distinction matters because the local reaction Jacobian can contain an antisymmetric component associated with nonreciprocal cancer--healthy--immune couplings. We therefore use the variational language as an organizing analogy and the transport form as the operational nonequilibrium framework.
+
+The corresponding effective functional template takes the form:
 \begin{align}
-\dot{c} &= r_c\, c\, f_{\text{Allee}}(c) - \alpha\, c\, s - \beta\, c\, i - \tfrac{\mu}{2}(\eta\, i^2 + \gamma\, s^2), \\
-\dot{s} &= r_s\, s \left(1-\tfrac{s}{k_s}\right) - \gamma\, c\, s + \delta\, s\, i^2 - \tfrac{\mu}{2}\alpha\, c^2, \\
-\dot{i} &= r_i\, i \left(1-\tfrac{i}{k_i}\right) - \eta\, c\, i + \delta\, s^2 i - \tfrac{\mu}{2}\beta\, c^2 .
+F[c,s,i] &= \int \left[ f_{\text{local}}(c,s,i) + f_{\text{gradient}}(c,s,i) + f_{\text{coupling}}(c,s,i) \right] d\mathbf{x}, \label{eq:free_energy}
+\end{align}
+where local terms encode growth tendencies, gradient terms capture spatial stiffness ($\tfrac{D_c}{2}|\nabla c|^2 + \tfrac{D_s}{2}|\nabla s|^2 + \tfrac{D_i}{2}|\nabla i|^2$), and coupling terms summarize interactions among populations.
+
+For $\mathcal{R}=1$, the functional includes additional reciprocity-completion terms:
+\begin{align}
+F_{\mathcal{R}=1}[c,s,i] &= F_{\text{base}}[c,s,i] + \int \left[ \tfrac{\alpha\mathcal{R}}{4} c^2 s^2 + \tfrac{\beta\mathcal{R}}{4} c^2 i^2 + \tfrac{\gamma\mathcal{R}}{2} c s^2 + \tfrac{\eta\mathcal{R}}{2} c i^2 \right] d\mathbf{x}, \label{eq:free_energy_R1}
+\end{align}
+where $F_{\text{base}}$ contains standard terms (growth, diffusion, and base interactions). In a purely gradient system, dynamics would follow from variational derivatives:
+\begin{align}
+\partial_t c &= -\frac{\delta F}{\delta c} + D_c \nabla^2 c, \\
+\partial_t s &= -\frac{\delta F}{\delta s} + D_s \nabla^2 s, \\
+\partial_t i &= -\frac{\delta F}{\delta i} + D_i \nabla^2 i.
 \end{align}
 
-\subsection{Allee effect formulation}
+When $\mathcal{R}=0$, the coupling structure is the nonreciprocal baseline. The $\mathcal{R}=1$ case introduces reciprocity-completion terms and acts as a morphological selector that reorganizes spatial patterns without stabilizing the system. In the simulations analyzed below, this selection is quantified through correlation lengths, diffusive fluxes, and the positive diffusive entropy-production density $\sigma^+$ rather than through a claim of global free-energy relaxation.
+
+\subsection{Base dynamics (ODE)}
+We start from logistic-type growth for each population and quadratic interaction terms capturing cytotoxicity, tissue damage, and immune cooperation \cite{delitala2007}:
+\begin{align}
+\dot{c} &= r_c\, c\, f_{\text{Allee}}(c) - \alpha\, c\, s - \beta\, c\, i - \tfrac{\mathcal{R}}{2}(\eta\, i^2 + \gamma\, s^2), \\
+\dot{s} &= r_s\, s \left(1-\tfrac{s}{k_s}\right) - \gamma\, c\, s + \delta\, s\, i^2 - \tfrac{\mathcal{R}}{2}\alpha\, c^2, \\
+\dot{i} &= r_i\, i \left(1-\tfrac{i}{k_i}\right) - \eta\, c\, i + \delta\, s^2 i - \tfrac{\mathcal{R}}{2}\beta\, c^2 .
+\end{align}
+
+\subsection{Cooperative Allee effect formulation}
 \begin{itemize}
-    \item \textbf{Weak Allee:} $f_{\text{Allee}}(c)=\left(\tfrac{c}{a}-1\right)\left(1-\tfrac{c}{k_c}\right)$ (soft threshold) \cite{murray2002}.
-    \item \textbf{Strong Allee:} $f_{\text{Allee}}(c)=\left(\tfrac{c}{a}-1\right)\left(\tfrac{c-a}{k_c-a}\right)$ (hard threshold) \cite{gerlee2022}.
+    \item \textbf{Weak Allee:} $f_{\text{Allee}}(c)=\left(\tfrac{c}{a}-1\right)\left(1-\tfrac{c}{k_c}\right)$ (smooth threshold) \cite{murray2002}.
+    \item \textbf{Strong Allee:} $f_{\text{Allee}}(c)=\left(\tfrac{c}{a}-1\right)\left(\tfrac{c-a}{k_c-a}\right)$ (sharp threshold) \cite{gerlee2022}.
 \end{itemize}
 
 \subsection{Nonreciprocal interactions}
-Suppression of immunity by cancer ($-\eta\,c\,i$) differs from immune cytotoxicity ($-\beta\,c\,i^2$); damage to healthy tissue by cancer ($-\gamma\,c\,s$) differs from competition against cancer ($-\alpha\,c\,s^2$). These asymmetries break reciprocity and reshape nullclines and bifurcations.
+Suppression of immunity by cancer ($-\eta\,c\,i$) differs from immune cytotoxicity ($-\beta\,c\,i^2$); damage to healthy tissue by cancer ($-\gamma\,c\,s$) differs from competition against cancer ($-\alpha\,c\,s^2$). These asymmetries break reciprocity and reconfigure nullclines and bifurcations.
 
 \subsection{Immunological control field \texorpdfstring{$u(\mathbf{x},t)$}{u(x,t)}}
 \begin{itemize}
-    \item Binary/parametric control: $\mu\in\{0,1\}$ toggles variational terms.
-    \item Adaptive field: $u(\mathbf{x},t)=u_0\, \dfrac{c}{i+\varepsilon}$ with cap $u_{\max}$ to prioritize high-$c$, low-$i$ regions.
-    \item Coupling: control can enter as enhanced cytotoxicity ($\beta\to \beta+u$) or as an external field in the $i$-equation.
+    \item Reciprocity parameter: $\mathcal{R}\in\{0,1\}$ distinguishes the nonreciprocal baseline from the reciprocal-completion setting.
+    \item Adaptive field (Hill): 
+    $u(\mathbf{x},t)=u_{\max}\,H_{\mathrm{act}}(c;K_c,n_c)\,H_{\mathrm{inh}}(i;K_i,n_i)$, with
+    $H_{\mathrm{act}}(c)=\dfrac{c^{n_c}}{K_c^{n_c}+c^{n_c}}$ and
+    $H_{\mathrm{inh}}(i)=\dfrac{K_i^{n_i}}{K_i^{n_i}+i^{n_i}}$,
+    to prioritize regions with high $c$ while reducing dosage when $i$ is already high.
+    \item Coupling: control can enter as enhanced cytotoxicity ($\beta\to \beta+u$) or as an external field in the $i$ equation.
 \end{itemize}
 
 \subsection{Spatial extension (PDE)}
 Adding diffusion yields
 \begin{align}
-\partial_t c &= D_c \nabla^2 c + r_c\, c\, f_{\text{Allee}}(c) - c(\alpha s^2 + \beta i^2) - \mu c(\gamma s^2 + \eta i^2), \\
-\partial_t s &= D_s \nabla^2 s + r_s s(1-s) - \gamma c^2 s + \delta i^2 s - \tfrac{\mu}{2}\alpha s c^2, \\
-\partial_t i &= D_i \nabla^2 i + r_i i(1-i) + \delta s^2 i - \eta c^2 i - \tfrac{\mu}{2}\beta c^2 i .
+\partial_t c &= D_c \nabla^2 c + r_c\, c\, f_{\text{Allee}}(c) - c(\alpha s^2 + \beta i^2) - \mathcal{R} c(\gamma s^2 + \eta i^2), \\
+\partial_t s &= D_s \nabla^2 s + r_s s(1-s) - \gamma c^2 s + \delta i^2 s - \tfrac{\mathcal{R}}{2}\alpha s c^2, \\
+\partial_t i &= D_i \nabla^2 i + r_i i(1-i) + \delta s^2 i - \eta c^2 i - \tfrac{\mathcal{R}}{2}\beta c^2 i .
 \end{align}
 Diffusion acts as a mode selector; with $D=\mathrm{diag}(D_c,D_s,D_i)$ the linear spectrum is $\lambda(k)=\mathrm{eig}(J-Dk^2)$.
 
@@ -48,14 +74,13 @@ Symbol & Description & Example value \\
 \midrule
 $r_c,r_s,r_i$ & intrinsic growth rates (cancer, healthy, immune) & $5.84,\ 13.12,\ 10.92$ \\
 $k_c,k_s,k_i$ & carrying capacities & $1,\ 1,\ 1$ \\
-$a$ & Allee threshold (weak/strong) & $7.22$ (weak), $0.1$ (strong scans) \\
+$a$ & Allee threshold (weak/strong) & $7.22$ (weak), $0.1$ (strong) \\
 $\alpha,\beta,\gamma,\delta,\eta$ & nonreciprocal interaction strengths & $10.22,\ 7.60,\ 0.74,\ 5.40,\ 5.08$ \\
-$D_c,D_s,D_i$ & diffusion coefficients (spatial model) & $1,\ 1,\ 1$ \\
-$\mu$ & control/variational switch & $\{0,1\}$ \\
-$u(\mathbf{x},t)$ & adaptive immunological control field & capped by $u_{\max}$ \\
+$D_c,D_s,D_i$ & diffusion coefficients (spatial model) & $0.012,\ 0.022,\ 0.022$ \\
+$\mathcal{R}$ & reciprocity/completion switch & $\{0,1\}$ \\
+$u(\mathbf{x},t)$ & adaptive immunological control field & bounded by $u_{\max}$ \\
 \bottomrule
 \end{tabular}
-\caption{Variables y par\'ametros del modelo. Ajustar valores según régimen weak/strong y escenarios de control.}
+\caption{Model variables and parameters. Values adjusted according to weak/strong regime and control scenarios.}
 \label{tab:params}
 \end{table*}
-

@@ -1,5 +1,97 @@
+# --- Proyecto (reglas propias) ---
 *.txt
 *.mp4
 *.png
 .ipynb_checkpoints/
 doctorado_efsg/Biblioteca
+Inglés/
+*.log
+log/
+logs/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+.eggs/
+dist/
+build/
+pip-wheel-metadata/
+*.manifest
+*.spec
+
+# --- Entornos virtuales ---
+.venv/
+venv/
+env/
+ENV/
+.env
+.env.*
+!.env.example
+
+# --- Testing / linters ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+
+# --- Django ---
+db.sqlite3
+db.sqlite3-journal
+staticfiles/
+media/
+*.pot
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+profile_default/
+ipython_config.py
+
+# --- LaTeX ---
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.nav
+*.out
+*.snm
+*.toc
+*.synctex.gz
+*.vrb
+*.lof
+*.lot
+*.bcf
+*.run.xml
+
+# --- macOS ---
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# --- IDEs / editores ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.spyderproject
+.spyproject
+
+# --- Otros ---
+*.bak
+*.tmp
+*.temp
+.cache/

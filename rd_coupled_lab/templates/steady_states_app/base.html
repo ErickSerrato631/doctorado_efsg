@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Laboratorio — Boson Digital Solutions{% endblock %}</title>
+    <link rel="icon" href="{% static 'favicon.svg' %}" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/lab-theme.css' %}">
+    <!-- Plotly.js (versión actualizada) -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="lab-body">
+    <nav class="navbar navbar-expand-lg navbar-modern">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand navbar-brand-modern" href="{% url 'steady_states_app:dashboard' %}" title="Boson Digital Solutions — Laboratorio NPDE acoplado">
+                <span class="navbar-brand-logo-wrap" aria-hidden="true">
+                    <img src="{% static 'img/logo.png' %}" alt="Boson Digital Solutions" class="navbar-brand-logo" width="218" height="68" loading="lazy" decoding="async">
+                </span>
+                <span class="navbar-brand-text">
+                    <span class="navbar-brand-tagline d-none d-sm-inline">Laboratorio · NPDE acoplado</span>
+                </span>
+            </a>
+            <button class="navbar-toggler navbar-toggler-modern" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú de navegación">
+                <span class="navbar-toggler-icon navbar-toggler-icon-modern"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link nav-link-modern dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-list"></i>
+                            <span>Menú</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-modern dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item dropdown-item-modern {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}" href="{% url 'steady_states_app:dashboard' %}">
+                                    <i class="bi bi-house-door"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item dropdown-item-modern" href="{% url 'steady_states_app:dashboard' %}?abrir_generar_ee=1" title="Abre el Dashboard y el modal de búsqueda de EE (c, s, i); puede escribir JSON auxiliar local">
+                                    <i class="bi bi-diagram-3"></i>
+                                    <span>Generar estados estacionarios</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item dropdown-item-modern {% if request.resolver_match.url_name == 'scenario_figures_gallery' %}active{% endif %}" href="{% url 'steady_states_app:scenario_figures_gallery' %}">
+                                    <i class="bi bi-graph-up-arrow"></i>
+                                    <span>Visualización por escenario</span>
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item dropdown-item-modern {% if request.resolver_match.url_name == 'storage_health' %}active{% endif %}" href="{% url 'steady_states_app:storage_health' %}" title="Comprueba RESULTS_DIR, lectura/escritura y steady_states_full_run.json (Drive)">
+                                    <i class="bi bi-cloud-check"></i>
+                                    <span>Comprobar almacenamiento</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    {% include "steady_states_app/includes/catalog_figure_viewer_script.html" %}
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

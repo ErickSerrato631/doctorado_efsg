@@ -3,27 +3,33 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Estado estacionario inestable en el plano $(c,s)$ bajo dos regímenes de \(\mu \). Izquierda: \(\mu = 0\), \(P_1 = (1.4103, 1.0414, 0.6110)\); derecha: \(\mu = 1\), \(P_1 = (1.0826, 0.4885, 0.1649)\). Las nulclinas $r_1 = 0$ (negro) y $r_2 = 0$ (azul) muestran cómo la presencia de estructura variacional modifica la geometría del flujo.}}{8}{figure.caption.7}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Estado estacionario inestable en el plano $(c,s)$ bajo dos regímenes de \(\mu \). Izquierda: \(\mu = 1\), escenario weak\_mu1\_uNo\_bajo\_umbral; derecha: \(\mu = 0\), escenario weak\_mu0\_uNo\_bajo\_umbral. Las nulclinas F1=0 (negro) y F2=0 (azul) muestran cómo la presencia de estructura variacional modifica la geometría del flujo. Los puntos de equilibrio están marcados con círculos rojos, mostrando sus coordenadas $(c^*, s^*)$ y rodeados por círculos discontinuos que indican su entorno local.}}{9}{figure.caption.7}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Distribución espacial de $c$, $s$ e $i$ a \(T=1.935\). Con $\mu =0$ se observan cúmulos caóticos; con $\mu =1$ la estructura variacional suaviza y estabiliza patrones, generando cúmulos más definidos y menos numerosos. Animaciones en \href {https://drive.google.com/drive/folders/11FhjobQToXXDddC7UCPAwGjC53Cm1i0S?usp=sharing}{enlace}.}}{13}{figure.caption.11}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Transición de espectro amplio (desorden) a bajas frecuencias (compactación) para $c$ con $\mu =1$.}}{14}{figure.caption.12}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Autocorrelación $c_c$ (células cancerosas). $\mu =1$ incrementa $\xi (t)$, indicando mayor compactación.}}{14}{figure.caption.13}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Autocorrelación $s_s$ (células sanas). $\mu =1$ produce distribución más homogénea.}}{15}{figure.caption.14}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Autocorrelación $i_i$ (sistema inmune). Diferencias leves entre $\mu =0$ y $\mu =1$.}}{15}{figure.caption.15}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Correlación cruzada $c_s$ (cáncer--sanas). Crecimiento débil de $\xi (t)$, coherente con competencia.}}{16}{figure.caption.16}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Correlación cruzada $c_i$ (cáncer--inmune). $\mu =1$ mejora seguimiento inmune de patrones tumorales.}}{16}{figure.caption.17}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Correlación cruzada $s_i$ (sanas--inmune). Es la más débil; el sistema inmune se concentra en el tumor.}}{17}{figure.caption.18}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Distribución espacial bajo efecto Allee fuerte. $\mu =0$: patrones fragmentados; $\mu =1$: dominios más definidos.}}{18}{figure.caption.19}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Autocorrelación $c_c$ con efecto Allee fuerte.}}{19}{figure.caption.20}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Autocorrelación $s_s$ (fuerte).}}{19}{figure.caption.21}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Autocorrelación $i_i$ (fuerte).}}{20}{figure.caption.22}%
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Correlación $c_s$ (fuerte).}}{20}{figure.caption.23}%
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Correlación $c_i$ (fuerte).}}{21}{figure.caption.24}%
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Correlación $s_i$ (fuerte).}}{21}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Evolución temporal (panel A vs B) en efecto Allee débil, $\mu =0$: uNo (A) vs uSi (B) a tiempos representativos hasta \(T=2.000\). Cada snapshot es una imagen compuesta con los campos del modelo.}}{14}{figure.caption.10}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Evolución temporal (panel A vs B) en efecto Allee débil, $\mu =1$: uNo (A) vs uSi (B) a tiempos representativos hasta \(T=2.000\).}}{15}{figure.caption.11}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Transición de espectro amplio (desorden) a bajas frecuencias (compactación) para $c$ con $\mu =1$.}}{16}{figure.caption.12}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Grid de $\xi (t)$ para $c_c$: comparación $\mu =0$ vs $\mu =1$ estratificada por efecto Allee (débil/fuerte) y por condición bajo/sobre umbral (paneles).}}{17}{figure.caption.13}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Grid de $\xi (t)$ para $s_s$: comparación $\mu =0$ vs $\mu =1$ estratificada por efecto Allee (débil/fuerte) y por condición bajo/sobre umbral (paneles).}}{18}{figure.caption.14}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Grid de $\xi (t)$ para $i_i$: comparación $\mu =0$ vs $\mu =1$ estratificada por efecto Allee (débil/fuerte) y por condición bajo/sobre umbral (paneles).}}{19}{figure.caption.15}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Grid de $\xi (t)$ para $c_s$: comparación $\mu =0$ vs $\mu =1$ estratificada por efecto Allee (débil/fuerte) y por condición bajo/sobre umbral (paneles).}}{20}{figure.caption.16}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Grid de $\xi (t)$ para $c_i$: comparación $\mu =0$ vs $\mu =1$ estratificada por efecto Allee (débil/fuerte) y por condición bajo/sobre umbral (paneles).}}{21}{figure.caption.17}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Grid de $\xi (t)$ para $s_i$: comparación $\mu =0$ vs $\mu =1$ estratificada por efecto Allee (débil/fuerte) y por condición bajo/sobre umbral (paneles).}}{22}{figure.caption.18}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Grid de $\xi (t)$ para $c_c$: comparación uNo vs uSi en bajo umbral, separando weak/strong y $\mu =0/1$ (paneles).}}{23}{figure.caption.19}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Grid de $\xi (t)$ para $c_i$: comparación uNo vs uSi en bajo umbral, separando weak/strong y $\mu =0/1$ (paneles).}}{24}{figure.caption.20}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Evolución temporal (panel A vs B) en efecto Allee fuerte, $\mu =0$: uNo (A) vs uSi (B) a tiempos representativos hasta \(T=2.000\).}}{25}{figure.caption.21}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Evolución temporal (panel A vs B) en efecto Allee fuerte, $\mu =1$: uNo (A) vs uSi (B) a tiempos representativos hasta \(T=2.000\).}}{26}{figure.caption.22}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Efecto Allee fuerte en $c_c$: ver paneles \emph {Strong} del grid $\xi (t)$ (comparación $\mu =0$ vs $\mu =1$ y bajo/sobre umbral).}}{27}{figure.caption.23}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Efecto Allee fuerte en $s_s$: ver paneles \emph {Strong} del grid $\xi (t)$.}}{27}{figure.caption.24}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Efecto Allee fuerte en $i_i$: ver paneles \emph {Strong} del grid $\xi (t)$.}}{28}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Efecto Allee fuerte en $c_s$: ver paneles \emph {Strong} del grid $\xi (t)$.}}{28}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Efecto Allee fuerte en $c_i$: ver paneles \emph {Strong} del grid $\xi (t)$.}}{29}{figure.caption.27}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Efecto Allee fuerte en $s_i$: ver paneles \emph {Strong} del grid $\xi (t)$.}}{29}{figure.caption.28}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Espectros lineales en torno al punto inestable \(P_1(c,s,i)\) para $\mu =0$ (izq.) y $\mu =1$ (der.). En ambos casos $\Re (\lambda _1)>0$ cerca de $q=0$, confirmando inestabilidad.}}{30}{figure.caption.27}%
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Autovalores $\lambda _j(q)$ para $P_1$ con efecto Allee fuerte. $\Re (\lambda _1)>0$ cerca de $q=0$ en ambos casos; $\mu =1$ atenúa inestabilidad en altas frecuencias.}}{30}{figure.caption.28}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Espectros lineales para Allee débil sin control adaptativo. En todos los casos $\Re (\lambda _1)>0$ cerca de $k=0$, confirmando inestabilidad. El régimen $\mu =1$ atenúa modos de alta frecuencia pero no estabiliza el sistema.}}{42}{figure.caption.38}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Espectros lineales para Allee débil con control adaptativo. El control mantiene la inestabilidad mientras concentra la dinámica alrededor de estados cercanos a la extinción ($c\approx 0$, $i\approx 1$).}}{43}{figure.caption.39}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Espectros lineales para Allee fuerte sin control adaptativo. El efecto Allee fuerte produce barreras más pronunciadas; $\mu =1$ reduce la banda de modos inestables en altas frecuencias sin eliminar la inestabilidad en $k\approx 0$.}}{44}{figure.caption.40}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Espectros lineales para Allee fuerte con control adaptativo. El control colapsa los equilibrios hacia estados cercanos a la extinción manteniendo la inestabilidad, similar al caso de Allee débil.}}{45}{figure.caption.41}%
 \addvspace {10\p@ }

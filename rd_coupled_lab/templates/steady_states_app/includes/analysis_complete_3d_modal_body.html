@@ -1,0 +1,15 @@
+{% load crispy_forms_tags %}
+<div class="analysis-ee-modal-inner">
+    <p class="text-muted small mb-3">
+        Búsqueda numérica de equilibrios con <strong>R<sub>c</sub> = R<sub>s</sub> = R<sub>i</sub> = 0</strong> en <strong>c</strong>, <strong>s</strong> e <strong>i</strong>.
+        Con <strong>Generar JSON auxiliar</strong> activo, se escribe un archivo bajo Allee al completar (el dashboard usa <code>steady_states_full_run.json</code> en Drive). Consúltalo en el
+        <a href="{% url 'steady_states_app:dashboard' %}">Dashboard</a> (tarjetas de escenario: ecuaciones y parámetros).
+    </p>
+    <form method="post"
+          class="analysis-ee-modal-form"
+          action="{% url 'steady_states_app:analysis_config' 'complete-3d' %}"
+          id="analysisEEFormModal">
+        {% csrf_token %}
+        {% crispy form %}
+    </form>
+</div>

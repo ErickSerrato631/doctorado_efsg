@@ -1,0 +1,81 @@
+{# Requiere: catalog_uid, scenario_name, scenario_row, stages_catalog #}
+<div class="tab-pane fade" id="pane-pipe-{{ catalog_uid }}" role="tabpanel" aria-labelledby="tab-pipe-{{ catalog_uid }}" tabindex="0">
+    <p class="small text-muted mb-3">
+        Orden canónico: simulación (matrices) → imágenes → termodinámica efectiva → correlaciones → TdC espacial / flujos → reciprocidad.
+        Las etapas siguientes quedan bloqueadas hasta <code>complete</code> o <code>na</code> en todas las previas.
+    </p>
+    <div class="accordion" id="catalogStagesAccordion-{{ catalog_uid }}">
+        {% for st in stages_catalog %}
+        <div class="accordion-item">
+            <h3 class="accordion-header" id="heading-{{ catalog_uid }}-{{ st.id }}-{{ forloop.counter }}">
+                <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ catalog_uid }}-{{ st.id }}-{{ forloop.counter }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="collapse-{{ catalog_uid }}-{{ st.id }}-{{ forloop.counter }}">
+                    <span class="me-2">
+                        {% if st.status == 'complete' %}
+                        <i class="bi bi-check-circle-fill text-success" title="Completo"></i>
+                        {% elif st.status == 'partial' %}
+                        <i class="bi bi-dash-circle text-warning" title="Parcial"></i>
+                        {% elif st.status == 'missing' %}
+                        <i class="bi bi-x-circle text-secondary" title="Falta"></i>
+                        {% elif st.status == 'na' %}
+                        <i class="bi bi-slash-circle text-muted" title="N/A"></i>
+                        {% else %}
+                        <i class="bi bi-question-circle text-muted"></i>
+                        {% endif %}
+                    </span>
+                    <span class="fw-semibold flex-grow-1 text-start">{{ st.label }}</span>
+                    {% if st.percent is not None %}
+                    <span class="badge bg-light text-dark border ms-2">{{ st.percent }}%</span>
+                    {% endif %}
+                    {% if not st.catalog_unlocked %}
+                    <span class="badge bg-dark ms-2"><i class="bi bi-lock-fill"></i> Bloqueada</span>
+                    {% endif %}
+                </button>
+            </h3>
+            <div id="collapse-{{ catalog_uid }}-{{ st.id }}-{{ forloop.counter }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" aria-labelledby="heading-{{ catalog_uid }}-{{ st.id }}-{{ forloop.counter }}" data-bs-parent="#catalogStagesAccordion-{{ catalog_uid }}">
+                <div class="accordion-body {% if not st.catalog_unlocked %}bg-light bg-opacity-50{% endif %}">
+                    {% if not st.catalog_unlocked %}
+                    <div class="alert alert-warning py-2 small mb-3">
+                        <i class="bi bi-lock"></i>
+                        Esta etapa se desbloquea cuando todas las anteriores estén <strong>completas</strong> o <strong>N/A</strong>.
+                        Pendiente: <strong>{{ st.blocked_by_stage_label }}</strong>.
+                    </div>
+                    {% endif %}
+                    <p class="small mb-2"><strong>Estado global:</strong>
+                        {% if st.status == 'complete' %}<span class="badge bg-success">Completo</span>
+                        {% elif st.status == 'partial' %}<span class="badge bg-warning text-dark">Parcial</span>
+                        {% elif st.status == 'missing' %}<span class="badge bg-secondary">Falta</span>
+                        {% elif st.status == 'na' %}<span class="badge bg-info text-dark">N/A</span>
+                        {% else %}<span class="badge bg-light text-dark border">{{ st.status }}</span>{% endif %}
+                    </p>
+                    {% if st.detail %}
+                    <p class="small text-muted font-monospace mb-3">{{ st.detail }}</p>
+                    {% endif %}
+                    <div class="text-uppercase text-muted fw-semibold small mb-2" style="letter-spacing:0.03em">Pasos comprobados</div>
+                    <ul class="list-group list-group-flush border rounded small">
+                        {% for step in st.steps %}
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                <span>{{ step.label }}</span>
+                                <span class="text-nowrap">
+                                    {% if step.ok %}
+                                    <i class="bi bi-check2 text-success" title="Cumple"></i>
+                                    {% else %}
+                                    <i class="bi bi-x-lg text-danger" title="No cumple"></i>
+                                    {% endif %}
+                                </span>
+                            </div>
+                            {% if step.detail %}
+                            <div class="text-muted font-monospace mt-1 small">{{ step.detail }}</div>
+                            {% endif %}
+                        </li>
+                        {% empty %}
+                        <li class="list-group-item text-muted">Sin sub-pasos estructurados.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <p class="small text-muted mt-3 mb-0">Raíz de resultados: <code>{{ scenario_row.scenario_dir }}</code></p>
+</div>

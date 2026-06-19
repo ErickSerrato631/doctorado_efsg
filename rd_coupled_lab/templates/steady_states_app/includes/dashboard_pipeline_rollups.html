@@ -1,0 +1,63 @@
+{# Requiere: experiment_status.pipeline_rollups (dict con n_scenarios, stages, …) #}
+{% with pr=experiment_status.pipeline_rollups %}
+{% if pr and pr.n_scenarios %}
+<div class="row mb-4 g-3">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm pipeline-rollups-card">
+            <div class="card-body py-3 px-3 px-md-4">
+                <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
+                    <div>
+                        <h6 class="mb-1 fw-semibold">
+                            <i class="bi bi-diagram-3-fill text-primary me-1"></i>
+                            Pipeline en disco (por etapa)
+                        </h6>
+                        <p class="small text-muted mb-0">
+                            Cada barra muestra cuántos escenarios del catálogo están en <strong>completo</strong>, <strong>parcial</strong>, <strong>falta</strong> o <strong>N/A</strong> en esa etapa.
+                            Carpeta bajo <code>RESULTS_DIR</code> según <code>pipeline_folder</code> del JSON.
+                        </p>
+                    </div>
+                    <div class="text-end small pipeline-rollups-summary">
+                        <div class="fw-semibold text-body">
+                            <span class="text-success">{{ pr.n_folder_present }}</span> / {{ pr.n_scenarios }} con carpeta
+                        </div>
+                        <div class="text-muted">
+                            <span class="fw-semibold text-primary">{{ pr.n_pipeline_all_ok }}</span> pipeline resuelto
+                            <span class="text-muted" title="Todas las etapas en completo o N/A">(completo o N/A)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pipeline-rollups-grid">
+                    {% for st in pr.stages %}
+                    <div class="pipeline-stage-kpi">
+                        <div class="d-flex align-items-baseline justify-content-between gap-1 mb-1">
+                            <span class="pipeline-stage-kpi__abbr font-monospace" title="{{ st.label }}">{{ st.abbr }}</span>
+                            <span class="small text-muted text-nowrap">{{ st.complete }}/{{ st.n }}</span>
+                        </div>
+                        <div class="pipeline-stage-kpi__label text-truncate small text-muted mb-2" title="{{ st.label }}">{{ st.label }}</div>
+                        <div class="pipeline-stage-kpi__bar rounded-pill overflow-hidden d-flex" role="img" aria-label="{{ st.label }}: {{ st.complete }} completos de {{ st.n }}">
+                            {% for seg in st.segments %}
+                            <div class="pipeline-stage-kpi__seg {{ seg.css }}" style="width: {{ seg.pct }}%;" title="{{ seg.label_es }}: {{ seg.n }} ({{ seg.pct }}%)"></div>
+                            {% empty %}
+                            <div class="pipeline-stage-kpi__seg pipeline-stage-kpi__seg--empty bg-light w-100"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="pipeline-stage-kpi__legend small text-muted mt-1">
+                            {% if st.na %}<span class="me-2"><span class="badge rounded-pill bg-secondary bg-opacity-50">N/A</span> {{ st.na }}</span>{% endif %}
+                            {% if st.missing %}<span class="me-2 text-danger">Falta {{ st.missing }}</span>{% endif %}
+                            {% if st.partial %}<span class="text-warning">Parcial {{ st.partial }}</span>{% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="pipeline-rollups-legend small text-muted mt-3 pt-2 border-top">
+                    <span class="me-3"><span class="pipeline-legend-swatch bg-success"></span> Completo</span>
+                    <span class="me-3"><span class="pipeline-legend-swatch bg-warning"></span> Parcial</span>
+                    <span class="me-3"><span class="pipeline-legend-swatch bg-danger"></span> Falta</span>
+                    <span><span class="pipeline-legend-swatch bg-secondary bg-opacity-50"></span> N/A (no aplica aún)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endwith %}

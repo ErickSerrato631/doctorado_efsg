@@ -1,9 +1,9 @@
 \section{Conclusions}
 
-\begin{itemize}
-    \item Presented a nonreciprocal cancer--immune model with weak/strong Allee effects and immunological control.
-    \item Mean-field scans reveal only unstable fixed points in current parameter ranges; Allee thresholds separate extinction vs proliferation.
-    \item Spatial simulations show control-dependent pattern organization; adaptive $u$ should improve containment relative to binary $\mu$, and strong Allee caps domain sizes.
-    \item Future work: refine parameter sweeps to seek stable attractors, optimize spatiotemporal $u(\mathbf{x},t)$, extend to longer simulations and heterogeneous geometries, and validate against experimental scales.
-\end{itemize}
+We have analyzed a spatial cancer--healthy--immune reaction--diffusion model in which cooperative strong-Allee growth, nonreciprocal interactions, and Hill-type immunological control act together to select mesoscopic organization. The homogeneous reference states considered here are linearly unstable, so they do not serve as attracting equilibria. Instead, they organize spatial routes: initially heterogeneous fields coarsen into domains whose correlation lengths grow close to a diffusion-limited $t^{1/2}$ law over the simulated window.
 
+The reciprocity parameter $\mathcal{R}$ is the main structural selector. In the nonreciprocal baseline ($\mathcal{R}=0$), activating Hill control supplies the dominant geometric bias: it suppresses tumor-domain coherence, reorganizes cancer--immune co-localization, and produces large changes in the effective cancer, healthy-tissue, and immune potentials. In the reciprocal-completion setting ($\mathcal{R}=1$), the coupling structure already selects a cancer-suppressing, healthy--immune organized route. Consequently, turning Hill control on produces only a secondary correction in both the effective potentials and the diffusive entropy production.
+
+The thermodynamic diagnostic $\sigma^+=\sum_a D_a|\nabla\phi_a|^2$ and its integral $\Sigma_{\mathrm{diss}}(t)$ quantify this distinction at the level of gradients and interfaces. The control has a strong entropy-production signature only when it acts on a nonreciprocal background; in the reciprocal-completion limit, equivalent to free-energy minimization, the same control loses comparable thermodynamic relevance. Thus the principal outcome is not relaxation to a homogeneous equilibrium, but selection of spatial scales, routes, and coupling structures.
+
+These results provide a compact framework for comparing intervention strategies through mesoscopic observables: correlation lengths, effective potentials, and diffusive entropy-production measures. Future work should extend the parameter sweeps, optimize the Hill control in space and time, test ensemble variability across initial conditions, and calibrate the nondimensional length scale against histological or cellular data.

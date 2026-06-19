@@ -1,0 +1,240 @@
+# Mapa físico-matemático, orden de ejecución y qué hace --all en termo:
+#   Allee/PIPELINE_EJECUCION_Y_FISICA.md  (desde la raíz Models/)
+# (equilibrio vs fuera de equilibrio, teoría, ecuaciones resumidas y salidas por script)
+
+# Alineación JSON ↔ carpetas de resultados:
+#   El mismo archivo de escenarios debe usarse en simulación (run_scenarios) y en postproceso
+#   (termo, reciprocidad, visualize) para la misma "campaña". Ejemplos en el repo:
+#   - scenarios_v1.json  → primera ronda (nombres tipo strong_mu0_uNo_bajo_umbral, …)
+#   - scenarios.json     → por defecto en run_scenarios; hoy otra familia de nombres (p. ej. strong_corner_*)
+#   Tras run_scenarios, cada escenario escribe en RESULTS_DIR/<nombre>/ matrices + correlations
+#   (cancer_dynamics.py y correlations/correlation_fourier.py se invocan desde run_scenarios).
+
+# Variable de entorno (misma sesión WSL) para reutilizar el JSON activo en comandos largos:
+#   export ALLEE_SCENARIOS="scenarios_v1.json"
+#   y sustituir en los one-liners si lo prefieres (bash: ${ALLEE_SCENARIOS}).
+
+# =============================================================================
+# ORDEN DE EJECUCIÓN (qué va antes y qué depende de qué)
+# =============================================================================
+#
+# Hay DOS cadenas independientes (no confundir reducido vs PDE espacio-tiempo):
+#
+# ── A) Paper / modelo reducido (FIG. 2–5, tablas LaTeX, CSV de equilibrios) ──
+#    Referencia: §1 (opcional), luego §1b en este archivo.
+#
+#    (0) Opcional — Barridos 3D / catálogo unificado (steady_states.py):
+#        Por defecto: WEAK + STRONG en la **misma rejilla** (μ∈{0,1}×Hill on/off por tramo) → un solo JSON;
+#        no sustituye extract_steady_states_from_scenarios (ese lee scenarios.json).
+#
+#    (1) Obligatorio antes de figuras coherentes con scenarios.json — Extraer equilibrios:
+#        extract_steady_states_from_scenarios.py  (no escribe en Allee/)
+#        • Sin RESULTS_DIR: usa ~/googledrive/.../Resultados Paper si Drive está montado (rclone).
+#        • Con RESULTS_DIR: usa esa ruta (p. ej. cliente Windows en /mnt/c/.../Google Drive/...).
+#        • Salida: steady_states_scenarios.csv en raíz, uno por <escenario>/, table_*.tex en raíz.
+#
+#    (2) Generar PNG (planos de fase + espectros lineales):
+#        generate_figures_from_scenarios.py  (misma resolución de carpeta que extract)
+#        • Lee el CSV en la raíz de resultados; respaldo: steady_states_extract/ o Allee/
+#        • Escribe PNG en  <resultados>/<nombre_escenario>/
+#
+#    Resumen A:  extract  →  generate_figures   (opcional steady_states.py antes si lo usas)
+#
+# ── B) Simulación PDE + termodinámica sobre trayectorias + TdC ──
+#    Referencia: §2 → §3 → §4 → §5
+#
+#    (0) Montar Drive (rclone) o fijar RESULTS_DIR a la carpeta que sincroniza Windows
+#    (1) run_scenarios.py  — matrices c,s,i + correlations por escenario
+#    (2) calculate_thermodynamic_properties.py --all  (mismo JSON que la simulación)
+#    (3) reciprocity_jacobian_analysis / visualize_fluxes...  (orden flexible; ver §4)
+#    (4) generate_thermodynamic_figures / analyze_thermodynamic_results  (§5)
+#
+#    Resumen B:  run_scenarios  →  termo --all  →  TdC / figuras paper termo
+#
+# Regla general: un mismo JSON de escenarios para toda la cadena B de esa campaña.
+#
+# =============================================================================
+# 1. Estados estacionarios (modelo reducido / puntos fijos; no campos 2D ni F(t))
+#    Script: Allee/steady_states/steady_states.py
+# =============================================================================
+#
+# Comportamiento actual (solo 3D):
+#   • Modo por defecto (control-3d): (1) WEAK y (2) STRONG sobre la **misma rejilla** de parámetros
+#     (rc, β, δ, η, rd, a); en cada tramo μ∈{0,1} y con/sin Hill (4 bloques por tramo si no usas --no-sweep-weak).
+#     Salida: steady_states_full_run.json (weak_grid + strong_corner con all / filtered / near_corner_only).
+#   • --no-sweep-weak → acorta WEAK y STRONG: un solo --mu y solo Hill encendido (~4× más rápido por tramo).
+#   • Salida: «Resultados Paper»/estados_estacionarios/ (Drive o RESULTS_DIR); --local-only → Allee/estados_estacionarios/
+#   • --legacy-split-outputs → además CSV, steady_states_catalog.json y steady_states_corner_strong_mu.json.
+#   • --generate-scenarios → solo filas WEAK con Hill; --mode corner-strong → solo STRONG en rejilla (weak_grid nulo).
+#   • Semillas Newton en (c,s,i), distinto de la rejilla factorial (rc,β,…):
+#       --seed-grid-n N (N≥2) → añade cubo [0,1]^3 con numpy.linspace(0,1,N) por eje = N^3 semillas por celda paramétrica.
+#       Por defecto se mantienen también las semillas legacy (interior + c~0,s~1,i~1), deduplicadas con el cubo.
+#       --seed-grid-only → solo el cubo, sin legacy (obligatorio usar --seed-grid-n ≥ 2).
+#     Coste ~ (#celdas paramétricas) × (#semillas) × Newton. Documentación: Allee/steady_states/proceso_estados_estacionarios.pdf
+#
+# Ejemplos semillas (desde la carpeta Allee/; en PowerShell usa steady_states\steady_states.py):
+#   # Rejilla 5×5×5 = 125 semillas en [0,1]^3 + legacy (deduplicada)
+#   python steady_states/steady_states.py --seed-grid-n 5 --local-only --no-save
+#   # Solo cubo [0,1]^3 con 6 puntos por eje → 6^3 = 216 semillas (sin legacy)
+#   python steady_states/steady_states.py --seed-grid-n 6 --seed-grid-only --local-only --no-save
+#
+# Equivalente WSL (fenicsx-env, ruta Allee del repo):
+# wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python steady_states/steady_states.py --seed-grid-n 5 --local-only --no-save"
+# wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python steady_states/steady_states.py --seed-grid-n 6 --seed-grid-only --local-only --no-save"
+#
+# Pipeline completo (WEAK+STRONG, todas las combinaciones anteriores); montar Drive o export RESULTS_DIR:
+wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python steady_states/steady_states.py --umax 0.5"
+
+# WEAK y STRONG más rápidos (un solo --mu, siempre Hill en ambos tramos):
+# wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python steady_states/steady_states.py --no-sweep-weak --mu 1 --umax 0.5"
+
+# Solo STRONG en rejilla (un JSON; weak_grid null):
+# wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python steady_states/steady_states.py --mode corner-strong --umax 0.5"
+
+# Sin Drive montado: salida local bajo Allee/estados_estacionarios/
+# wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python steady_states/steady_states.py --umax 0.5 --local-only"
+
+
+# =============================================================================
+# 1b. Cadena paper FIG. 2–5 (orden: 1º extract → 2º generate_figures)
+#     PowerShell: comillas DOBLES en -lc "..." ; cd 'ruta con espacios' entre SIMPLES.
+#     `$HOME en export: usar `"`$HOME/...`" como en los ejemplos de §1b (ver más abajo).
+#
+#     ⚠️  Por defecto (sin RESULTS_DIR) extract y generate_figures usan solo Drive MONTADO vía rclone
+#         → ~/googledrive/Doctorado Erick Serrato/Resultados Paper. Montar antes: mount_google_drive.sh
+#     Opcional: export RESULTS_DIR='...' para forzar otra ruta (p. ej. /mnt/c/.../Google Drive/...).
+# =============================================================================
+
+# --- Paso 1 de 2: CSV + tablas (tras montar Drive; NO hace falta export RESULTS_DIR si ~/googledrive está montado) ---
+# wsl -d Ubuntu -e bash -c "cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && bash mount_google_drive.sh"
+# wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python -u steady_states/extract_steady_states_from_scenarios.py"
+
+# --- Paso 2 de 2: PNG (misma sesión; sin RESULTS_DIR si ya montaste rclone) ---
+# wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python -u steady_states/generate_figures_from_scenarios.py"
+
+# Si prefieres la carpeta del cliente Google Drive de Windows en lugar de rclone:
+# export RESULTS_DIR='/mnt/c/Users/Erick Serrato/Google Drive/Doctorado Erick Serrato/Resultados Paper'
+
+
+# =============================================================================
+# 2. Simulación espacio-tiempo (cadena B: primer paso tras montar Drive; genera matrices c,s,i)
+#    Script: Allee/run_scenarios.py  |  Rutas: utils_paths (RESULTS_DIR / Drive / Allee/results)
+#    Por defecto lee Allee/scenarios.json.  --scenarios-file PATH  → otro JSON (relativo a Allee/ si no es absoluto).
+#    Después: §3 termo → §4 TdC → §5 figuras paper termo (ver bloque ORDEN DE EJECUCIÓN arriba).
+# =============================================================================
+
+# Montar Gdrive con rclone
+ wsl -d Ubuntu -e bash -c "cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && bash mount_google_drive.sh" 
+ 
+# Todos los escenarios del JSON por defecto (scenarios.json):
+wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python run_scenarios.py"
+
+# Un escenario del JSON por defecto (scenarios.json):
+wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && T=0.2 dt=0.0005 inner_max_iter=10 python run_scenarios.py --scenarios-file scenarios.json --scenario strong_mu1_uSi_bajo_umbral_c0_s1_i0 --from-zero --no-checkpoint --yes"
+
+
+# encontrar (0,1,0) y (0,1,1)
+wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python steady_states/corner_equilibria_from_scenarios.py --scenarios-file scenarios_v1.json"
+
+
+# Misma campaña que postproceso con scenarios_v1.json (reutiliza nombres v1 en RESULTS_DIR):
+wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python run_scenarios.py --scenarios-file scenarios_v1.json"
+
+# Explícito equivalente al default:
+wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python run_scenarios.py --scenarios-file scenarios.json"
+
+# Utilidades run_scenarios (sin ejecutar simulación completa salvo que indique):
+#   python run_scenarios.py --scenarios-file scenarios_v1.json --list
+#   python run_scenarios.py --scenarios-file scenarios_v1.json --status
+#   python run_scenarios.py --scenarios-file scenarios_v1.json --retry-failed
+#   python run_scenarios.py --yes   # sin confirmaciones (útil con lotes / scripts)
+#   python run_scenarios.py --batch-mode | --batch-size N --batch-start K
+#   python run_scenarios.py --no-checkpoint | --checkpoint-step PASO
+
+
+# =============================================================================
+# 2b. Correlaciones espaciales ξ(t) (tras §2; no es termodinámica ni steady_states)
+#    RESULTS_DIR = «Resultados Paper» en Drive (montar rclone antes: mount_google_drive.sh).
+#    Cada escenario vive en su carpeta:  Resultados Paper/<nombre_escenario>/
+#      matrices/          ← salida de cancer_dynamics (run_scenarios)
+#      correlations/      ← 6× corr_length_real_inverse_nb_1_*.txt (correlation_fourier, automático tras §2)
+#      images/, checkpoints/, …
+#    Figuras paper (inglés, 4 curvas μ×u en un panel):  Resultados Paper/comparisons/correlation_grids/
+#      corr_grid_<corr>.png  (+ _semilogx, _loglog)  — μ variacional, control adaptativo Hill u
+#
+#    Cuadrícula Strong bajo umbral (0,1,0) en scenarios.json:
+#      strong_mu0_uNo_bajo_umbral_c0_s1_i0, strong_mu0_uSi_bajo_umbral_c0_s1_i0,
+#      strong_mu1_uNo_bajo_umbral_c0_s1_i0, strong_mu1_uSi_bajo_umbral_c0_s1_i0
+#    (El cliente Windows de Drive puede ir desfasado; en WSL usa ~/googledrive/.../Resultados Paper.)
+#
+#    Montar Drive y fijar salida (misma sesión que run_scenarios / termo):
+# export RESULTS_DIR="$HOME/googledrive/Doctorado Erick Serrato/Resultados Paper"
+#
+#    Recalcular ξ(t) solo en un escenario (ej. strong_mu0_uSi_bajo_umbral_c0_s1_i0):
+# wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && export RESULTS_DIR=\"\$HOME/googledrive/Doctorado Erick Serrato/Resultados Paper\" T=1 dt=0.001 nb=1 sample_rate=0.02 SAVE_IMAGES=N && python correlations/correlation_fourier.py \"\$RESULTS_DIR/strong_mu0_uSi_bajo_umbral_c0_s1_i0\""
+#
+#    Figuras comparativas (solo los 4 strong bajo c0_s1_i0; T y ejes desde scenarios.json common_params, p. ej. T=1):
+# wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python correlations/correlation_comparison.py --results-dir \"\$HOME/googledrive/Doctorado Erick Serrato/Resultados Paper\" --fit-tmax 1.0"
+#    Por cada tipo (c_c, s_s, i_i, c_s, c_i, s_i): corr_grid_<corr>.png, _loglog, _semilogx.
+#    Ya no se generan pares corr_grid_mu_* / corr_grid_u_* (un solo panel con los 4 escenarios).
+#    El ajuste usa exponente libre por defecto: ξ(t) ~ exp(α) t^m, con m estimado en log-log.
+#    Para las aproximaciones se usa Δt=0.02 en t (T=1 ⇒ ~47 puntos por curva en 0.05≤t≤0.98).
+#    Las figuras muestran solo las aproximaciones ajustadas, sin puntos ni curvas de datos crudos.
+#    Diseño común para lineal/log-log/semilog: paleta colorblind-friendly, líneas gruesas, grid sutil y leyenda de paper.
+#
+#    Lote (fourier faltantes + grids): bash correlations/run_drive_correlations_strong_bajo.sh
+
+
+# =============================================================================
+# 3. Postproceso termodinámico efectivo (cadena B, paso 2) — carpeta termodynamics/
+#    Script: Allee/termodynamics/calculate_thermodynamic_properties.py
+#    Después de §2 run_scenarios (requiere matrices). Escribe [escenario]/thermodynamics/*.txt, JSON, images/.
+#    No es lo mismo que steady_states: aquí hay funcional F[c,s,i], μ variacional, integrales σ.
+#    Usa el MISMO --scenarios-file que generó esas carpetas bajo RESULTS_DIR.
+# =============================================================================
+
+# Opcional en WSL: forzar resultados en Drive (si no, puede caer en Allee/results local)
+# export RESULTS_DIR="$HOME/googledrive/Doctorado Erick Serrato/Resultados Paper"
+
+# Campaña v1 (tras simular con run_scenarios --scenarios-file scenarios_v1.json):
+wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python termodynamics/calculate_thermodynamic_properties.py --scenarios-file scenarios_v1.json --all"
+
+# Campaña default / segunda ronda (tras simular solo con run_scenarios o con --scenarios-file scenarios.json):
+wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python termodynamics/calculate_thermodynamic_properties.py --scenarios-file scenarios.json --all"
+
+# Reanudación/checkpoints termo: ENABLE_CHECKPOINT, CHECKPOINT_INTERVAL (ver docstring del script).
+# Empezar de cero en termo: añadir --fresh-thermo ; desactivar checkpoints: --no-checkpoint
+
+
+# =============================================================================
+# 4. TdC / materia activa — nonequilibrium_termodynamics/ (cadena B, paso 3; reciprocidad vs visualize: ver líneas siguientes)
+#    Marco conceptual: Allee/nonequilibrium_termodynamics/MARCO_FISICO_MATEMATICO.md
+#    Orden sugerido: (1) reciprocidad JSON  (2) tras matrices: visualize  (3) fenics_nonequilibrium.py = solo librería UFL/FEniCS, sin CLI
+#    Cambia scenarios_v1.json / nombre de --scenario si tu campaña usa otro JSON.
+# =============================================================================
+
+# (4a) Jacobiano reaccional A = S + N — un escenario y punto (c,s,i); no usa matrices:
+wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python nonequilibrium_termodynamics/reciprocity_jacobian_analysis.py --scenarios scenarios_v1.json --scenario strong_mu0_uNo_bajo_umbral --point 0.5 0.5 0.5"
+
+# (4b) Todos los escenarios del JSON, mismo punto:
+wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python nonequilibrium_termodynamics/reciprocity_jacobian_analysis.py --scenarios scenarios_v1.json --all-scenarios --point 0.5 0.5 0.5"
+
+# (4c) Figuras ||∇φ||, ||J||, σ⁺ desde matrices (RESULTS_DIR/Drive o carpeta del escenario):
+wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python nonequilibrium_termodynamics/visualize_fluxes_and_entropy_density.py --scenarios scenarios_v1.json --scenario strong_mu0_uNo_bajo_umbral --time 0.5 1.0 --sigma-csv"
+
+# (4d) Ruta de escenario explícita si get_scenario_dir no resuelve (ajusta la ruta):
+wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python nonequilibrium_termodynamics/visualize_fluxes_and_entropy_density.py --scenarios scenarios_v1.json --scenario-dir '/mnt/c/RUTA/A/TU_ESCENARIO' --time 1.0"
+
+
+# =============================================================================
+# 5. Figuras paper termo (cadena B, paso 4; leen series en .../[escenario]/thermodynamics/)
+#    OJO: generate_thermodynamic_figures.py y analyze_thermodynamic_results.py tienen
+#    BASE_DIR fijo a ~/googledrive/.../Resultados Paper en el código. Si solo tienes datos
+#    en Allee/results, hay que alinear rutas o editar BASE_DIR en esos scripts.
+# =============================================================================
+
+# Comparativas weak/strong (salida bajo Models/Paper/figures según el script):
+wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python termodynamics/generate_thermodynamic_figures.py"
+
+# Subconjunto Strong → Paper copy/figures (según el script):
+wsl -e bash -lc "source ~/miniconda3/etc/profile.d/conda.sh && conda activate fenicsx-env && cd '/mnt/c/Users/Erick Serrato/Documents/Doctorado/doctorado_efsg-main/Models/Allee' && python termodynamics/analyze_thermodynamic_results.py"

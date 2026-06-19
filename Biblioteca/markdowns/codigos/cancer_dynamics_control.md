@@ -12,7 +12,7 @@ Simulación 2D de un sistema reacción-difusión con efecto Allee débil/fuerte 
 
 ## Estructura principal
 - **Condiciones iniciales**: `RandomExpression` (rangos configurados); existe `CancerInitialCondition` para focos puntuales (no se usa en el flujo actual).
-- **Control adaptativo**: `u = 0.2 * c / (i + 0.01)`, se reevalúa cada paso; suma `+ u * phi_i * dx` en la ecuación de `i`.
+- **Control adaptativo (Hill)**: `u = u_max * (c^nc/(Kc^nc + c^nc)) * (Ki^ni/(Ki^ni + i^ni))` (con `i=max(i,0)`), se reevalúa cada paso; suma `+ u * phi_i * dx` en la ecuación de `i`.
 - **Formulación débil (casos)**  
   - `mu = 0`: términos base con efecto Allee en `c` (`rc * c * (c - alle) * (1 - c)`) y acoplamientos `-c*(alpha*s**2 + beta*i**2)`, etc.  
   - `mu > 0`: añade términos proporcionales a `mu` que refuerzan supresión tumoral y modulan `s` e `i`.

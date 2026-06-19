@@ -13,8 +13,55 @@ Se estudia la modulación de la dinámica mediante (i) el parámetro binario $\m
 \section{Resultados numéricos (síntesis)}
 Comparar siempre en tres ejes: efecto Allee (débil/fuerte), control ($\mu=0$ vs $\mu=1$) y carga tumoral inicial ($c^*\approx0$ vs $c^*\approx1$). Indicadores clave: tiempo a extinción, pico de $c(t)$, carga acumulada $\int c(t)\,dt$, extremos de $i(t)$.
 
+\subsection{Efecto del control adaptativo sobre ramas bajo/sobre umbral (Strong)}
+En el régimen de Allee fuerte, el control adaptativo tipo Hill
+$u=u_{\max}\,H_{\mathrm{act}}(c;K_c,n_c)\,H_{\mathrm{inh}}(i;K_i,n_i)$ con $u_{\max}=1$
+tiende a colapsar tanto la rama bajo umbral como la sobre umbral hacia el punto
+$c^*\approx0,\;s^*\approx0,\;i^*\approx1$, manteniendo inestabilidad pero elevando Re $\lambda_{\max}$.
+Esto implica:
+\begin{itemize}
+  \item \textbf{Para $\mu=0$}: el control externo suplanta la ausencia de estructura variacional y elimina la rama proliferativa; el único equilibrio encontrado es $c\approx0$ con $i\approx1$.
+  \item \textbf{Para $\mu=1$}: la rama sobre umbral ($c^*\approx1.008$ sin $u$) desaparece; todas las semillas (bajo/sobre umbral) convergen al mismo punto $c\approx0$, $i\approx1$.
+  \item \textbf{Interpretación}: el control adaptativo fuerza el sistema hacia un estado de tumor casi nulo con respuesta inmune alta, pero el punto sigue siendo inestable (silla/foco); la dinámica espacial y el ruido numérico determinan si el campo se mantiene cerca de $c\approx0$ o se dispara.
+\end{itemize}
+
+\paragraph{Mean-field frente a PDE.} El colapso de ramas hacia $c^*\approx0$, $i^*\approx1$ con control adaptativo está documentado en este capítulo a partir del análisis de \textbf{estados homogéneos} (mean-field / reducción con nullclinas). Para afirmar el mismo comportamiento como \emph{predicción robusta} de las PDE hace falta complementar con medias espaciales $\langle c\rangle(t)$, $\langle s\rangle(t)$, $\langle i\rangle(t)$ en simulaciones largas y, de ser posible, con sensibilidad a condiciones iniciales (véase el grado de evidencia en el Cap.~\ref{chap:discusion}).
+
+\paragraph{Parámetros comunes en todos los casos Strong.} En las comparativas se fijaron: $a=0.1$, $\gamma=0.74$, $\alpha=10.22$, $r_s=13.12$; en las simulaciones PDE se usaron difusiones $D_c=0.012$, $D_s=D_i=0.022$, paso temporal $dt=10^{-3}$, $T=3$, malla $100\times100$ en dominio $[0,4]^2$, y control adaptativo tipo Hill $u=u_{\max}\,H_{\mathrm{act}}(c;K_c,n_c)\,H_{\mathrm{inh}}(i;K_i,n_i)$ con $u_{\max}=1$ cuando aplica.
+
+\paragraph{Analogía biológica/poblacional.} El control adaptativo opera como una mortalidad denso-dependiente focalizada: ataca regiones con $c$ alto e $i$ bajo, empujando a la población tumoral por debajo del umbral de Allee. Esto elimina la rama proliferativa (sobre umbral) y deja sólo el equilibrio de “casi extinción” ($c\simeq0$, $i\simeq1$), análogo a poblaciones que, al perder cooperación, no pueden sostenerse y quedan sometidas a la presión inmune.
+
+\subsection*{Tabla de escenarios (Strong Allee, con/sin $u$)}
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabular}{lccccccccc}
+\toprule
+Escenario & $\mu$ & $u$ & $r_c$ & $\beta$ & $\delta$ & $\eta$ & $r_d$ & $(c^*,s^*,i^*)$ & Re $\lambda_{\max}$ \\
+\midrule
+strong\_mu0\_uNo\_bajo\_umbral & 0 & No & 6.5 & 3 & 9 & 1 & 14 & ($\approx0,\;0.255,\;1.042$) & $\approx4.92$ \\
+strong\_mu0\_uSi\_bajo\_umbral & 0 & Sí & 6.5 & 3 & 9 & 1 & 14 & ($\approx0,\;0,\;1$) & $\approx22.1$ \\
+\midrule
+strong\_mu1\_uNo\_sobre\_umbral & 1 & No & 6.5 & 5 & 9 & 1 & 10 & ($\approx1.008,\;0,\;0.068$) & $\approx6.73$ \\
+strong\_mu1\_uNo\_bajo\_umbral & 1 & No & 6.5 & 5 & 9 & 1 & 10 & ($\approx0,\;0,\;1$) & $\approx22.1$ \\
+strong\_mu1\_uSi\_bajo\_umbral & 1 & Sí & 6.5 & 5 & 9 & 1 & 10 & ($\approx0,\;0,\;1$) & $\approx22.1$ \\
+\bottomrule
+\end{tabular}
+\caption{Estados estacionarios de escenarios Strong Allee con y sin control adaptativo tipo Hill $u=u_{\max}\,H_{\mathrm{act}}(c;K_c,n_c)\,H_{\mathrm{inh}}(i;K_i,n_i)$ con $u_{\max}=1$. Valores $\approx0$ indican magnitudes numéricamente próximas a cero. Todos los puntos son inestables (silla/foco).}
+\label{tab:control_strong}
+\end{table}
+
 \section{Coste y eficiencia}
 El control eficiente debe reducir el pico tumoral y la longitud de correlación de $c$ sin incrementar patrones desordenados. El caso $\mu=1$ mostró compactación y menor heterogeneidad en los patrones; futuros protocolos $u(x,y,t)$ se evaluarán contra estas métricas.
+
+Para cuantificar coste--beneficio de $u$ de forma comparable entre escenarios, conviene reportar explícitamente, además de indicadores ya mencionados (pico de $c$, carga $\int c\,dt$), la \textbf{magnitud acumulada del control}
+\[
+C_u=\iint_{\Omega\times[0,T]} u(x,y,t)\,dx\,dy\,dt
+\]
+y contrastarla con \textbf{beneficios} tales como reducción del máximo de $c$, tiempo hasta cruzar un umbral de Allee espacial promedio, o carga tumoral integrada. Las tablas cualitativas de eficiencia deben reforzarse con estas magnitudes en trabajo futuro (véase Cap.~\ref{chap:conclusiones}).
+
+
+
 
 
 

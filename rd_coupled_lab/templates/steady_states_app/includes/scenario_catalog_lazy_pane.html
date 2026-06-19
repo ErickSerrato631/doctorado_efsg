@@ -1,0 +1,9 @@
+{# catalog_uid, scenario_name, pane_local (eq|params|fig|pipe), tab_slug (ecuaciones|...), lazy_pane_show_active: pestaña visible por defecto #}
+<div class="tab-pane fade{% if lazy_pane_show_active %} show active{% endif %} catalog-lazy-pane{% if pane_local == 'params' or pane_local == 'fig' %} p-0 p-md-2{% endif %}" id="pane-{{ pane_local }}-{{ catalog_uid }}" role="tabpanel" aria-labelledby="tab-{{ pane_local }}-{{ catalog_uid }}" tabindex="0"
+     data-catalog-lazy-url="{% url 'steady_states_app:scenario_catalog_tab_ajax' scenario_name=scenario_name tab=tab_slug %}"
+     data-catalog-lazy-loaded="0">
+    <div class="catalog-lazy-placeholder text-center py-5 px-3 text-muted">
+        <div class="spinner-border text-primary mb-3" role="status" aria-hidden="true"></div>
+        <p class="small mb-0">{% if lazy_pane_show_active %}Cargando ecuaciones…{% else %}El contenido se carga al abrir esta pestaña.{% endif %}</p>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{# Requiere: params_table (lista de pares), params_source (opcional), allee_type, use_adaptive_control #}
+<p class="mb-2"><span class="badge bg-secondary">{{ params_source }}</span></p>
+<p class="small text-muted mb-3">
+    Salida de <code>ModelParameters.to_dict(include_spatial=True)</code> fusionando el catálogo de escenarios para este equilibrio.
+    Allee <strong>{{ allee_type }}</strong> —
+    control adaptativo: <strong>{% if use_adaptive_control %}Sí{% else %}No{% endif %}</strong>.
+</p>
+{% if params_table %}
+<div class="table-responsive">
+    <table class="table table-sm table-striped params-table mb-0">
+        <thead class="table-light">
+            <tr><th>Clave</th><th>Valor</th></tr>
+        </thead>
+        <tbody>
+            {% for key, val in params_table %}
+            <tr>
+                <td><code>{{ key }}</code></td>
+                <td>{{ val }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="p-3 text-muted small">No hay tabla de parámetros disponible (SymPy / <code>Models/Allee</code> no cargaron o no hay datos).</div>
+{% endif %}

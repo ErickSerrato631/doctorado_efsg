@@ -160,7 +160,7 @@ u_control(x,y) = 0.2 · c(x,y) / (i(x,y) + ε)
 
 **Efecto físico/biológico esperado**:
 - Mayor presión terapéutica donde el tumor es alto y la infiltración inmune es baja; la dosis se atenúa cuando el microambiente ya está muy infiltrado (`i` alto), evitando sobretratar.
-- `ε>0` evita singularidad si `i→0`; en implementación numérica se complementa con un tope `u_max` para prevenir explosiones.
+- En el control Hill, $u$ es acotado en $[0,u_{\max}]$ y no presenta singularidad cuando $i\to 0$; aun así se recomienda monitorear saturación y rigidez numérica.
 - Al modificar el balance de la ecuación de `i`, los estados estacionarios sin control dejan de ser válidos salvo donde `u=0`; hay que recalcular equilibria si el control permanece activo.
 
 ## Estrategias de Inmunoterapia Modeladas
@@ -304,6 +304,15 @@ Basado en los archivos de la biblioteca, el modelo se relaciona con:
 5. **Heterogeneidad Tumoral**: Subpoblaciones de células cancerosas
 
 6. **Terapias Combinadas**: Quimioterapia + inmunoterapia
+
+## Aportes a la frontera del conocimiento (biología e interpretación clínica hipotética)
+
+Síntesis para redacción de tesis/paper; alineada con `Biblioteca/markdowns/indice_redaccion_tesis_paper.md`. Las implicaciones clínicas son **interpretativas** del modelo, no conclusiones clínicas demostradas.
+
+1. **Umbrales inestables como organizadores**: si los equilibrios homogéneos relevantes son inestables, el umbral de Allee puede actuar como **separatriz** entre rutas transitorias (proliferación vs confinamiento), en lugar de un atractor estable. Sugiere que resultados a largo plazo dependen de trayectorias y perturbaciones, no solo de “el equilibrio al que converge el sistema”.
+2. **Control adaptativo como intervención geométrica**: más allá de cambiar magnitudes medias, \(u(x,t)\) puede **reconfigurar** coherencia tumoral y co-localización cáncer–inmune (p. ej. vía métricas tipo longitud de correlación \(c_c\) y \(c_i\)), útil como lenguaje para comparar protocolos en el modelo.
+3. **Weak vs strong Allee**: strong Allee se asocia a una barrera más rígida y a un **límite superior efectivo** al tamaño de dominios en el escenario espacial; weak Allee permite patrones más extensos y sensibles al control. Interpretación posible: ventanas de intervención temprana cuando el umbral es “duro”.
+4. **\(\mu\) como selector morfológico**: la estructura variacional (\(\mu=1\)) puede reorganizar patrones espaciales sin implicar estabilización del equilibrio homogéneo; las terapias que modulan acoplamientos efectivos podrían cambiar **morfología** sin crear un estado estable trivial.
 
 ## Conclusión
 

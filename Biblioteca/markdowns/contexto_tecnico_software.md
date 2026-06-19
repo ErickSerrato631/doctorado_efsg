@@ -90,7 +90,7 @@ F_c = ((c - c_n) / dt) * phi_c * dx + D_c * dot(grad(c), grad(phi_c)) * dx
 - **Entorno**: Kernel `fenicsproject`; si no está activo, FEniCS no se carga.
 - **Parámetros**: Se leen desde `.env` (`D_c`, `D_s`, `D_i`, `rc`, `rs`, `rd`, `alpha`, `beta`, `gamma`, `delta`, `eta`, `mu`, `alle`, `T`, `dt`, `nb`, `nodes_in_xaxis`, `nodes_in_yaxis`, `space_size`, `SAVE_IMAGES`).
 - **Condiciones iniciales**: `RandomExpression` para `c`, `s`, `i` (valores en rangos); existe `CancerInitialCondition` para focos puntuales.
-- **Control adaptativo**: `u = 0.2 * c / (i + 0.01)` aplicado en la ecuación de `i`; se reevalúa en cada paso temporal.
+- **Control adaptativo (Hill)**: `u = u_max * (c^nc/(Kc^nc + c^nc)) * (Ki^ni/(Ki^ni + i^ni))` (con `i=max(i,0)`), aplicado en la ecuación de `i`; se reevalúa en cada paso temporal.
 - **Ecuaciones**:
   - `μ = 0`: términos base con efecto Allee en `c` y acoplamientos cuadráticos; control adaptativo suma `+ u*phi_i*dx`.
   - `μ > 0`: añade términos proporcionales a `μ` que refuerzan supresión del cáncer y modulan `s` e `i`.

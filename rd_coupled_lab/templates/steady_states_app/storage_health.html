@@ -1,0 +1,127 @@
+{% extends 'steady_states_app/base.html' %}
+
+{% block title %}Comprobar almacenamiento — laboratorio NPDE{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-lg-10">
+        <h1 class="lab-page-title"><i class="bi bi-cloud-check text-primary"></i> Comprobar almacenamiento</h1>
+        <p class="text-muted mb-2">
+            Prueba manual de las rutas que usa Django igual que <code>run_scenarios</code> y el estado de experimentos:
+            variable de entorno <code>RESULTS_DIR</code>, resolución vía <code>lab_paths.get_lab_results_root</code>,
+            y lectura del catálogo (<code>SCENARIOS_JSON_PATH</code> → <code>steady_states_full_run.json</code> en Drive o ruta en env).
+        </p>
+        <p class="small text-muted mb-0">
+            Si los resultados viven en <strong>Google Drive</strong> o en otro volumen, el proceso del servidor (p. ej. WSL al ejecutar
+            <code>run_django_server.ps1</code>) debe ver la misma ruta que configuraste en <code>RESULTS_DIR</code>.
+            Una unidad montada en Windows no siempre coincide con <code>/mnt/...</code> dentro de WSL: define
+            <code>RESULTS_DIR</code> con la ruta válida <em>desde el proceso Python que ejecuta Django</em>.
+        </p>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-10">
+        <div class="card mb-3">
+            <div class="card-header"><i class="bi bi-terminal"></i> Variable de entorno</div>
+            <div class="card-body">
+                <dl class="row small mb-0">
+                    <dt class="col-sm-3">RESULTS_DIR</dt>
+                    <dd class="col-sm-9">
+                        {% if storage.env_results_dir_raw %}
+                        <code class="text-break">{{ storage.env_results_dir_raw }}</code>
+                        <div class="text-muted mt-1">Resuelto: <code class="text-break">{{ storage.env_path_resolved }}</code></div>
+                        {% else %}
+                        <span class="text-muted">No definida</span> — se usa la resolución por defecto (<code>utils_paths</code> o <code>ALLEE_DIR/results</code>).
+                        {% endif %}
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header"><i class="bi bi-hdd-network"></i> Raíz de resultados (pipeline en disco)</div>
+            <div class="card-body">
+                <p class="font-monospace small text-break mb-2"><code>{{ storage.results_root_resolved }}</code></p>
+                {% with p=storage.results_root_probe %}
+                <ul class="list-unstyled small mb-2">
+                    <li>
+                        {% if p.exists %}
+                        <span class="badge bg-success">Existe</span>
+                        {% else %}
+                        <span class="badge bg-danger">No existe</span>
+                        {% endif %}
+                        {% if p.is_dir %}<span class="badge bg-light text-dark border ms-1">Directorio</span>{% endif %}
+                    </li>
+                    <li class="mt-2">
+                        Lectura:
+                        {% if p.readable == True %}
+                        <span class="badge bg-success">OK</span>
+                        {% elif p.readable == False %}
+                        <span class="badge bg-danger">Error</span> <span class="text-muted">{{ p.read_error }}</span>
+                        {% else %}
+                        <span class="badge bg-secondary">N/A</span>
+                        {% endif %}
+                    </li>
+                    {% if p.sample_names is not None %}
+                    <li class="mt-2 text-muted">Primeras entradas: {% for n in p.sample_names %}<code class="me-1">{{ n }}</code>{% empty %}<em>(vacío)</em>{% endfor %}</li>
+                    {% endif %}
+                    <li class="mt-2">
+                        Escritura (archivo temporal <code>.lab_storage_probe_*.tmp</code>):
+                        {% if p.write_ok == True %}
+                        <span class="badge bg-success">OK</span>
+                        {% elif p.write_ok == False %}
+                        <span class="badge bg-warning text-dark">Fallo</span> <span class="text-muted">{{ p.write_error }}</span>
+                        {% else %}
+                        <span class="badge bg-secondary">No probada</span>
+                        {% endif %}
+                    </li>
+                </ul>
+                {% endwith %}
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header"><i class="bi bi-folder2-open"></i> ALLEE_DIR</div>
+            <div class="card-body">
+                <p class="font-monospace small text-break mb-2"><code>{{ storage.allee_dir_resolved }}</code></p>
+                {% with p=storage.allee_dir_probe %}
+                <p class="small mb-0">
+                    {% if p.exists and p.is_dir and p.readable %}
+                    <span class="badge bg-success">Accesible</span>
+                    {% elif not p.exists %}
+                    <span class="badge bg-danger">No existe</span>
+                    {% else %}
+                    <span class="badge bg-warning text-dark">Revisar</span> {% if p.read_error %}{{ p.read_error }}{% endif %}
+                    {% endif %}
+                </p>
+                {% endwith %}
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header"><i class="bi bi-file-code"></i> Catálogo de escenarios</div>
+            <div class="card-body">
+                {% with f=storage.scenarios_json_probe %}
+                <p class="font-monospace small text-break mb-2"><code>{{ f.path }}</code></p>
+                <p class="small mb-0">
+                    {% if f.exists and f.is_file and f.readable %}
+                    <span class="badge bg-success">Legible</span>
+                    {% if f.size is not None %}<span class="text-muted ms-2">{{ f.size }} bytes</span>{% endif %}
+                    {% elif not f.exists %}
+                    <span class="badge bg-danger">No encontrado</span>
+                    {% else %}
+                    <span class="badge bg-warning text-dark">No legible</span> {{ f.read_error }}
+                    {% endif %}
+                </p>
+                {% endwith %}
+            </div>
+        </div>
+
+        <p class="small text-muted mb-0">
+            <a href="{% url 'steady_states_app:dashboard' %}">Volver al Dashboard</a>
+            · <a href="{% url 'steady_states_app:experiment_status_api' %}?refresh=1">Refrescar JSON de estado de experimentos</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

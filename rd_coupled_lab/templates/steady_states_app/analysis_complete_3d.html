@@ -1,0 +1,68 @@
+{% extends 'steady_states_app/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Generar estados estacionarios (c, s, i){% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const useControlCheckbox = document.getElementById('id_use_adaptive_control');
+    const controlFields = document.getElementById('control-fields');
+    
+    function toggleControlFields() {
+        if (useControlCheckbox && controlFields) {
+            if (useControlCheckbox.checked) {
+                controlFields.style.display = 'block';
+            } else {
+                controlFields.style.display = 'none';
+            }
+        }
+    }
+    
+    if (useControlCheckbox) {
+        useControlCheckbox.addEventListener('change', toggleControlFields);
+        toggleControlFields(); // Inicializar estado
+    }
+});
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-10 offset-md-1">
+        <h1 class="h3 lab-page-title mb-2">
+            <i class="bi bi-diagram-3 text-primary"></i>
+            Generar estados estacionarios (c, s, i)
+        </h1>
+        <p class="text-muted mb-3">
+            Aquí se ejecuta el escaneo numérico que busca equilibrios con <strong>R<sub>c</sub> = R<sub>s</sub> = R<sub>i</sub> = 0</strong> para las tres variables principales del modelo.
+            Al finalizar un análisis con éxito, si dejas activada la opción <strong>«Generar JSON auxiliar»</strong>,
+            se escribe un archivo local en Allee con los equilibrios hallados. Las tarjetas del <a href="{% url 'steady_states_app:dashboard' %}">Dashboard</a> leen <code>steady_states_full_run.json</code> (Drive), no ese archivo.
+        </p>
+        <div class="alert alert-info small mb-0" role="note">
+            El formulario principal está en el <a href="{% url 'steady_states_app:dashboard' %}?abrir_generar_ee=1">Dashboard (modal)</a>.
+            Esta página solo aparece si el envío del formulario no fue por AJAX.
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10 offset-md-1">
+        <div class="card">
+            <div class="card-body">
+                {% crispy form %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+

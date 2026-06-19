@@ -1,0 +1,339 @@
+% proceso_estados_estacionarios.tex
+% Documentación matemática del pipeline de estados estacionarios (Allee/steady_states).
+% Compilar: pdflatex -interaction=nonstopmode proceso_estados_estacionarios.tex
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+
+\geometry{margin=2.5cm}
+\hypersetup{colorlinks=true, linkcolor=blue!60!black, urlcolor=blue!60!black}
+
+\title{Estados estacionarios homogéneos (modelo 3D)\\
+\large Pipeline SymPy--Newton, \texttt{scenarios.json} y post-proceso}
+\author{Notas técnicas --- \texttt{Allee/steady\_states/}}
+\date{\today}
+
+\newtheorem{remark}{Observación}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\vspace{1em}
+
+\section{Objeto matemático}
+
+Se considera el subsistema de \emph{reacción} (sin difusión ni dependencia explícita del tiempo) para las concentraciones adimensionales $(c,s,i)$ (tumor, sanos, inmunidad). Un \textbf{estado estacionario espacialmente homogéneo} es un punto $\mathbf{x}^\ast = (c^\ast,s^\ast,i^\ast)$ tal que el campo vectorial de reacción se anula:
+\begin{equation}
+\label{eq:Fzero}
+F_c(c^\ast,s^\ast,i^\ast)=0,\qquad
+F_s(c^\ast,s^\ast,i^\ast)=0,\qquad
+F_i(c^\ast,s^\ast,i^\ast)=0.
+\end{equation}
+Numéricamente, \eqref{eq:Fzero} es el sistema no lineal $\mathbf{F}(\mathbf{x})=\mathbf{0}$ con $\mathbf{x}\in\mathbb{R}^3$. Este documento se limita a ese encaje \textbf{3D} (tres ecuaciones en $(c,s,i)$), coherente con \texttt{build\_equations\_3d} y \texttt{newton\_root\_3d}.
+
+\begin{remark}
+Este equilibrio es un \textbf{punto fijo del flujo ODE} $\dot{\mathbf{x}}=\mathbf{F}(\mathbf{x})$. No implica por sí solo interpretación termodinámica; la producción de entropía y los potenciales en el sentido de termodinámica de no equilibrio se construyen en otros módulos del proyecto a partir del PDE y de funcionales sobre los campos.
+\end{remark}
+
+\section{Formulaciones de control en el código}
+
+Es crítico no mezclar ramas:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Control tipo Hill} (alineado con el PDE en \texttt{cancer\_dynamics} y con \texttt{build\_equations\_3d(..., include\_hill\_control=True)}): ley saturada del tipo Michaelis--Menten generalizada en $c$ e $i$.
+  \item \textbf{Control adaptativo mínimo} (legado): $u=\min\!\big(k_u c/(i+\varepsilon_u),\, u_{\max}\big)$, usado en extracción desde JSON cuando hay control pero el escenario no se clasifica como Hill.
+  \item \textbf{Sin control}: término de control ausente en $F_i$.
+\end{itemize}
+La función \texttt{scenario\_uses\_hill\_control} en \texttt{extract\_steady\_states\_from\_scenarios.py} decide la rama coherente con el nombre del escenario y los parámetros \texttt{HILL\_*}.
+
+\section{Guía ilustrativa: equilibrios 3D con SymPy y Newton--Raphson}
+
+Esta sección describe el procedimiento tal como está implementado en \texttt{steady\_states.py} y replicado en \texttt{extract\_steady\_states\_from\_scenarios.py}, con el nivel de detalle útil para verificar coherencia entre análisis simbólico, álgebra lineal numérica y el PDE.
+
+\subsection[Problema en tres dimensiones]{Problema en $\mathbb{R}^3$}
+
+Se define el vector de estado $\mathbf{x}=(c,s,i)^\top$ y el campo de reacción $\mathbf{F}:\mathbb{R}^3\to\mathbb{R}^3$,
+\[
+\mathbf{F}(\mathbf{x}) = \begin{pmatrix} F_c(c,s,i) \\ F_s(c,s,i) \\ F_i(c,s,i) \end{pmatrix}.
+\]
+Un \textbf{estado estacionario homogéneo} satisface $\mathbf{F}(\mathbf{x}^\ast)=\mathbf{0}$. En el flujo ODE asociado $\dot{\mathbf{x}}=\mathbf{F}(\mathbf{x})$, eso es un punto de equilibrio. El objetivo numérico es aproximar $\mathbf{x}^\ast$ resolviendo el sistema no lineal.
+
+\subsection[Construcción simbólica de F]{Construcción simbólica de $\mathbf{F}$ (\texttt{build\_equations\_3d})}
+
+SymPy declara los símbolos $(c,s,i)$ y parámetros $(r_c,r_s,r_d,\alpha,\beta,\delta,\gamma,\eta,\mu,a,\ldots)$. El término de crecimiento con Allee \textbf{débil} es
+\[
+\mathrm{alle}_{\mathrm{weak}}(c)= r_c\,c\,(c-a)\,(1-c),
+\]
+y con Allee \textbf{fuerte},
+\[
+\mathrm{alle}_{\mathrm{strong}}(c)= r_c\,c\,(1-c)\,\frac{c-a}{1-a}.
+\]
+Las tres componentes (sin fuentes externas aparte del control) son
+\begin{align*}
+F_c &= \mathrm{alle}(c) - c\big(\alpha s^2 + \beta i^2\big) - \mu c\big(\gamma s^2 + \eta i^2\big), \\
+F_s &= r_s s(1-s) - \gamma c^2 s + \delta i^2 s - \tfrac{\mu\alpha}{2} c^2 s, \\
+F_i &= r_d i(1-i) + \delta i s^2 - \eta c^2 i - \tfrac{\mu\beta}{2} c^2 i + u_{\mathrm{ctrl}}.
+\end{align*}
+Si \texttt{include\_hill\_control=True}, se usa $i_+=\max(i,0)$ y
+\[
+H_{\mathrm{act}}(c)=\frac{c^{n_c}}{k_c^{n_c}+c^{n_c}},\qquad
+H_{\mathrm{inh}}(i)=\frac{k_i^{n_i}}{k_i^{n_i}+i_+^{n_i}},\qquad
+u_{\mathrm{ctrl}} = u_{\max}\,H_{\mathrm{act}}(c)\,H_{\mathrm{inh}}(i).
+\]
+Si no hay control Hill, $u_{\mathrm{ctrl}}=0$. La expresión $\operatorname{Max}(i,0)$ en SymPy regulariza la derivada donde $i<0$ en el dominio simbólico; en puntos interiores con $i>0$ coincide con $i$.
+
+\subsection[Jacobiano analítico]{Jacobiano analítico $J(\mathbf{x})=\partial \mathbf{F}/\partial(c,s,i)$}
+
+Se forma $\mathbf{F}$ como vector columna simbólico y se define
+\[
+J(c,s,i) = \frac{\partial \mathbf{F}}{\partial(c,s,i)}
+= \begin{pmatrix}
+\partial F_c/\partial c & \partial F_c/\partial s & \partial F_c/\partial i \\
+\partial F_s/\partial c & \partial F_s/\partial s & \partial F_s/\partial i \\
+\partial F_i/\partial c & \partial F_i/\partial s & \partial F_i/\partial i
+\end{pmatrix}.
+\]
+En un equilibrio $\mathbf{x}^\ast$, la matriz $J(\mathbf{x}^\ast)$ es el generador del flujo linealizado $\dot{\mathbf{x}}\approx J(\mathbf{x}^\ast)(\mathbf{x}-\mathbf{x}^\ast)$; sus autovalores determinan la estabilidad local del punto fijo (misma $J$ que en la sección posterior sobre estabilidad ODE).
+
+\subsection[Puente SymPy a NumPy]{Puente SymPy $\rightarrow$ NumPy (\texttt{build\_numeric\_3d})}
+
+El flujo es:
+\begin{enumerate}[leftmargin=*]
+  \item Sustituir parámetros numéricos en $F_c,F_s,F_i$ (\texttt{.subs}) obteniendo componentes sin símbolos de parámetros.
+  \item Construir $\mathbf{F}_{\mathrm{vec}}=\mathrm{Matrix}([F_c,F_s,F_i])$ y $J=\mathbf{F}_{\mathrm{vec}}.\mathrm{jacobian}([c,s,i])$ (objeto SymPy $3\times 3$).
+  \item \texttt{lambdify((c,s,i), $\mathbf{F}_{\mathrm{vec}}$, modules='numpy')} produce una función $\mathbf{f}$ que, evaluada en escalares $(c,s,i)$, devuelve el vector residual (en la práctica se aplanó a un array 1D de longitud 3).
+  \item El Jacobiano \textbf{no} se convierte a función lambdify en el bucle de Newton: en cada iteración se evalúa \texttt{J.subs(\{c:$x^k_1$, s:$x^k_2$, i:$x^k_3$\})} y se pasa a \texttt{numpy.ndarray} float. Así se usan derivadas exactas (en aritmética de máquina) en lugar de diferencias finitas.
+\end{enumerate}
+
+\subsection{Algoritmo \texttt{newton\_root\_3d}}
+
+Dados $\mathbf{f}$ (NumPy), $J$ (SymPy), semilla $\mathbf{x}^0=(c^0,s^0,i^0)$, tolerancia $\varepsilon$, máximo de iteraciones $N_{\max}$ y tope de condicionamiento $\kappa_{\max}$:
+
+\begin{enumerate}[leftmargin=*]
+  \item Para $k=0,1,\ldots,N_{\max}-1$:
+  \begin{enumerate}[label=\alph*),leftmargin=*]
+    \item $\mathbf{F}^k \leftarrow \mathbf{f}(c^k,s^k,i^k)$ (reshape a vector 3).
+    \item $J_{\mathrm{num}}^k \leftarrow$ matriz numérica $3\times 3$ obtenida de $J$ sustituyendo $(c,s,i)\leftarrow(c^k,s^k,i^k)$.
+    \item Si algún elemento no es finito, o $\mathrm{cond}(J_{\mathrm{num}}^k)>\kappa_{\max}$, abortar (\texttt{None}).
+    \item Resolver el sistema lineal $J_{\mathrm{num}}^k\,\boldsymbol{\delta}^k = \mathbf{F}^k$ (equivalente a $\boldsymbol{\delta}^k=(J_{\mathrm{num}}^k)^{-1}\mathbf{F}^k$ si $J$ es invertible).
+    \item Actualizar $\mathbf{x}^{k+1}=\mathbf{x}^k-\boldsymbol{\delta}^k$ componente a componente.
+    \item Si $\|\boldsymbol{\delta}^k\|<\varepsilon$, devolver $\mathbf{x}^{k+1}$ como raíz.
+  \end{enumerate}
+  \item Si no hubo convergencia, devolver \texttt{None}.
+\end{enumerate}
+
+La convención $\mathbf{x}\leftarrow \mathbf{x}-J^{-1}\mathbf{F}$ coincide con el paso estándar de Newton para $\mathbf{F}(\mathbf{x})=\mathbf{0}$ al resolver $J\boldsymbol{\delta}=\mathbf{F}$ y restar $\boldsymbol{\delta}$. Valores por defecto en código: $\varepsilon=10^{-8}$, $N_{\max}=80$, $\kappa_{\max}=10^{12}$.
+
+\subsection{Multirraíz y semillas: dos ``rejillas'' distintas}
+
+Los sistemas admiten \textbf{varias} raíces; el método de Newton solo converge \textbf{localmente} a una raíz próxima a la semilla $\mathbf{x}^0=(c^0,s^0,i^0)$. En el código conviven dos ideas que no deben confundirse:
+
+\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=*]
+  \item \textbf{Rejilla factorial de parámetros} (espacio del \emph{modelo}). Función \texttt{control\_3d\_parameter\_mesh()}: recorre el producto de listas finitas para
+  \[
+  (a,\,r_c,\,\beta,\,\delta,\,\eta,\,r_d,\,r_s,\,\alpha,\,\gamma)
+  \]
+  (orden del \texttt{itertools.product} en \texttt{scan\_grid\_3d}). Además de $(r_c,\beta,\delta,\eta,r_d,a)$, se barren \textbf{también} $r_s$, $\alpha$ y $\gamma$, que antes permanecían fijos en \texttt{params\_base\_3d}. Valores típicos en código: $r_c\in\{5{,}0,6{,}0\}$, $\beta,\delta\in\{5{,}0,7{,}0\}$, $\eta\in\{3{,}0,5{,}0\}$, $r_d\in\{9{,}0,11{,}0\}$, $a=0{,}1$; $r_s\in\{12{,}0,14{,}0\}$, $\alpha\in\{9{,}0,11{,}0\}$, $\gamma\in\{0{,}6,0{,}9\}$ (entornos de los valores base $13{,}12$, $10{,}22$, $0{,}74$).
+  Para cada tupla $\theta$ se construye $\mathbf{F}_{\theta}$ y se buscan ceros en $\mathbf{x}=(c,s,i)$.
+  \textbf{Ejemplo numérico:} con dos valores en cada eje salvo $a$ (un solo valor), el número de celdas es $1\times 2^8=256$ (antes $1\times 2^5=32$ sin barrer $r_s,\alpha,\gamma$). El coste total escala linealmente con ese factor respecto a versiones anteriores del mismo número de semillas.
+  \item \textbf{Semillas en el cubo de estado} $[0,1]^3$ (espacio de \emph{incógnitas} de Newton). Son puntos iniciales $\mathbf{x}^0$ para el mismo $\mathbf{F}_{\theta}$ fijo. No modifican las ecuaciones; solo exploran distintas cuencas de atracción del mismo sistema no lineal.
+\end{enumerate}
+
+El coste escala como
+\[
+(\text{\# celdas paramétricas})\times(\text{\# semillas})\times(\text{coste medio de Newton}),
+\]
+salvo que alguna semilla no converja (\texttt{None}).
+
+\subsection{Semillas por defecto (\texttt{default\_seeds\_3d\_control\_hill})}
+
+Sin argumentos extra, la lista \textbf{legacy} consta de:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Puntos interiores} (exploración heurística): p.\,ej.\ $(0{,}2,0{,}2,0{,}2)$, $(0{,}5,0{,}4,0{,}4)$, $(0{,}9,0{,}6,0{,}3)$, $(1{,}1,0{,}2,0{,}8)$ (nota: $c=1{,}1$ sale del intervalo $[0,1]$ adimensional; sirve como semilla numérica, no como cota biológica).
+  \item \textbf{Región ``esquina''} $c\approx 0$, $s\approx 1$, $i\approx 1$: p.\,ej.\ $(0,1,1)$, $(0,0{,}99,1)$, $(0,1,0{,}99)$, y variantes con perturbaciones $10^{-6}$--$10^{-10}$ para evitar singularidades numéricas en factores tipo $s(1-s)$, $i(1-i)$.
+\end{itemize}
+
+Opcionalmente (\texttt{grid\_n}$\geq 2$) se añade el conjunto
+\[
+\mathcal{G}_n = \{0,\tfrac{1}{n-1},\ldots,1\}^3
+\]
+mediante \texttt{numpy.linspace(0,1,n)} en cada eje y producto cartesiano (\texttt{seeds\_unit\_cube\_grid(n)}), es decir $|\mathcal{G}_n|=n^3$ puntos en $[0,1]^3$.
+\textbf{Ejemplo ($n=3$):} $\{0,\,0{,}5,\,1\}^3$ tiene $27$ ternas; entre ellas $(0,0,0)$, $(0{,}5,0{,}5,0{,}5)$, $(1,1,1)$, $(0,1,0)$, etc.
+Si \texttt{include\_legacy=True}, se concatena legacy$+\mathcal{G}_n$ y se \textbf{deduplican semillas} casi idénticas (tolerancia euclídea $\sim 10^{-9}$ en código).
+
+\subsection{Ejemplos de línea de comandos (CLI)}
+
+Desde el directorio \texttt{Allee}, el script \texttt{steady\_states/steady\_states.py} acepta:
+
+\begin{verbatim}
+# Ejemplo A: 5^3=125 semillas en [0,1]^3 + lista legacy (deduplicada).
+python steady_states/steady_states.py \
+  --seed-grid-n 5 --local-only --no-save
+
+# Ejemplo B (más rápido): 3^3=27 nodos + legacy; control Hill con tope u_max.
+python steady_states/steady_states.py \
+  --umax 0.5 --seed-grid-n 3
+
+# Ejemplo C: solo cubo 6^3=216 semillas (sin legacy).
+python steady_states/steady_states.py \
+  --seed-grid-n 6 --seed-grid-only --local-only --no-save
+\end{verbatim}
+
+\subsection{Vista geométrica: cubo de semillas y los dos ejemplos CLI}
+
+Trabajamos en el espacio de \textbf{estados} $(c,s,i)$ con concentraciones adimensionales. Las semillas del cubo son puntos $\mathbf{x}^0$ en el \textbf{paralelepípedo}
+\[
+[0,1]^3 = \{(c,s,i): 0\leq c\leq 1,\; 0\leq s\leq 1,\; 0\leq i\leq 1\}.
+\]
+Geométricamente es un \textbf{cubo unitario}: cada eje es una concentración; el origen $(0,0,0)$ y el vértice opuesto $(1,1,1)$ son esquinas del mismo sólido. Newton parte de cada punto y converge (o no) hacia algún cero de $\mathbf{F}$ cercano: intuitivamente, cada semilla elige una \textbf{cuenca} distinta si el sistema es multirraíz.
+
+\subsubsection*{Malla cartesiana $\mathcal{G}_N$ (opción \texttt{--seed-grid-n N})}
+
+Para entero $N\geq 2$, en cada eje se toman los valores
+\[
+0,\;\frac{1}{N-1},\;\frac{2}{N-1},\;\ldots,\;1
+\]
+(\texttt{linspace}). El conjunto de semillas es el \textbf{producto cartesiano} de esas tres listas: los \textbf{$N^3$ vértices de una rejilla regular} que \emph{rellena} el cubo con nodos equiespaciados. No es un muestreo aleatorio: es un \textbf{latizado} determinista. Ejemplos:
+\begin{itemize}[leftmargin=*]
+  \item $N=5$: $5^3=125$ nodos; en cada eje los valores son $0,\,0{,}25,\,0{,}5,\,0{,}75,\,1$. Aparecen todas las combinaciones; por ejemplo $(0,0,0)$, $(1,1,1)$, $(0{,}5,0{,}25,0{,}75)$, etc.
+  \item $N=6$: $6^3=216$ nodos; el paso en cada eje es $0{,}2$ entre valores consecutivos. La malla es \textbf{más fina} que con $N=5$ (más puntos, más cerca entre sí).
+\end{itemize}
+
+\subsubsection*{Ejemplo A: \texttt{--seed-grid-n 5} sin \texttt{--seed-grid-only}}
+
+Se usan los \textbf{$125$ nodos} de $\mathcal{G}_5$ \textbf{más} la lista \textbf{legacy}. Geométricamente:
+\begin{itemize}[leftmargin=*]
+  \item El cubo queda cubierto por la red $5\times 5\times 5$.
+  \item Los legacy añaden puntos \textbf{fuera de esa malla regular}: p.\,ej.\ $(0{,}2,0{,}2,0{,}2)$ cae en el interior pero no coincide necesariamente con un nodo de $\mathcal{G}_5$ (los nodos en cada eje son múltiplos de $0{,}25$); el punto $(1{,}1,0{,}2,0{,}8)$ tiene $c=1{,}1>1$, luego queda \textbf{fuera} del cubo $[0,1]^3$ en la dirección de $c$ (sigue siendo semilla numérica válida).
+  \item Varios legacy se concentran cerca de la \textbf{esquina} $(0,1,1)$ (tumor muy bajo, $s$ e $i$ altos): refuerzo dirigido en una región biológicamente relevante que la malla sola ya toca en el vértice $(0,1,1)$ pero no con las mismas perturbaciones finas.
+\end{itemize}
+Tras \texttt{\_dedupe\_seed\_points}, algunos legacy y nodos del cubo pueden \textbf{coincidir} (p.\,ej.\ $(0,1,1)$ es vértice de $\mathcal{G}_N$ para todo $N$), reduciendo el número efectivo de semillas por celda por debajo de $125+11$.
+
+\subsubsection*{Ejemplo B: \texttt{--seed-grid-n 6 --seed-grid-only}}
+
+Solo los \textbf{$216$ nodos} de $\mathcal{G}_6$, todos \textbf{dentro} de $[0,1]^3$ y sobre la malla uniforme. Geométricamente:
+\begin{itemize}[leftmargin=*]
+  \item Mejor \textbf{cobertura uniforme} del volumen que con $N=5$ (más denso).
+  \item No hay puntos legacy: se \textbf{pierde} el refuerzo explícito con $(1{,}1,\ldots)$ fuera del cubo en $c$, y el conjunto de perturbaciones muy finas junto a $(0,1,1)$ que no son nodos de la malla.
+\end{itemize}
+
+\subsubsection*{Visualización práctica}
+
+Para ``ver'' las semillas, se puede graficar un \texttt{scatter3D} de las ternas $(c,s,i)$ (cubo en matplotlib: ejes $[0,1]$; en otro color los legacy). El listado exacto se obtiene en Python importando \texttt{seeds\_unit\_cube\_grid(N)} y \texttt{default\_seeds\_3d\_control\_hill(grid\_n=..., include\_legacy=...)} desde \texttt{steady\_states.py}.
+
+\subsection{Deduplicación de \textbf{soluciones} y bandera \texttt{near\_c0\_s1\_i1}}
+
+Dentro de \texttt{scan\_grid\_3d}, tras cada convergencia exitosa, dos raíces $\mathbf{x}^\ast$ con $\|\mathbf{x}^\ast_1-\mathbf{x}^\ast_2\|<10^{-3}$ se consideran la misma: no se duplica la fila en el \texttt{DataFrame}. Es independiente de la deduplicación de \emph{semillas}.
+
+Además se marca \texttt{near\_c0\_s1\_i1=True} si
+\[
+c^\ast<0{,}12,\qquad s^\ast>0{,}88,\qquad i^\ast>0{,}88
+\]
+(umbrales \texttt{\_CORNER\_*} en código). Es una \textbf{etiqueta heurística}, no una restricción impuesta al Newton.
+
+\subsection{Salida JSON (agrupación por escenario)}
+
+Los catálogos unificados pueden agrupar equilibrios bajo un \texttt{name} de \textbf{escenario corto} (tipo \texttt{strong\_mu0\_uNo\_bajo\_umbral}) y listar varios puntos $(c^\ast,s^\ast,i^\ast)$ en \texttt{steady\_states} con \texttt{n\_steady\_states}, cuando el mismo $\theta$ admite varias raíces encontradas desde distintas semillas. El nombre largo que concatena parámetros y estado se reconstruye como escenario + \texttt{equilibrium\_slug}.
+
+Cada fila del barrido incluye en el \texttt{DataFrame} los parámetros cinéticos barridos: además de $r_c,\beta,\delta,\eta,r_d,a$, columnas \texttt{rs}, \texttt{alpha}, \texttt{gamma}. El \texttt{equilibrium\_slug} numérico incorpora esos valores (junto con $r_c,\beta,\ldots$ y $(c^\ast,s^\ast,i^\ast)$) para evitar colisiones entre celdas distintas del producto factorial. En la salida del pipeline WEAK, el bloque \texttt{weak\_meta} puede llevar \texttt{parameter\_mesh} (listas usadas) y \texttt{n\_parameter\_cells} (producto de cardinalidades).
+
+\subsection{Ejemplo numérico reproducible}
+
+\textbf{Configuración.} Allee WEAK, sin control Hill (\texttt{include\_hill\_control=False}), $\mu=1$, resto de parámetros los de \texttt{params\_base\_3d} en el repositorio ($r_c=5{,}84$, $r_s=13{,}12$, $r_d=10{,}92$, $\alpha=10{,}22$, $\delta=5{,}40$, $\beta=7{,}6$, $a=0{,}1$, $\gamma=0{,}74$, $\eta=5{,}08$).
+
+\textbf{Comando de verificación} (desde el directorio \texttt{Allee}):
+\begin{verbatim}
+python steady_states/verify_equilibrium_point.py --allee WEAK --no-hill \
+  --newton-seed 0.2 0.2 0.2
+\end{verbatim}
+
+\textbf{Primera iteración} desde $\mathbf{x}^0=(0{,}2,\,0{,}2,\,0{,}2)^\top$:
+\[
+\mathbf{F}(\mathbf{x}^0)\approx \begin{pmatrix} -0{,}09568 \\ 2{,}09560 \\ 1{,}71936 \end{pmatrix},\qquad
+J(\mathbf{x}^0)\approx \begin{pmatrix}
+ 0{,}3392 & -0{,}8768 & -1{,}0144 \\
+-0{,}4680 &  7{,}8540 &  0{,}4320 \\
+-0{,}7104 &  0{,}4320 &  6{,}4128
+\end{pmatrix}.
+\]
+Resolviendo $J(\mathbf{x}^0)\boldsymbol{\delta}^0=\mathbf{F}(\mathbf{x}^0)$ se obtiene $\boldsymbol{\delta}^0\approx(2{,}07638,\,0{,}36450,\,0{,}47358)^\top$ y por tanto
+\[
+\mathbf{x}^1=\mathbf{x}^0-\boldsymbol{\delta}^0\approx (-1{,}87638,\,-0{,}16450,\,-0{,}27358)^\top.
+\]
+Obsérvese que un solo paso puede salir del ortante biológicamente habitual $(c,s,i\ge 0)$: ilustra el carácter \textbf{local} del método y la necesidad de semillas y filtros posteriores.
+
+\textbf{Raíz devuelta por el iterador completo} con la misma semilla: el algoritmo converge numéricamente a un punto próximo al origen $(c,s,i)\approx (0,0,0)$ con $\|\mathbf{F}\|\sim 10^{-25}$ (equilibrio de extinción trivial en este modelo cinético). Otras semillas conducen a otras raíces (p.\,ej.\ hacia $c\approx 1$, $s\approx 0$, $i\approx 0$). Las cifras anteriores se reproducen con \texttt{build\_numeric\_3d(\{mu:1\}, allee\_type='WEAK', include\_hill\_control=False)} y un paso manual de Newton como en el código fuente.
+
+\section{Estabilidad lineal local (ODE)}
+
+Sea $J(\mathbf{x}^\ast)$ el Jacobiano de $\mathbf{F}$ en un equilibrio. La linealización
+\[
+\dot{\mathbf{x}} \approx J(\mathbf{x}^\ast)\,(\mathbf{x}-\mathbf{x}^\ast)
+\]
+determina la estabilidad local como punto fijo del flujo ODE: si todas las partes reales de los autovalores de $J(\mathbf{x}^\ast)$ son negativas, el equilibrio es localmente asintóticamente estable; si alguna parte real es positiva, es inestable. Los DataFrames almacenan partes reales e imaginarias de los autovalores.
+
+\section{Filtros físicos (\texttt{filter\_physical\_3d})}
+
+Tras el barrido 3D, \texttt{filter\_physical\_3d} descarta filas fuera de rangos \textbf{ad hoc} de plausibilidad biológica y numérica: positividad estricta de $c^\ast$ y $s^\ast$, rango de $i^\ast$, cotas superiores en $c^\ast$ y $s^\ast$. Sobre el espectro de $J(\mathbf{x}^\ast)$, sea $\Lambda_{\max}=\max_j \operatorname{Re}\lambda_j$ la parte real máxima entre los tres autovalores. El filtro exige
+\[
+\Lambda_{\max} < R_{\max}
+\]
+(con $R_{\max}=120$ por defecto), es decir, se \textbf{excluyen} equilibrios con inestabilidad lineal extrema ($\Lambda_{\max}\geq R_{\max}$). \textbf{No} se exige $\Lambda_{\max}>0$: entran tanto equilibrios \textbf{linealmente estables} ($\Lambda_{\max}\leq 0$) como \textbf{inestables} ($\Lambda_{\max}>0$) siempre que $\Lambda_{\max}<R_{\max}$. La columna booleana \texttt{unstable} del barrido sigue indicando si existe algún autovalor con parte real positiva.
+
+Son \textbf{criterios de post-procesado}, no deducciones del modelo continuo. Nota: equilibrios en fronteras con $c^\ast=0$ o $s^\ast=0$ (p.\,ej.\ $(0,0,1)$) quedan fuera de este filtro por la positividad estricta; pueden aparecer solo en salidas \emph{raw}.
+
+\section{Espectro con difusión (inestabilidad de Turing linealizada)}
+
+Para el modelo reacción--difusión linealizado alrededor de un equilibrio homogéneo, se considera la matriz efectiva
+\begin{equation}
+\label{eq:Jk}
+J(k) = J_{\mathrm{reac}} - \operatorname{diag}(D_c,D_s,D_i)\,k^2
+\end{equation}
+y sus autovalores $\lambda(k)$ para modos planos de número de onda $k$. El análisis en \texttt{generate\_linear\_spectra.py} estudia $\operatorname{Re}\lambda(k)$ frente a $k$: esqueleto del criterio de inestabilidad de Turing (modo $k>0$ inestable aunque $k=0$ sea estable).
+
+\section{Flujo de datos en el repositorio}
+
+\subsection{De barrido numérico a \texttt{scenarios.json}}
+
+Al ejecutar \texttt{steady\_states/steady\_states.py} en modos como \texttt{control-3d}:
+\begin{enumerate}[leftmargin=*]
+  \item Se genera un catálogo de equilibrios (crudo y filtrado); opcionalmente \texttt{steady\_states\_catalog.json} con \texttt{steady\_states\_raw} y \texttt{steady\_states\_filtered} como \textbf{listas de escenarios} anidados (\texttt{name} corto, \texttt{n\_steady\_states}, \texttt{steady\_states[]}).
+  \item Con la bandera \texttt{--generate-scenarios}, se fusionan hasta \texttt{max\_scenarios} escenarios en \texttt{Allee/scenarios.json} a partir del DataFrame \textbf{ya filtrado} por \texttt{filter\_physical\_3d}, usando \texttt{create\_scenarios\_json(..., overwrite=False)} para no sobrescribir escenarios existentes sin control explícito. Cada escenario generado propaga $r_c,\beta,\delta,\eta,r_d,a$ y también \texttt{rs}, \texttt{alpha}, \texttt{gamma} leídos de la fila (con reserva en \texttt{common\_params} si faltan en datos antiguos).
+\end{enumerate}
+
+\subsection{De \texttt{scenarios.json} a CSV de equilibrios}
+
+\texttt{extract\_steady\_states\_from\_scenarios.py}:
+\begin{enumerate}[leftmargin=*]
+  \item Lee \texttt{common\_params} y la lista \texttt{scenarios}.
+  \item Para cada escenario, reconstruye $\mathbf{F}$ según Allee débil/fuerte y la rama de control (Hill / mínimo / ninguna).
+  \item Ejecuta Newton desde muchas semillas; elimina duplicados cercanos; impone condiciones mínimas ($i>0$, etc.).
+  \item Si hay varias raíces, aplica \textbf{reglas de selección}: para ciertos nombres de escenario, minimiza distancia a valores tabulados; en caso general, prefiere equilibrios ``no triviales'' (por ejemplo $s^\ast>0{,}1$ o $c^\ast>0{,}5$).
+  \item Escribe \texttt{steady\_states\_scenarios.csv} (y copias por escenario) en el directorio de resultados configurado por \texttt{utils\_paths}, no dentro de \texttt{Allee/}.
+\end{enumerate}
+
+\subsection{Figuras y espectro a partir del equilibrio 3D}
+
+\texttt{generate\_figures\_from\_scenarios.py} usa el CSV de equilibrios 3D y \texttt{scenarios.json}. El bloque relevante para el Jacobiano de reacción $J_{\mathrm{reac}}$ en \eqref{eq:Jk} es \texttt{generate\_linear\_spectra.py}, que parte de $(c^\ast,s^\ast,i^\ast)$ del sistema 3D.
+
+\section{Resumen}
+
+El pipeline en \texttt{steady\_states/} implementa: (i) definición explícita de $\mathbf{F}$ coherente con el PDE según el escenario; (ii) búsqueda de ceros por Newton con multirraíz vía semillas; (iii) clasificación local vía espectro de $J$ (columna \texttt{unstable}); (iv) barrido factorial ampliado con $(r_s,\alpha,\gamma)$ además de $(r_c,\beta,\delta,\eta,r_d,a)$; (v) filtrado posterior por concentraciones y cota $\Lambda_{\max}<R_{\max}$, admitiendo equilibrios estables e inestables; (vi) enlace con \texttt{scenarios.json} y derivados para simulación y figuras.
+
+\vspace{1em}
+\noindent\rule{\textwidth}{0.4pt}
+
+\noindent\textit{Compilación sugerida} (desde este directorio):
+\begin{verbatim}
+pdflatex -interaction=nonstopmode proceso_estados_estacionarios.tex
+\end{verbatim}
+
+\end{document}

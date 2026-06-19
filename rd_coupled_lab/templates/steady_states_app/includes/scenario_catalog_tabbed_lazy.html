@@ -1,0 +1,8 @@
+{# Modal Dashboard: marco de pestañas; Ecuaciones activa por defecto; resto vía fetch (shown.bs.tab). #}
+{% include "steady_states_app/includes/scenario_catalog_tabs_nav.html" %}
+<div class="tab-content scenario-catalog-tab-content" id="catalogTabContent-{{ catalog_uid }}">
+    {% include "steady_states_app/includes/scenario_catalog_lazy_pane.html" with pane_local="eq" tab_slug="ecuaciones" lazy_pane_show_active=True %}
+    {% include "steady_states_app/includes/scenario_catalog_lazy_pane.html" with pane_local="params" tab_slug="parametros" %}
+    {% include "steady_states_app/includes/scenario_catalog_lazy_pane.html" with pane_local="fig" tab_slug="figuras" %}
+    {% include "steady_states_app/includes/scenario_catalog_lazy_pane.html" with pane_local="pipe" tab_slug="pipeline" %}
+</div>

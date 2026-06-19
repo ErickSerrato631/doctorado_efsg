@@ -1,10 +1,12 @@
 \chapter{Conclusiones}
+\label{chap:conclusiones}
 
 \section{Conclusiones principales}
 \begin{itemize}
   \item El modelo con efecto Allee y no reciprocidad genera umbrales claros; en los barridos realizados todos los equilibrios con $i^*>0$ son inestables.
   \item El control variacional $\mu=1$ compacta patrones y reduce la heterogeneidad espacial, pero no elimina la inestabilidad de fondo.
   \item El efecto Allee fuerte limita la extensión tumoral e impone una barrera crítica; el efecto débil permite patrones más amplios y sensibles a control.
+  \item El control adaptativo $u(x,y,t)$ no sólo modifica amplitudes: reconfigura la \emph{geometría} de la interacción espacio--temporal, alterando la coherencia de dominios tumorales (medida por $c_c$) y el acoplamiento espacial cáncer--inmune (medido por $c_i$) a través de $\xi(t)$.
 \end{itemize}
 
 \section{Aportaciones originales}
@@ -12,14 +14,34 @@
   \item Integración de efecto Allee (débil/fuerte), no reciprocidad y control inmunológico en un mismo marco ODE/PDE.
   \item Tablas de candidatos inestables y rejillas de parámetros para iniciar simulaciones PDE comparables.
   \item Análisis correlacional espacio--temporal que vincula control variacional con organización de patrones.
+  \item Marco reproducible de métricas mesoscópicas (grids de $\xi(t)$ y paneles A/B) para comparar protocolos: separar efecto de $\mu$ (selector morfológico) del efecto de $u$ (control geométrico) en regímenes bajo/sobre umbral.
 \end{itemize}
 
 \section{Trabajo futuro}
 \begin{itemize}
   \item Buscar equilibrios estables ajustando $rc,\beta,\eta$ y aumentando $rd,\delta$ con mallas más finas.
-  \item Explorar protocolos adaptativos $u(x,y,t)$ y optimización de costes de control.
-  \item Extender simulaciones a horizontes temporales mayores y geometrías no uniformes.
+  \item Explorar protocolos adaptativos $u(x,y,t)$ y optimización explícita de costes: por ejemplo minimizar o acotar $C_u=\iint u\,dx\,dy\,dt$ sujeto a metas sobre pico de $c$, carga integrada o cruce de umbral de Allee espacial promedio (curvas coste--beneficio o frentes de Pareto).
+  \item Incorporar \textbf{trayectorias espacio-promedio} $\langle c\rangle(t)$, $\langle i\rangle(t)$ en PDE largas para validar escenarios donde el mean-field predice colapso con control.
+  \item Realizar \textbf{análisis de sensibilidad} respecto a parámetros clave y a tolerancias numéricas del solver con $u$ activo.
+  \item Incluir corridas \textbf{comparativas} con una variante del modelo \textbf{sin} efecto Allee (o con reciprocidad clásica) bajo el mismo esquema de simulación, para aislar el papel del umbral cooperativo.
+  \item Extender simulaciones a horizontes temporales mayores, estadística de ensamble (múltiples `nb` / semillas) y geometrías no uniformes.
+  \item \textbf{Validación experimental o con datos públicos}: contrastar cualitativamente patrones o escalas emergentes cuando existan series espacio-temporales comparables (trabajo a largo plazo).
 \end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

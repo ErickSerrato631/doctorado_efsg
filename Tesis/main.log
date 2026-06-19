@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.30)  5 JAN 2026 00:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.30)  22 MAR 2026 16:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -408,13 +408,14 @@ File: puenc.def 2023-11-26 v7.01g Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
+Package hyperref Info: Option `bookmarks' set `false' on input line 4064.
 Package hyperref Info: Hyper figures OFF on input line 4181.
 Package hyperref Info: Link nesting OFF on input line 4186.
 Package hyperref Info: Hyper index ON on input line 4189.
 Package hyperref Info: Plain pages OFF on input line 4196.
 Package hyperref Info: Backreferencing OFF on input line 4201.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4448.
+Package hyperref Info: Bookmarks OFF on input line 4454.
 \c@Hy@tempcnt=\count296
 
 (C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
@@ -592,17 +593,59 @@ Package color Info: Driver file: pdftex.def on input line 149.
 (C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathco
 lor.ltx))
 Package hyperref Info: Link coloring ON on input line 5.
- (main.out) (main.out)
-\@outlinefile=\write3
-\openout3 = `main.out'.
-
  [1
 
 {C:/Users/Erick Serrato/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Us
-ers/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}] 
-[1
+ers/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}]
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
+5.
 
-] [2
+(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
+5.
+
+(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+35.
+
+(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+35.
+
+(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 35.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 35.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
+
+
+(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.f
+d
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
+
+
+(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.f
+d
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mat
+hit.enc}{C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/l
+m/lm-rm.enc}{C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/enc/dvi
+ps/lm/lm-mathsy.enc}] [2
 
 ] (main.toc
 LaTeX Info: Redefining \. on input line 1.
@@ -628,53 +671,17 @@ Package spanish Warning: Replacing `T1/lmr/bx/sc' by
 Package spanish Warning: Replacing `T1/lmr/bx/sc' by 
 (spanish)                faked small caps on input line 5.
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 7
-.
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
-File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 7
-.
+[3
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
-File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-7.
+]
+Overfull \hbox (7.45468pt too wide) in paragraph at lines 49--49
+ [][] [][][]\T1/lmr/m/n/12 Efecto del con-trol adap-ta-ti-vo so-bre ra-mas ba-j
+o/sobre um-bral (Strong)[][] [][]  
+ []
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
-File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-7.
-
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
-File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 7.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 7.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 7.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 7.
-
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.f
-d
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 7.
-
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.f
-d
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [3
-
-] [4{C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm
--mathit.enc}{C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/enc/dvi
-ps/lm/lm-rm.enc}])
-\tf@toc=\write4
-\openout4 = `main.toc'.
+[4])
+\tf@toc=\write3
+\openout3 = `main.toc'.
 
  [5] (main.lof
 LaTeX Info: Redefining \. on input line 1.
@@ -682,24 +689,22 @@ LaTeX Info: Redefining \% on input line 1.
  [6
 
 ])
-\tf@lof=\write5
-\openout5 = `main.lof'.
+\tf@lof=\write4
+\openout4 = `main.lof'.
 
  [7] (main.lot
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 )
-\tf@lot=\write6
-\openout6 = `main.lot'.
+\tf@lot=\write5
+\openout5 = `main.lot'.
 
  [8
 
-{C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mat
-hsy.enc}]
+]
 \openout2 = `chapters/01_introduccion.aux'.
 
-
-(chapters/01_introduccion.tex
+ (chapters/01_introduccion.tex
 Cap\'{\i }tulo 1.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
@@ -737,237 +742,251 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <17.28> on input line 64.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 64.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 64.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 64.
-
 ) [7]
 \openout2 = `chapters/04_analisis.aux'.
 
  (chapters/04_analisis.tex
 Cap\'{\i }tulo 4.
-<images/steady.png, id=503, 381.89735pt x 358.51588pt>
-File: images/steady.png Graphic file (type png)
-<use images/steady.png>
-Package pdftex.def Info: images/steady.png  used on input line 12.
-(pdftex.def)             Requested size: 199.60895pt x 187.38666pt.
-<images/steady_mu0.png, id=504, 378.3547pt x 355.68176pt>
-File: images/steady_mu0.png Graphic file (type png)
-<use images/steady_mu0.png>
-Package pdftex.def Info: images/steady_mu0.png  used on input line 13.
-(pdftex.def)             Requested size: 199.60895pt x 187.64749pt.
+<images/steady_weak_mu1_uNo_bajo_umbral.png, id=360, 682.2288pt x 642.4803pt>
+File: images/steady_weak_mu1_uNo_bajo_umbral.png Graphic file (type png)
+<use images/steady_weak_mu1_uNo_bajo_umbral.png>
+Package pdftex.def Info: images/steady_weak_mu1_uNo_bajo_umbral.png  used on in
+put line 12.
+(pdftex.def)             Requested size: 199.60895pt x 187.9811pt.
+<images/steady_weak_mu0_uNo_bajo_umbral.png, id=362, 682.2288pt x 642.4803pt>
+File: images/steady_weak_mu0_uNo_bajo_umbral.png Graphic file (type png)
+<use images/steady_weak_mu0_uNo_bajo_umbral.png>
+Package pdftex.def Info: images/steady_weak_mu0_uNo_bajo_umbral.png  used on in
+put line 13.
+(pdftex.def)             Requested size: 199.60895pt x 187.9811pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 14.
-
-Overfull \hbox (8.72763pt too wide) in paragraph at lines 19--20
-[]\T1/lmr/m/n/12 Se lis-tan pun-tos ines-ta-bles usa-dos co-mo con-di-cio-nes i
-ni-cia-les en ba-rri-dos Weak/Strong,
- []
-
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 24.
 [8
 
 
 
 
- <./images/steady.png (PNG copy)> <./images/steady_mu0.png (PNG copy)>]
-[9]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 8
+]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
 9.
 
 (C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 24.
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 93.
+[9 <./images/steady_weak_mu1_uNo_bajo_umbral.png> <./images/steady_weak_mu0_uNo
+_bajo_umbral.png>]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 6
+6.
 
+(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+[10{C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-
+ts1.enc}]
+Overfull \hbox (7.67244pt too wide) in paragraph at lines 90--91
+[]\T1/lmr/bx/sc/12 Conclusión\T1/lmr/m/n/12 : to-dos los es-ta-dos es-ta-cio-na
+-rios en-con-tra-dos son ines-ta-bles (si-llas/focos
+ []
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mu' on input line 93.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 93.
-
-[10]) [11]
+[11]) [12]
 \openout2 = `chapters/05_dinamica_espacial.aux'.
 
  (chapters/05_dinamica_espacial.tex
 Cap\'{\i }tulo 5.
-<images/fields_mu_0.png, id=530, 1084.05pt x 578.16pt>
-File: images/fields_mu_0.png Graphic file (type png)
-<use images/fields_mu_0.png>
-Package pdftex.def Info: images/fields_mu_0.png  used on input line 16.
-(pdftex.def)             Requested size: 443.57016pt x 174.79028pt.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 17.
-<images/fields_mu_1.png, id=532, 1084.05pt x 578.16pt>
-File: images/fields_mu_1.png Graphic file (type png)
-<use images/fields_mu_1.png>
-Package pdftex.def Info: images/fields_mu_1.png  used on input line 21.
-(pdftex.def)             Requested size: 443.57016pt x 174.79028pt.
-[12
+<images/fields_panel_weak_mu0_uNo_bajo_umbral_VS_weak_mu0_uSi_bajo_umbral_t0.00
+0_to_2.000.png, id=403, 6562.5175pt x 5155.26pt>
+File: images/fields_panel_weak_mu0_uNo_bajo_umbral_VS_weak_mu0_uSi_bajo_umbral_
+t0.000_to_2.000.png Graphic file (type png)
+<use images/fields_panel_weak_mu0_uNo_bajo_umbral_VS_weak_mu0_uSi_bajo_umbral_t
+0.000_to_2.000.png>
+Package pdftex.def Info: images/fields_panel_weak_mu0_uNo_bajo_umbral_VS_weak_m
+u0_uSi_bajo_umbral_t0.000_to_2.000.png  used on input line 15.
+(pdftex.def)             Requested size: 443.57848pt x 348.39769pt.
+[13
 
 
 
 
 ]
+<images/fields_panel_weak_mu1_uNo_bajo_umbral_VS_weak_mu1_uSi_bajo_umbral_t0.00
+0_to_2.000.png, id=408, 6562.5175pt x 5155.26pt>
+File: images/fields_panel_weak_mu1_uNo_bajo_umbral_VS_weak_mu1_uSi_bajo_umbral_
+t0.000_to_2.000.png Graphic file (type png)
+<use images/fields_panel_weak_mu1_uNo_bajo_umbral_VS_weak_mu1_uSi_bajo_umbral_t
+0.000_to_2.000.png>
+Package pdftex.def Info: images/fields_panel_weak_mu1_uNo_bajo_umbral_VS_weak_m
+u1_uSi_bajo_umbral_t0.000_to_2.000.png  used on input line 23.
+(pdftex.def)             Requested size: 443.57848pt x 348.39769pt.
+ [14 <./images/fields_panel_weak_mu0_uNo_bajo_umbral_VS_weak_mu0_uSi_bajo_umbra
+l_t0.000_to_2.000.png (PNG copy)>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 30.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 30.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 30.
-
-<images/power_spectrum_c_0.000.png, id=539, 578.16pt x 578.16pt>
+(Font)              <14.4> on input line 29.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 29.
+<images/power_spectrum_c_0.000.png, id=413, 578.16pt x 578.16pt>
 File: images/power_spectrum_c_0.000.png Graphic file (type png)
 <use images/power_spectrum_c_0.000.png>
 Package pdftex.def Info: images/power_spectrum_c_0.000.png  used on input line 
-35.
+34.
 (pdftex.def)             Requested size: 199.60895pt x 199.60657pt.
-<images/power_spectrum_c_1.000.png, id=540, 578.16pt x 578.16pt>
+<images/power_spectrum_c_1.000.png, id=414, 578.16pt x 578.16pt>
 File: images/power_spectrum_c_1.000.png Graphic file (type png)
 <use images/power_spectrum_c_1.000.png>
 Package pdftex.def Info: images/power_spectrum_c_1.000.png  used on input line 
-41.
+40.
 (pdftex.def)             Requested size: 199.60895pt x 199.60657pt.
-[13 <./images/fields_mu_0.png> <./images/fields_mu_1.png>]
-<images/correlation_mean_c_c.png, id=547, 722.7pt x 433.62pt>
-File: images/correlation_mean_c_c.png Graphic file (type png)
-<use images/correlation_mean_c_c.png>
-Package pdftex.def Info: images/correlation_mean_c_c.png  used on input line 52
-.
-(pdftex.def)             Requested size: 288.32329pt x 172.995pt.
-<images/correlation_mean_s_s.png, id=548, 722.7pt x 433.62pt>
-File: images/correlation_mean_s_s.png Graphic file (type png)
-<use images/correlation_mean_s_s.png>
-Package pdftex.def Info: images/correlation_mean_s_s.png  used on input line 58
-.
-(pdftex.def)             Requested size: 288.32329pt x 172.995pt.
-<images/correlation_mean_i_i.png, id=549, 722.7pt x 433.62pt>
-File: images/correlation_mean_i_i.png Graphic file (type png)
-<use images/correlation_mean_i_i.png>
-Package pdftex.def Info: images/correlation_mean_i_i.png  used on input line 64
-.
-(pdftex.def)             Requested size: 288.32329pt x 172.995pt.
- [14 <./images/power_spectrum_c_0.000.png> <./images/power_spectrum_c_1.000.png
-> <./images/correlation_mean_c_c.png>]
-<images/correlation_mean_c_s.png, id=557, 722.7pt x 433.62pt>
-File: images/correlation_mean_c_s.png Graphic file (type png)
-<use images/correlation_mean_c_s.png>
-Package pdftex.def Info: images/correlation_mean_c_s.png  used on input line 70
-.
-(pdftex.def)             Requested size: 288.32329pt x 172.995pt.
-<images/correlation_mean_c_i.png, id=558, 722.7pt x 433.62pt>
-File: images/correlation_mean_c_i.png Graphic file (type png)
-<use images/correlation_mean_c_i.png>
-Package pdftex.def Info: images/correlation_mean_c_i.png  used on input line 76
-.
-(pdftex.def)             Requested size: 288.32329pt x 172.995pt.
- [15 <./images/correlation_mean_s_s.png> <./images/correlation_mean_i_i.png>]
-<images/correlation_mean_s_i.png, id=565, 722.7pt x 433.62pt>
-File: images/correlation_mean_s_i.png Graphic file (type png)
-<use images/correlation_mean_s_i.png>
-Package pdftex.def Info: images/correlation_mean_s_i.png  used on input line 82
-.
-(pdftex.def)             Requested size: 288.32329pt x 172.995pt.
- [16 <./images/correlation_mean_c_s.png> <./images/correlation_mean_c_i.png>]
-<images/fields_strong_mu_0.png, id=573, 1084.05pt x 578.16pt>
-File: images/fields_strong_mu_0.png Graphic file (type png)
-<use images/fields_strong_mu_0.png>
-Package pdftex.def Info: images/fields_strong_mu_0.png  used on input line 94.
-(pdftex.def)             Requested size: 443.57016pt x 187.2734pt.
-<images/fields_strong_mu_1.png, id=574, 1084.05pt x 578.16pt>
-File: images/fields_strong_mu_1.png Graphic file (type png)
-<use images/fields_strong_mu_1.png>
-Package pdftex.def Info: images/fields_strong_mu_1.png  used on input line 100.
+ [15 <./images/fields_panel_weak_mu1_uNo_bajo_umbral_VS_weak_mu1_uSi_bajo_umbra
+l_t0.000_to_2.000.png (PNG copy)>]
+<images/corr_grid_mu_c_c.png, id=419, 867.24pt x 578.16pt>
+File: images/corr_grid_mu_c_c.png Graphic file (type png)
+<use images/corr_grid_mu_c_c.png>
+Package pdftex.def Info: images/corr_grid_mu_c_c.png  used on input line 51.
+(pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
+<images/corr_grid_mu_s_s.png, id=420, 867.24pt x 578.16pt>
+File: images/corr_grid_mu_s_s.png Graphic file (type png)
+<use images/corr_grid_mu_s_s.png>
+Package pdftex.def Info: images/corr_grid_mu_s_s.png  used on input line 57.
+(pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
 
-(pdftex.def)             Requested size: 443.57016pt x 187.2734pt.
- [17 <./images/correlation_mean_s_i.png>]
-<images/correlation_strong_mean_c_c.png, id=580, 722.7pt x 433.62pt>
-File: images/correlation_strong_mean_c_c.png Graphic file (type png)
-<use images/correlation_strong_mean_c_c.png>
-Package pdftex.def Info: images/correlation_strong_mean_c_c.png  used on input 
-line 112.
-(pdftex.def)             Requested size: 288.32329pt x 172.995pt.
-<images/correlation_strong_mean_s_s.png, id=581, 722.7pt x 433.62pt>
-File: images/correlation_strong_mean_s_s.png Graphic file (type png)
-<use images/correlation_strong_mean_s_s.png>
-Package pdftex.def Info: images/correlation_strong_mean_s_s.png  used on input 
-line 118.
-(pdftex.def)             Requested size: 288.32329pt x 172.995pt.
- [18 <./images/fields_strong_mu_0.png> <./images/fields_strong_mu_1.png>]
-<images/correlation_strong_mean_i_i.png, id=588, 722.7pt x 433.62pt>
-File: images/correlation_strong_mean_i_i.png Graphic file (type png)
-<use images/correlation_strong_mean_i_i.png>
-Package pdftex.def Info: images/correlation_strong_mean_i_i.png  used on input 
-line 124.
-(pdftex.def)             Requested size: 288.32329pt x 172.995pt.
-<images/correlation_strong_mean_c_s.png, id=589, 722.7pt x 433.62pt>
-File: images/correlation_strong_mean_c_s.png Graphic file (type png)
-<use images/correlation_strong_mean_c_s.png>
-Package pdftex.def Info: images/correlation_strong_mean_c_s.png  used on input 
-line 130.
-(pdftex.def)             Requested size: 288.32329pt x 172.995pt.
- [19 <./images/correlation_strong_mean_c_c.png> <./images/correlation_strong_me
-an_s_s.png>]
-<images/correlation_strong_mean_c_i.png, id=596, 722.7pt x 433.62pt>
-File: images/correlation_strong_mean_c_i.png Graphic file (type png)
-<use images/correlation_strong_mean_c_i.png>
-Package pdftex.def Info: images/correlation_strong_mean_c_i.png  used on input 
-line 136.
-(pdftex.def)             Requested size: 288.32329pt x 172.995pt.
-<images/correlation_strong_mean_s_i.png, id=597, 722.7pt x 433.62pt>
-File: images/correlation_strong_mean_s_i.png Graphic file (type png)
-<use images/correlation_strong_mean_s_i.png>
-Package pdftex.def Info: images/correlation_strong_mean_s_i.png  used on input 
-line 142.
-(pdftex.def)             Requested size: 288.32329pt x 172.995pt.
- [20 <./images/correlation_strong_mean_i_i.png> <./images/correlation_strong_me
-an_c_s.png>])
-[21 <./images/correlation_strong_mean_c_i.png> <./images/correlation_strong_mea
-n_s_i.png>]
+[16 <./images/power_spectrum_c_0.000.png> <./images/power_spectrum_c_1.000.png>
+]
+<images/corr_grid_mu_i_i.png, id=428, 867.24pt x 578.16pt>
+File: images/corr_grid_mu_i_i.png Graphic file (type png)
+<use images/corr_grid_mu_i_i.png>
+Package pdftex.def Info: images/corr_grid_mu_i_i.png  used on input line 63.
+(pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
+ [17 <./images/corr_grid_mu_c_c.png>]
+<images/corr_grid_mu_c_s.png, id=434, 867.24pt x 578.16pt>
+File: images/corr_grid_mu_c_s.png Graphic file (type png)
+<use images/corr_grid_mu_c_s.png>
+Package pdftex.def Info: images/corr_grid_mu_c_s.png  used on input line 69.
+(pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
+ [18 <./images/corr_grid_mu_s_s.png>]
+<images/corr_grid_mu_c_i.png, id=440, 867.24pt x 578.16pt>
+File: images/corr_grid_mu_c_i.png Graphic file (type png)
+<use images/corr_grid_mu_c_i.png>
+Package pdftex.def Info: images/corr_grid_mu_c_i.png  used on input line 75.
+(pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
+
+[19 <./images/corr_grid_mu_i_i.png>]
+<images/corr_grid_mu_s_i.png, id=446, 867.24pt x 578.16pt>
+File: images/corr_grid_mu_s_i.png Graphic file (type png)
+<use images/corr_grid_mu_s_i.png>
+Package pdftex.def Info: images/corr_grid_mu_s_i.png  used on input line 81.
+(pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
+ [20 <./images/corr_grid_mu_c_s.png>]
+[21 <./images/corr_grid_mu_c_i.png>]
+<images/corr_grid_u_c_c.png, id=457, 867.24pt x 578.16pt>
+File: images/corr_grid_u_c_c.png Graphic file (type png)
+<use images/corr_grid_u_c_c.png>
+Package pdftex.def Info: images/corr_grid_u_c_c.png  used on input line 91.
+(pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
+<images/corr_grid_u_c_i.png, id=458, 867.24pt x 578.16pt>
+File: images/corr_grid_u_c_i.png Graphic file (type png)
+<use images/corr_grid_u_c_i.png>
+Package pdftex.def Info: images/corr_grid_u_c_i.png  used on input line 97.
+(pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
+ [22 <./images/corr_grid_mu_s_i.png>]
+[23 <./images/corr_grid_u_c_c.png>]
+<images/fields_panel_strong_mu0_uNo_bajo_umbral_VS_strong_mu0_uSi_bajo_umbral_t
+0.000_to_2.000.png, id=470, 6562.5175pt x 5155.26pt>
+File: images/fields_panel_strong_mu0_uNo_bajo_umbral_VS_strong_mu0_uSi_bajo_umb
+ral_t0.000_to_2.000.png Graphic file (type png)
+<use images/fields_panel_strong_mu0_uNo_bajo_umbral_VS_strong_mu0_uSi_bajo_umbr
+al_t0.000_to_2.000.png>
+Package pdftex.def Info: images/fields_panel_strong_mu0_uNo_bajo_umbral_VS_stro
+ng_mu0_uSi_bajo_umbral_t0.000_to_2.000.png  used on input line 106.
+(pdftex.def)             Requested size: 443.57848pt x 348.39769pt.
+ [24 <./images/corr_grid_u_c_i.png>]
+<images/fields_panel_strong_mu1_uNo_bajo_umbral_VS_strong_mu1_uSi_bajo_umbral_t
+0.000_to_2.000.png, id=476, 6562.5175pt x 5155.26pt>
+File: images/fields_panel_strong_mu1_uNo_bajo_umbral_VS_strong_mu1_uSi_bajo_umb
+ral_t0.000_to_2.000.png Graphic file (type png)
+<use images/fields_panel_strong_mu1_uNo_bajo_umbral_VS_strong_mu1_uSi_bajo_umbr
+al_t0.000_to_2.000.png>
+Package pdftex.def Info: images/fields_panel_strong_mu1_uNo_bajo_umbral_VS_stro
+ng_mu1_uSi_bajo_umbral_t0.000_to_2.000.png  used on input line 114.
+(pdftex.def)             Requested size: 443.57848pt x 348.39769pt.
+
+[25 <./images/fields_panel_strong_mu0_uNo_bajo_umbral_VS_strong_mu0_uSi_bajo_um
+bral_t0.000_to_2.000.png (PNG copy)>]
+File: images/corr_grid_mu_c_c.png Graphic file (type png)
+<use images/corr_grid_mu_c_c.png>
+Package pdftex.def Info: images/corr_grid_mu_c_c.png  used on input line 123.
+(pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
+File: images/corr_grid_mu_s_s.png Graphic file (type png)
+<use images/corr_grid_mu_s_s.png>
+Package pdftex.def Info: images/corr_grid_mu_s_s.png  used on input line 129.
+(pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
+ [26 <./images/fields_panel_strong_mu1_uNo_bajo_umbral_VS_strong_mu1_uSi_bajo_u
+mbral_t0.000_to_2.000.png (PNG copy)>]
+File: images/corr_grid_mu_i_i.png Graphic file (type png)
+<use images/corr_grid_mu_i_i.png>
+Package pdftex.def Info: images/corr_grid_mu_i_i.png  used on input line 135.
+(pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
+File: images/corr_grid_mu_c_s.png Graphic file (type png)
+<use images/corr_grid_mu_c_s.png>
+Package pdftex.def Info: images/corr_grid_mu_c_s.png  used on input line 141.
+(pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
+
+[27]
+File: images/corr_grid_mu_c_i.png Graphic file (type png)
+<use images/corr_grid_mu_c_i.png>
+Package pdftex.def Info: images/corr_grid_mu_c_i.png  used on input line 147.
+(pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
+File: images/corr_grid_mu_s_i.png Graphic file (type png)
+<use images/corr_grid_mu_s_i.png>
+Package pdftex.def Info: images/corr_grid_mu_s_i.png  used on input line 153.
+(pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
+ [28] [29]) [30]
 \openout2 = `chapters/06_control.aux'.
 
  (chapters/06_control.tex
 Cap\'{\i }tulo 6.
-[22
+
+Overfull \hbox (65.65543pt too wide) in paragraph at lines 17--22
+[]\T1/lmr/m/n/12 En el ré-gi-men de Allee fuer-te, el con-trol adap-ta-ti-vo ti
+-po Hill $\OML/lmm/m/it/12 u \OT1/lmr/m/n/12 = \OML/lmm/m/it/12 u[] H[]\OT1/lmr
+/m/n/12 (\OML/lmm/m/it/12 c\OT1/lmr/m/n/12 ; \OML/lmm/m/it/12 K[]; n[]\OT1/lmr/
+m/n/12 ) \OML/lmm/m/it/12 H[]\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 i\OT1/lmr/m/n/12
+ ; \OML/lmm/m/it/12 K[]; n[]\OT1/lmr/m/n/12 )$
+ []
+
+[31
 
 
 
 
-]) [23]
+] [32]) [33]
 \openout2 = `chapters/07_discusion.aux'.
 
  (chapters/07_discusion.tex
 Cap\'{\i }tulo 7.
-[24
+[34
 
 
 
 
-]) [25]
+]
+Overfull \hbox (5.95947pt too wide) in paragraph at lines 23--24
+[]\T1/lmr/bx/sc/12 Inestabilidad ho-mo-gé-nea sis-te-má-ti-ca\T1/lmr/m/n/12 : e
+n los diez es-ce-na-rios ta-bu-la-dos (Cap. 4)
+ []
+
+[35] [36]) [37]
 \openout2 = `chapters/08_conclusiones.aux'.
 
  (chapters/08_conclusiones.tex
 Cap\'{\i }tulo 8.
-[26
+[38
 
 
 
 
-]) [27] (main.bbl) [28
+]) [39] (main.bbl) [40
 
 
 
@@ -976,37 +995,109 @@ Cap\'{\i }tulo 8.
 
  (appendices/A_estabilidad.tex
 Ap\'{e}ndice A.
-<images/estabilidad_lineal_weak_mu0.png, id=643, 465.74pt x 257.96375pt>
-File: images/estabilidad_lineal_weak_mu0.png Graphic file (type png)
-<use images/estabilidad_lineal_weak_mu0.png>
-Package pdftex.def Info: images/estabilidad_lineal_weak_mu0.png  used on input 
-line 30.
-(pdftex.def)             Requested size: 199.60895pt x 110.5601pt.
-<images/estabilidad_lineal_weak_mu1.png, id=644, 465.74pt x 257.96375pt>
-File: images/estabilidad_lineal_weak_mu1.png Graphic file (type png)
-<use images/estabilidad_lineal_weak_mu1.png>
-Package pdftex.def Info: images/estabilidad_lineal_weak_mu1.png  used on input 
-line 31.
-(pdftex.def)             Requested size: 199.60895pt x 110.5601pt.
-[29
+<images/estabilidad_lineal_weak_mu0_uNo_bajo_umbral.png, id=570, 571.4148pt x 4
+25.9112pt>
+File: images/estabilidad_lineal_weak_mu0_uNo_bajo_umbral.png Graphic file (type
+ png)
+<use images/estabilidad_lineal_weak_mu0_uNo_bajo_umbral.png>
+Package pdftex.def Info: images/estabilidad_lineal_weak_mu0_uNo_bajo_umbral.png
+  used on input line 40.
+(pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
+<images/estabilidad_lineal_weak_mu0_uNo_sobre_umbral.png, id=571, 571.4148pt x 
+425.9112pt>
+File: images/estabilidad_lineal_weak_mu0_uNo_sobre_umbral.png Graphic file (typ
+e png)
+<use images/estabilidad_lineal_weak_mu0_uNo_sobre_umbral.png>
+Package pdftex.def Info: images/estabilidad_lineal_weak_mu0_uNo_sobre_umbral.pn
+g  used on input line 45.
+(pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
+<images/estabilidad_lineal_weak_mu1_uNo_bajo_umbral.png, id=572, 571.4148pt x 4
+25.9112pt>
+File: images/estabilidad_lineal_weak_mu1_uNo_bajo_umbral.png Graphic file (type
+ png)
+<use images/estabilidad_lineal_weak_mu1_uNo_bajo_umbral.png>
+Package pdftex.def Info: images/estabilidad_lineal_weak_mu1_uNo_bajo_umbral.png
+  used on input line 50.
+(pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
+<images/estabilidad_lineal_weak_mu1_uNo_sobre_umbral.png, id=573, 571.4148pt x 
+425.9112pt>
+File: images/estabilidad_lineal_weak_mu1_uNo_sobre_umbral.png Graphic file (typ
+e png)
+<use images/estabilidad_lineal_weak_mu1_uNo_sobre_umbral.png>
+Package pdftex.def Info: images/estabilidad_lineal_weak_mu1_uNo_sobre_umbral.pn
+g  used on input line 55.
+(pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
+[41
 
 
 ]
-<images/estabilidad_lineal_strong_mu0.png, id=653, 465.74pt x 262.9825pt>
-File: images/estabilidad_lineal_strong_mu0.png Graphic file (type png)
-<use images/estabilidad_lineal_strong_mu0.png>
-Package pdftex.def Info: images/estabilidad_lineal_strong_mu0.png  used on inpu
-t line 46.
-(pdftex.def)             Requested size: 199.60895pt x 112.71107pt.
-<images/estabilidad_lineal_strong_mu1.png, id=654, 465.74pt x 262.9825pt>
-File: images/estabilidad_lineal_strong_mu1.png Graphic file (type png)
-<use images/estabilidad_lineal_strong_mu1.png>
-Package pdftex.def Info: images/estabilidad_lineal_strong_mu1.png  used on inpu
-t line 47.
-(pdftex.def)             Requested size: 199.60895pt x 112.71107pt.
-) [30 <./images/estabilidad_lineal_weak_mu0.png (PNG copy)> <./images/estabilid
-ad_lineal_weak_mu1.png (PNG copy)> <./images/estabilidad_lineal_strong_mu0.png 
-(PNG copy)> <./images/estabilidad_lineal_strong_mu1.png (PNG copy)>]
+<images/estabilidad_lineal_weak_mu0_uSi_bajo_umbral.png, id=582, 571.4148pt x 4
+25.9112pt>
+File: images/estabilidad_lineal_weak_mu0_uSi_bajo_umbral.png Graphic file (type
+ png)
+<use images/estabilidad_lineal_weak_mu0_uSi_bajo_umbral.png>
+Package pdftex.def Info: images/estabilidad_lineal_weak_mu0_uSi_bajo_umbral.png
+  used on input line 70.
+(pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
+<images/estabilidad_lineal_weak_mu1_uSi_bajo_umbral.png, id=583, 571.4148pt x 4
+25.9112pt>
+File: images/estabilidad_lineal_weak_mu1_uSi_bajo_umbral.png Graphic file (type
+ png)
+<use images/estabilidad_lineal_weak_mu1_uSi_bajo_umbral.png>
+Package pdftex.def Info: images/estabilidad_lineal_weak_mu1_uSi_bajo_umbral.png
+  used on input line 75.
+(pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
+ [42 <./images/estabilidad_lineal_weak_mu0_uNo_bajo_umbral.png> <./images/estab
+ilidad_lineal_weak_mu0_uNo_sobre_umbral.png> <./images/estabilidad_lineal_weak_
+mu1_uNo_bajo_umbral.png> <./images/estabilidad_lineal_weak_mu1_uNo_sobre_umbral
+.png>]
+<images/estabilidad_lineal_strong_mu0_uNo_bajo_umbral.png, id=592, 571.4148pt x
+ 425.9112pt>
+File: images/estabilidad_lineal_strong_mu0_uNo_bajo_umbral.png Graphic file (ty
+pe png)
+<use images/estabilidad_lineal_strong_mu0_uNo_bajo_umbral.png>
+Package pdftex.def Info: images/estabilidad_lineal_strong_mu0_uNo_bajo_umbral.p
+ng  used on input line 99.
+(pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
+<images/estabilidad_lineal_strong_mu1_uNo_bajo_umbral.png, id=593, 571.4148pt x
+ 425.9112pt>
+File: images/estabilidad_lineal_strong_mu1_uNo_bajo_umbral.png Graphic file (ty
+pe png)
+<use images/estabilidad_lineal_strong_mu1_uNo_bajo_umbral.png>
+Package pdftex.def Info: images/estabilidad_lineal_strong_mu1_uNo_bajo_umbral.p
+ng  used on input line 104.
+(pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
+<images/estabilidad_lineal_strong_mu1_uNo_sobre_umbral.png, id=594, 571.4148pt 
+x 425.9112pt>
+File: images/estabilidad_lineal_strong_mu1_uNo_sobre_umbral.png Graphic file (t
+ype png)
+<use images/estabilidad_lineal_strong_mu1_uNo_sobre_umbral.png>
+Package pdftex.def Info: images/estabilidad_lineal_strong_mu1_uNo_sobre_umbral.
+png  used on input line 109.
+(pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
+ [43 <./images/estabilidad_lineal_weak_mu0_uSi_bajo_umbral.png> <./images/estab
+ilidad_lineal_weak_mu1_uSi_bajo_umbral.png>]
+<images/estabilidad_lineal_strong_mu0_uSi_bajo_umbral.png, id=604, 571.4148pt x
+ 425.9112pt>
+File: images/estabilidad_lineal_strong_mu0_uSi_bajo_umbral.png Graphic file (ty
+pe png)
+<use images/estabilidad_lineal_strong_mu0_uSi_bajo_umbral.png>
+Package pdftex.def Info: images/estabilidad_lineal_strong_mu0_uSi_bajo_umbral.p
+ng  used on input line 124.
+(pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
+<images/estabilidad_lineal_strong_mu1_uSi_bajo_umbral.png, id=605, 571.4148pt x
+ 425.9112pt>
+File: images/estabilidad_lineal_strong_mu1_uSi_bajo_umbral.png Graphic file (ty
+pe png)
+<use images/estabilidad_lineal_strong_mu1_uSi_bajo_umbral.png>
+Package pdftex.def Info: images/estabilidad_lineal_strong_mu1_uSi_bajo_umbral.p
+ng  used on input line 129.
+(pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
+ [44 <./images/estabilidad_lineal_strong_mu0_uNo_bajo_umbral.png> <./images/est
+abilidad_lineal_strong_mu1_uNo_bajo_umbral.png> <./images/estabilidad_lineal_st
+rong_mu1_uNo_sobre_umbral.png>]) [45 <./images/estabilidad_lineal_strong_mu0_uS
+i_bajo_umbral.png> <./images/estabilidad_lineal_strong_mu1_uSi_bajo_umbral.png>
+]
 \openout2 = `appendices/B_numerico.aux'.
 
 
@@ -1031,11 +1122,7 @@ Overfull \hbox (152.52368pt too wide) in paragraph at lines 8--9
 t/m/n/12 steady_states_bars_story.png\T1/lmr/m/n/12 ,
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-0.
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
+
 Overfull \hbox (28.72154pt too wide) in paragraph at lines 20--21
 []\T1/lmr/m/n/12 Discretizar hiper-parámetros y re-ji-lla de se-mi-llas: Weak (
 $\OML/lmm/m/it/12 ^^V \OT1/lmr/m/n/12 = 1$\T1/lmr/m/n/12 ) con $\OML/lmm/m/it/1
@@ -1044,7 +1131,7 @@ $\OML/lmm/m/it/12 ^^V \OT1/lmr/m/n/12 = 1$\T1/lmr/m/n/12 ) con $\OML/lmm/m/it/1
 ,
  []
 
-[31
+[46
 
 
 
@@ -1056,16 +1143,14 @@ Allee/ \T1/lmr/m/n/12 y \T1/lmtt/m/n/12 filesystem/mu1/Strong_Allee/\T1/lmr/m/n
 /12 ;
  []
 
-) [32{C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/l
-m-ts1.enc}] (main.aux
+) [47] (main.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
- (chapters/01_introduccion.aux)
-(chapters/02_estado_arte.aux) (chapters/03_modelo.aux)
-(chapters/04_analisis.aux) (chapters/05_dinamica_espacial.aux)
-(chapters/06_control.aux) (chapters/07_discusion.aux)
-(chapters/08_conclusiones.aux) (appendices/A_estabilidad.aux)
-(appendices/B_numerico.aux))
+ (chapters/01_introduccion.aux) (chapters/02_estado_arte.aux)
+(chapters/03_modelo.aux) (chapters/04_analisis.aux)
+(chapters/05_dinamica_espacial.aux) (chapters/06_control.aux)
+(chapters/07_discusion.aux) (chapters/08_conclusiones.aux)
+(appendices/A_estabilidad.aux) (appendices/B_numerico.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -1074,17 +1159,15 @@ L3 programming layer <2024-01-04>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A5903F99B98A8281D28EECA82E94A6C1;12906.
  ) 
 Here is how much of TeX's memory you used:
- 15567 strings out of 474479
- 256888 string characters out of 5739778
- 1957542 words of memory out of 5000000
- 37357 multiletter control sequences out of 15000+600000
+ 15568 strings out of 474479
+ 260741 string characters out of 5739778
+ 1947542 words of memory out of 5000000
+ 37325 multiletter control sequences out of 15000+600000
  689131 words of font info for 132 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,14n,96p,643b,808s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,96p,1902b,781s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/l
 mbx10.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/lm/lmbx12.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/t
@@ -1107,9 +1190,9 @@ s/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Erick Serrato/AppData/Local
 ta/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy6.pfb><C:/Users/Erick Serrat
 o/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Erick
  Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (41 pages, 4535066 bytes).
+Output written on main.pdf (56 pages, 21298542 bytes).
 PDF statistics:
- 814 PDF objects out of 1000 (max. 8388607)
- 160 named destinations out of 1000 (max. 500000)
- 641 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 779 PDF objects out of 1000 (max. 8388607)
+ 198 named destinations out of 1000 (max. 500000)
+ 136 words of extra memory for PDF output out of 10000 (max. 10000000)
 

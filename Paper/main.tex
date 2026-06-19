@@ -5,10 +5,12 @@
 \usepackage{physics}
 \usepackage{hyperref}
 \usepackage{booktabs}
+\usepackage{subcaption}
 
-% Evitar advertencias de math en strings PDF
+% Avoid math warnings in PDF strings
 \pdfstringdefDisableCommands{%
   \def\mu{mu}%
+  \def\mathcal#1{#1}%
   \def\alpha{alpha}%
   \def\beta{beta}%
   \def\gamma{gamma}%
@@ -22,34 +24,26 @@
 
 \begin{document}
 
-\title{Nonreciprocal cancer--immune dynamics with Allee effects and immunological control}
+\title{Nonreciprocal Cancer--Immune Dynamics with Allee Effects and Immunological Control}
 
 \author{Erick Serrato Garc\'ia}
-\affiliation{Departamento de F\'isica, Universidad Aut\'onoma Metropolitana Iztapalapa}
+\affiliation{Physics Department, Universidad Aut\'onoma Metropolitana Iztapalapa}
 
 \begin{abstract}
-[Abstract en una p\'agina: describir efecto Allee (débil/fuerte), no reciprocidad en interacciones c\'ancer--inmune y control inmunol\'ogico adaptativo $u(x,t)$ (texto plano). Resumir hallazgos de puntos fijos inestables y patrones espaciales bajo control.]
+We study a spatial cancer--immune reaction--diffusion model with a cooperative strong Allee effect, nonreciprocal couplings, and adaptive immunological control. The four strong-Allee steady-state scenarios analyzed here have linearly unstable homogeneous reference states, so the steady states organize spatial routes as unstable references rather than stable attractors. In two dimensions, initially disordered fields self-organize into mesoscopic domains whose correlation lengths grow close to a diffusion-limited $t^{1/2}$ law. The main distinction is between two reciprocity regimes. For $\mathcal{R}=0$, switching on the adaptive control $u(\mathbf{x},t)$ strongly changes the effective driving forces: the cancer potential becomes strongly negative, while the healthy-tissue and immune potentials become positive, and the correlation structure is correspondingly reorganized. For $\mathcal{R}=1$, the controlled and uncontrolled trajectories are much closer because the reciprocal-completion terms already impose a strong morphological bias; in this regime $u$ acts as a secondary correction rather than the dominant organizer. We connect these correlation signatures with a thermodynamic diagnostic based on the positive diffusive entropy-production density $\sigma^+=\sum_a D_a|\nabla\phi_a|^2$ and its integral $\Sigma_{\mathrm{diss}}(t)$. This observable quantifies gradient relaxation and the diffusive cost of interfaces, while species-resolved contributions identify whether cancer, healthy tissue, or immune structure dominates the organization. Effective potentials and their gradients provide complementary observables for comparing the scenarios. In the reciprocal completion of the dynamics, equivalent to a free-energy-minimizing gradient flow, the Hill control has no comparable effect on diffusive entropy production; its thermodynamic signature is therefore specific to the nonreciprocal regime. The simulations are reported in nondimensional model units on a domain $[0,8]^2$; physical lengths must be assigned by calibration to a histological, cellular, or tissue scale. Together, the correlation lengths, effective potentials, and diffusive entropy-production measures show that nonreciprocity and adaptive control select spatial scales and coupling structures rather than producing relaxation to a homogeneous equilibrium.
 \end{abstract}
 
 \maketitle
 
 \input{sections/01_introduction}
 \input{sections/02_model}
-\input{sections/03_meanfield}
 \input{sections/04_spatial}
 \input{sections/05_control}
+\input{sections/08_thermodynamics}
 \input{sections/06_discussion}
 \input{sections/07_conclusions}
 
-% Bibliografía manual para evitar bibtex
-\begin{thebibliography}{99}
-\bibitem{murray2002} J. D. Murray, \textit{Mathematical Biology I} (Springer, 2002).
-\bibitem{delitala2007} M. Delitala and T. Lorenzi, Math. Models Methods Appl. Sci. \textbf{17}, 1775 (2007).
-\bibitem{gatenby2004} R. A. Gatenby and P. K. Maini, Cancer Res. \textbf{64}, 1563 (2004).
-\bibitem{gerlee2022} P. Gerlee y J. N\"aslund, Bull. Math. Biol. \textbf{84}, 110 (2022).
-\bibitem{bottger2015} K. B{\"o}ttger, L. H. Chao, M. O. H\"oft, y A. Deutsch, PLoS Comput. Biol. \textbf{11}, e1004369 (2015).
-\bibitem{turing1952} A. M. Turing, Philos. Trans. R. Soc. B \textbf{237}, 37 (1952).
-\end{thebibliography}
+\bibliography{bibliography}
 
 \end{document}
 

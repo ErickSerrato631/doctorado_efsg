@@ -1,46 +1,31 @@
-\section{Immunological control}
+\section{Immunological Control}\label{sec:control}
 
-\subsection{Control formulation}
-Represent control via $\mu$ (variational switch) and an adaptive field
-\[
-u(\mathbf{x},t)=\min\!\left(u_{\max},\,u_0\, \frac{c}{i+\varepsilon}\right)
-\]
-to prioritize high-$c$, low-$i$ regions. Coupling can enhance $\beta$ (cytotoxicity) or enter as a source in the immune equation.
+In the spatial simulations, the active immunological reinforcement is prescribed by a Hill-type control law,
+\begin{equation}\label{eq:u-hill}
+u(\mathbf{x},t)=u_{\max}\,H_{\mathrm{act}}\!\bigl(c;K_c,n_c\bigr)\,H_{\mathrm{inh}}\!\bigl(i;K_i,n_i\bigr),
+\end{equation}
+with $H_{\mathrm{act}}(x)=x^{n_c}/(K_c^{n_c}+x^{n_c})$ and $H_{\mathrm{inh}}(x)=K_i^{n_i}/(K_i^{n_i}+x^{n_i})$, evaluated with the positive immune density when needed. Scenarios without Hill control set $u\equiv 0$, whereas scenarios with Hill control use the parameters reported in Table~\ref{tab:control-strong}. This control is not a global forcing; it is spatially targeted, becoming strongest where the cancer density is high and the immune density is still insufficient.
 
-\subsection{Control strategies}
-\begin{itemize}
-    \item Constant vs adaptive dosing.
-    \item Spatial targeting: stronger control where $c$ is high and $i$ is low.
-    \item Timing protocols: pulsed vs continuous application.
-\end{itemize}
+The control should therefore be read as a field-level coupling rather than as a shift of the homogeneous fixed point. At the reference state $(c^*,s^*,i^*)=(0,1,0)$ the activation factor vanishes, so $u=0$ locally and the listed eigenvalues are unchanged by turning the Hill field on. Its effect appears only after spatial fluctuations create regions with $c>0$, where the product of activation and inhibition gates changes the local reaction route and the gradients that enter the diffusive entropy production.
 
-\subsection{Efficiency and cost}
-Define a cost functional (drug load, $\int u\, d\mathbf{x}\,dt$) vs benefit (peak reduction, time to extinction, total tumor burden $\int c\,dt$, correlation length of $c$). Compare $\mu=0,1$ and adaptive $u$; report Pareto curves cost vs suppression. Qualitatively: $\mu=1$ reduces fragmentation and peak burden; adaptive $u$ focuses resources on high-$c$, low-$i$ zones, improving containment for similar cost.
-
-\setcounter{table}{1} % ensure Table II numbering under revtex onecolumn
 \begin{table*}[!htbp]
 \centering
-\begin{tabular}{lccc}
+\tiny
+\setlength{\tabcolsep}{2.5pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lcccccccccccccccccc@{}}
 \toprule
-Protocol & Peak $c$ reduction & Time to extinction & Cost (relative) \\
+Scenario & $\mathcal{R}$ & \shortstack{Hill $u$} & $a$ & $r_c$ & $r_s$ & $r_d$ & $\alpha$ & $\beta$ & $\delta$ & $\gamma$ & $\eta$ & $K_c$ & $n_c$ & $K_i$ & $n_i$ & $u_{\max}$ & $(c^*,s^*,i^*)$ & $\mathrm{Re}\,\lambda_{\max}$ \\
 \midrule
-$\mu=0$ (no control) & baseline & -- & 0 \\
-$\mu=1$ (binary) & $\downarrow$ moderate & shorter vs baseline & medium \\
-Adaptive $u$ (weak Allee) & $\downarrow$ strong & shortest & medium--high \\
-Adaptive $u$ (strong Allee) & $\downarrow$ strong & shortest & medium--high \\
+Strong-Allee, nonreciprocal baseline without Hill control & 0 & Off & 0.1 & 5.84 & 13.12 & 14.0 & 10.22 & 3.0 & 2.0 & 0.74 & 5.08 & --- & --- & --- & --- & --- & $(0,\,1,\,0)$ & 16.0 \\
+Strong-Allee, nonreciprocal baseline with Hill control & 0 & On & 0.1 & 5.84 & 13.12 & 14.0 & 10.22 & 3.0 & 2.0 & 0.74 & 5.08 & 0.05 & 2 & 0.2 & 2 & 1.0 & $(0,\,1,\,0)$ & 16.0 \\
+Strong-Allee, reciprocal-completion setting without Hill control & 1 & Off & 0.1 & 5.84 & 13.12 & 10.0 & 10.22 & 5.0 & 2.0 & 0.74 & 5.08 & --- & --- & --- & --- & --- & $(0,\,1,\,0)$ & 12.0 \\
+Strong-Allee, reciprocal-completion setting with Hill control & 1 & On & 0.1 & 5.84 & 13.12 & 10.0 & 10.22 & 5.0 & 2.0 & 0.74 & 5.08 & 0.05 & 2 & 0.2 & 2 & 1.0 & $(0,\,1,\,0)$ & 12.0 \\
 \bottomrule
-\end{tabular}
-\caption{Table II (qualitative): control efficiency vs cost. Replace with measured metrics (peak, extinction time, integrated $u$) when available.}
-\label{tab:control-cost}
+\end{tabular}%
+}
+\caption{Three-dimensional homogeneous equilibria for the strong-Allee branch used in the four spatial scenarios analyzed in the manuscript, with reaction kinetics taken from \texttt{scenarios.json}. Cases without Hill control use $u\equiv 0$, while cases with Hill control use Eq.~\eqref{eq:u-hill}. Common Hill parameters are $K_c{=}0.05$, $n_c{=}2$, $K_i{=}0.2$, $n_i{=}2$, and $u_{\max}{=}1$. The fixed point $(c^*,s^*,i^*)$ and $\mathrm{Re}\,\lambda_{\max}$ come from the three-dimensional fixed-point analysis with the same reaction parameters. Since the reference state has $c^*=0$, the Hill activation vanishes there and $u{=}0$ locally; the control therefore acts through spatial fluctuations and interfaces rather than by shifting the homogeneous eigenvalue. Spatial diffusion coefficients are $D_c{=}0.012$ and $D_s{=}D_i{=}0.022$. The remaining eigenvalues in this branch are $\lambda_2\approx -10.87$ for the nonreciprocal baseline or $-11.61$ for the reciprocal-completion setting, and $\lambda_3=-13.12$.}
+\label{tab:control-strong}
 \end{table*}
 
-\begin{figure}[!htbp]
-    \centering
-\includegraphics[draft=false,width=0.6\linewidth]{estabilidad_lineal_strong_mu1.png}
-    \caption{Ejemplo de perfil espectral bajo control ($\mu=1$) para Allee fuerte: se atenúan modos de alta frecuencia, reduciendo fragmentación.}
-\end{figure}
-
-% Fig. 6: control field $u(x,t)$ applied on $c$-rich, $i$-poor regions.
-
-% Fig. 6: control field $u(x,t)$. Tabla II: coste vs supresión.
-
+The qualitative flow geometry near the unstable homogeneous equilibria is summarized by the phase portrait in Fig.~\ref{fig:steady_states}, which is consistent with the projected coordinates $(c^*,s^*)$ in Table~\ref{tab:control-strong}. In this setting the role of control is not to create a stable homogeneous attractor. Instead, it changes where gradients and interfaces are produced, thereby modifying the spatial route by which the system approaches low-cancer regions. This is why the control effect is evaluated together with correlation lengths and diffusive entropy-production diagnostics rather than only through the local eigenvalue at the homogeneous state.

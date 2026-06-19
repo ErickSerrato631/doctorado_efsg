@@ -1,0 +1,23 @@
+# Entorno canónico fenicsx-env (Anaconda/Miniconda + conda-forge).
+# Uso (desde este directorio Models/):
+#   conda env create -f environment.yml
+# Si ya existe el entorno:
+#   conda env update -f environment.yml --prune
+name: fenicsx-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - fenics-dolfinx
+  - mpich
+  - pyvista
+  - numpy
+  - scipy
+  - matplotlib
+  - pandas
+  - sympy
+  - jupyterlab
+  - imageio
+  - python-dotenv
+  - papermill
+  - pip

@@ -1,0 +1,513 @@
+% Presentación (doctorado): Allee fuerte, μ=1 (variacional), con y sin control tipo Hill
+% Compilar: pdflatex → biber → pdflatex → pdflatex
+%   cwd recomendado: carpeta Presentacion/ (donde está este .tex).
+%   También válido: raíz del repo (busca Presentacion/figuras/ automáticamente).
+\documentclass[10pt,aspectratio=169]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{ragged2e}
+\usepackage[spanish,mexico]{babel}
+\usepackage{csquotes}
+\usepackage{tikz}
+\usepackage{bm}
+\usepackage[normalem]{ulem}
+\usepackage[style=numeric,backend=biber]{biblatex}
+\addbibresource{References.bib}
+% [PDF] junto a cada entrada solo si existe el archivo en Biblioteca/ (nombre = addendum en References.bib).
+\newcommand{\biblocalpdf}[1]{%
+  \IfFileExists{Biblioteca/#1}{%
+    \href{Biblioteca/#1}{[PDF]}%
+  }{%
+    \IfFileExists{../Biblioteca/#1}{%
+      \href{../Biblioteca/#1}{[PDF]}%
+    }{%
+      \IfFileExists{Presentacion/Biblioteca/#1}{%
+        \href{Presentacion/Biblioteca/#1}{[PDF]}%
+      }{}%
+    }%
+  }%
+}
+% En .bib, addendum = {nombre.pdf}; el enlace [PDF] sigue siendo condicional.
+\DeclareFieldFormat{addendum}{\biblocalpdf{#1}}
+
+% Tema Metropolis (instalar "metropolis" / beamertheme-metropolis en MiKTeX si falla)
+% Sin láminas intermedias solo con el nombre de sección (Metropolis las inserta por defecto).
+\usetheme[sectionpage=none,subsectionpage=none,numbering=fraction]{metropolis}
+
+\definecolor{UAMteal}{HTML}{006666}
+\definecolor{UAMaccent}{HTML}{CC5500}
+% Campos del modelo (leyenda coherente en láminas con \(c,s,i\))
+\definecolor{fieldC}{HTML}{B71C1C}
+\definecolor{fieldS}{HTML}{2E7D32}
+\definecolor{fieldI}{HTML}{1565C0}
+\setbeamercolor{alerted text}{fg=UAMaccent}
+\setbeamercolor{frametitle}{bg=UAMteal,fg=white}
+\setbeamercolor{progress bar}{fg=UAMaccent,bg=UAMteal!30}
+% Texto cuerpo y portada visibles en cualquier visor (Metropolis usa fg oscuro por defecto; fijamos contraste explícito).
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{structure}{fg=UAMteal}
+\setbeamercolor{title}{fg=UAMteal}
+\setbeamercolor{subtitle}{fg=black!55}
+\setbeamercolor{author}{fg=black}
+\setbeamercolor{institute}{fg=black!82}
+\setbeamercolor{date}{fg=black!70}
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{bibliography entry title}{fg=black}
+\setbeamercolor{bibliography entry location}{fg=black!75}
+\setbeamercolor{bibliography entry note}{fg=black!75}
+
+% Barra superior: logo UAM + pestañas de sección (navegación horizontal)
+\setbeamercolor{section in head/foot}{fg=white,bg=UAMteal}
+\setbeamercolor{section in head/foot shaded}{fg=white!65,bg=UAMteal}
+\setbeamercolor{subsection in head/foot}{fg=white,bg=UAMteal!85}
+\setbeamertemplate{section in head/foot shaded}[default][40]
+\setbeamertemplate{section in head/foot}[default]
+\defbeamertemplate*{headline}{uamnav}{%
+  \nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=9mm,dp=2.5mm,leftskip=3mm,rightskip=3mm]{section in head/foot}%
+    \begin{minipage}[c][7mm]{16mm}%
+      \IfFileExists{logoUAM.png}{%
+        \includegraphics[height=7mm,keepaspectratio]{logoUAM.png}}{%
+        \resizebox{!}{7mm}{\fbox{\tiny UAM}}}%
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[c]{\dimexpr\paperwidth-24mm}%
+      \vspace{0.5mm}%
+      {\footnotesize\insertsectionnavigationhorizontal{\linewidth}{\hskip0pt plus1filll}{\hskip0pt plus1filll}}%
+    \end{minipage}%
+  \end{beamercolorbox}%
+}
+\setbeamertemplate{headline}[uamnav]
+
+% Portada Metropolis con logo UAM arriba (además del de la barra en el resto de láminas).
+% Evitar minipage [b][altura fija]: en la 1ª lámina puede subir el bloque y recortar la línea
+% institucional respecto al headline o al área de texto.
+\setbeamertemplate{title page}{%
+  \vspace*{0.6em}%
+  \begin{center}
+    \IfFileExists{logoUAM.png}{%
+      \includegraphics[height=1.45cm,keepaspectratio]{logoUAM.png}\\[0.45em]%
+      {\small\color{UAMteal}\bfseries Universidad Autónoma Metropolitana --- Iztapalapa\par}%
+    }{%
+      \fbox{\small Coloca \texttt{logoUAM.png} junto a este \texttt{.tex}}%
+    }%
+  \end{center}%
+  \vfill
+  \begingroup
+    \centering
+    \begin{beamercolorbox}[sep=6pt,center]{title}
+      \usebeamerfont{title}\inserttitle\par
+    \end{beamercolorbox}%
+    \vskip0.6em
+    \begin{beamercolorbox}[sep=6pt,center]{subtitle}
+      \usebeamerfont{subtitle}\insertsubtitle\par
+    \end{beamercolorbox}%
+    \vskip0.8em
+    \begin{beamercolorbox}[sep=6pt,center]{author}
+      \usebeamerfont{author}\insertauthor\par
+    \end{beamercolorbox}%
+    \vskip0.5em
+    \begin{beamercolorbox}[sep=6pt,center]{institute}
+      \usebeamerfont{institute}\insertinstitute\par
+    \end{beamercolorbox}%
+    \vskip0.5em
+    \begin{beamercolorbox}[sep=6pt,center]{date}
+      \usebeamerfont{date}\insertdate\par
+    \end{beamercolorbox}%
+  \endgroup
+  \vfill
+}
+
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\setbeamertemplate{frametitle continuation}[from second][(cont.)]
+
+\graphicspath{{figuras/termo_non_equilibrium/}{figuras/fields/}{figuras/correlations/}{figuras/termo_equilibrium/}{figuras/}{./}{Presentacion/figuras/termo_non_equilibrium/}{Presentacion/figuras/fields/}{Presentacion/figuras/correlations/}{Presentacion/figuras/termo_equilibrium/}{Presentacion/figuras/}}
+
+\newcommand{\placeholderfig}[1]{%
+  \begin{center}
+    \fbox{\parbox{0.88\linewidth}{\centering\small\textit{#1}}}
+  \end{center}}
+
+% Resuelve PNG en subcarpetas (fields/, correlations/, termo_equilibrium/) o en figuras/ plano.
+% #1=ancho, #2=alto, #3=nombre archivo, #4=mensaje si falta
+\newcommand{\PresentationIncludeGeneric}[4]{%
+  \IfFileExists{figuras/fields/#3}{%
+    \includegraphics[width=#1,height=#2,keepaspectratio]{figuras/fields/#3}%
+  }{%
+  \IfFileExists{figuras/correlations/#3}{%
+    \includegraphics[width=#1,height=#2,keepaspectratio]{figuras/correlations/#3}%
+  }{%
+  \IfFileExists{figuras/termo_equilibrium/#3}{%
+    \includegraphics[width=#1,height=#2,keepaspectratio]{figuras/termo_equilibrium/#3}%
+  }{%
+  \IfFileExists{figuras/termo_non_equilibrium/#3}{%
+    \includegraphics[width=#1,height=#2,keepaspectratio]{figuras/termo_non_equilibrium/#3}%
+  }{%
+  \IfFileExists{figuras/#3}{%
+    \includegraphics[width=#1,height=#2,keepaspectratio]{figuras/#3}%
+  }{%
+  \IfFileExists{Presentacion/figuras/fields/#3}{%
+    \includegraphics[width=#1,height=#2,keepaspectratio]{Presentacion/figuras/fields/#3}%
+  }{%
+  \IfFileExists{Presentacion/figuras/correlations/#3}{%
+    \includegraphics[width=#1,height=#2,keepaspectratio]{Presentacion/figuras/correlations/#3}%
+  }{%
+  \IfFileExists{Presentacion/figuras/termo_equilibrium/#3}{%
+    \includegraphics[width=#1,height=#2,keepaspectratio]{Presentacion/figuras/termo_equilibrium/#3}%
+  }{%
+  \IfFileExists{Presentacion/figuras/termo_non_equilibrium/#3}{%
+    \includegraphics[width=#1,height=#2,keepaspectratio]{Presentacion/figuras/termo_non_equilibrium/#3}%
+  }{%
+  \IfFileExists{Presentacion/figuras/#3}{%
+    \includegraphics[width=#1,height=#2,keepaspectratio]{Presentacion/figuras/#3}%
+  }{%
+    \placeholderfig{#4}%
+  }}}}}}}}}}%
+}
+
+\newcommand{\presfig}[3]{%
+  \PresentationIncludeGeneric{#1}{0.58\textheight}{#2}{#3}%
+}
+
+% Vídeo comparativo de campos: en figuras/ (raíz). Clic en la imagen abre el .mp4 con la app por defecto.
+\newcommand{\CamposFieldVideo}{campos_mu1_AB_comparativa.mp4}
+% #1 ancho, #2 archivo, #3 placeholder, #4 alto máx.
+\newcommand{\presfigfieldsAt}[4]{%
+  \IfFileExists{figuras/fields/#2}{%
+    \href{run:figuras/\CamposFieldVideo}{%
+      \includegraphics[width=#1,height=#4,keepaspectratio]{figuras/fields/#2}%
+    }%
+  }{%
+  \IfFileExists{Presentacion/figuras/fields/#2}{%
+    \href{run:Presentacion/figuras/\CamposFieldVideo}{%
+      \includegraphics[width=#1,height=#4,keepaspectratio]{Presentacion/figuras/fields/#2}%
+    }%
+  }{%
+  \IfFileExists{figuras/#2}{%
+    \href{run:figuras/\CamposFieldVideo}{%
+      \includegraphics[width=#1,height=#4,keepaspectratio]{figuras/#2}%
+    }%
+  }{%
+  \IfFileExists{Presentacion/figuras/#2}{%
+    \href{run:Presentacion/figuras/\CamposFieldVideo}{%
+      \includegraphics[width=#1,height=#4,keepaspectratio]{Presentacion/figuras/#2}%
+    }%
+  }{%
+    \placeholderfig{#3}%
+  }}}}%
+}
+\newcommand{\presfigfields}[3]{%
+  \presfigfieldsAt{#1}{#2}{#3}{0.58\textheight}%
+}
+
+\pdfstringdefDisableCommands{%
+  \def\mu{mu}%
+  \def\sigma{sigma}%
+  \def\nabla{nabla}%
+}
+
+\title{\texorpdfstring{%
+  \begin{minipage}[b]{0.94\linewidth}%
+    \centering
+    \usebeamerfont{title}%
+    \textit{%
+      \uline{%
+        \textquotedblleft Dinámicas cáncer--inmune no recíprocas con efectos Allee y
+        control inmunológico\textquotedblright
+      }%
+    }%
+  \end{minipage}%
+}{Dinamicas cancer-inmune no reciprocas con efectos Allee y control inmunologico}}
+\author{\texorpdfstring{Erick Felipe Serrato García\\[0.35em]{\normalsize Mtro.\ en ciencias Física}}{Erick Felipe Serrato Garcia, Mtro. en Fisica}}
+\institute{Departamento de Física --- División de Ciencias Básicas e Ingeniería --- UAM-Iztapalapa\\[0.25em]
+Asesor: Dr.\ Orlando Guzmán López}
+\date{21 de abril de 2026}
+
+\begin{document}
+
+% Primera sección: portada + índice (las pestañas enlazan el resto de bloques)
+\section[Presentación]{Presentación}
+% [plain]: sin headline/footline en la portada (evita solapar o “recortar” la línea bajo el logo).
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\begin{frame}{Contenido}
+  \tableofcontents
+\end{frame}
+
+\section[Motivación]{Motivación}
+
+\begin{frame}[t,squeeze,shrink=15]{Motivación}
+  \scriptsize\justifying
+  La interacción cáncer--inmunidad es intrínsecamente \textbf{no recíproca} y opera en regímenes de baja densidad donde emergen \textbf{umbrales poblacionales}.
+  Los modelos simétricos tipo Lotka--Volterra no capturan:
+  \begin{enumerate}\setlength{\itemsep}{1pt}\setlength{\topsep}{2pt}\setlength{\parsep}{0pt}\setlength{\leftmargin}{1.2em}
+    \item la ruptura de reciprocidad en los acoplamientos (jacobiano linealizado con \(A\neq A^{\mathsf T}\)),
+    \item la presencia de un umbral \textbf{Allee fuerte}, que introduce una barrera dinámica entre extinción y proliferación \cite{murray2002,gerlee2022},
+    \item la naturaleza \textbf{saturable} de la respuesta inmune \cite{johnson2019allee}.
+  \end{enumerate}
+  En consecuencia, la dinámica no está gobernada por atractores clásicos, sino por \textbf{separatrices inestables} que organizan el flujo en el espacio de fases.
+  Esto es consistente con que \textbf{todos} los estados estacionarios sean \textbf{inestables} (\(\Re\lambda_{\max}>0\)) y con que el umbral Allee actúe como \textbf{separador dinámico y termodinámico}.
+  \vskip0.35em
+  \textbf{Objetivo.}\quad
+  Construir y analizar un \textbf{modelo espacial 2D} de reacción--difusión que incorpore:
+  \begin{itemize}\setlength{\itemsep}{1pt}\setlength{\topsep}{2pt}\setlength{\parsep}{0pt}
+    \item no reciprocidad (\(A\neq A^{\mathsf T}\) en el jacobiano),
+    \item efecto Allee fuerte (barrera de densidad),
+    \item control inmunológico tipo \textbf{Hill} (no lineal y saturable),
+  \end{itemize}
+  y caracterizar: \textbf{(i)} persistencia vs.\ extinción tumoral como problema de cruce de umbral; \textbf{(ii)} auto-organización mesoscópica (dominios, correlaciones, escalas); \textbf{(iii)} reorganización morfológica inducida por el control.
+\end{frame}
+
+\section[Modelo]{Modelo}
+
+\begin{frame}{Variables y Allee fuerte}
+  \textbf{Densidades:}\quad
+  \textcolor{fieldC}{\(c(\mathbf{x},t)\) (tumor)},\quad
+  \textcolor{fieldS}{\(s(\mathbf{x},t)\) (sano)},\quad
+  \textcolor{fieldI}{\(i(\mathbf{x},t)\) (inmunidad)}.
+  \vfill
+  \textbf{Allee fuerte}:
+  \[
+    f_{\mathrm{Allee}}(c)=\left(\frac{c}{a}-1\right)\left(\frac{c-a}{k_c-a}\right).
+  \]
+  \vfill
+  \textbf{ODE}, con el mismo \(\mu\in\{0,1\}\) en los términos cuadráticos \cite{johnson2019allee}:
+  \begin{align*}
+    \dot{c} &= r_c c f_{\mathrm{Allee}}(c) - \alpha c s - \beta c i - \tfrac{\mu}{2}(\eta i^2 + \gamma s^2),\\
+    \dot{s} &= r_s s\left(1-\tfrac{s}{k_s}\right) - \gamma c s + \delta s i^2 - \tfrac{\mu}{2}\alpha c^2,\\
+    \dot{i} &= r_i i\left(1-\tfrac{i}{k_i}\right) - \eta c i + \delta s^2 i - \tfrac{\mu}{2}\beta c^2.
+  \end{align*}
+\end{frame}
+
+\begin{frame}{Control adaptativo tipo Hill}
+  Campo de control acotado:
+  \[
+    u(\mathbf{x},t)=u_{\max}\,H_{\mathrm{act}}(c;K_c,n_c)\,H_{\mathrm{inh}}(i;K_i,n_i),
+  \]
+  \[
+    H_{\mathrm{act}}(c)=\frac{c^{n_c}}{K_c^{n_c}+c^{n_c}},\qquad
+    H_{\mathrm{inh}}(i)=\frac{K_i^{n_i}}{K_i^{n_i}+i^{n_i}}.
+  \]
+  \justifying
+  Actúa como refuerzo donde hay alto tumor y baja inmunidad efectiva; en el modelo puede entrar como \textbf{citotoxicidad efectiva} \(\beta\to \beta+u(\mathbf{x},t)\) (o término equivalente en la ecuación de \(i\)).
+\end{frame}
+
+\begin{frame}{Energía libre}
+  Funcional:
+  \[
+    F[c,s,i]=\int \bigl[ f_{\mathrm{loc}}(c,s,i)+f_{\mathrm{grad}}(c,s,i)+f_{\mathrm{coup}}(c,s,i)\bigr]\,d\mathbf{x},
+  \]
+  con rigidez espacial \(\tfrac{D_c}{2}|\nabla c|^2+\tfrac{D_s}{2}|\nabla s|^2+\tfrac{D_i}{2}|\nabla i|^2\) en \(f_{\mathrm{grad}}\).
+  \vfill
+  Para \textbf{\(\mu=1\)}:
+  \[
+    F_{\mu=1}=F_{\mathrm{base}}+\int \left[
+      \tfrac{\alpha\mu}{4}c^2s^2+\tfrac{\beta\mu}{4}c^2i^2+\tfrac{\gamma\mu}{2}cs^2+\tfrac{\eta\mu}{2}ci^2
+    \right]d\mathbf{x}.
+  \]
+  \vfill
+  \footnotesize Conexión con \textbf{Modelo C} (Halperin--Hohenberg): acoplamiento entre campos conservados y no conservados; \(\mu=1\) añade acoplamientos que actúan como \textbf{selector morfológico} espacial \cite{halperin1977}.
+\end{frame}
+
+\begin{frame}{Método variacional \(\rightarrow\) PDE}
+  \[
+    \partial_t c=-\frac{\delta F}{\delta c}+D_c\nabla^2 c,\quad
+    \partial_t s=-\frac{\delta F}{\delta s}+D_s\nabla^2 s,\quad
+    \partial_t i=-\frac{\delta F}{\delta i}+D_i\nabla^2 i.
+  \]
+  \vfill
+  \textbf{Reacción--difusión} equivalente (forma usada en simulaciones 2D):
+  \begin{align*}
+    \partial_t c &= D_c\nabla^2 c + r_c c f_{\mathrm{Allee}}(c) - c(\alpha s^2+\beta i^2) - \mu c(\gamma s^2+\eta i^2),\\
+    \partial_t s &= D_s\nabla^2 s + r_s s(1-s) - \gamma c^2 s + \delta i^2 s - \tfrac{\mu}{2}\alpha s c^2,\\
+    \partial_t i &= D_i\nabla^2 i + r_i i(1-i) + \delta s^2 i - \eta c^2 i - \tfrac{\mu}{2}\beta c^2 i.
+  \end{align*}
+  \vfill
+  \textbf{Estabilidad lineal:} \(J\) jacobiano del punto homogéneo; \(\lambda(\mathbf{k})=\mathrm{eig}(J-D|\mathbf{k}|^2)\), \(D=\mathrm{diag}(D_c,D_s,D_i)\).
+\end{frame}
+
+\begin{frame}{No reciprocidad}
+  \justifying\small
+  \textbf{En la PDE que simulamos} (misma estructura que en la lámina anterior):
+  \begin{itemize}\setlength{\itemsep}{0.15em}
+    \item \textcolor{fieldC}{\textbf{Tumor} \(c\)} entra con \(-c(\alpha s^2+\beta i^2)-\mu c(\gamma s^2+\eta i^2)\): responde a \textbf{\(s^2,i^2\)} (y términos \(\mu\)).
+    \item \textcolor{fieldS}{\textbf{Sano} \(s\)} y \textcolor{fieldI}{\textbf{inmunidad} \(i\)} incluyen \(-\gamma c^2 s\) y \(-\eta c^2 i\): responden a \textbf{\(c^2\)} multiplicado por \(s\) o \(i\).
+    \item Acoples cruzados \textbf{\(\delta\)}: \(+\delta i^2 s\) en \(\partial_t s\) vs.\ \(+\delta s^2 i\) en \(\partial_t i\) (asimetría \textbf{\(s\leftrightarrow i\)}).
+  \end{itemize}
+  \vskip0.25em
+  \footnotesize
+  Consecuencia: \textbf{nullclinas}, puntos fijos y bifurcaciones \emph{no} coinciden con un modelo puramente recíproco; el marco variacional para \(F\) describe la dinámica escogida (gradiente \(+\) Laplaciano), pero la parte reaccional completa sigue siendo \textbf{no potencial} en el sentido anterior.
+\end{frame}
+
+\begin{frame}[t,squeeze,shrink=12]{Termodinámica: en equilibrio}
+  \justifying\footnotesize
+  \textbf{Funcional de energía libre.}\quad
+  La energía libre es
+  \[
+    F[c,s,i]=\int_\Omega \bigl(f_{\mathrm{loc}}+f_{\mathrm{grad}}+f_{\mathrm{coup}}\bigr)\,d^2x,
+  \]
+  con \(\phi_\alpha\in\{c,s,i\}\), \ \(f_{\mathrm{grad}}=\sum_\alpha \tfrac{D_\alpha}{2}\lvert\nabla\phi_\alpha\rvert^2\), \ \(f_{\mathrm{loc}}\) integrando el efecto Allee (fuerte o débil según parámetros) y términos efectivos de saturación en \(s\) e \(i\), y \ \(f_{\mathrm{coup}}\) los acoplamientos c--s--i (más los términos adicionales del índice variacional \(\mu\in\{0,1\}\) cuando \(\mu=1\), modelo C).
+
+  \vskip0.25em
+  \textbf{Potenciales químicos (definición).}\quad
+  \(\mu_c=-\delta F/\delta c\), \(\mu_s=-\delta F/\delta s\), \(\mu_i=-\delta F/\delta i\): las expresiones explícitas se obtienen derivando la parte \textbf{local + acoplamiento} respecto de \(c,s,i\).
+
+  \vskip0.25em
+  \textbf{Equilibrio termodinámico de referencia (homogéneo).}\quad
+  Estado con \(\nabla c=\nabla s=\nabla i=\mathbf{0}\): entonces \(f_{\mathrm{grad}}=0\), no hay corrientes difusivas \(\mathbf{J}_\alpha=-D_\alpha\nabla\phi_\alpha=\mathbf{0}\), los \(\mu_\alpha\) son \textbf{uniformes} en \(\Omega\) y la densidad de disipación asociada a gradientes de \(\mu_\alpha\) se anula: \(\sigma(\mathbf{x})=\sum_\alpha D_\alpha\lVert\nabla\mu_\alpha\rVert^2=0\), luego \(\Sigma=\int_\Omega \sigma\,d^2x=0\). Este es el límite en el que \textbf{no} hay reorganización espontánea por difusión ni producción entrópica por flujo--fuerza difusivo.
+\end{frame}
+
+\begin{frame}[t,squeeze,shrink=12]{Termodinámica: fuera del equilibrio}
+  \vspace{-0.3em}
+  \scriptsize\justifying
+  \textbf{Balances.}\quad
+  \(\partial_t\phi_a=-\nabla\!\cdot\!\mathbf{J}_a+R_a\), \(\mathbf{J}_a=-D_a\nabla\phi_a\); formalismo flujo--fuerza (Groot--Mazur), \(D_a\lVert\nabla\mu_a\rVert^2\ge 0\) con \(\mathbf{J}_a=-D_a\nabla\mu_a\).
+  \textbf{Dos \(\sigma\):} \(\sigma^{+}=\sum_a D_a\lVert\nabla\phi_a\rVert^2\) en mapas; \(\sigma_\mu=\sum_a D_a\lVert\nabla\mu_a\rVert^2\) con \(\mu=-\delta F/\delta\phi\) \textbf{no} coincide en general con \(\sigma^{+}\). Sin \(T(\mathbf{x},t)\) explícito; \(\sigma^{+}\) no incluye reacción \(R_a\) ni flujos externos.
+
+  \vskip0.25em
+  \textbf{Agregación en malla.}\quad
+  \(\int\cdots\,d^2x\approx\sum(\cdot)(\Delta x)^2\). Con \(f=f_{\mathrm{loc}}+f_{\mathrm{grad}}+f_{\mathrm{coup}}\),
+  \vspace{-0.35em}
+  \[
+    F(t)=\int (f_{\mathrm{loc}}+f_{\mathrm{grad}}+f_{\mathrm{coup}})\,d^2x,\qquad
+    \mu_\alpha=-\frac{\delta F}{\delta\phi_\alpha},\qquad
+    \sigma=\sum_\alpha D_\alpha\lVert\nabla\mu_\alpha\rVert^2,\quad \Sigma(t)=\int\sigma\,d^2x.
+  \]
+  Series \(\Sigma(t)\), \(F(t)\), \(\langle\mu_\alpha\rangle\) para las gráficas.
+
+  \vskip0.2em
+  \textbf{Simulación.}\quad
+  Campos con gradientes; \((c^*,s^*,i^*)\) solo referencia lineal. \textbf{\(\mu=1\), A vs B:} \(\mathrm{Re}\,\lambda_{\max}\approx 22.1\), mismo espectro, diferencias en trayectorias y \(F,\Sigma,\mu_\alpha,\xi\).
+
+  \vskip0.15em
+  \textbf{Leyenda:} \textcolor{UAMaccent}{\textbf{rojo}} = A, \textcolor{UAMteal!85!black}{\textbf{verde}} = B.
+\end{frame}
+
+\section[Resultados]{Resultados numéricos}
+
+% Altura por imagen: 0.6045\textheight (50 por ciento mas que 0.403\textheight; una fila por lamina).
+\begin{frame}[t,squeeze]{Flujos espaciales \(\mathbf{J}_c,\mathbf{J}_s,\mathbf{J}_i\) (quiver)}
+  \framesubtitle{\(t=0.5\)}
+  \vskip-0.55em
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.326\textwidth}\centering\footnotesize \(\mathbf{J}_c\)\end{column}
+    \begin{column}{0.326\textwidth}\centering\footnotesize \(\mathbf{J}_s\)\end{column}
+    \begin{column}{0.326\textwidth}\centering\footnotesize \(\mathbf{J}_i\)\end{column}
+  \end{columns}
+  \vskip0.08em
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.326\textwidth}
+      \centering
+      \PresentationIncludeGeneric{\linewidth}{0.6045\textheight}{quiver_Jc_t_0.500.png}{Falta quiver \(J_c\) en \(t=0.5\).}%
+    \end{column}
+    \begin{column}{0.326\textwidth}
+      \centering
+      \PresentationIncludeGeneric{\linewidth}{0.6045\textheight}{quiver_Js_t_0.500.png}{Falta quiver \(J_s\) en \(t=0.5\).}%
+    \end{column}
+    \begin{column}{0.326\textwidth}
+      \centering
+      \PresentationIncludeGeneric{\linewidth}{0.6045\textheight}{quiver_Ji_t_0.500.png}{Falta quiver \(J_i\) en \(t=0.5\).}%
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}[t,squeeze]{Flujos espaciales \(\mathbf{J}_c,\mathbf{J}_s,\mathbf{J}_i\) (quiver)}
+  \framesubtitle{\(t=1.5\)}
+  \vskip-0.55em
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.326\textwidth}\centering\footnotesize \(\mathbf{J}_c\)\end{column}
+    \begin{column}{0.326\textwidth}\centering\footnotesize \(\mathbf{J}_s\)\end{column}
+    \begin{column}{0.326\textwidth}\centering\footnotesize \(\mathbf{J}_i\)\end{column}
+  \end{columns}
+  \vskip0.08em
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.326\textwidth}
+      \centering
+      \PresentationIncludeGeneric{\linewidth}{0.6045\textheight}{quiver_Jc_t_1.500.png}{Falta quiver \(J_c\) en \(t=1.5\).}%
+    \end{column}
+    \begin{column}{0.326\textwidth}
+      \centering
+      \PresentationIncludeGeneric{\linewidth}{0.6045\textheight}{quiver_Js_t_1.500.png}{Falta quiver \(J_s\) en \(t=1.5\).}%
+    \end{column}
+    \begin{column}{0.326\textwidth}
+      \centering
+      \PresentationIncludeGeneric{\linewidth}{0.6045\textheight}{quiver_Ji_t_1.500.png}{Falta quiver \(J_i\) en \(t=1.5\).}%
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Correlaciones espaciales: \(c\)--\(i\) e \(i\)--\(i\)}
+  \footnotesize
+  Longitudes de correlación \(\xi(t)\), \(\mu=1\), bajo umbral: \textbf{A} (sin Hill) vs \textbf{B} (con Hill).
+  \vskip0.35em
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.49\textwidth}
+      \centering
+      \PresentationIncludeGeneric{\linewidth}{0.52\textheight}{corr_mu1_AB_c_i.png}{Falta c--i}%
+    \end{column}
+    \begin{column}{0.49\textwidth}
+      \centering
+      \PresentationIncludeGeneric{\linewidth}{0.52\textheight}{corr_mu1_AB_i_i.png}{Falta i--i}%
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Energía libre \(F(t)\)}
+  \centering
+  \presfig{0.92\linewidth}{thermodynamic_F_comparison.png}{Falta gráfica de \(F(t)\) en la carpeta de figuras.}
+  \vskip0.35em
+  \justifying
+  \footnotesize
+  \(F(t)\) es el funcional evaluado sobre \(\rho(\cdot,t)\) en \textbf{no equilibrio}. Con \textbf{control Hill}, \(F_{\mathrm{final}}\) suele ser \textbf{mayor} que sin control: trayectoria más \textbf{organizada} y menos cercana a una relajación trivial hacia casi-extinción homogénea.
+\end{frame}
+
+\begin{frame}{Producción de entropía \(\sigma(t)\)}
+  \centering
+  \presfig{0.92\linewidth}{thermodynamic_sigma_comparison.png}{Falta gráfica de \(\Sigma(t)\) en la carpeta de figuras.}
+  \vskip0.35em
+  \justifying
+  \footnotesize
+  En \textbf{equilibrio} sería \(\sigma=0\); aquí \(\sigma(t)>0\) mientras haya reorganización espacial y difusión efectiva. \textbf{Con Hill}, \(\sigma\) se mantiene en un \textbf{no equilibrio activo}; \textbf{sin control}, \(\sigma_{\mathrm{final}}\) puede acercarse a valores muy bajos (régimen de \textbf{relajación efectiva}, cercano a un ``equilibrio morfológico'' absorbente).
+\end{frame}
+
+\begin{frame}{Potenciales \(\mu_c,\mu_s,\mu_i\) a lo largo de la trayectoria}
+  \centering
+  \PresentationIncludeGeneric{\linewidth}{0.62\textheight}{thermodynamic_mu_comparison.png}{Falta gráfica de potenciales \(\mu_\alpha\) en la carpeta de figuras.}%
+  \vskip0.3em
+  \justifying
+  \footnotesize
+  Promedios espaciales de los \textbf{potenciales químicos} \(\mu_\alpha=-\delta F/\delta \rho_\alpha\) en el estado \textbf{fuera de equilibrio} instantáneo. El cruce de signo de \(\mu_c\) (contexto Allee) marca cambios en la \textbf{afinidad efectiva} hacia extinción vs.\ proliferación; con \textbf{Hill}, \(\mu_i\) puede volverse fuertemente negativo, en línea con una \textbf{afinidad} hacia menor actividad inmune efectiva (supresión mediada por el control) en el transitorio mostrado.
+\end{frame}
+
+\section[Conclusiones]{Conclusiones y perspectivas}
+
+\begin{frame}{Conclusiones}
+  \begin{itemize}\justifying
+    \item \textbf{Allee fuerte:} barrera geométrica/energética; dominios y rutas transitorias organizadas por el umbral.
+    \item \textbf{\(\mu=1\) (variacional):} términos extra en \(F\) y PDE; reorganiza morfología espacial y acoplamientos sin, por sí solo, estabilizar el homogéneo en el escenario mostrado.
+    \item \textbf{Control Hill \(u\):} intervención localizada; modifica correlaciones, trayectorias hacia casi-extinción y el paisaje \(F,\sigma,\mu_\alpha\) en \textbf{no equilibrio}.
+    \item \textbf{Termodinámica equilibrio vs NEQ:} el homogéneo es referencia lineal (\(\lambda_{\max}>0\)); las series \(F,\Sigma,\mu_\alpha\) y los \(\nabla\mu_\alpha\) cuantifican \textbf{disipación y afinidades químicas} a lo largo del tiempo, distinguiendo relajación efectiva (A) de disipación activa (B).
+    \item \textbf{No reciprocidad:} esencial para capturar asimetrías cáncer--inmune realistas.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Perspectivas}
+  \begin{itemize}\justifying
+    \item Formulación explícita de \textbf{corrientes} \(\mathbf{J}_c,\mathbf{J}_s,\mathbf{J}_i\) y leyes de balance \(\partial_t \rho_\alpha+\nabla\cdot\mathbf{J}_\alpha=R_\alpha\) para conectar reacción--difusión con \(\sigma\) y \(\mu_\alpha\) de forma sistemática.
+    \item Refinar protocolos de \(u(\mathbf{x},t)\) (costo \(\int u\,d\mathbf{x}\,dt\) vs reducción de carga tumoral).
+    \item Extensión a parámetros y dimensiones efectivas adicionales; comparación cuantitativa con datos experimentales.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Referencias}
+  \printbibliography[heading=none]
+\end{frame}
+
+\end{document}

@@ -1,0 +1,20 @@
+\begin{table*}[!htbp]
+\centering
+\tiny
+\setlength{\tabcolsep}{3pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccccccccccccccccc}
+\toprule
+Escenario & $u$ & $\mu$ & $a$ & $r_c$ & $r_s$ & $r_d$ & $\alpha$ & $\beta$ & $\delta$ & $\gamma$ & $\eta$ & $k_u$ & $\varepsilon_u$ & $u_{\max}$ & $(c^*,s^*,i^*)$ & Rama & Re $\lambda_{\max}$ & $\lambda_1$ & $\lambda_2$ & $\lambda_3$ \\
+\midrule
+strong_mu0_uNo_bajo_umbral_c0_s1_i1 & no & 0 & 0.10 & 5.84 & 13.12 & 14.00 & 10.22 & 3.00 & 2.00 & 0.74 & 5.08 & 0 & 0.001 & $\infty$ & $(0,\,1,\,0)$ & \texttt{c0_s1_i0} & $16.00$ & $16.00$ & $-10.87$ & $-13.12$ \\
+strong_mu0_uSi_bajo_umbral_c0_s1_i1 & min & 0 & 0.10 & 5.84 & 13.12 & 14.00 & 10.22 & 3.00 & 2.00 & 0.74 & 5.08 & 0.20 & 0.02 & 1.00 & $(0,\,1,\,0)$ & \texttt{c0_s1_i0} & $16.00$ & $16.00$ & $-10.87$ & $-13.12$ \\
+strong_mu1_uNo_bajo_umbral_c0_s1_i1 & no & 1 & 0.10 & 5.84 & 13.12 & 10.00 & 10.22 & 5.00 & 2.00 & 0.74 & 5.08 & 0 & 0.001 & $\infty$ & $(0,\,1,\,0)$ & \texttt{c0_s1_i0} & $12.00$ & $12.00$ & $-11.61$ & $-13.12$ \\
+strong_mu1_uSi_bajo_umbral_c0_s1_i1 & min & 1 & 0.10 & 5.84 & 13.12 & 10.00 & 10.22 & 5.00 & 2.00 & 0.74 & 5.08 & 0.20 & 0.02 & 1.00 & $(0,\,1,\,0)$ & \texttt{c0_s1_i0} & $12.00$ & $12.00$ & $-11.61$ & $-13.12$ \\
+\bottomrule
+\end{tabular}
+}
+\caption{Equilibrios homogéneos 3D (Allee fuerte) para los cuatro escenarios del manuscrito (rama \texttt{c0\_s1\_i0}). Columnas: parámetros de la cinética de reacción ($\mu$, umbral Allee $a$, tasas $r_c,r_s,r_d$, acoplamientos $\alpha,\beta,\delta,\gamma,\eta$ y control $k_u,\varepsilon_u,u_{\max}$) usados en $F_c,F_s,F_i=0$; filas con/sin control mínimo adaptativo. Todos los puntos son inestables localmente ($\mathrm{Re}\,\lambda_{\max}>0$). Fuente: \texttt{scenarios.json} (Newton 3D).}
+\vspace{0.35em}\\[0.25em]{\footnotesize Parámetros de difusión (PDE, comunes): $D_c$=0.01, $D_s$=0.02, $D_i$=0.02. Allee fuerte; control: $u=0$ o $u=\min(k_u c/(i+\varepsilon_u),u_{\max})$.}
+\label{tab:control-strong}
+\end{table*}

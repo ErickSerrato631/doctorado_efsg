@@ -1,0 +1,8 @@
+{% if model_load_error %}
+<div class="alert alert-danger">
+    <strong>Error al cargar el modelo</strong>
+    <pre class="small mb-0 mt-2" style="white-space: pre-wrap;">{{ model_load_error }}</pre>
+</div>
+{% else %}
+{% include "steady_states_app/includes/model_params_dictionary_table.html" %}
+{% endif %}

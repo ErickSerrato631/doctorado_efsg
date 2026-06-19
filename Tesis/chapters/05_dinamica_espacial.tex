@@ -1,4 +1,5 @@
 \chapter{Dinámica espacio--temporal}
+\label{chap:espacial}
 
 \section{Extensión a PDEs y configuración numérica}
 Se resolvió el sistema de reacción--difusión con elementos finitos (FEniCS). Condiciones iniciales aleatorias se acotan en
@@ -11,20 +12,18 @@ Parámetros de integración: tiempo final \(T = 2\), paso temporal \(\Delta t = 
 \captionsetup[subfigure]{skip=2pt}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{\textwidth}
-        \centering
-        \includegraphics[width=\textwidth, height=0.28\textheight]{images/fields_mu_0.png}
-        \caption{Evolución espacial en \( T = 1.935 \) para \(\mu = 0\).}
-    \end{subfigure}
-    \begin{subfigure}[b]{\textwidth}
-        \centering
-        \includegraphics[width=\textwidth, height=0.28\textheight]{images/fields_mu_1.png}
-        \caption{Evolución espacial en \( T = 1.935 \) para \(\mu = 1\).}
-    \end{subfigure}
-    \caption{Distribución espacial de $c$, $s$ e $i$ a \(T=1.935\). Con $\mu=0$ se observan cúmulos caóticos; con $\mu=1$ la estructura variacional suaviza y estabiliza patrones, generando cúmulos más definidos y menos numerosos. Animaciones en \href{https://drive.google.com/drive/folders/11FhjobQToXXDddC7UCPAwGjC53Cm1i0S?usp=sharing}{enlace}.}
+    \includegraphics[width=\textwidth]{images/fields_panel_weak_mu0_uNo_bajo_umbral_VS_weak_mu0_uSi_bajo_umbral_t0.000_to_2.000.png}
+    \caption{Evolución temporal (panel A vs B) en efecto Allee débil, $\mu=0$: uNo (A) vs uSi (B) a tiempos representativos hasta \(T=2.000\). Cada snapshot es una imagen compuesta con los campos del modelo.}
     \label{fig:fields_evolution}
 \end{figure}
 El cáncer domina espacialmente, las células sanas disminuyen y el sistema inmune responde de forma localizada; $\mu$ modula estabilidad y organización.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/fields_panel_weak_mu1_uNo_bajo_umbral_VS_weak_mu1_uSi_bajo_umbral_t0.000_to_2.000.png}
+    \caption{Evolución temporal (panel A vs B) en efecto Allee débil, $\mu=1$: uNo (A) vs uSi (B) a tiempos representativos hasta \(T=2.000\).}
+    \label{fig:fields_weak_mu1_u}
+\end{figure}
 
 \section{Espectros de potencia y correlaciones (débil)}
 \subsection{Espectros de potencia del campo $c$}
@@ -49,104 +48,131 @@ El cáncer domina espacialmente, las células sanas disminuyen y el sistema inmu
 La longitud de correlación $\xi(t)$ sigue $\xi(t)\sim e^{\alpha} t^{0.5}$, con $\alpha$ dependiente de la correlación y de $\mu$. Figuras:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{images/correlation_mean_c_c.png}
-    \caption{Autocorrelación $c_c$ (células cancerosas). $\mu=1$ incrementa $\xi(t)$, indicando mayor compactación.}
+    \includegraphics[width=0.90\textwidth]{images/corr_grid_mu_c_c.png}
+    \caption{Grid de $\xi(t)$ para $c_c$: comparación $\mu=0$ vs $\mu=1$ estratificada por efecto Allee (débil/fuerte) y por condición bajo/sobre umbral (paneles).}
     \label{fig:correlation_c_c}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{images/correlation_mean_s_s.png}
-    \caption{Autocorrelación $s_s$ (células sanas). $\mu=1$ produce distribución más homogénea.}
+    \includegraphics[width=0.90\textwidth]{images/corr_grid_mu_s_s.png}
+    \caption{Grid de $\xi(t)$ para $s_s$: comparación $\mu=0$ vs $\mu=1$ estratificada por efecto Allee (débil/fuerte) y por condición bajo/sobre umbral (paneles).}
     \label{fig:correlation_s_s}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{images/correlation_mean_i_i.png}
-    \caption{Autocorrelación $i_i$ (sistema inmune). Diferencias leves entre $\mu=0$ y $\mu=1$.}
+    \includegraphics[width=0.90\textwidth]{images/corr_grid_mu_i_i.png}
+    \caption{Grid de $\xi(t)$ para $i_i$: comparación $\mu=0$ vs $\mu=1$ estratificada por efecto Allee (débil/fuerte) y por condición bajo/sobre umbral (paneles).}
     \label{fig:correlation_i_i}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{images/correlation_mean_c_s.png}
-    \caption{Correlación cruzada $c_s$ (cáncer--sanas). Crecimiento débil de $\xi(t)$, coherente con competencia.}
+    \includegraphics[width=0.90\textwidth]{images/corr_grid_mu_c_s.png}
+    \caption{Grid de $\xi(t)$ para $c_s$: comparación $\mu=0$ vs $\mu=1$ estratificada por efecto Allee (débil/fuerte) y por condición bajo/sobre umbral (paneles).}
     \label{fig:correlation_c_s}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{images/correlation_mean_c_i.png}
-    \caption{Correlación cruzada $c_i$ (cáncer--inmune). $\mu=1$ mejora seguimiento inmune de patrones tumorales.}
+    \includegraphics[width=0.90\textwidth]{images/corr_grid_mu_c_i.png}
+    \caption{Grid de $\xi(t)$ para $c_i$: comparación $\mu=0$ vs $\mu=1$ estratificada por efecto Allee (débil/fuerte) y por condición bajo/sobre umbral (paneles).}
     \label{fig:correlation_c_i}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{images/correlation_mean_s_i.png}
-    \caption{Correlación cruzada $s_i$ (sanas--inmune). Es la más débil; el sistema inmune se concentra en el tumor.}
+    \includegraphics[width=0.90\textwidth]{images/corr_grid_mu_s_i.png}
+    \caption{Grid de $\xi(t)$ para $s_i$: comparación $\mu=0$ vs $\mu=1$ estratificada por efecto Allee (débil/fuerte) y por condición bajo/sobre umbral (paneles).}
     \label{fig:correlation_s_i}
 \end{figure}
 En conjunto, $\mu=1$ aumenta la coherencia espacial de $c$ y mejora el acoplamiento $c_i$; $s_i$ permanece bajo.
+
+\subsection{Comparación con control adaptativo (uNo vs uSi)}
+En los escenarios bajo umbral donde se habilita el control adaptativo, se compara la organización espacial mediante $\xi(t)$ entre uNo y uSi, separando por efecto Allee y por $\mu$.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{images/corr_grid_u_c_c.png}
+    \caption{Grid de $\xi(t)$ para $c_c$: comparación uNo vs uSi en bajo umbral, separando weak/strong y $\mu=0/1$ (paneles).}
+    \label{fig:corr_u_cc}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{images/corr_grid_u_c_i.png}
+    \caption{Grid de $\xi(t)$ para $c_i$: comparación uNo vs uSi en bajo umbral, separando weak/strong y $\mu=0/1$ (paneles).}
+    \label{fig:corr_u_ci}
+\end{figure}
 
 \section{Efecto Allee fuerte: dinámica espacio--temporal}
 El efecto fuerte introduce barrera crítica; la dinámica espacial resulta:
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{1\textwidth}
-        \centering
-        \includegraphics[width=\textwidth, height=0.3\textheight]{images/fields_strong_mu_0.png}
-        \caption{$T = 1.935$, $\mu = 0$.}
-    \end{subfigure}
-    \vspace{0.2em}
-    \begin{subfigure}[b]{1\textwidth}
-        \centering
-        \includegraphics[width=\textwidth, height=0.3\textheight]{images/fields_strong_mu_1.png}
-        \caption{$T = 1.935$, $\mu = 1$.}
-    \end{subfigure}
-    \caption{Distribución espacial bajo efecto Allee fuerte. $\mu=0$: patrones fragmentados; $\mu=1$: dominios más definidos.}
+    \includegraphics[width=\textwidth]{images/fields_panel_strong_mu0_uNo_bajo_umbral_VS_strong_mu0_uSi_bajo_umbral_t0.000_to_2.000.png}
+    \caption{Evolución temporal (panel A vs B) en efecto Allee fuerte, $\mu=0$: uNo (A) vs uSi (B) a tiempos representativos hasta \(T=2.000\).}
     \label{fig:fields_strong}
 \end{figure}
 Con $\mu=0$ hay cúmulos dispersos; con $\mu=1$ se observa segregación más clara y respuesta inmune organizada.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/fields_panel_strong_mu1_uNo_bajo_umbral_VS_strong_mu1_uSi_bajo_umbral_t0.000_to_2.000.png}
+    \caption{Evolución temporal (panel A vs B) en efecto Allee fuerte, $\mu=1$: uNo (A) vs uSi (B) a tiempos representativos hasta \(T=2.000\).}
+    \label{fig:fields_strong_mu1_u}
+\end{figure}
 
 \subsection{Correlaciones (fuerte)}
 La evolución de $\xi(t)$ es subdifusiva en todas las correlaciones:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{images/correlation_strong_mean_c_c.png}
-    \caption{Autocorrelación $c_c$ con efecto Allee fuerte.}
+    \includegraphics[width=0.90\textwidth]{images/corr_grid_mu_c_c.png}
+    \caption{Efecto Allee fuerte en $c_c$: ver paneles \emph{Strong} del grid $\xi(t)$ (comparación $\mu=0$ vs $\mu=1$ y bajo/sobre umbral).}
     \label{fig:correlation_strong_c_c}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{images/correlation_strong_mean_s_s.png}
-    \caption{Autocorrelación $s_s$ (fuerte).}
+    \includegraphics[width=0.90\textwidth]{images/corr_grid_mu_s_s.png}
+    \caption{Efecto Allee fuerte en $s_s$: ver paneles \emph{Strong} del grid $\xi(t)$.}
     \label{fig:correlation_strong_s_s}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{images/correlation_strong_mean_i_i.png}
-    \caption{Autocorrelación $i_i$ (fuerte).}
+    \includegraphics[width=0.90\textwidth]{images/corr_grid_mu_i_i.png}
+    \caption{Efecto Allee fuerte en $i_i$: ver paneles \emph{Strong} del grid $\xi(t)$.}
     \label{fig:correlation_strong_i_i}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{images/correlation_strong_mean_c_s.png}
-    \caption{Correlación $c_s$ (fuerte).}
+    \includegraphics[width=0.90\textwidth]{images/corr_grid_mu_c_s.png}
+    \caption{Efecto Allee fuerte en $c_s$: ver paneles \emph{Strong} del grid $\xi(t)$.}
     \label{fig:correlation_strong_c_s}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{images/correlation_strong_mean_c_i.png}
-    \caption{Correlación $c_i$ (fuerte).}
+    \includegraphics[width=0.90\textwidth]{images/corr_grid_mu_c_i.png}
+    \caption{Efecto Allee fuerte en $c_i$: ver paneles \emph{Strong} del grid $\xi(t)$.}
     \label{fig:correlation_strong_c_i}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{images/correlation_strong_mean_s_i.png}
-    \caption{Correlación $s_i$ (fuerte).}
+    \includegraphics[width=0.90\textwidth]{images/corr_grid_mu_s_i.png}
+    \caption{Efecto Allee fuerte en $s_i$: ver paneles \emph{Strong} del grid $\xi(t)$.}
     \label{fig:correlation_strong_s_i}
 \end{figure}
 Observaciones: $c_c$ crece lentamente y similar para $\mu=0,1$; $s_s$ es ligeramente mayor con $\mu=0$; $i_i$ es bajo y estable; $c_s$ y $s_i$ muestran acoplamiento débil; $c_i$ permanece débil, reflejando limitada respuesta inmune cuando la barrera Allee domina.
 
 \section{Síntesis}
 El efecto Allee débil permite patrones amplios; $\mu=1$ aumenta coherencia y facilita contención parcial. En el efecto fuerte, la barrera crítica limita el tamaño de dominios tumorales y atenúa el impacto de $\mu$, aunque sigue actuando como organizador espacial secundario.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

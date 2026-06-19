@@ -1,0 +1,11 @@
+{# Requiere: catalog_uid, model_load_error; si ok: params_table, params_source, allee_type, use_adaptive_control #}
+<div class="tab-pane fade p-0 p-md-2" id="pane-params-{{ catalog_uid }}" role="tabpanel" aria-labelledby="tab-params-{{ catalog_uid }}" tabindex="0">
+    {% if model_load_error %}
+    <div class="alert alert-danger">
+        <strong>Error al cargar el modelo</strong>
+        <pre class="small mb-0 mt-2" style="white-space: pre-wrap;">{{ model_load_error }}</pre>
+    </div>
+    {% else %}
+    {% include "steady_states_app/includes/model_params_dictionary_table.html" %}
+    {% endif %}
+</div>

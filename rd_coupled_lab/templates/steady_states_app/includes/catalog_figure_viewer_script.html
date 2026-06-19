@@ -1,0 +1,66 @@
+{# Inicializa selector + imagen + spinner. URL: /visualizaciones/png/<scenario>/<basename>/ #}
+<script>
+(function () {
+  window.labInitCatalogFigureViewer = function (root) {
+    root = root || document;
+    root.querySelectorAll('.catalog-figures-viewer').forEach(function (wrap) {
+      if (wrap.dataset.labFigBound === '1') return;
+      wrap.dataset.labFigBound = '1';
+      var sel = wrap.querySelector('.catalog-figures-select');
+      var img = wrap.querySelector('.catalog-figures-img');
+      var spin = wrap.querySelector('.catalog-figures-loading');
+      var scenario = (wrap.getAttribute('data-fig-scenario') || '').trim();
+      if (!sel || !img || !scenario) return;
+
+      function urlFor(fn) {
+        var opt = Array.from(sel.options).find(function (o) {
+          return o.value === fn;
+        });
+        if (!opt) opt = sel.options[sel.selectedIndex];
+        var kind = (opt && opt.getAttribute('data-catalog-fig-src')) || 'paper';
+        if (kind === 'simulation') {
+          return (
+            '/visualizaciones/campos/' +
+            encodeURIComponent(scenario) +
+            '/' +
+            encodeURIComponent(fn) +
+            '/'
+          );
+        }
+        return (
+          '/visualizaciones/png/' +
+          encodeURIComponent(scenario) +
+          '/' +
+          encodeURIComponent(fn) +
+          '/'
+        );
+      }
+      function setLoading(on) {
+        if (spin) {
+          spin.classList.toggle('d-none', !on);
+          spin.setAttribute('aria-busy', on ? 'true' : 'false');
+        }
+        img.classList.toggle('catalog-figures-img--pending', !!on);
+        img.classList.toggle('d-none', !!on);
+      }
+      function loadImg(fn) {
+        if (!fn) return;
+        setLoading(true);
+        img.onload = function () {
+          setLoading(false);
+        };
+        img.onerror = function () {
+          setLoading(false);
+          img.alt = 'Error al cargar ' + fn;
+        };
+        img.alt = fn;
+        img.src = urlFor(fn) + '?t=' + Date.now();
+      }
+      sel.addEventListener('change', function () {
+        loadImg(sel.value);
+      });
+      loadImg(sel.value);
+    });
+  };
+})();
+</script>

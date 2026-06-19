@@ -1,0 +1,67 @@
+{% load steady_format %}
+{# Tarjeta: escenario corto (rejilla μ×Hill×umbral) + lista de equilibrios del JSON. Requiere: group #}
+<div class="col-md-6 col-xl-4">
+    <div class="card h-100 lab-kpi lab-kpi--info border-2 border-transparent shadow-sm scenario-group-card">
+        <div class="card-body d-flex flex-column">
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                <span class="h6 mb-0 font-monospace text-break">{{ group.short_name }}</span>
+                <span class="badge rounded-pill bg-secondary text-wrap">{{ group.section }}</span>
+            </div>
+            <p class="small text-muted mb-2">
+                <strong>{{ group.n_steady_states }}</strong> estado{% if group.n_steady_states != 1 %}s{% endif %} estacionario{% if group.n_steady_states != 1 %}s{% endif %}
+                (índice y punto <code>(c^*, s^*, i^*)</code> por equilibrio).
+            </p>
+            <ul class="list-unstyled small mb-0 flex-grow-1 scenario-equilibria-list">
+                {% for eq in group.equilibria %}
+                <li class="border-top pt-2 mt-2">
+                    <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-1">
+                        <span class="font-monospace text-primary">
+                            {% if eq.equilibrium_index is not None %}#{{ eq.equilibrium_index }}{% else %}—{% endif %}
+                        </span>
+                        <button type="button"
+                                class="scenario-catalog-open btn btn-sm btn-outline-primary flex-shrink-0"
+                                data-catalog-ajax-url="{% url 'steady_states_app:scenario_catalog_ajax' scenario_name=eq.catalog_name %}"
+                                data-scenario-name="{{ eq.catalog_name }}">
+                            Catálogo
+                        </button>
+                    </div>
+                    {% if eq.equilibrium_slug %}
+                    <div class="text-muted font-monospace text-break mb-1" style="font-size: 0.72rem;">{{ eq.equilibrium_slug }}</div>
+                    {% endif %}
+                    <div class="text-muted font-monospace" style="font-size: 0.78rem;" title="Valores del JSON; notación científica si el módulo es muy pequeño (p. ej. 1e-16)">
+                        <span class="me-2 d-inline-block"><code>c*</code> {{ eq.c_star|steady_eq_star }}</span>
+                        <span class="me-2 d-inline-block"><code>s*</code> {{ eq.s_star|steady_eq_star }}</span>
+                        <span class="d-inline-block"><code>i*</code> {{ eq.i_star|steady_eq_star }}</span>
+                    </div>
+                    {% if eq.pipeline %}
+                    <div class="pipeline-micro mt-2 pt-2 border-top" role="group" aria-label="Progreso del pipeline en disco">
+                        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-1">
+                            <span class="small fw-semibold text-body-secondary">Pipeline</span>
+                            {% if eq.pipeline.all_done %}
+                            <span class="badge rounded-pill small pipeline-micro__badge pipeline-micro__badge--ok">Listo</span>
+                            {% elif eq.pipeline.folder_ok %}
+                            <span class="badge rounded-pill small pipeline-micro__badge pipeline-micro__badge--progress">{{ eq.pipeline.complete_done }}/{{ eq.pipeline.total_stages }} etapas</span>
+                            {% else %}
+                            <span class="badge rounded-pill small pipeline-micro__badge pipeline-micro__badge--missing" title="Sin carpeta bajo RESULTS_DIR para este equilibrio">Sin carpeta</span>
+                            {% endif %}
+                        </div>
+                        <div class="pipeline-micro__track d-flex flex-wrap align-items-stretch justify-content-between gap-1 gap-md-2">
+                            {% for st in eq.pipeline.stages %}
+                            <div class="pipeline-micro__step pipeline-micro__step--{{ st.status }}" title="{{ st.label }} — {% if st.status == 'complete' %}Completo{% elif st.status == 'partial' %}Parcial{% elif st.status == 'na' %}N/A{% else %}Falta{% endif %}{% if st.percent is not None %} ({{ st.percent }}%){% endif %}">
+                                <span class="pipeline-micro__dot" aria-hidden="true"></span>
+                                <span class="pipeline-micro__abbr font-monospace">{{ st.abbr }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="small text-muted mt-2 pt-2 border-top">Sin datos de pipeline (equilibrio no enlazado al catálogo escaneado).</div>
+                    {% endif %}
+                </li>
+                {% empty %}
+                <li class="text-muted">Sin equilibrios en este bloque.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+{% extends 'steady_states_app/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Control adaptativo — EE (c, s, i){% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-10 offset-md-1">
+        <div class="card">
+            <div class="card-header">
+                <h4><i class="bi bi-sliders"></i> Configuración con control adaptativo (c, s, i)</h4>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">
+                    Análisis sistemático de estados estacionarios con control adaptativo en las variables c, s e i.
+                </p>
+                
+                {% crispy form %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
