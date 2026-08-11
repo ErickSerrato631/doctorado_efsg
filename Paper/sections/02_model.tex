@@ -32,19 +32,22 @@ When $\mathcal{R}=0$, the coupling structure is the nonreciprocal baseline. The 
 \subsection{Base dynamics (ODE)}
 We start from logistic-type growth for each population and quadratic interaction terms capturing cytotoxicity, tissue damage, and immune cooperation \cite{delitala2007}:
 \begin{align}
-\dot{c} &= r_c\, c\, f_{\text{Allee}}(c) - \alpha\, c\, s - \beta\, c\, i - \tfrac{\mathcal{R}}{2}(\eta\, i^2 + \gamma\, s^2), \\
-\dot{s} &= r_s\, s \left(1-\tfrac{s}{k_s}\right) - \gamma\, c\, s + \delta\, s\, i^2 - \tfrac{\mathcal{R}}{2}\alpha\, c^2, \\
-\dot{i} &= r_i\, i \left(1-\tfrac{i}{k_i}\right) - \eta\, c\, i + \delta\, s^2 i - \tfrac{\mathcal{R}}{2}\beta\, c^2 .
+\dot{c} &= r_c\, c\, f_{\text{Allee}}(c) - c(\alpha s^2 + \beta i^2) - \mathcal{R}\, c(\gamma s^2 + \eta i^2), \\
+\dot{s} &= r_s\, s \left(1-\tfrac{s}{k_s}\right) - \gamma c^2 s + \delta i^2 s - \tfrac{\mathcal{R}}{2}\alpha c^2 s, \\
+\dot{i} &= r_i\, i \left(1-\tfrac{i}{k_i}\right) + \delta s^2 i - \eta c^2 i - \tfrac{\mathcal{R}}{2}\beta c^2 i .
 \end{align}
+These ODEs are the spatially homogeneous limit of the PDE below (no diffusion), with the same local reaction structure used in the numerical implementation.
 
 \subsection{Cooperative Allee effect formulation}
-\begin{itemize}
-    \item \textbf{Weak Allee:} $f_{\text{Allee}}(c)=\left(\tfrac{c}{a}-1\right)\left(1-\tfrac{c}{k_c}\right)$ (smooth threshold) \cite{murray2002}.
-    \item \textbf{Strong Allee:} $f_{\text{Allee}}(c)=\left(\tfrac{c}{a}-1\right)\left(\tfrac{c-a}{k_c-a}\right)$ (sharp threshold) \cite{gerlee2022}.
-\end{itemize}
+In the spatial analysis of this manuscript we use the cooperative \textbf{strong Allee} factor
+\begin{equation}
+    f_{\text{Allee}}(c)=\left(\tfrac{c}{a}-1\right)\left(\tfrac{c-a}{k_c-a}\right),
+    \label{eq:strong-allee-model}
+\end{equation}
+which introduces a sharp viability threshold \cite{gerlee2022,bottger2015}. All spatial scenarios analyzed below use $a=0.1$ in the strong-Allee branch.
 
 \subsection{Nonreciprocal interactions}
-Suppression of immunity by cancer ($-\eta\,c\,i$) differs from immune cytotoxicity ($-\beta\,c\,i^2$); damage to healthy tissue by cancer ($-\gamma\,c\,s$) differs from competition against cancer ($-\alpha\,c\,s^2$). These asymmetries break reciprocity and reconfigure nullclines and bifurcations.
+Suppression of immunity by cancer ($-\eta\,c^2 i$) differs from immune cytotoxicity ($-c\,\beta i^2$); damage to healthy tissue by cancer ($-\gamma c^2 s$) differs from competition against cancer ($-c\,\alpha s^2$). These asymmetries break reciprocity and reconfigure nullclines and bifurcations.
 
 \subsection{Immunological control field \texorpdfstring{$u(\mathbf{x},t)$}{u(x,t)}}
 \begin{itemize}
@@ -74,13 +77,14 @@ Symbol & Description & Example value \\
 \midrule
 $r_c,r_s,r_i$ & intrinsic growth rates (cancer, healthy, immune) & $5.84,\ 13.12,\ 10.92$ \\
 $k_c,k_s,k_i$ & carrying capacities & $1,\ 1,\ 1$ \\
-$a$ & Allee threshold (weak/strong) & $7.22$ (weak), $0.1$ (strong) \\
+$a$ & strong-Allee threshold & $0.1$ \\
 $\alpha,\beta,\gamma,\delta,\eta$ & nonreciprocal interaction strengths & $10.22,\ 7.60,\ 0.74,\ 5.40,\ 5.08$ \\
 $D_c,D_s,D_i$ & diffusion coefficients (spatial model) & $0.012,\ 0.022,\ 0.022$ \\
 $\mathcal{R}$ & reciprocity/completion switch & $\{0,1\}$ \\
+$K_c,n_c,K_i,n_i,u_{\max}$ & Hill control (Eq.~\eqref{eq:u-hill}; Table~\ref{tab:control-strong}) & $0.05,\ 2,\ 0.2,\ 2,\ 1.0$ \\
 $u(\mathbf{x},t)$ & adaptive immunological control field & bounded by $u_{\max}$ \\
 \bottomrule
 \end{tabular}
-\caption{Model variables and parameters. Values adjusted according to weak/strong regime and control scenarios.}
+\caption{Model variables and parameters for the strong-Allee spatial scenarios analyzed in the main text.}
 \label{tab:params}
 \end{table*}

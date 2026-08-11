@@ -13,7 +13,33 @@ Condiciones iniciales aleatorias acotadas en
 \[
 0.8 < c < 1.2, \quad 0.2 < s < 0.6, \quad 0 < i < 0.2,
 \]
-con \(T=2\), $\Delta t=0.005$ y malla uniforme de 200 nodos. Simulaciones para $\mu\in\{0,1\}$ en los dos regímenes de Allee.
+con $T\in\{1,2\}$, $\Delta t=10^{-3}$ (escenarios del artículo derivado) o $\Delta t=5\times10^{-3}$ (corridas tempranas), y malla uniforme $100\times100$ sobre $[0,8]^2$ o $[0,4]^2$. Simulaciones para $\mu\in\{0,1\}$ en los dos regímenes de Allee.
+
+\section{Tolerancias del solver (FEniCSx / PETSc)}
+Cada paso temporal usa iteraciones internas de Picard (máximo tres pasos, tolerancia $10^{-3}$) acopladas a SNES para las actualizaciones implícitas por campo. Tolerancias relativas/absolutas: $(10^{-6},10^{-8})$ para $c$ y $s$, $(10^{-5},10^{-7})$ para $i$. Con control Hill activo, la actualización de $i$ usa amortiguación de línea de búsqueda Newton $0.7$. La rigidez numérica se diagnostica operacionalmente mediante snapshots JSON que registran \texttt{reason=solver\_exception}; no se aplica un criterio basado en razones de autovalores del Jacobiano temporal.
+
+\section{Discretización del artículo derivado}
+Los cuatro escenarios espaciales del manuscrito en inglés comparten la configuración de Tabla~\ref{tab:discretization_paper}. En esta revisión no se ejecutaron barridos de convergencia en malla ni en $\Delta t$; la tabla fija únicamente la discretización empleada en las figuras reportadas.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+Parámetro & Valor (artículo) \\
+\midrule
+Dominio & $[0,8]^2$ \\
+Malla & $100\times100$ \\
+Paso temporal & $\Delta t=10^{-3}$ \\
+Tiempo final & $T=1$ \\
+Realizaciones & $nb=1$ por escenario \\
+\bottomrule
+\end{tabular}
+\caption{Discretización numérica de las simulaciones espaciales strong-Allee reportadas en el artículo derivado.}
+\label{tab:discretization_paper}
+\end{table}
+
+\section{Variabilidad de realización ($nb=1$)}
+Cada escenario del artículo usa una sola realización con condiciones iniciales aleatorias acotadas. Los ajustes $\xi(t)\sim e^{\alpha}t^{1/2}$ reportan $R^2$ como control de calidad \emph{dentro} de cada serie temporal, no como estimación de ensamble. Barras de error en prefactores $A_{ab}$ o en potenciales efectivos finales requerirían $nb\geq 3$ y el agregador ya implementado en \texttt{correlation\_comparison.py}.
 
 \section{Procedimiento para nullclines y autovalores}
 \begin{enumerate}

@@ -279,11 +279,11 @@ Asesor: Dr.\ Orlando Guzmán López}
     f_{\mathrm{Allee}}(c)=\left(\frac{c}{a}-1\right)\left(\frac{c-a}{k_c-a}\right).
   \]
   \vfill
-  \textbf{ODE}, con el mismo \(\mu\in\{0,1\}\) en los términos cuadráticos \cite{johnson2019allee}:
+  \textbf{ODE} (límite homogéneo del PDE), con el mismo \(\mu\in\{0,1\}\) \cite{johnson2019allee}:
   \begin{align*}
-    \dot{c} &= r_c c f_{\mathrm{Allee}}(c) - \alpha c s - \beta c i - \tfrac{\mu}{2}(\eta i^2 + \gamma s^2),\\
-    \dot{s} &= r_s s\left(1-\tfrac{s}{k_s}\right) - \gamma c s + \delta s i^2 - \tfrac{\mu}{2}\alpha c^2,\\
-    \dot{i} &= r_i i\left(1-\tfrac{i}{k_i}\right) - \eta c i + \delta s^2 i - \tfrac{\mu}{2}\beta c^2.
+    \dot{c} &= r_c c f_{\mathrm{Allee}}(c) - c(\alpha s^2 + \beta i^2) - \mu c(\gamma s^2 + \eta i^2),\\
+    \dot{s} &= r_s s\left(1-\tfrac{s}{k_s}\right) - \gamma c^2 s + \delta i^2 s - \tfrac{\mu}{2}\alpha c^2 s,\\
+    \dot{i} &= r_i i\left(1-\tfrac{i}{k_i}\right) + \delta s^2 i - \eta c^2 i - \tfrac{\mu}{2}\beta c^2 i.
   \end{align*}
 \end{frame}
 

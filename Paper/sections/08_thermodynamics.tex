@@ -21,7 +21,8 @@ The visualization and time-series post-processing used here follow the effective
     :=D_a\left|\nabla\phi_a(\mathbf{x},t)\right|^2,
     \label{eq:sigma-diss-field}
 \end{equation}
-and the total density plotted in the spatial $\sigma^+$ maps is
+Here $\sigma^+$ is a \emph{metric of diffusive gradients in model units}, constructed by analogy with the De Groot--Mazur entropy-production structure, but \emph{without formal identity} to the Onsager pair $-\mathbf{J}_a\cdot\nabla\mu_a$ when $\mu_a$ denotes a true thermodynamic chemical potential. The convention $\mu_a\equiv\phi_a$ is operational for visualization and cross-scenario comparison, not a strict thermodynamic claim.
+The total density plotted in the spatial $\sigma^+$ maps is
 \begin{equation}
     \sigma^+(\mathbf{x},t)
     \equiv\sigma_{\mathrm{diss,tot}}(\mathbf{x},t)
@@ -67,7 +68,7 @@ Introducing a constant effective temperature $T_{\mathrm{eff}}$ would only resca
         \caption{$\Sigma_i=\int D_i|\nabla i|^2dA$}
         \label{fig:noneq_sigma_i}
     \end{subfigure}
-    \caption{Diffusive entropy-production diagnostics for the strong-Allee scenarios in the window $0\leq t\leq 1$, sampled with $\Delta t=0.005$. The total integrated entropy production $\Sigma_{\mathrm{diss}}(t)$ is shown together with the cancer, healthy-tissue, and immune contributions. Larger values correspond to sharper interfaces and stronger spatial gradients; decay indicates diffusive smoothing and coarsening. The uncontrolled nonreciprocal baseline retains the largest late-time gradient content, whereas Hill control strongly suppresses the cancer contribution and the reciprocal-completion curves remain close with or without control, indicating that this setting has already selected a similar spatial route.}
+    \caption{Diffusive entropy-production diagnostics for the strong-Allee scenarios in the window $0\leq t\leq 1$, sampled with $\Delta t=10^{-3}$. The total integrated entropy production $\Sigma_{\mathrm{diss}}(t)$ is shown together with the cancer, healthy-tissue, and immune contributions. Larger values correspond to sharper interfaces and stronger spatial gradients; decay indicates diffusive smoothing and coarsening. The uncontrolled nonreciprocal baseline retains the largest late-time gradient content, whereas Hill control strongly suppresses the cancer contribution and the reciprocal-completion curves remain close with or without control, indicating that this setting has already selected a similar spatial route.}
     \label{fig:noneq_sigma_panel}
 \end{figure*}
 

@@ -23,7 +23,7 @@ El contraste entre Allee débil y fuerte opera como un cambio de ``dureza'' del 
   \item \textbf{Inestabilidad homogénea sistemática}: en los diez escenarios tabulados (Cap.~4) se cumple $\mathrm{Re}\,\lambda_{\max}>0$ con $i^*>0$; las tablas de $(c^*,s^*,i^*)$ y autovalores soportan la lectura de separatrices inestables.
   \item \textbf{$\mu$ como selector morfológico}: diferencias sistemáticas en rejillas de $\xi(t)$ y en espectros (Cap.~5) entre $\mu=0$ y $\mu=1$, sin estabilizar el fondo homogéneo.
   \item \textbf{Control $u$ como intervención geométrica}: contraste uNo/uSi en correlaciones $c_c$ y $c_i$ y en paneles de campos (Cap.~5--6).
-  \item \textbf{Coarsening subdifusivo}: crecimiento de $\xi(t)$ compatible con $\xi(t)\sim e^{\alpha}t^{1/2}$ en el horizonte simulado.
+  \item \textbf{Coarsening subdifusivo}: crecimiento de $\xi(t)$ compatible con $\xi(t)\sim e^{\alpha}t^{1/2}$ y exponente clásico de coarsening limitado por difusión \cite{bray1994} en el horizonte simulado.
   \item \textbf{Contraste Weak vs Strong}: diferencias cualitativas y cuantitativas en $\mathrm{Re}\,\lambda_{\max}$ y en morfologías espaciales.
 \end{itemize}
 
@@ -53,7 +53,10 @@ Sin embargo, en este manuscrito \textbf{no} se incluye una cuantificación paral
 \end{itemize}
 
 \section{Limitaciones}
-Faltan corridas con mallas más finas y rangos extendidos de parámetros para buscar estabilidad; los protocolos $u(x,y,t)$ no se han optimizado y las correlaciones se evaluaron sólo en regímenes cortos ($T\le 2$). Además, se reporta una realización por escenario (nb=1), por lo que aún no se cuantifica variabilidad de ensamble. Finalmente, el control adaptativo puede introducir rigidez numérica en ciertos pasos (activación de diagnósticos), lo que sugiere co-diseñar tolerancias/regularización del control para integrar horizontes más largos de manera robusta. Las afirmaciones cuya evidencia es intermedia o externa al alcance actual de esta tesis se listan explícitamente en la Sección~\ref{sec:grado_evidencia}.
+Faltan corridas con mallas más finas y rangos extendidos de parámetros para buscar estabilidad; los protocolos $u(x,y,t)$ no se han optimizado y las correlaciones se evaluaron sólo en regímenes cortos ($T\le 2$). La Tab.~\ref{tab:discretization_paper} del Ap.~B documenta la malla y el $\Delta t$ del artículo derivado; no se cuantificó convergencia con refinamiento adicional en esta revisión. Además, se reporta una realización por escenario ($nb=1$), por lo que no se cuantifica variabilidad de ensamble: los $R^2$ de los ajustes $\xi(t)\sim e^{\alpha}t^{1/2}$ caracterizan la calidad del ajuste dentro de cada serie temporal. Finalmente, el control adaptativo puede introducir rigidez numérica en ciertos pasos (activación de diagnósticos por excepciones del solver); las tolerancias SNES/Picard se documentan en el Ap.~B. Las afirmaciones cuya evidencia es intermedia o externa al alcance actual de esta tesis se listan explícitamente en la Sección~\ref{sec:grado_evidencia}.
+
+\section{Nota sobre diagnósticos termodinámicos (manuscrito derivado)}
+En el artículo en inglés derivado de esta tesis se introduce una densidad positiva de producción entrópica difusiva $\sigma^+=\sum_a D_a|\nabla\phi_a|^2$ con la convención operacional $\mu_a\equiv\phi_a$. Esta cantidad es una \emph{métrica de gradientes difusivos en unidades del modelo}, análoga en forma a la producción de entropía de De Groot--Mazur, pero \emph{sin identidad formal} con el par $-\mathbf{J}_a\cdot\nabla\mu_a$ cuando $\mu_a$ denota un potencial químico termodinámico estricto. La convención sirve para visualización y comparación entre escenarios, no como afirmación termodinámica completa.
 
 
 

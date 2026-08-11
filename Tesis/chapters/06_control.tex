@@ -27,7 +27,11 @@ Esto implica:
 
 \paragraph{Mean-field frente a PDE.} El colapso de ramas hacia $c^*\approx0$, $i^*\approx1$ con control adaptativo está documentado en este capítulo a partir del análisis de \textbf{estados homogéneos} (mean-field / reducción con nullclinas). Para afirmar el mismo comportamiento como \emph{predicción robusta} de las PDE hace falta complementar con medias espaciales $\langle c\rangle(t)$, $\langle s\rangle(t)$, $\langle i\rangle(t)$ en simulaciones largas y, de ser posible, con sensibilidad a condiciones iniciales (véase el grado de evidencia en el Cap.~\ref{chap:discusion}).
 
-\paragraph{Parámetros comunes en todos los casos Strong.} En las comparativas se fijaron: $a=0.1$, $\gamma=0.74$, $\alpha=10.22$, $r_s=13.12$; en las simulaciones PDE se usaron difusiones $D_c=0.012$, $D_s=D_i=0.022$, paso temporal $dt=10^{-3}$, $T=3$, malla $100\times100$ en dominio $[0,4]^2$, y control adaptativo tipo Hill $u=u_{\max}\,H_{\mathrm{act}}(c;K_c,n_c)\,H_{\mathrm{inh}}(i;K_i,n_i)$ con $u_{\max}=1$ cuando aplica.
+\paragraph{Parámetros comunes en todos los casos Strong.} En las comparativas se fijaron: $a=0.1$, $\gamma=0.74$, $\alpha=10.22$, $r_s=13.12$; en las simulaciones PDE se usaron difusiones $D_c=0.012$, $D_s=D_i=0.022$, paso temporal $\Delta t=10^{-3}$, $T=3$, malla $100\times100$ en dominio $[0,4]^2$, y control adaptativo tipo Hill
+\begin{equation}
+u=u_{\max}\,H_{\mathrm{act}}(c;K_c,n_c)\,H_{\mathrm{inh}}(i;K_i,n_i),
+\end{equation}
+con parámetros comunes $K_c=0.05$, $n_c=2$, $K_i=0.2$, $n_i=2$, $u_{\max}=1$ cuando aplica (coincidentes con \texttt{model\_parameters.py} y con la Tab.~III del artículo derivado).
 
 \paragraph{Analogía biológica/poblacional.} El control adaptativo opera como una mortalidad denso-dependiente focalizada: ataca regiones con $c$ alto e $i$ bajo, empujando a la población tumoral por debajo del umbral de Allee. Esto elimina la rama proliferativa (sobre umbral) y deja sólo el equilibrio de “casi extinción” ($c\simeq0$, $i\simeq1$), análogo a poblaciones que, al perder cooperación, no pueden sostenerse y quedan sometidas a la presión inmune.
 

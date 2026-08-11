@@ -9,71 +9,75 @@
 \contentsline {section}{\numberline {1.3}Efecto Allee y no reciprocidad}{1}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Control inmunológico como campo externo}{2}{section.1.4}%
 \contentsline {section}{\numberline {1.5}Objetivos y contribuciones}{2}{section.1.5}%
-\contentsline {chapter}{\numberline {2}Estado del arte y marco teórico}{3}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Modelos de dinámica poblacional}{3}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Efecto Allee en el crecimiento tumoral}{3}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Efecto Allee fuerte}{3}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Efecto Allee débil}{4}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Aplicación al modelo tumoral}{4}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Interpretación desde sistemas no lineales}{4}{subsection.2.2.4}%
-\contentsline {section}{\numberline {2.3}Modelos cáncer--inmune y control}{4}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Formulación del modelo}{5}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Variables y dominios}{5}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Dinámica base (efecto Allee débil)}{5}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Parámetros del modelo}{6}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Implementación del efecto Allee fuerte}{6}{section.3.4}%
-\contentsline {section}{\numberline {3.5}No reciprocidad en las interacciones}{7}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Extensión espacio--temporal}{7}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Control inmunológico $u(x,y,t)$}{7}{section.3.7}%
-\contentsline {chapter}{\numberline {4}Análisis matemático}{8}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Estados estacionarios}{8}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Estados estacionarios de los escenarios de simulación}{9}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Lectura cualitativa: umbrales como separatrices inestables}{10}{subsection.4.2.1}%
-\contentsline {section}{\numberline {4.3}Escenarios de simulación}{10}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Comparación Weak vs Strong (resumen)}{11}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Estabilidad lineal (resumen)}{11}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Dinámica espacio--temporal}{13}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Extensión a PDEs y configuración numérica}{13}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Formación de patrones (efecto Allee débil)}{14}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Espectros de potencia y correlaciones (débil)}{16}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Espectros de potencia del campo $c$}{16}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Autocorrelaciones y correlaciones cruzadas}{16}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Comparación con control adaptativo (uNo vs uSi)}{22}{subsection.5.3.3}%
-\contentsline {section}{\numberline {5.4}Efecto Allee fuerte: dinámica espacio--temporal}{24}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Correlaciones (fuerte)}{26}{subsection.5.4.1}%
-\contentsline {section}{\numberline {5.5}Síntesis}{30}{section.5.5}%
-\contentsline {chapter}{\numberline {6}Control inmunológico}{31}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Definición del problema de control}{31}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Estrategias de control}{31}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Resultados numéricos (síntesis)}{31}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Efecto del control adaptativo sobre ramas bajo/sobre umbral (Strong)}{32}{subsection.6.3.1}%
-\contentsline {paragraph}{Mean-field frente a PDE.}{32}{section*.29}%
-\contentsline {paragraph}{Parámetros comunes en todos los casos Strong.}{32}{section*.30}%
-\contentsline {paragraph}{Analogía biológica/poblacional.}{32}{section*.31}%
-\contentsline {section}{\numberline {6.4}Coste y eficiencia}{33}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Discusión}{34}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Interpretación física}{34}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Efecto de $\mu $ como selector morfológico}{34}{subsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.1.2}Efecto del control adaptativo $u(x,y,t)$}{35}{subsection.7.1.2}%
-\contentsline {subsection}{\numberline {7.1.3}Weak vs Strong Allee}{35}{subsection.7.1.3}%
-\contentsline {section}{\numberline {7.2}Afirmaciones y grado de evidencia}{35}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Comparación con la literatura}{36}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Implicaciones}{37}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Limitaciones}{37}{section.7.5}%
-\contentsline {chapter}{\numberline {8}Conclusiones}{38}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Conclusiones principales}{38}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Aportaciones originales}{38}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Trabajo futuro}{39}{section.8.3}%
-\contentsline {chapter}{\numberline {A}Cálculos de estabilidad}{41}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Allee débil}{41}{section.Alph1.1}%
-\contentsline {subsection}{\numberline {A.1.1}Casos sin control adaptativo}{42}{subsection.Alph1.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}Casos con control adaptativo}{42}{subsection.Alph1.1.2}%
-\contentsline {section}{\numberline {A.2}Allee fuerte}{43}{section.Alph1.2}%
-\contentsline {subsection}{\numberline {A.2.1}Casos sin control adaptativo}{43}{subsection.Alph1.2.1}%
-\contentsline {subsection}{\numberline {A.2.2}Casos con control adaptativo}{44}{subsection.Alph1.2.2}%
-\contentsline {section}{\numberline {A.3}Resumen comparativo}{45}{section.Alph1.3}%
-\contentsline {chapter}{\numberline {B}Detalles numéricos}{46}{appendix.Alph2}%
-\contentsline {section}{\numberline {B.1}Herramientas y flujo de trabajo}{46}{section.Alph2.1}%
-\contentsline {section}{\numberline {B.2}Condiciones iniciales y discretización}{46}{section.Alph2.2}%
-\contentsline {section}{\numberline {B.3}Procedimiento para nullclines y autovalores}{47}{section.Alph2.3}%
-\contentsline {section}{\numberline {B.4}Notas de correlación y espectros}{47}{section.Alph2.4}%
+\contentsline {chapter}{\numberline {2}Estado del arte y marco teórico}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Modelos de dinámica poblacional}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Efecto Allee en el crecimiento tumoral}{4}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Efecto Allee fuerte}{4}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Efecto Allee débil}{5}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Aplicación al modelo tumoral}{5}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Interpretación desde sistemas no lineales}{5}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}Modelos cáncer--inmune y control}{5}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Formulación del modelo}{6}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Variables y dominios}{6}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Dinámica base (efecto Allee débil)}{6}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Parámetros del modelo}{7}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Implementación del efecto Allee fuerte}{7}{section.3.4}%
+\contentsline {section}{\numberline {3.5}No reciprocidad en las interacciones}{8}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Extensión espacio--temporal}{8}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Control inmunológico $u(x,y,t)$}{8}{section.3.7}%
+\contentsline {chapter}{\numberline {4}Análisis matemático}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Estados estacionarios}{9}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Estados estacionarios de los escenarios de simulación}{10}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Lectura cualitativa: umbrales como separatrices inestables}{11}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Escenarios de simulación}{11}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Comparación Weak vs Strong (resumen)}{12}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Estabilidad lineal (resumen)}{12}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Dinámica espacio--temporal}{14}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Extensión a PDEs y configuración numérica}{14}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Formación de patrones (efecto Allee débil)}{15}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Espectros de potencia y correlaciones (débil)}{17}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Espectros de potencia del campo $c$}{17}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Autocorrelaciones y correlaciones cruzadas}{17}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Comparación con control adaptativo (uNo vs uSi)}{23}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.4}Efecto Allee fuerte: dinámica espacio--temporal}{25}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Correlaciones (fuerte)}{27}{subsection.5.4.1}%
+\contentsline {section}{\numberline {5.5}Síntesis}{31}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Control inmunológico}{32}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Definición del problema de control}{32}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Estrategias de control}{32}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Resultados numéricos (síntesis)}{32}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Efecto del control adaptativo sobre ramas bajo/sobre umbral (Strong)}{33}{subsection.6.3.1}%
+\contentsline {paragraph}{Mean-field frente a PDE.}{33}{section*.29}%
+\contentsline {paragraph}{Parámetros comunes en todos los casos Strong.}{33}{section*.30}%
+\contentsline {paragraph}{Analogía biológica/poblacional.}{34}{section*.31}%
+\contentsline {section}{\numberline {6.4}Coste y eficiencia}{34}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Discusión}{35}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Interpretación física}{35}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Efecto de $\mu $ como selector morfológico}{35}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Efecto del control adaptativo $u(x,y,t)$}{36}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}Weak vs Strong Allee}{36}{subsection.7.1.3}%
+\contentsline {section}{\numberline {7.2}Afirmaciones y grado de evidencia}{36}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Comparación con la literatura}{37}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Implicaciones}{38}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Limitaciones}{38}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Nota sobre diagnósticos termodinámicos (manuscrito derivado)}{38}{section.7.6}%
+\contentsline {chapter}{\numberline {8}Conclusiones}{40}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Conclusiones principales}{40}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Aportaciones originales}{40}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Trabajo futuro}{41}{section.8.3}%
+\contentsline {chapter}{\numberline {A}Cálculos de estabilidad}{44}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Allee débil}{44}{appendix.A.1}%
+\contentsline {subsection}{\numberline {A.1.1}Casos sin control adaptativo}{45}{subsection.A.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}Casos con control adaptativo}{45}{subsection.A.1.2}%
+\contentsline {section}{\numberline {A.2}Allee fuerte}{46}{appendix.A.2}%
+\contentsline {subsection}{\numberline {A.2.1}Casos sin control adaptativo}{46}{subsection.A.2.1}%
+\contentsline {subsection}{\numberline {A.2.2}Casos con control adaptativo}{47}{subsection.A.2.2}%
+\contentsline {section}{\numberline {A.3}Resumen comparativo}{48}{appendix.A.3}%
+\contentsline {chapter}{\numberline {B}Detalles numéricos}{49}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Herramientas y flujo de trabajo}{49}{appendix.B.1}%
+\contentsline {section}{\numberline {B.2}Condiciones iniciales y discretización}{49}{appendix.B.2}%
+\contentsline {section}{\numberline {B.3}Tolerancias del solver (FEniCSx / PETSc)}{50}{appendix.B.3}%
+\contentsline {section}{\numberline {B.4}Discretización del artículo derivado}{50}{appendix.B.4}%
+\contentsline {section}{\numberline {B.5}Variabilidad de realización ($nb=1$)}{50}{appendix.B.5}%
+\contentsline {section}{\numberline {B.6}Procedimiento para nullclines y autovalores}{51}{appendix.B.6}%
+\contentsline {section}{\numberline {B.7}Notas de correlación y espectros}{51}{appendix.B.7}%

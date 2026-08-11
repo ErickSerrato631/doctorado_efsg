@@ -2,6 +2,24 @@
 
 > **Ubicación canónica** (2026-03-22). Sustituye al archivo raíz `ANALISIS_PAPER_Y_ABSTRACT.md`, eliminado tras consolidación. Aquí están el **mapa de contenidos**, el **resumen ejecutivo** para el paper y **tres borradores de abstract en inglés** para revista. La versión larga original del análisis sigue disponible en el historial de Git si la necesitas.
 
+## Correcciones del asesor (junio 2026) — estado
+
+| ID | Tema | Paper | Tesis |
+|----|------|-------|-------|
+| C1 | ODE/PDE unificados (forma cuadrática) | `Paper/sections/02_model.tex` | `Tesis/chapters/03_modelo.tex` |
+| C2 | Weak Allee eliminado del artículo (solo strong) | `Paper/sections/02_model.tex` | Intro: nota de alcance del artículo derivado |
+| C3 | Disclaimer μ_a≡φ_a | `Paper/sections/08_thermodynamics.tex` | `Tesis/chapters/07_discusion.tex` § termodinámica |
+| R1–R4 | Bibliografía ampliada | `Paper/bibliography.bib` | `Tesis/references.bib` |
+| N1 | Convergencia malla/Δt (texto + tabla pendiente) | `04_spatial.tex`, `06_discussion.tex` | `appendices/B_numerico.tex` |
+| N2 | nb=1 + R² intra-serie | `04_spatial.tex`, `06_discussion.tex` | `07_discusion.tex`, Cap. 5 |
+| N3 | Tolerancias SNES/Picard | `04_spatial.tex` § Numerical implementation | `appendices/B_numerico.tex` |
+| P1 | Escala física ilustrativa (100 µm) | `04_spatial.tex` | `05_dinamica_espacial.tex` |
+| P2 | Raíces i*<0 en cuerpo | `04_spatial.tex` | `04_analisis.tex` |
+| P3 | Alcance strong Allee | `02_model.tex`, `06_discussion.tex` | Resumen tesis mantiene weak+strong |
+| P4 | Notación Hill consolidada | Tab. I + Tab. III | `06_control.tex` |
+
+**Pendiente antes de envío final a revista (requiere simulaciones):** barridos N1 (malla/$\Delta t$) y realizaciones $nb\geq 3$ (N2). En esta revisión se documenta la discretización baseline (Tab. discretización) y la limitación $nb=1$ sin nuevas corridas.
+
 ## Dónde quedó cada bloque
 
 | Tema (antiguo § del análisis) | Destino principal |

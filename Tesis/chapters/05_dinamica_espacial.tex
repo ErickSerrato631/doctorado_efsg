@@ -2,11 +2,11 @@
 \label{chap:espacial}
 
 \section{Extensión a PDEs y configuración numérica}
-Se resolvió el sistema de reacción--difusión con elementos finitos (FEniCS). Condiciones iniciales aleatorias se acotan en
+Se resolvió el sistema de reacción--difusión con elementos finitos (FEniCSx). Condiciones iniciales aleatorias se acotan en
 \[
 0.8 < c < 1.2, \quad 0.2 < s < 0.6, \quad 0 < i < 0.2.
 \]
-Parámetros de integración: tiempo final \(T = 2\), paso temporal \(\Delta t = 0.005\), malla uniforme con 200 nodos. Las ecuaciones \eqref{eqn:cancer_dynamic_spatial}--\eqref{eqn:inmune_dynamic_spatial} se resolvieron para $\mu\in\{0,1\}$.
+Parámetros de integración en los escenarios principales del repositorio: tiempo final $T\in\{1,2\}$, paso temporal $\Delta t=10^{-3}$ (artículo derivado) o $\Delta t=5\times10^{-3}$ (corridas tempranas de la tesis), malla uniforme $100\times100$ sobre dominio $[0,8]^2$ (artículo) o $[0,4]^2$ (algunas corridas de la tesis). Las ecuaciones \eqref{eqn:cancer_dynamic_spatial}--\eqref{eqn:inmune_dynamic_spatial} se resolvieron para $\mu\in\{0,1\}$. Las variables son densidades adimensionales; si una unidad del modelo corresponde ilustrativamente a $\sim100\,\mu\mathrm{m}$, entonces $L_{\mathrm{modelo}}=8$ representa una ventana de $\sim800\,\mu\mathrm{m}$, comparable a un campo histológico. Esta asignación es ilustrativa y requiere calibración experimental para fijar la escala absoluta.
 
 \section{Formación de patrones (efecto Allee débil)}
 \captionsetup[subfigure]{skip=2pt}
@@ -45,7 +45,7 @@ El cáncer domina espacialmente, las células sanas disminuyen y el sistema inmu
 \end{figure}
 
 \subsection{Autocorrelaciones y correlaciones cruzadas}
-La longitud de correlación $\xi(t)$ sigue $\xi(t)\sim e^{\alpha} t^{0.5}$, con $\alpha$ dependiente de la correlación y de $\mu$. Figuras:
+La longitud de correlación $\xi(t)$ sigue $\xi(t)\sim e^{\alpha} t^{1/2}$, con exponente compatible con coarsening limitado por difusión \cite{bray1994} y prefactor $\alpha$ (equivalentemente $A_{ab}=\mathrm{e}^{\alpha}$) modulado por la correlación, por $\mu$ y por el protocolo de control. Los ajustes log--log reportan $R^2>0.95$ en la ventana de ajuste del post-proceso, como control de calidad intra-serie (no como estimación de ensamble). Figuras:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.90\textwidth]{images/corr_grid_mu_c_c.png}

@@ -1,6 +1,6 @@
 \section{Spatial Dynamics}\label{sec:spatial}
 
-Before introducing the reaction--diffusion extension, it is useful to fix the qualitative flow geometry in the $(c,s)$ plane of the reduced kinetic model. Figure~\ref{fig:steady_states} shows streamlines with red markers for the projected stationary points recovered from the local steady-state catalogs and the reduced two-dimensional roots. The origin $(0,0)$ acts as an unstable source, while $(0,1)$, the cluster near $(1,0)$, and the additional off-axis roots organize their neighborhoods as saddle-like structures with stable manifolds along the coordinate axes and repulsive flow into the first quadrant. This phase-space geometry prevents robust relaxation toward a stable homogeneous equilibrium and is consistent with the linear instability $\mathrm{Re}\,\lambda_{\max}>0$ reported in the summary: the steady states act as separators of transient routes rather than attractors, motivating the spatial analysis below.
+Before introducing the reaction--diffusion extension, it is useful to fix the qualitative flow geometry in the $(c,s)$ plane of the reduced kinetic model. Figure~\ref{fig:steady_states} shows streamlines with red markers for the projected stationary points recovered from the local steady-state catalogs and the reduced two-dimensional roots. \textbf{Roots with $i^*<0$ in Table~\ref{tab:steady_states_i} are artifacts of the two-dimensional $(c,s)$ reduction and lie outside the physical simplex; they are shown only as geometric markers in the phase portrait, not as admissible three-dimensional states.} The origin $(0,0)$ acts as an unstable source, while $(0,1)$, the cluster near $(1,0)$, and the additional off-axis roots organize their neighborhoods as saddle-like structures with stable manifolds along the coordinate axes and repulsive flow into the first quadrant. This phase-space geometry prevents robust relaxation toward a stable homogeneous equilibrium and is consistent with the linear instability $\mathrm{Re}\,\lambda_{\max}>0$ reported in the summary: the steady states act as separators of transient routes rather than attractors, motivating the spatial analysis below.
 
 \begin{figure}[!htbp]
     \centering
@@ -41,9 +41,30 @@ with the cooperative strong-Allee factor
      \left(\frac{c-a}{1-a}\right),
     \label{eq:strong-allee-factor}
 \end{equation}
-after nondimensionalizing the carrying capacity to one. The parameter $\mathcal{R}$ distinguishes the nonreciprocal baseline from the reciprocal-completion setting, while the adaptive control $u(\mathbf{x},t)$ acts as a spatially targeted immune reinforcement defined in Sec.~\ref{sec:control}. The spatial problem was solved with finite elements (FEniCS) on the two-dimensional computational domain $[0,8]^2$, with $T=1$ and $\Delta t \sim 5\times 10^{-3}$.
+after nondimensionalizing the carrying capacity to one. The parameter $\mathcal{R}$ distinguishes the nonreciprocal baseline from the reciprocal-completion setting, while the adaptive control $u(\mathbf{x},t)$ acts as a spatially targeted immune reinforcement defined in Sec.~\ref{sec:control}.
 
-The variables are nondimensional densities and the spatial domain is reported in model units. Thus the simulations identify relative length scales, correlation growth, and interface costs. Assigning the domain to nanometers, micrometers, or millimeters requires an external calibration, for example matching $L_{\mathrm{model}}=8$ to a histological field of view, to an experimentally measured correlation length, or to a measured cell-migration/diffusion scale. In biological terms the patterns should be read as mesoscopic tissue organization, plausibly between cellular and histological scales, but the absolute physical unit is not fixed by the present nondimensional model.
+\subsection{Numerical implementation}
+The spatial problem was solved with finite elements (FEniCSx) on a uniform $100\times100$ mesh over the domain $[0,8]^2$, with final time $T=1$ and time step $\Delta t=10^{-3}$. Each step uses a segregated nonlinear solve (Picard inner iterations, at most three passes with tolerance $10^{-3}$) coupled to PETSc SNES for the implicit field updates. Relative and absolute tolerances are $(10^{-6},10^{-8})$ for $c$ and $s$ and $(10^{-5},10^{-7})$ for $i$; when Hill control is active, the immune update uses Newton line-search damping $0.7$. Numerical stiffness is monitored operationally through diagnostic snapshots that flag solver exceptions; no eigenvalue-ratio stiffness criterion is applied in the present workflow. Table~\ref{tab:discretization} summarizes the discretization used for all reported spatial runs; supplementary mesh/time-refinement sweeps were not performed in this revision.
+
+\begin{table}[!htbp]
+\centering
+\caption{Numerical discretization for the strong-Allee spatial scenarios reported in the main text. Convergence of $\xi(t)$, $\nu_{ab}$, and $A_{ab}$ with respect to mesh refinement and $\Delta t$ was not quantified in additional sweeps.}
+\label{tab:discretization}
+\begin{tabular}{ll}
+\toprule
+Setting & Value \\
+\midrule
+Domain & $[0,8]^2$ (model units) \\
+Mesh & uniform $100\times100$ \\
+Time step & $\Delta t=10^{-3}$ \\
+Final time & $T=1$ \\
+Realizations per scenario & $nb=1$ \\
+FEniCSx segregated solve & Picard ($\leq 3$ iter., tol.\ $10^{-3}$) + SNES \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The variables are nondimensional densities and the spatial domain is reported in model units. Thus the simulations identify relative length scales, correlation growth, and interface costs. Assigning the domain to nanometers, micrometers, or millimeters requires an external calibration, for example matching $L_{\mathrm{model}}=8$ to a histological field of view, to an experimentally measured correlation length, or to a measured cell-migration/diffusion scale. In biological terms the patterns should be read as mesoscopic tissue organization, plausibly between cellular and histological scales, but the absolute physical unit is not fixed by the present nondimensional model. \emph{Illustrative mapping:} if one model unit corresponds to $\sim100\,\mu\mathrm{m}$, then $L_{\mathrm{model}}=8$ represents a window of $\sim800\,\mu\mathrm{m}$, comparable to a histological field of view. This assignment is not fitted to data; experimental calibration would be required to fix the absolute scale.
 
 \begin{figure*}[!htbp]
     \centering
@@ -75,7 +96,7 @@ and the characteristic length $\xi_{ab}(t)$ is extracted from the radial decay o
     \qquad \nu_{ab}\approx \frac{1}{2},
     \label{eq:correlation-scaling}
 \end{equation}
-consistent with diffusion-limited coarsening over the simulated time window. The prefactor is the physically informative quantity: adaptive control suppresses the cancer autocorrelation for $\mathcal{R}=0$ and lowers the $c$--$s$ scale, whereas $\mathcal{R}=1$ enhances immune-centered organization, especially in $i$--$i$, $c$--$i$, and $s$--$i$.
+consistent with the classical diffusion-limited coarsening exponent \cite{bray1994}. The novelty in the present setting is not the exponent itself but the modulation of the prefactor $A_{ab}$ by reciprocity structure and adaptive control. Power-law fits are reported with coefficients of determination $R^2>0.95$ over the fitting window used in the correlation post-processing scripts, providing an intra-series quality check (not an ensemble estimate across independent realizations). The prefactor is the physically informative quantity: adaptive control suppresses the cancer autocorrelation for $\mathcal{R}=0$ and lowers the $c$--$s$ scale, whereas $\mathcal{R}=1$ enhances immune-centered organization, especially in $i$--$i$, $c$--$i$, and $s$--$i$.
 
 The comparison separates two regimes. For $\mathcal{R}=0$, the local couplings do not already impose the strong morphological bias present in the $\mathcal{R}=1$ cases, so activating $u$ becomes the dominant geometric intervention. It changes where gradients are generated, reduces tumor-domain coherence, and reorganizes cancer--immune co-localization. For $\mathcal{R}=1$, the reciprocal-completion terms and the parameter set used for these scenarios already bias the dynamics toward a cancer-suppressed, healthy--immune organized route. Consequently, switching $u$ on produces a smaller incremental change and the $u$ off/on curves are closer in both correlations and effective-potential diagnostics. This morphological interpretation is the basis for the thermodynamic diagnostic in Sec.~\ref{sec:thermodynamics}: changes in correlation length should be accompanied by changes in the diffusive cost of interfaces and in the relative contributions of the $c$, $s$, and $i$ fields.
 

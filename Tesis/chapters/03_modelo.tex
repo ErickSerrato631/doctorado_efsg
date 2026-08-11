@@ -11,10 +11,11 @@ El sistema considera tres poblaciones con dominios continuos en tiempo (ODE) y e
 \section{Dinámica base (efecto Allee débil)}
 El efecto Allee débil se implementa en la población tumoral mediante un término cúbico que introduce un umbral suave. El sistema ODE completo es \cite{delitala_mathematical_2007,corcoran_cancer_2020}:
 \begin{align}
-\frac{dc}{dt} &= r_c c \left(\frac{c}{a} - 1\right)\left(1 - \frac{c}{k_c}\right) - \alpha c s - \beta c i - \frac{\mu}{2} (\eta i^2 + \gamma s^2), \label{eqn:cancer_dynamic} \\
-\frac{ds}{dt} &= r_s s \left(1 - \frac{s}{k_s}\right) - \gamma c s + \delta s i^2 - \frac{\mu}{2} \alpha c^2, \label{eqn:sano_dynamic} \\
-\frac{di}{dt} &= r_i i \left(1 - \frac{i}{k_i}\right) - \eta c i + \delta s^2 i - \frac{\mu}{2} \beta c^2. \label{eqn:inmune_dynamic}
+\frac{dc}{dt} &= r_c c \left(\frac{c}{a} - 1\right)\left(1 - \frac{c}{k_c}\right) - c(\alpha s^2 + \beta i^2) - \mu c(\gamma s^2 + \eta i^2), \label{eqn:cancer_dynamic} \\
+\frac{ds}{dt} &= r_s s \left(1 - \frac{s}{k_s}\right) - \gamma c^2 s + \delta i^2 s - \frac{\mu}{2} \alpha c^2 s, \label{eqn:sano_dynamic} \\
+\frac{di}{dt} &= r_i i \left(1 - \frac{i}{k_i}\right) + \delta s^2 i - \eta c^2 i - \frac{\mu}{2} \beta c^2 i. \label{eqn:inmune_dynamic}
 \end{align}
+Las ecuaciones ODE anteriores son el límite homogéneo espacial del PDE (sin difusión), con la misma estructura de reacción local implementada numéricamente.
 
 \section{Parámetros del modelo}
 \begin{table}[H]
@@ -43,14 +44,14 @@ $D_c = D_s = D_i$ & 1.00 & Coeficientes de difusión espacial \\
 \section{Implementación del efecto Allee fuerte}
 El efecto Allee fuerte introduce una barrera crítica a la proliferación tumoral. Las ecuaciones toman la forma:
 \begin{align}
-\frac{dc}{dt} &= r_c c \left(\frac{c}{a} - 1\right)\left(\frac{c - a}{k_c - a}\right) - \alpha c s - \beta c i - \frac{\mu}{2} (\eta i^2 + \gamma s^2), \\
-\frac{ds}{dt} &= r_s s \left(1 - \frac{s}{k_s}\right) - \gamma c s + \delta s i^2 - \frac{\mu}{2} \alpha c^2, \\
-\frac{di}{dt} &= r_i i \left(1 - \frac{i}{k_i}\right) - \eta c i + \delta s^2 i - \frac{\mu}{2} \beta c^2.
+\frac{dc}{dt} &= r_c c \left(\frac{c}{a} - 1\right)\left(\frac{c - a}{k_c - a}\right) - c(\alpha s^2 + \beta i^2) - \mu c(\gamma s^2 + \eta i^2), \\
+\frac{ds}{dt} &= r_s s \left(1 - \frac{s}{k_s}\right) - \gamma c^2 s + \delta i^2 s - \frac{\mu}{2} \alpha c^2 s, \\
+\frac{di}{dt} &= r_i i \left(1 - \frac{i}{k_i}\right) + \delta s^2 i - \eta c^2 i - \frac{\mu}{2} \beta c^2 i.
 \end{align}
 En este régimen la transición extinción/despegue es abrupta: si $c$ no supera el umbral, el tumor colapsa; si lo supera, se activa la rama proliferativa.
 
 \section{No reciprocidad en las interacciones}
-Los términos $-\alpha cs$, $-\beta ci$ y $-\eta ci$ no son simétricos entre poblaciones: la supresión del sistema inmune por el tumor difiere de la supresión del tumor por el sistema inmune. Esta asimetría genera flujos no recíprocos que modifican la geometría del campo vectorial y la ubicación de umbrales.
+Los términos $-c\,\alpha s^2$, $-c\,\beta i^2$ y $-\eta c^2 i$ no son simétricos entre poblaciones: la supresión del sistema inmune por el tumor ($-\eta c^2 i$) difiere de la citotoxicidad inmune ($-c\,\beta i^2$), y el daño tisular ($-\gamma c^2 s$) difiere de la competencia contra el cáncer ($-c\,\alpha s^2$). Esta asimetría genera flujos no recíprocos que modifican la geometría del campo vectorial y la ubicación de umbrales.
 
 \section{Extensión espacio--temporal}
 Para capturar patrones, el modelo se extiende a ecuaciones de reacción--difusión:

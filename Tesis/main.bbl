@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{murray_mathematical_2002}
 James~D. Murray.
@@ -43,10 +43,32 @@ Robert~A. Gatenby and Robert~J. Gillies.
 \newblock The role of the microenvironment in tumorigenesis.
 \newblock {\em Nature Reviews Cancer}, 4(12):891--899, 2004.
 
+\bibitem{fruchart2021}
+Michel Fruchart, Ryo Hanai, Peter~B. Littlewood, and Vincenzo Vitelli.
+\newblock Non-reciprocal phase transitions.
+\newblock {\em Nature}, 592(7854):363--369, 2021.
+
+\bibitem{enderling2014}
+Heiko Enderling and Mark A.~J. Chaplain.
+\newblock Mathematical modeling of tumor growth and treatment.
+\newblock {\em Current Pharmaceutical Design}, 20(30):4934--4940, 2014.
+
+\bibitem{chaplain2006}
+Mark A.~J. Chaplain, Zuzanna Lachowicz, Zuzanna Szymanska, and Dariusz Wrzosek.
+\newblock Mathematical modelling of cancer invasion of tissue: the importance
+  of cell-cell adhesion and cell-matrix adhesion.
+\newblock {\em Mathematical Models and Methods in Applied Sciences},
+  16(Suppl.):961--987, 2006.
+
 \bibitem{corcoran_cancer_2020}
 Conor Corcoran, Daniele Mercatelli, and Francesco~M. Giorgi.
 \newblock Cancer systems biology: a new paradigm in understanding cancer
   through mathematical modeling.
 \newblock {\em Frontiers in Oncology}, 10:1174, 2020.
+
+\bibitem{bray1994}
+Alan~J. Bray.
+\newblock Theory of phase-ordering kinetics.
+\newblock {\em Advances in Physics}, 43(3):357--459, 1994.
 
 \end{thebibliography}

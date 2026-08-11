@@ -1,76 +1,80 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.30)  22 MAR 2026 16:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.26)  26 JUN 2026 04:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./main.tex
-(main.tex
-LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-01-04>
-
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
-Document Class: report 2023/05/17 v1.4n Standard LaTeX document class
-
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
-File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+**main.tex
+(./main.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-06-18>
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count187
-\c@chapter=\count188
-\c@section=\count189
-\c@subsection=\count190
-\c@subsubsection=\count191
-\c@paragraph=\count192
-\c@subparagraph=\count193
-\c@figure=\count194
-\c@table=\count195
-\abovecaptionskip=\skip48
-\belowcaptionskip=\skip49
-\bibindent=\dimen140
-) (preamble.tex
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.s
+\c@part=\count276
+\c@chapter=\count277
+\c@section=\count278
+\c@subsection=\count279
+\c@subsubsection=\count280
+\c@paragraph=\count281
+\c@subparagraph=\count282
+\c@figure=\count283
+\c@table=\count284
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen150
+) (./preamble.tex (/usr/local/texlive/2026/texmf-dist/tex/generic/babel/babel.s
 ty
-Package: babel 2024/01/07 v24.1 The Babel package
-\babel@savecnt=\count196
-\U@D=\dimen141
-\l@unhyphenated=\language79
+Package: babel 2026/06/14 v26.9 The multilingual framework for LuaLaTeX, pdfLaT
+eX and XeLaTeX
+\babel@savecnt=\count285
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input li
+ne 2084.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input li
+ne 2086.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input lin
+e 2088.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input lin
+e 2089.
+LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) 
+on input line 2090.
+LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) 
+on input line 2092.
+LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
+on input line 2117.
+\U@D=\dimen151
+\l@unhyphenated=\language91
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabe
-l.def)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count197
+\bbl@dirlevel=\count286
 
-*************************************
-* Local config file bblopts.cfg used
-*
-
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.c
-fg
-File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
- babel
-) (C:\Program Files\MiKTeX\tex/latex/babel-spanish\spanish.ldf
+(/usr/local/texlive/2026/texmf-dist/tex/generic/babel/locale/es/babel-spanish.t
+ex)
+Package babel Info: Importing font and identification data for 'spanish'
+(babel)             from babel-es.ini. Reported on input line 4380.
+ (/usr/local/texlive/2026/texmf-dist/tex/generic/babel-spanish/spanish.ldf
 Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
 \es@quottoks=\toks17
-\es@quotdepth=\count198
+\es@quotdepth=\count287
 Package babel Info: Making " an active character on input line 570.
 Package babel Info: Making . an active character on input line 675.
 Package babel Info: Making < an active character on input line 722.
 Package babel Info: Making > an active character on input line 722.
 ))
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/
-es\babel-spanish.tex
-Package babel Info: Importing font and identification data for spanish
-(babel)             from babel-es.ini. Reported on input line 11.
+LaTeX Encoding Info:    Redeclaring text command \guillemotleft (encoding OT1) 
+on input line 2.
+LaTeX Encoding Info:    Redeclaring text command \guillemotright (encoding OT1)
+ on input line 2.
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 )
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.st
-y
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-)
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.s
-ty
-Package: inputenc 2021/02/14 v1.3d Input encoding file
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks18
 \inpenc@posthook=\toks19
 )
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/lm/lmodern.sty
 Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -104,118 +108,108 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-) (C:\Program Files\MiKTeX\tex/latex/geometry\geometry.sty
-Package: geometry 2020/01/02 v5.9 Page Geometry
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2026/03/07 v6.0 Page Geometry
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval
-.sty
-Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2026-05-17 v1.15 key=value parser (DPC)
 \KV@toks@=\toks20
 )
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.
-sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.s
-ty
-Package: iftex 2022/02/03 v1.0f TeX engine tests
+(/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
-\Gm@cnth=\count199
-\Gm@cntv=\count266
-\c@Gm@tempcnt=\count267
-\Gm@bindingoffset=\dimen142
-\Gm@wd@mp=\dimen143
-\Gm@odd@mp=\dimen144
-\Gm@even@mp=\dimen145
-\Gm@layoutwidth=\dimen146
-\Gm@layoutheight=\dimen147
-\Gm@layouthoffset=\dimen148
-\Gm@layoutvoffset=\dimen149
+\Gm@cnth=\count288
+\Gm@cntv=\count289
+\c@Gm@tempcnt=\count290
+\Gm@bindingoffset=\dimen152
+\Gm@wd@mp=\dimen153
+\Gm@odd@mp=\dimen154
+\Gm@even@mp=\dimen155
+\Gm@layoutwidth=\dimen156
+\Gm@layoutheight=\dimen157
+\Gm@layouthoffset=\dimen158
+\Gm@layoutvoffset=\dimen159
 \Gm@dimlist=\toks21
- (C:\Program Files\MiKTeX\tex/latex/geometry\geometry.cfg))
-(C:\Program Files\MiKTeX\tex/latex/setspace\setspace.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
 )
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath
-.sty
-Package: amsmath 2023/05/13 v2.17o AMS math features
-\@mathmargin=\skip50
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2026/05/19 v2.18d AMS math features
+\@mathmargin=\skip51
 
 For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext
-.sty
-Package: amstext 2021/08/26 v2.01 AMS text
-
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.
-sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks22
-\ex@=\dimen150
+\ex@=\dimen160
 ))
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.
-sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen151
+\pmbraise@=\dimen161
 )
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.
-sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count268
-LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count269
-\leftroot@=\count270
-LaTeX Info: Redefining \overline on input line 399.
-LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count271
-\DOTSCASE@=\count272
-LaTeX Info: Redefining \ldots on input line 496.
-LaTeX Info: Redefining \dots on input line 499.
-LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box51
-\strutbox@=\box52
-LaTeX Info: Redefining \big on input line 722.
-LaTeX Info: Redefining \Big on input line 723.
-LaTeX Info: Redefining \bigg on input line 724.
-LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen152
-LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count273
-LaTeX Info: Redefining \bmod on input line 905.
-LaTeX Info: Redefining \pmod on input line 910.
-LaTeX Info: Redefining \smash on input line 940.
-LaTeX Info: Redefining \relbar on input line 970.
-LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count274
-\dotsspace@=\muskip16
-\c@parentequation=\count275
-\dspbrk@lvl=\count276
+\inf@bad=\count291
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count292
+\leftroot@=\count293
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count294
+\DOTSCASE@=\count295
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box53
+\strutbox@=\box54
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen162
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count296
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count297
+\dotsspace@=\muskip17
+\c@parentequation=\count298
+\dspbrk@lvl=\count299
 \tag@help=\toks23
-\row@=\count277
-\column@=\count278
-\maxfields@=\count279
+\row@=\count300
+\column@=\count301
+\maxfields@=\count302
 \andhelp@=\toks24
-\eqnshift@=\dimen153
-\alignsep@=\dimen154
-\tagshift@=\dimen155
-\tagwidth@=\dimen156
-\totwidth@=\dimen157
-\lineht@=\dimen158
+\eqnshift@=\dimen163
+\alignsep@=\dimen164
+\tagshift@=\dimen165
+\tagwidth@=\dimen166
+\totwidth@=\dimen167
+\lineht@=\dimen168
 \@envbody=\toks25
-\multlinegap=\skip51
-\multlinetaggap=\skip52
+\multlinegap=\skip52
+\multlinetaggap=\skip53
 \mathdisplay@stack=\toks26
-LaTeX Info: Redefining \[ on input line 2953.
-LaTeX Info: Redefining \] on input line 2954.
+LaTeX Info: Redefining \[ on input line 2965.
+LaTeX Info: Redefining \] on input line 2966.
 )
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssym
-b.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfon
-ts.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
@@ -223,8 +217,8 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/tools\bm.sty
-Package: bm 2023/07/08 v1.2f Bold Symbol Support (DPC/FMi)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2025/10/21 v1.2g Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup6
 \symboldletters=\mathgroup7
 \symboldsymbols=\mathgroup8
@@ -233,266 +227,242 @@ Package bm Info: No bold for \U/msa/m/n, using \pmb.
 Package bm Info: No bold for \U/msb/m/n, using \pmb.
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 )
-(C:\Program Files\MiKTeX\tex/latex/physics\physics.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/physics/physics.sty
 Package: physics 
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xpar
-se\xparse.sty
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.
-sty
-Package: expl3 2024-01-04 L3 programming layer (loader) 
+(/usr/local/texlive/2026/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2026-06-18 L3 programming layer (loader) 
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3bac
-kend-pdftex.def
-File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count280
-\l__pdf_internal_box=\box53
+(/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2026-02-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count303
 ))
-Package: xparse 2023-10-10 L3 Experimental document command parser
-))
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphi
-cx.sty
-Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+Package: xparse 2025-10-09 L3 Experimental document command parser
+)) (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2026-05-17 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphi
-cs.sty
-Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2026-05-17 v1.4h Standard LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.s
-ty
-Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
 )
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\gr
-aphics.cfg
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 107.
+Package graphics Info: Driver file: pdftex.def on input line 106.
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pd
-ftex.def
-File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen159
-\Gin@req@width=\dimen160
-) (C:\Program Files\MiKTeX\tex/latex/float\float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count281
-\float@exts=\toks27
-\float@box=\box54
-\@float@everytoks=\toks28
-\@floatcapt=\box55
+\Gin@req@height=\dimen169
+\Gin@req@width=\dimen170
 )
-(C:\Program Files\MiKTeX\tex/latex/caption\caption.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count304
+\float@exts=\toks27
+\float@box=\box55
+\@float@everytoks=\toks28
+\@floatcapt=\box56
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
-(C:\Program Files\MiKTeX\tex/latex/caption\caption3.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen161
-\captionmargin=\dimen162
-\caption@leftmargin=\dimen163
-\caption@rightmargin=\dimen164
-\caption@width=\dimen165
-\caption@indent=\dimen166
-\caption@parindent=\dimen167
-\caption@hangindent=\dimen168
+\caption@tempdima=\dimen171
+\captionmargin=\dimen172
+\caption@leftmargin=\dimen173
+\caption@rightmargin=\dimen174
+\caption@width=\dimen175
+\caption@indent=\dimen176
+\caption@parindent=\dimen177
+\caption@hangindent=\dimen178
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count282
-\c@continuedfloat=\count283
+\c@caption@flags=\count305
+\c@continuedfloat=\count306
 Package caption Info: float package is loaded.
 )
-(C:\Program Files\MiKTeX\tex/latex/caption\subcaption.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count284
+\c@subfigure=\count307
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count285
+\c@subtable=\count308
 )
-(C:\Program Files\MiKTeX\tex/latex/booktabs\booktabs.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen169
-\lightrulewidth=\dimen170
-\cmidrulewidth=\dimen171
-\belowrulesep=\dimen172
-\belowbottomsep=\dimen173
-\aboverulesep=\dimen174
-\abovetopsep=\dimen175
-\cmidrulesep=\dimen176
-\cmidrulekern=\dimen177
-\defaultaddspace=\dimen178
-\@cmidla=\count286
-\@cmidlb=\count287
-\@aboverulesep=\dimen179
-\@belowrulesep=\dimen180
-\@thisruleclass=\count288
-\@lastruleclass=\count289
-\@thisrulewidth=\dimen181
+\heavyrulewidth=\dimen179
+\lightrulewidth=\dimen180
+\cmidrulewidth=\dimen181
+\belowrulesep=\dimen182
+\belowbottomsep=\dimen183
+\aboverulesep=\dimen184
+\abovetopsep=\dimen185
+\cmidrulesep=\dimen186
+\cmidrulekern=\dimen187
+\defaultaddspace=\dimen188
+\@cmidla=\count309
+\@cmidlb=\count310
+\@aboverulesep=\dimen189
+\@belowrulesep=\dimen190
+\@thisruleclass=\count311
+\@lastruleclass=\count312
+\@thisrulewidth=\dimen191
 )
-(C:\Program Files\MiKTeX\tex/latex/natbib\natbib.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip53
-\bibsep=\skip54
+\bibhang=\skip54
+\bibsep=\skip55
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count290
+\c@NAT@ctr=\count313
 )
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperr
-ef.sty
-Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
- (C:\Program Files\MiKTeX\tex/generic/infwarerr\infwarerr.sty
-Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-)
-(C:\Program Files\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2026-06-17 v7.01r Hypertext links for LaTeX
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 )
-(C:\Program Files\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 )
-(C:\Program Files\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
 
-(C:\Program Files\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 )
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pd
-ftexcmds.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2026/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-)) (C:\Program Files\MiKTeX\tex/latex/hycolor\hycolor.sty
+))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 )
-(C:\Program Files\MiKTeX\tex/latex/letltxmacro\letltxmacro.sty
-Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-)
-(C:\Program Files\MiKTeX\tex/latex/auxhook\auxhook.sty
-Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-)
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\namere
-f.sty
-Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
- (C:\Program Files\MiKTeX\tex/latex/refcount\refcount.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 )
-(C:\Program Files\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-
-(C:\Program Files\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count291
+\c@section@level=\count314
 )
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolb
-ox.sty
-Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count292
+(/usr/local/texlive/2026/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count315
 )
-\@linkdim=\dimen182
-\Hy@linkcounter=\count293
-\Hy@pagecounter=\count294
+(/usr/local/texlive/2026/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\@linkdim=\dimen192
+\Hy@linkcounter=\count316
+\Hy@pagecounter=\count317
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc
-.def
-File: pd1enc.def 2023-11-26 v7.01g Hyperref: PDFDocEncoding definition (HO)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2026-06-17 v7.01r Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-) (C:\Program Files\MiKTeX\tex/generic/intcalc\intcalc.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count295
+\Hy@SavedSpaceFactor=\count318
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.
-def
-File: puenc.def 2023-11-26 v7.01g Hyperref: PDF Unicode definition (HO)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2026-06-17 v7.01r Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `bookmarks' set `false' on input line 4064.
-Package hyperref Info: Hyper figures OFF on input line 4181.
-Package hyperref Info: Link nesting OFF on input line 4186.
-Package hyperref Info: Hyper index ON on input line 4189.
-Package hyperref Info: Plain pages OFF on input line 4196.
-Package hyperref Info: Backreferencing OFF on input line 4201.
+Package hyperref Info: Option `bookmarks' set `false' on input line 4070.
+Package hyperref Info: Hyper figures OFF on input line 4199.
+Package hyperref Info: Link nesting OFF on input line 4204.
+Package hyperref Info: Hyper index ON on input line 4207.
+Package hyperref Info: Plain pages OFF on input line 4214.
+Package hyperref Info: Backreferencing OFF on input line 4219.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks OFF on input line 4454.
-\c@Hy@tempcnt=\count296
+Package hyperref Info: Bookmarks OFF on input line 4472.
+\c@Hy@tempcnt=\count319
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
-\Urlmuskip=\muskip17
+(/usr/local/texlive/2026/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4786.
-\XeTeXLinkMargin=\dimen183
+LaTeX Info: Redefining \url on input line 4805.
+\XeTeXLinkMargin=\dimen193
 
-(C:\Program Files\MiKTeX\tex/generic/bitset\bitset.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 
-(C:\Program Files\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count297
-\Field@Width=\dimen184
-\Fld@charsize=\dimen185
-Package hyperref Info: Hyper figures OFF on input line 6065.
-Package hyperref Info: Link nesting OFF on input line 6070.
-Package hyperref Info: Hyper index ON on input line 6073.
-Package hyperref Info: backreferencing OFF on input line 6080.
-Package hyperref Info: Link coloring OFF on input line 6085.
-Package hyperref Info: Link coloring with OCG OFF on input line 6090.
-Package hyperref Info: PDF/A mode OFF on input line 6095.
-
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-l
-tx.sty
-Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
-package with kernel methods
-)
-\Hy@abspage=\count298
-\c@Item=\count299
-\c@Hfootnote=\count300
+\Fld@menulength=\count320
+\Field@Width=\dimen194
+\Fld@charsize=\dimen195
+Package hyperref Info: Hyper figures OFF on input line 6091.
+Package hyperref Info: Link nesting OFF on input line 6096.
+Package hyperref Info: Hyper index ON on input line 6099.
+Package hyperref Info: backreferencing OFF on input line 6106.
+Package hyperref Info: Link coloring OFF on input line 6111.
+Package hyperref Info: Link coloring with OCG OFF on input line 6116.
+Package hyperref Info: PDF/A mode OFF on input line 6121.
+\Hy@abspage=\count321
+\c@Item=\count322
+\c@Hfootnote=\count323
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdfte
-x.def
-File: hpdftex.def 2023-11-26 v7.01g Hyperref driver for pdfTeX
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2026-06-17 v7.01r Hyperref driver for pdfTeX
+\Fld@listcount=\count324
+\c@bookmark@seq@number=\count325
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-
-ltx.sty
-Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
-kage
-with kernel methods
-)
-\Fld@listcount=\count301
-\c@bookmark@seq@number=\count302
- (C:\Program Files\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
 
-(C:\Program Files\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 84.
 )
-\Hy@SectionHShift=\skip55
+\Hy@SectionHShift=\skip56
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 27.
 )
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 5.
 
-
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-(main.aux
+) (./main.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
- (chapters/01_introduccion.aux) (chapters/02_estado_arte.aux)
-(chapters/03_modelo.aux) (chapters/04_analisis.aux)
-(chapters/05_dinamica_espacial.aux) (chapters/06_control.aux)
-(chapters/07_discusion.aux) (chapters/08_conclusiones.aux)
-(appendices/A_estabilidad.aux) (appendices/B_numerico.aux))
+Package babel Info: 'spanish' activates 'spanish' shorthands.
+(babel)             Reported on input line 11.
+
+(./chapters/01_introduccion.aux) (./chapters/02_estado_arte.aux)
+(./chapters/03_modelo.aux) (./chapters/04_analisis.aux)
+(./chapters/05_dinamica_espacial.aux) (./chapters/06_control.aux)
+(./chapters/07_discusion.aux) (./chapters/08_conclusiones.aux)
+(./appendices/A_estabilidad.aux) (./appendices/B_numerico.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
@@ -550,75 +520,69 @@ LaTeX Info: Redefining \% on input line 5.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\sup
-p-pdf.mkii
+(/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count303
-\scratchdimen=\dimen186
-\scratchbox=\box56
-\nofMPsegments=\count304
-\nofMParguments=\count305
+\scratchcounter=\count326
+\scratchdimen=\dimen196
+\scratchbox=\box57
+\nofMPsegments=\count327
+\nofMParguments=\count328
 \everyMPshowfont=\toks29
-\MPscratchCnt=\count306
-\MPscratchDim=\dimen187
-\MPnumerator=\count307
-\makeMPintoPDFobject=\count308
+\MPscratchCnt=\count329
+\MPscratchDim=\dimen197
+\MPnumerator=\count330
+\makeMPintoPDFobject=\count331
 \everyMPtoPDFconversion=\toks30
-)
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\ep
-stopdf-base.sty
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstop
-df-sys.cfg
-File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+(/usr/local/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.
-sty
-Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2026-05-17 v1.3f Standard LaTeX Color (DPC)
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\co
-lor.cfg
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathco
-lor.ltx))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/mathcolor.ltx))
 Package hyperref Info: Link coloring ON on input line 5.
+Package babel Info: Main language set to 'spanish'.
  [1
 
-{C:/Users/Erick Serrato/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Us
-ers/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}]
+{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
+al/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
 5.
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
+(/usr/local/texlive/2026/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
 5.
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
+(/usr/local/texlive/2026/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
 35.
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
+(/usr/local/texlive/2026/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
 35.
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
+(/usr/local/texlive/2026/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -630,24 +594,21 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
 
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.f
-d
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
 
 
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.f
-d
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mat
-hit.enc}{C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/l
-m/lm-rm.enc}{C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/enc/dvi
-ps/lm/lm-mathsy.enc}] [2
+{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/loca
+l/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2026
+/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}] [2
 
-] (main.toc
+] (./main.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 
@@ -683,7 +644,7 @@ o/sobre um-bral (Strong)[][] [][]
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
- [5] (main.lof
+ [5] (./main.lof
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
  [6
@@ -692,7 +653,7 @@ LaTeX Info: Redefining \% on input line 1.
 \tf@lof=\write4
 \openout4 = `main.lof'.
 
- [7] (main.lot
+ [7] (./main.lot
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 )
@@ -704,7 +665,7 @@ LaTeX Info: Redefining \% on input line 1.
 ]
 \openout2 = `chapters/01_introduccion.aux'.
 
- (chapters/01_introduccion.tex
+ (./chapters/01_introduccion.tex
 Cap\'{\i }tulo 1.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
@@ -716,44 +677,44 @@ l.14
 
 
 
-]) [2]
+]) [2] [3]
 \openout2 = `chapters/02_estado_arte.aux'.
 
- (chapters/02_estado_arte.tex
+ (./chapters/02_estado_arte.tex
 Cap\'{\i }tulo 2.
-[3
+[4
 
 
 
 
-{C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mat
-hex.enc}]) [4]
+{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}])
+[5]
 \openout2 = `chapters/03_modelo.aux'.
 
- (chapters/03_modelo.tex
+ (./chapters/03_modelo.tex
 Cap\'{\i }tulo 3.
-[5
+[6
 
 
 
 
-] [6]
+] [7]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 64.
+(Font)              <17.28> on input line 65.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 64.
-) [7]
+(Font)              <10> on input line 65.
+) [8]
 \openout2 = `chapters/04_analisis.aux'.
 
- (chapters/04_analisis.tex
+ (./chapters/04_analisis.tex
 Cap\'{\i }tulo 4.
-<images/steady_weak_mu1_uNo_bajo_umbral.png, id=360, 682.2288pt x 642.4803pt>
+<images/steady_weak_mu1_uNo_bajo_umbral.png, id=385, 682.2288pt x 642.4803pt>
 File: images/steady_weak_mu1_uNo_bajo_umbral.png Graphic file (type png)
 <use images/steady_weak_mu1_uNo_bajo_umbral.png>
 Package pdftex.def Info: images/steady_weak_mu1_uNo_bajo_umbral.png  used on in
 put line 12.
 (pdftex.def)             Requested size: 199.60895pt x 187.9811pt.
-<images/steady_weak_mu0_uNo_bajo_umbral.png, id=362, 682.2288pt x 642.4803pt>
+<images/steady_weak_mu0_uNo_bajo_umbral.png, id=387, 682.2288pt x 642.4803pt>
 File: images/steady_weak_mu0_uNo_bajo_umbral.png Graphic file (type png)
 <use images/steady_weak_mu0_uNo_bajo_umbral.png>
 Package pdftex.def Info: images/steady_weak_mu0_uNo_bajo_umbral.png  used on in
@@ -761,7 +722,7 @@ put line 13.
 (pdftex.def)             Requested size: 199.60895pt x 187.9811pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 14.
-[8
+[9
 
 
 
@@ -769,35 +730,30 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 ]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
 9.
-
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 24.
-
-[9 <./images/steady_weak_mu1_uNo_bajo_umbral.png> <./images/steady_weak_mu0_uNo
-_bajo_umbral.png>]
+ [10 <./images/steady_weak_mu1_uNo_bajo_umbral.png> <./images/steady_weak_mu0_u
+No_bajo_umbral.png>]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 6
 6.
-
-(C:\Users\Erick Serrato\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-[10{C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-
-ts1.enc}]
+) [11{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
 Overfull \hbox (7.67244pt too wide) in paragraph at lines 90--91
 []\T1/lmr/bx/sc/12 Conclusión\T1/lmr/m/n/12 : to-dos los es-ta-dos es-ta-cio-na
 -rios en-con-tra-dos son ines-ta-bles (si-llas/focos
  []
 
-[11]) [12]
+[12]) [13]
 \openout2 = `chapters/05_dinamica_espacial.aux'.
 
- (chapters/05_dinamica_espacial.tex
+ (./chapters/05_dinamica_espacial.tex
 Cap\'{\i }tulo 5.
 <images/fields_panel_weak_mu0_uNo_bajo_umbral_VS_weak_mu0_uSi_bajo_umbral_t0.00
-0_to_2.000.png, id=403, 6562.5175pt x 5155.26pt>
+0_to_2.000.png, id=428, 6562.5175pt x 5155.26pt>
 File: images/fields_panel_weak_mu0_uNo_bajo_umbral_VS_weak_mu0_uSi_bajo_umbral_
 t0.000_to_2.000.png Graphic file (type png)
 <use images/fields_panel_weak_mu0_uNo_bajo_umbral_VS_weak_mu0_uSi_bajo_umbral_t
@@ -805,14 +761,14 @@ t0.000_to_2.000.png Graphic file (type png)
 Package pdftex.def Info: images/fields_panel_weak_mu0_uNo_bajo_umbral_VS_weak_m
 u0_uSi_bajo_umbral_t0.000_to_2.000.png  used on input line 15.
 (pdftex.def)             Requested size: 443.57848pt x 348.39769pt.
-[13
+[14
 
 
 
 
 ]
 <images/fields_panel_weak_mu1_uNo_bajo_umbral_VS_weak_mu1_uSi_bajo_umbral_t0.00
-0_to_2.000.png, id=408, 6562.5175pt x 5155.26pt>
+0_to_2.000.png, id=433, 6562.5175pt x 5155.26pt>
 File: images/fields_panel_weak_mu1_uNo_bajo_umbral_VS_weak_mu1_uSi_bajo_umbral_
 t0.000_to_2.000.png Graphic file (type png)
 <use images/fields_panel_weak_mu1_uNo_bajo_umbral_VS_weak_mu1_uSi_bajo_umbral_t
@@ -820,79 +776,79 @@ t0.000_to_2.000.png Graphic file (type png)
 Package pdftex.def Info: images/fields_panel_weak_mu1_uNo_bajo_umbral_VS_weak_m
 u1_uSi_bajo_umbral_t0.000_to_2.000.png  used on input line 23.
 (pdftex.def)             Requested size: 443.57848pt x 348.39769pt.
- [14 <./images/fields_panel_weak_mu0_uNo_bajo_umbral_VS_weak_mu0_uSi_bajo_umbra
+ [15 <./images/fields_panel_weak_mu0_uNo_bajo_umbral_VS_weak_mu0_uSi_bajo_umbra
 l_t0.000_to_2.000.png (PNG copy)>]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <14.4> on input line 29.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 29.
-<images/power_spectrum_c_0.000.png, id=413, 578.16pt x 578.16pt>
+<images/power_spectrum_c_0.000.png, id=438, 578.16pt x 578.16pt>
 File: images/power_spectrum_c_0.000.png Graphic file (type png)
 <use images/power_spectrum_c_0.000.png>
 Package pdftex.def Info: images/power_spectrum_c_0.000.png  used on input line 
 34.
 (pdftex.def)             Requested size: 199.60895pt x 199.60657pt.
-<images/power_spectrum_c_1.000.png, id=414, 578.16pt x 578.16pt>
+<images/power_spectrum_c_1.000.png, id=439, 578.16pt x 578.16pt>
 File: images/power_spectrum_c_1.000.png Graphic file (type png)
 <use images/power_spectrum_c_1.000.png>
 Package pdftex.def Info: images/power_spectrum_c_1.000.png  used on input line 
 40.
 (pdftex.def)             Requested size: 199.60895pt x 199.60657pt.
- [15 <./images/fields_panel_weak_mu1_uNo_bajo_umbral_VS_weak_mu1_uSi_bajo_umbra
+ [16 <./images/fields_panel_weak_mu1_uNo_bajo_umbral_VS_weak_mu1_uSi_bajo_umbra
 l_t0.000_to_2.000.png (PNG copy)>]
-<images/corr_grid_mu_c_c.png, id=419, 867.24pt x 578.16pt>
+<images/corr_grid_mu_c_c.png, id=447, 867.24pt x 578.16pt>
 File: images/corr_grid_mu_c_c.png Graphic file (type png)
 <use images/corr_grid_mu_c_c.png>
 Package pdftex.def Info: images/corr_grid_mu_c_c.png  used on input line 51.
 (pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
-<images/corr_grid_mu_s_s.png, id=420, 867.24pt x 578.16pt>
+<images/corr_grid_mu_s_s.png, id=448, 867.24pt x 578.16pt>
 File: images/corr_grid_mu_s_s.png Graphic file (type png)
 <use images/corr_grid_mu_s_s.png>
 Package pdftex.def Info: images/corr_grid_mu_s_s.png  used on input line 57.
 (pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
 
-[16 <./images/power_spectrum_c_0.000.png> <./images/power_spectrum_c_1.000.png>
+[17 <./images/power_spectrum_c_0.000.png> <./images/power_spectrum_c_1.000.png>
 ]
-<images/corr_grid_mu_i_i.png, id=428, 867.24pt x 578.16pt>
+<images/corr_grid_mu_i_i.png, id=456, 867.24pt x 578.16pt>
 File: images/corr_grid_mu_i_i.png Graphic file (type png)
 <use images/corr_grid_mu_i_i.png>
 Package pdftex.def Info: images/corr_grid_mu_i_i.png  used on input line 63.
 (pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
- [17 <./images/corr_grid_mu_c_c.png>]
-<images/corr_grid_mu_c_s.png, id=434, 867.24pt x 578.16pt>
+ [18 <./images/corr_grid_mu_c_c.png>]
+<images/corr_grid_mu_c_s.png, id=462, 867.24pt x 578.16pt>
 File: images/corr_grid_mu_c_s.png Graphic file (type png)
 <use images/corr_grid_mu_c_s.png>
 Package pdftex.def Info: images/corr_grid_mu_c_s.png  used on input line 69.
 (pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
- [18 <./images/corr_grid_mu_s_s.png>]
-<images/corr_grid_mu_c_i.png, id=440, 867.24pt x 578.16pt>
+ [19 <./images/corr_grid_mu_s_s.png>]
+<images/corr_grid_mu_c_i.png, id=468, 867.24pt x 578.16pt>
 File: images/corr_grid_mu_c_i.png Graphic file (type png)
 <use images/corr_grid_mu_c_i.png>
 Package pdftex.def Info: images/corr_grid_mu_c_i.png  used on input line 75.
 (pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
 
-[19 <./images/corr_grid_mu_i_i.png>]
-<images/corr_grid_mu_s_i.png, id=446, 867.24pt x 578.16pt>
+[20 <./images/corr_grid_mu_i_i.png>]
+<images/corr_grid_mu_s_i.png, id=474, 867.24pt x 578.16pt>
 File: images/corr_grid_mu_s_i.png Graphic file (type png)
 <use images/corr_grid_mu_s_i.png>
 Package pdftex.def Info: images/corr_grid_mu_s_i.png  used on input line 81.
 (pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
- [20 <./images/corr_grid_mu_c_s.png>]
-[21 <./images/corr_grid_mu_c_i.png>]
-<images/corr_grid_u_c_c.png, id=457, 867.24pt x 578.16pt>
+ [21 <./images/corr_grid_mu_c_s.png>]
+[22 <./images/corr_grid_mu_c_i.png>]
+<images/corr_grid_u_c_c.png, id=486, 867.24pt x 578.16pt>
 File: images/corr_grid_u_c_c.png Graphic file (type png)
 <use images/corr_grid_u_c_c.png>
 Package pdftex.def Info: images/corr_grid_u_c_c.png  used on input line 91.
 (pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
-<images/corr_grid_u_c_i.png, id=458, 867.24pt x 578.16pt>
+<images/corr_grid_u_c_i.png, id=487, 867.24pt x 578.16pt>
 File: images/corr_grid_u_c_i.png Graphic file (type png)
 <use images/corr_grid_u_c_i.png>
 Package pdftex.def Info: images/corr_grid_u_c_i.png  used on input line 97.
 (pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
- [22 <./images/corr_grid_mu_s_i.png>]
-[23 <./images/corr_grid_u_c_c.png>]
+ [23 <./images/corr_grid_mu_s_i.png>]
+[24 <./images/corr_grid_u_c_c.png>]
 <images/fields_panel_strong_mu0_uNo_bajo_umbral_VS_strong_mu0_uSi_bajo_umbral_t
-0.000_to_2.000.png, id=470, 6562.5175pt x 5155.26pt>
+0.000_to_2.000.png, id=498, 6562.5175pt x 5155.26pt>
 File: images/fields_panel_strong_mu0_uNo_bajo_umbral_VS_strong_mu0_uSi_bajo_umb
 ral_t0.000_to_2.000.png Graphic file (type png)
 <use images/fields_panel_strong_mu0_uNo_bajo_umbral_VS_strong_mu0_uSi_bajo_umbr
@@ -900,9 +856,9 @@ al_t0.000_to_2.000.png>
 Package pdftex.def Info: images/fields_panel_strong_mu0_uNo_bajo_umbral_VS_stro
 ng_mu0_uSi_bajo_umbral_t0.000_to_2.000.png  used on input line 106.
 (pdftex.def)             Requested size: 443.57848pt x 348.39769pt.
- [24 <./images/corr_grid_u_c_i.png>]
+ [25 <./images/corr_grid_u_c_i.png>]
 <images/fields_panel_strong_mu1_uNo_bajo_umbral_VS_strong_mu1_uSi_bajo_umbral_t
-0.000_to_2.000.png, id=476, 6562.5175pt x 5155.26pt>
+0.000_to_2.000.png, id=504, 6562.5175pt x 5155.26pt>
 File: images/fields_panel_strong_mu1_uNo_bajo_umbral_VS_strong_mu1_uSi_bajo_umb
 ral_t0.000_to_2.000.png Graphic file (type png)
 <use images/fields_panel_strong_mu1_uNo_bajo_umbral_VS_strong_mu1_uSi_bajo_umbr
@@ -911,7 +867,7 @@ Package pdftex.def Info: images/fields_panel_strong_mu1_uNo_bajo_umbral_VS_stro
 ng_mu1_uSi_bajo_umbral_t0.000_to_2.000.png  used on input line 114.
 (pdftex.def)             Requested size: 443.57848pt x 348.39769pt.
 
-[25 <./images/fields_panel_strong_mu0_uNo_bajo_umbral_VS_strong_mu0_uSi_bajo_um
+[26 <./images/fields_panel_strong_mu0_uNo_bajo_umbral_VS_strong_mu0_uSi_bajo_um
 bral_t0.000_to_2.000.png (PNG copy)>]
 File: images/corr_grid_mu_c_c.png Graphic file (type png)
 <use images/corr_grid_mu_c_c.png>
@@ -921,7 +877,7 @@ File: images/corr_grid_mu_s_s.png Graphic file (type png)
 <use images/corr_grid_mu_s_s.png>
 Package pdftex.def Info: images/corr_grid_mu_s_s.png  used on input line 129.
 (pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
- [26 <./images/fields_panel_strong_mu1_uNo_bajo_umbral_VS_strong_mu1_uSi_bajo_u
+ [27 <./images/fields_panel_strong_mu1_uNo_bajo_umbral_VS_strong_mu1_uSi_bajo_u
 mbral_t0.000_to_2.000.png (PNG copy)>]
 File: images/corr_grid_mu_i_i.png Graphic file (type png)
 <use images/corr_grid_mu_i_i.png>
@@ -932,7 +888,7 @@ File: images/corr_grid_mu_c_s.png Graphic file (type png)
 Package pdftex.def Info: images/corr_grid_mu_c_s.png  used on input line 141.
 (pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
 
-[27]
+[28]
 File: images/corr_grid_mu_c_i.png Graphic file (type png)
 <use images/corr_grid_mu_c_i.png>
 Package pdftex.def Info: images/corr_grid_mu_c_i.png  used on input line 147.
@@ -941,10 +897,10 @@ File: images/corr_grid_mu_s_i.png Graphic file (type png)
 <use images/corr_grid_mu_s_i.png>
 Package pdftex.def Info: images/corr_grid_mu_s_i.png  used on input line 153.
 (pdftex.def)             Requested size: 399.21791pt x 266.15091pt.
- [28] [29]) [30]
+ [29] [30]) [31]
 \openout2 = `chapters/06_control.aux'.
 
- (chapters/06_control.tex
+ (./chapters/06_control.tex
 Cap\'{\i }tulo 6.
 
 Overfull \hbox (65.65543pt too wide) in paragraph at lines 17--22
@@ -955,17 +911,17 @@ m/n/12 ) \OML/lmm/m/it/12 H[]\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 i\OT1/lmr/m/n/12
  ; \OML/lmm/m/it/12 K[]; n[]\OT1/lmr/m/n/12 )$
  []
 
-[31
+[32
 
 
 
 
-] [32]) [33]
+] [33]) [34]
 \openout2 = `chapters/07_discusion.aux'.
 
- (chapters/07_discusion.tex
+ (./chapters/07_discusion.tex
 Cap\'{\i }tulo 7.
-[34
+[35
 
 
 
@@ -976,26 +932,32 @@ Overfull \hbox (5.95947pt too wide) in paragraph at lines 23--24
 n los diez es-ce-na-rios ta-bu-la-dos (Cap. 4)
  []
 
-[35] [36]) [37]
+[36] [37] [38]) [39]
 \openout2 = `chapters/08_conclusiones.aux'.
 
- (chapters/08_conclusiones.tex
+ (./chapters/08_conclusiones.tex
 Cap\'{\i }tulo 8.
-[38
+[40
 
 
 
 
-]) [39] (main.bbl) [40
+]) [41] (./main.bbl
+Underfull \hbox (badness 4001) in paragraph at lines 17--22
+[]\T1/lmr/m/n/12 Katja Bött-ger, Ha-ra-lam-pos Hatzi-ki-rou, An-ja Voss-Böhme, 
+Eli-sa-bet-ta A.
+ []
+
+[42
 
 
 
-]
+]) [43]
 \openout2 = `appendices/A_estabilidad.aux'.
 
- (appendices/A_estabilidad.tex
+ (./appendices/A_estabilidad.tex
 Ap\'{e}ndice A.
-<images/estabilidad_lineal_weak_mu0_uNo_bajo_umbral.png, id=570, 571.4148pt x 4
+<images/estabilidad_lineal_weak_mu0_uNo_bajo_umbral.png, id=611, 571.4148pt x 4
 25.9112pt>
 File: images/estabilidad_lineal_weak_mu0_uNo_bajo_umbral.png Graphic file (type
  png)
@@ -1003,7 +965,7 @@ File: images/estabilidad_lineal_weak_mu0_uNo_bajo_umbral.png Graphic file (type
 Package pdftex.def Info: images/estabilidad_lineal_weak_mu0_uNo_bajo_umbral.png
   used on input line 40.
 (pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
-<images/estabilidad_lineal_weak_mu0_uNo_sobre_umbral.png, id=571, 571.4148pt x 
+<images/estabilidad_lineal_weak_mu0_uNo_sobre_umbral.png, id=612, 571.4148pt x 
 425.9112pt>
 File: images/estabilidad_lineal_weak_mu0_uNo_sobre_umbral.png Graphic file (typ
 e png)
@@ -1011,7 +973,7 @@ e png)
 Package pdftex.def Info: images/estabilidad_lineal_weak_mu0_uNo_sobre_umbral.pn
 g  used on input line 45.
 (pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
-<images/estabilidad_lineal_weak_mu1_uNo_bajo_umbral.png, id=572, 571.4148pt x 4
+<images/estabilidad_lineal_weak_mu1_uNo_bajo_umbral.png, id=613, 571.4148pt x 4
 25.9112pt>
 File: images/estabilidad_lineal_weak_mu1_uNo_bajo_umbral.png Graphic file (type
  png)
@@ -1019,7 +981,7 @@ File: images/estabilidad_lineal_weak_mu1_uNo_bajo_umbral.png Graphic file (type
 Package pdftex.def Info: images/estabilidad_lineal_weak_mu1_uNo_bajo_umbral.png
   used on input line 50.
 (pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
-<images/estabilidad_lineal_weak_mu1_uNo_sobre_umbral.png, id=573, 571.4148pt x 
+<images/estabilidad_lineal_weak_mu1_uNo_sobre_umbral.png, id=614, 571.4148pt x 
 425.9112pt>
 File: images/estabilidad_lineal_weak_mu1_uNo_sobre_umbral.png Graphic file (typ
 e png)
@@ -1027,11 +989,11 @@ e png)
 Package pdftex.def Info: images/estabilidad_lineal_weak_mu1_uNo_sobre_umbral.pn
 g  used on input line 55.
 (pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
-[41
+[44
 
 
 ]
-<images/estabilidad_lineal_weak_mu0_uSi_bajo_umbral.png, id=582, 571.4148pt x 4
+<images/estabilidad_lineal_weak_mu0_uSi_bajo_umbral.png, id=622, 571.4148pt x 4
 25.9112pt>
 File: images/estabilidad_lineal_weak_mu0_uSi_bajo_umbral.png Graphic file (type
  png)
@@ -1039,7 +1001,7 @@ File: images/estabilidad_lineal_weak_mu0_uSi_bajo_umbral.png Graphic file (type
 Package pdftex.def Info: images/estabilidad_lineal_weak_mu0_uSi_bajo_umbral.png
   used on input line 70.
 (pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
-<images/estabilidad_lineal_weak_mu1_uSi_bajo_umbral.png, id=583, 571.4148pt x 4
+<images/estabilidad_lineal_weak_mu1_uSi_bajo_umbral.png, id=623, 571.4148pt x 4
 25.9112pt>
 File: images/estabilidad_lineal_weak_mu1_uSi_bajo_umbral.png Graphic file (type
  png)
@@ -1047,11 +1009,11 @@ File: images/estabilidad_lineal_weak_mu1_uSi_bajo_umbral.png Graphic file (type
 Package pdftex.def Info: images/estabilidad_lineal_weak_mu1_uSi_bajo_umbral.png
   used on input line 75.
 (pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
- [42 <./images/estabilidad_lineal_weak_mu0_uNo_bajo_umbral.png> <./images/estab
+ [45 <./images/estabilidad_lineal_weak_mu0_uNo_bajo_umbral.png> <./images/estab
 ilidad_lineal_weak_mu0_uNo_sobre_umbral.png> <./images/estabilidad_lineal_weak_
 mu1_uNo_bajo_umbral.png> <./images/estabilidad_lineal_weak_mu1_uNo_sobre_umbral
 .png>]
-<images/estabilidad_lineal_strong_mu0_uNo_bajo_umbral.png, id=592, 571.4148pt x
+<images/estabilidad_lineal_strong_mu0_uNo_bajo_umbral.png, id=632, 571.4148pt x
  425.9112pt>
 File: images/estabilidad_lineal_strong_mu0_uNo_bajo_umbral.png Graphic file (ty
 pe png)
@@ -1059,7 +1021,7 @@ pe png)
 Package pdftex.def Info: images/estabilidad_lineal_strong_mu0_uNo_bajo_umbral.p
 ng  used on input line 99.
 (pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
-<images/estabilidad_lineal_strong_mu1_uNo_bajo_umbral.png, id=593, 571.4148pt x
+<images/estabilidad_lineal_strong_mu1_uNo_bajo_umbral.png, id=633, 571.4148pt x
  425.9112pt>
 File: images/estabilidad_lineal_strong_mu1_uNo_bajo_umbral.png Graphic file (ty
 pe png)
@@ -1067,7 +1029,7 @@ pe png)
 Package pdftex.def Info: images/estabilidad_lineal_strong_mu1_uNo_bajo_umbral.p
 ng  used on input line 104.
 (pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
-<images/estabilidad_lineal_strong_mu1_uNo_sobre_umbral.png, id=594, 571.4148pt 
+<images/estabilidad_lineal_strong_mu1_uNo_sobre_umbral.png, id=634, 571.4148pt 
 x 425.9112pt>
 File: images/estabilidad_lineal_strong_mu1_uNo_sobre_umbral.png Graphic file (t
 ype png)
@@ -1075,9 +1037,9 @@ ype png)
 Package pdftex.def Info: images/estabilidad_lineal_strong_mu1_uNo_sobre_umbral.
 png  used on input line 109.
 (pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
- [43 <./images/estabilidad_lineal_weak_mu0_uSi_bajo_umbral.png> <./images/estab
+ [46 <./images/estabilidad_lineal_weak_mu0_uSi_bajo_umbral.png> <./images/estab
 ilidad_lineal_weak_mu1_uSi_bajo_umbral.png>]
-<images/estabilidad_lineal_strong_mu0_uSi_bajo_umbral.png, id=604, 571.4148pt x
+<images/estabilidad_lineal_strong_mu0_uSi_bajo_umbral.png, id=645, 571.4148pt x
  425.9112pt>
 File: images/estabilidad_lineal_strong_mu0_uSi_bajo_umbral.png Graphic file (ty
 pe png)
@@ -1085,7 +1047,7 @@ pe png)
 Package pdftex.def Info: images/estabilidad_lineal_strong_mu0_uSi_bajo_umbral.p
 ng  used on input line 124.
 (pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
-<images/estabilidad_lineal_strong_mu1_uSi_bajo_umbral.png, id=605, 571.4148pt x
+<images/estabilidad_lineal_strong_mu1_uSi_bajo_umbral.png, id=646, 571.4148pt x
  425.9112pt>
 File: images/estabilidad_lineal_strong_mu1_uSi_bajo_umbral.png Graphic file (ty
 pe png)
@@ -1093,15 +1055,15 @@ pe png)
 Package pdftex.def Info: images/estabilidad_lineal_strong_mu1_uSi_bajo_umbral.p
 ng  used on input line 129.
 (pdftex.def)             Requested size: 212.91577pt x 158.69597pt.
- [44 <./images/estabilidad_lineal_strong_mu0_uNo_bajo_umbral.png> <./images/est
+ [47 <./images/estabilidad_lineal_strong_mu0_uNo_bajo_umbral.png> <./images/est
 abilidad_lineal_strong_mu1_uNo_bajo_umbral.png> <./images/estabilidad_lineal_st
-rong_mu1_uNo_sobre_umbral.png>]) [45 <./images/estabilidad_lineal_strong_mu0_uS
+rong_mu1_uNo_sobre_umbral.png>]) [48 <./images/estabilidad_lineal_strong_mu0_uS
 i_bajo_umbral.png> <./images/estabilidad_lineal_strong_mu1_uSi_bajo_umbral.png>
 ]
 \openout2 = `appendices/B_numerico.aux'.
 
 
-(appendices/B_numerico.tex
+(./appendices/B_numerico.tex
 Ap\'{e}ndice B.
 
 Overfull \hbox (23.27525pt too wide) in paragraph at lines 6--7
@@ -1122,8 +1084,13 @@ Overfull \hbox (152.52368pt too wide) in paragraph at lines 8--9
 t/m/n/12 steady_states_bars_story.png\T1/lmr/m/n/12 ,
  []
 
+[49
 
-Overfull \hbox (28.72154pt too wide) in paragraph at lines 20--21
+
+
+
+]
+Overfull \hbox (28.72154pt too wide) in paragraph at lines 46--47
 []\T1/lmr/m/n/12 Discretizar hiper-parámetros y re-ji-lla de se-mi-llas: Weak (
 $\OML/lmm/m/it/12 ^^V \OT1/lmr/m/n/12 = 1$\T1/lmr/m/n/12 ) con $\OML/lmm/m/it/1
 2 rc \OMS/lmsy/m/n/12 2 f\OT1/lmr/m/n/12 5[]0\OML/lmm/m/it/12 ; \OT1/lmr/m/n/12
@@ -1131,29 +1098,25 @@ $\OML/lmm/m/it/12 ^^V \OT1/lmr/m/n/12 = 1$\T1/lmr/m/n/12 ) con $\OML/lmm/m/it/1
 ,
  []
 
-[46
-
-
-
-
-]
-Overfull \hbox (56.19853pt too wide) in paragraph at lines 24--25
+[50]
+Overfull \hbox (56.19853pt too wide) in paragraph at lines 50--51
 []\T1/lmr/m/n/12 Persistencia de da-tos en \T1/lmtt/m/n/12 filesystem/mu1/Weak_
 Allee/ \T1/lmr/m/n/12 y \T1/lmtt/m/n/12 filesystem/mu1/Strong_Allee/\T1/lmr/m/n
 /12 ;
  []
 
-) [47] (main.aux
+) [51] (./main.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
- (chapters/01_introduccion.aux) (chapters/02_estado_arte.aux)
-(chapters/03_modelo.aux) (chapters/04_analisis.aux)
-(chapters/05_dinamica_espacial.aux) (chapters/06_control.aux)
-(chapters/07_discusion.aux) (chapters/08_conclusiones.aux)
-(appendices/A_estabilidad.aux) (appendices/B_numerico.aux))
+ (./chapters/01_introduccion.aux)
+(./chapters/02_estado_arte.aux) (./chapters/03_modelo.aux)
+(./chapters/04_analisis.aux) (./chapters/05_dinamica_espacial.aux)
+(./chapters/06_control.aux) (./chapters/07_discusion.aux)
+(./chapters/08_conclusiones.aux) (./appendices/A_estabilidad.aux)
+(./appendices/B_numerico.aux))
  ***********
-LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-01-04>
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-06-18>
  ***********
 
 
@@ -1161,38 +1124,35 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 15568 strings out of 474479
- 260741 string characters out of 5739778
- 1947542 words of memory out of 5000000
- 37325 multiletter control sequences out of 15000+600000
- 689131 words of font info for 132 fonts, out of 8000000 for 9000
+ 15634 strings out of 467168
+ 258374 string characters out of 5409468
+ 688365 words of memory out of 5000000
+ 44369 multiletter control sequences out of 15000+600000
+ 758783 words of font info for 136 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,13n,96p,1902b,781s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/l
-mbx10.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/lm/lmbx12.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/lm/lmbx8.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Erick Serrato/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/Erick Serrato/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/Erick Serrato/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Erick Serra
-to/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/Eric
-k Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Use
-rs/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb>
-<C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr
-12.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/lm/lmr17.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/lm/lmr6.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/lm/lmr8.pfb><C:/Users/Erick Serrato/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/lm/lmri10.pfb><C:/Users/Erick Serrato/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Erick Serrato/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Erick Serrato/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy6.pfb><C:/Users/Erick Serrat
-o/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Erick
- Serrato/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (56 pages, 21298542 bytes).
+ 79i,12n,82p,1900b,796s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/lo
+cal/texlive/2026/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texliv
+e/2026/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2026/texm
+f-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2026/texmf-dist/fo
+nts/type1/public/lm/lmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/
+public/lm/lmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/
+lmmi12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmmi6.pfb>
+</usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local
+/texlive/2026/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/20
+26/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2026/texmf-di
+st/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2026/texmf-dist/fonts/ty
+pe1/public/lm/lmr6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/l
+m/lmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmri10.pfb
+></usr/local/texlive/2026/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/loc
+al/texlive/2026/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive
+/2026/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2026/texmf
+-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts
+/type1/public/lm/lmtt12.pfb>
+Output written on main.pdf (60 pages, 21221296 bytes).
 PDF statistics:
- 779 PDF objects out of 1000 (max. 8388607)
- 198 named destinations out of 1000 (max. 500000)
+ 830 PDF objects out of 1000 (max. 8388607)
+ 665 compressed objects within 7 object streams
+ 212 named destinations out of 1000 (max. 500000)
  136 words of extra memory for PDF output out of 10000 (max. 10000000)
 
